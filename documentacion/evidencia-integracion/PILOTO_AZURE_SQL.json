@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-19",
+  "transport": "Backend local a Azure SQL separado; no prueba HTTPS de App Service",
+  "checks": [
+    "Inventario protegido",
+    "Cuenta personal autenticada contra Azure SQL",
+    "Cuenta SQL restringida conectada",
+    "85 ubicaciones y 10474 piezas simuladas",
+    "CSRF rechazado sin token",
+    "Power BI pendiente sin evaluaci\u00f3n",
+    "Cierre de sesi\u00f3n",
+    "Sesi\u00f3n cerrada pierde acceso"
+  ],
+  "originalDatabaseModified": false
+}

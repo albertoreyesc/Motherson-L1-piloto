@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-19",
+  "resourceGroup": "rg-motherson-piloto-l1-20261119",
+  "sqlServer": "motherson-piloto-l1-20261119",
+  "database": "Motherson_L1",
+  "useFreeLimit": true,
+  "freeLimitExhaustionBehavior": "AutoPause",
+  "autoPauseDelay": 60,
+  "maxSizeBytes": 34359738368,
+  "backup": "Local",
+  "webAppCreated": false,
+  "webBlocker": "F1 quota zero in checked regions; no paid fallback",
+  "githubPushed": false,
+  "sqlOperatorFirewallRemoved": true,
+  "originalDatabaseModified": false
+}

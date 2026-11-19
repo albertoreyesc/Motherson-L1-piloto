@@ -1,4 +1,4 @@
-# Piloto de planta: preparación gratuita, todavía sin publicar
+# Piloto de planta: SQL gratuito creado; alojamiento pendiente de cuota
 
 Fecha: 19/11/2026. Aproximadamente 80 participantes; tabletas y PC; duración y presupuesto sin definir. El usuario pidió exclusivamente recursos gratuitos. No hay restricciones de red comunicadas; todavía debe validarlo TI. No se envió ningún mensaje a TI ni se otorgó acceso a terceros.
 
@@ -63,7 +63,7 @@ Produce `portal/.local/piloto-build/piloto.zip` sin secretos. Incluye frontend c
 
 ## Creación, solo después de aprobación
 
-1. Confirmar suscripción/tenant, elegibilidad SQL gratuita, cuota F1 y región de la oferta (la instalación anterior usa Canada Central). Usar Azure CLI autenticado localmente. Azure CLI y GitHub CLI quedaron instalados el 19/11/2026; falta completar el inicio de sesión en ambos servicios.
+1. Confirmar suscripción/tenant, elegibilidad SQL gratuita, cuota F1 y región de la oferta (la instalación anterior usa Canada Central). Usar Azure CLI autenticado localmente. Azure CLI y GitHub CLI quedaron instalados el 19/11/2026. Azure ya está autenticado; GitHub ya está autenticado como `albertoreyesc`; se verificó que `lita1-coder/Motherson-L1` es privado y hay permiso WRITE.
 2. Ejecutar `python3 despliegue/piloto/parametros.py`. Crea contraseñas nuevas aleatorias en archivo privado con permisos 600, nunca en Git. Revisión de facturación debe mostrar cero. No reutilizar claves del portal actual.
 3. Crear únicamente el grupo nuevo y revisar el plan:
 
@@ -139,3 +139,15 @@ Pendiente: autenticación de Azure y GitHub; disponibilidad gratuita real y regi
 - Bicep compilado y artefacto .NET Release generado sin errores; validación/what-if remotos pendientes.
 
 La importación Excel mantiene sus pruebas de frontend y se ejerció la aplicación de cambios de catálogo por HTTP. Falta una importación manual de un archivo en los dispositivos reales. No se ha comprobado TLS, persistencia ni rendimiento del App Service remoto porque no se ha desplegado.
+
+## Estado verificado tras la autorización (19/11/2026)
+
+- Suscripción utilizada: Azure for Students, terminación `466c5`. Grupo nuevo `rg-motherson-piloto-l1-20261119`, servidor nuevo `motherson-piloto-l1-20261119`, base `Motherson_L1`. No se modificó el servidor original.
+- Base nueva creada con `useFreeLimit=true`, `freeLimitExhaustionBehavior=AutoPause`, 32 GB máximos y respaldo Local. Azure establece pausa por inactividad en 60 minutos; la oferta no permite personalizar ese valor. Se quitó `autoPauseDelay` de la plantilla tras detectar ese requisito en el despliegue.
+- Esquema y CSV simulados instalados; apertura de 10,474 piezas en 85 ubicaciones comprobada con `portal_app` restringido. Cuenta individual `alberto.reyes` creada; contraseña únicamente en el archivo local privado `portal/.local/piloto-despliegue/acceso-alberto.json`. No distribuir ese archivo ni incluirlo en ZIP/Git.
+- Ocho comprobaciones básicas con backend local y SQL Azure aprobadas: ver `PILOTO_AZURE_SQL.json`. No son pruebas de App Service, HTTPS remoto ni 80 usuarios en Azure.
+- Se retiró la regla SQL temporal del operador al terminar. Reabrir solamente una IP exacta durante futuras tareas administrativas; el alojamiento no tiene acceso todavía.
+- La validación/what-if remota pasó, pero la creación de F1 en Canada Central fue rechazada por cuota cero. También se comprobaron las restantes regiones permitidas de Students (North Central US, France Central, Norway East, Belgium Central): ninguna tiene cuota disponible. East US 2 fue rechazado por política de región.
+- En la segunda suscripción disponible, Azure subscription 1, se registró Microsoft.Web y se consultó F1 en Canada Central, North Central US, West US 2, East US y France Central: cuota cero. No se crearon recursos allí ni planes pagados.
+- Para desbloquear: en Azure Portal, Suscripción Azure for Students → Usage + quotas / App Service, solicitar **1 instancia F1 Windows en Canada Central**. Si el portal no ofrece solicitud, usar el procedimiento gratuito de soporte de cuota; no aceptar una actualización a pago. No se envió una solicitud de soporte en nombre del usuario. Fuente: https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/troubleshoot-non-zone-redundant-quota-requests .
+- No hay Web App ni URL funcional del piloto. Power BI sigue desactivado. OIDC y publicación del portal pendientes de disponibilidad F1. La rama se publica sin modificar main; el flujo de despliegue no debe ejecutarse hasta contar con Web App y federación configuradas.

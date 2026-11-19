@@ -2,6 +2,8 @@ targetScope = 'resourceGroup'
 
 @description('Región de la oferta gratuita de SQL de esta suscripción; confirmar antes de crear.')
 param location string = 'canadacentral'
+@description('Región de App Service con cuota F1 disponible; SQL conserva su región gratuita.')
+param appLocation string = location
 @minLength(3)
 @maxLength(24)
 param suffix string
@@ -18,7 +20,7 @@ var dataRoot = 'D:\\home\\motherson-piloto'
 
 resource plan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: '${webName}-f1'
-  location: location
+  location: appLocation
   sku: { name: 'F1', tier: 'Free', capacity: 1 }
   properties: { reserved: false }
 }
@@ -41,7 +43,6 @@ resource db 'Microsoft.Sql/servers/databases@2023-08-01' = {
   properties: {
     maxSizeBytes: 34359738368
     minCapacity: json('0.5')
-    autoPauseDelay: 15
     useFreeLimit: true
     freeLimitExhaustionBehavior: 'AutoPause'
     requestedBackupStorageRedundancy: 'Local'
@@ -54,7 +55,7 @@ resource installerFirewall 'Microsoft.Sql/servers/firewallRules@2023-08-01' = {
 }
 resource app 'Microsoft.Web/sites@2023-12-01' = {
   name: webName
-  location: location
+  location: appLocation
   properties: {
     serverFarmId: plan.id
     httpsOnly: true
