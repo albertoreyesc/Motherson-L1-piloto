@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-19",
+  "url": "https://motherson-l1-piloto.onrender.com/",
+  "serviceId": "srv-dbvju1c0916s73bckl90",
+  "plan": "Free",
+  "region": "ohio",
+  "workspacePlan": "Hobby",
+  "cardOnFile": false,
+  "unbilledChargesUSD": 0,
+  "privateRepository": "https://github.com/albertoreyesc/Motherson-L1-piloto",
+  "branch": "piloto/preparacion-gratuita-2026-11-19",
+  "allowedHosts": "motherson-l1-piloto.onrender.com",
+  "sqlFreeLimit": true,
+  "sqlExhaustion": "AutoPause",
+  "sqlFirewallRenderRanges": [
+    "74.220.50.0/24",
+    "74.220.58.0/24"
+  ],
+  "powerBiCapacityReady": false,
+  "powerBiAllowTrialTokens": false,
+  "originalDatabaseModified": false,
+  "pending": [
+    "Physical plant devices/network",
+    "Participant list and personal accounts",
+    "Load test up to 80",
+    "Power BI capacity and renewal",
+    "Manual browser Excel import"
+  ]
+}

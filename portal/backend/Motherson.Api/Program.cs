@@ -18,9 +18,9 @@ if(args.Contains("--sembrar-pruebas")){await Migration.SeedTests();return;}
 if(args.Contains("--probar-permisos")){await Migration.TestPermissions();return;}
 if(args.Contains("--preparar-accesos-locales")){var i=Array.IndexOf(args,"--preparar-accesos-locales");if(i+1>=args.Length)throw new ArgumentException("Indica la carpeta del portal.");Environment.ExitCode=AzureLocalSetup.Run(args[i+1]);return;}
 var builder=WebApplication.CreateBuilder(args);
-if(args.Contains("--piloto-inicializar")||args.Contains("--piloto-usuario")||args.Contains("--piloto-permisos")||args.Contains("--piloto-almacenamiento"))
+if(args.Contains("--piloto-inicializar")||args.Contains("--piloto-usuario")||args.Contains("--piloto-permisos")||args.Contains("--piloto-almacenamiento")||args.Contains("--piloto-revocar"))
 {
-    try{if(args.Contains("--piloto-inicializar"))await PilotSetup.Initialize(args,builder.Configuration);else if(args.Contains("--piloto-permisos"))await PilotSetup.Permissions(args,builder.Configuration);else if(args.Contains("--piloto-almacenamiento"))await PilotSetup.Storage(args,builder.Configuration);else await PilotSetup.User(builder.Configuration);}
+    try{if(args.Contains("--piloto-inicializar"))await PilotSetup.Initialize(args,builder.Configuration);else if(args.Contains("--piloto-permisos"))await PilotSetup.Permissions(args,builder.Configuration);else if(args.Contains("--piloto-almacenamiento"))await PilotSetup.Storage(args,builder.Configuration);else if(args.Contains("--piloto-revocar"))await PilotSetup.Revoke(builder.Configuration);else await PilotSetup.User(builder.Configuration);}
     catch(Exception ex){Console.Error.WriteLine("Aprovisionamiento piloto detenido. Tipo: "+ex.GetType().Name+(ex is SqlException se?"; SQL "+se.Number:"")+". Revisa el destino y la configuración privada; no se muestran credenciales.");Environment.ExitCode=2;}
     return;
 }

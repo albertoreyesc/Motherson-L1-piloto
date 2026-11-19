@@ -8,8 +8,9 @@ RUN npm test && npm run build
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 COPY portal/backend/Motherson.Api/ portal/backend/Motherson.Api/
+COPY portal/pruebas-azure/ portal/pruebas-azure/
 COPY --from=frontend /src/portal/backend/Motherson.Api/wwwroot/ portal/backend/Motherson.Api/wwwroot/
-RUN dotnet publish portal/backend/Motherson.Api/Motherson.Api.csproj -c Release -o /app --no-self-contained
+RUN dotnet run --project portal/pruebas-azure/Azure.Pruebas.csproj && dotnet publish portal/backend/Motherson.Api/Motherson.Api.csproj -c Release -o /app --no-self-contained
 COPY portal/config/ /app/config/
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime

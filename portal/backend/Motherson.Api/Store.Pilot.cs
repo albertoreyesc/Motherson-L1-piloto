@@ -6,7 +6,7 @@ public sealed partial class Store
 {
     sealed record UsuarioPiloto(int Id,string Usuario,string Nombre,string Rol,int? Puesto,string Hash);
     const string UsuariosPiloto="SELECT id_usuario Id,usuario Usuario,nombre Nombre,rol Rol,id_puesto Puesto,password_hash Hash FROM mes.USUARIO_PILOTO WHERE activo=1";
-    static Cuenta CuentaPiloto(UsuarioPiloto u)=>new(u.Id,u.Usuario,u.Nombre,u.Rol=="ADMIN"?"ADMINISTRADOR":u.Rol=="PUESTO"?"PUESTO":"LECTURA",u.Rol=="ADMIN"?"ADMIN_PUESTOS":u.Rol=="PUESTO"?"PUESTO":"LECTOR_PILOTO",u.Puesto){SelloAcceso=Sello(u.Usuario,u.Hash)};
+    static Cuenta CuentaPiloto(UsuarioPiloto u)=>new(u.Id,u.Usuario,u.Nombre,u.Rol=="ADMIN"?"ADMINISTRADOR":u.Rol=="PUESTO"?"PUESTO":"LECTURA",u.Rol=="ADMIN"?"ADMIN_PUESTOS":u.Rol=="PUESTO"?"PUESTO":"LECTOR_PILOTO",u.Puesto){SelloAcceso=Sello(u.Usuario,u.Hash),Piloto=true};
     async Task<Cuenta?> LoginPiloto(LoginInput input)
     {
         await using var c=await Open();

@@ -44,4 +44,17 @@ Render puede desplegar automáticamente los cambios de la rama conectada; el Doc
 - https://render.com/docs/compute-plans
 - https://learn.microsoft.com/en-us/azure/azure-sql/database/free-tier
 
-Pendiente al redactar: integración GitHub App en la copia privada, compilación completa del contenedor, creación del servicio, red restringida, publicación HTTPS y pruebas en Render/dispositivos físicos. No hay URL de piloto confirmada aún.
+## Estado publicado
+
+- URL comprobada por HTTPS: **https://motherson-l1-piloto.onrender.com/**.
+- Servicio Render `srv-dbvju1c0916s73bckl90`, Web Service Docker **Free**, Ohio. Billing comprobado: workspace Hobby, sin tarjeta registrada y cargos no facturados USD 0.00 al revisar. Repositorio privado `albertoreyesc/Motherson-L1-piloto`, rama `piloto/preparacion-gratuita-2026-11-19`. La GitHub App se instaló únicamente en ese repositorio con confirmación del usuario.
+- Host permitido exacto `motherson-l1-piloto.onrender.com`. SQL solo permite los rangos de salida mostrados por este servicio: `74.220.50.0/24` y `74.220.58.0/24`. Son compartidos por Render Ohio. El primer arranque falló por firewall antes de crear esas reglas; el siguiente desplegó correctamente sin anular TLS ni autorización.
+- Contenedor Linux amd64 construido y ejecutado localmente con límite de 512 MB. Ocho comprobaciones aprobadas (`PILOTO_RENDER_CONTENEDOR.json`). Production HTTPS con certificado verificado y persistencia SQL: 15 checks (`PILOTO_RENDER_PERSISTENCIA.json`).
+- Comprobaciones HTTP en la URL real: 24 iniciales, consulta/exportación de KPIs y rechazo de las dos cuentas temporales al desactivarlas. Ver `PILOTO_RENDER_HTTP.json`. No fue una prueba de carga de 80 usuarios.
+- La cuenta personal administradora inicial es `alberto.reyes`; credencial únicamente en el archivo local privado `portal/.local/piloto-despliegue/acceso-alberto.json`. No distribuir esa cuenta entre participantes. Las cuentas `verificacion.lector` y `verificacion.puesto` se desactivaron al terminar el ensayo.
+- Se añadió `--piloto-revocar`: recibe por stdin un array JSON de usuarios, usando conexión administrativa temporal del servidor piloto. Actualiza solo `activo=0`, sin borrar historia; no existe endpoint público para dar de alta ni revocar cuentas.
+- La interfaz del piloto ya no ofrece el formulario antiguo de cuenta compartida por puesto. El resto de perfiles conserva su comportamiento. Los roles siguen comprobándose en cada petición.
+
+Pendientes de verificar antes de ampliar participantes: dispositivos físicos y red de planta, carga progresiva (no se certifica capacidad para 80), lista real de participantes/roles, capacidad y renovación de Power BI si se decide habilitarlo. La selección automatizada de archivo Excel en Brave requiere acceso a archivos de la extensión y no se habilitó ese permiso; lectura/aplicación por frontend y ajustes por HTTP tienen pruebas, pero queda la importación manual en dispositivos reales. El frontend conserva advertencia de tamaño del módulo ExcelJS y dos alertas moderadas de dependencias detectadas por npm; no se aplicaron cambios de versión forzados en este despliegue.
+
+El ensayo de reinicio/redeploy remoto se documenta por separado en `PILOTO_RENDER_REINICIO.json` cuando termina; no confundir las comprobaciones de reinicio local con las del servicio remoto.

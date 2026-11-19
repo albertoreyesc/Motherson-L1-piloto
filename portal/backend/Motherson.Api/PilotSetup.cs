@@ -67,6 +67,14 @@ public static class PilotSetup
             if(!string.IsNullOrWhiteSpace(batch))await sql.ExecuteAsync(batch,transaction:tx,commandTimeout:120);
         await tx.CommitAsync();Console.WriteLine("Almacenamiento persistente del piloto preparado, sin cambiar inventario ni historial.");
     }
+    public static async Task Revoke(IConfiguration c)
+    {
+        var users=JsonSerializer.Deserialize<string[]>(await Console.In.ReadToEndAsync())??[];
+        if(users.Length is <1 or >80||users.Any(u=>string.IsNullOrWhiteSpace(u)||u.Length>80))throw new ArgumentException("Revisa los usuarios que se revocarán.");
+        await using var sql=Connection(c);await Open(sql);
+        await sql.ExecuteAsync("UPDATE mes.USUARIO_PILOTO SET activo=0 WHERE usuario IN @users",new{users});
+        Console.WriteLine("Cuentas personales indicadas desactivadas; las sesiones se rechazan en la siguiente petición.");
+    }
     public static async Task User(IConfiguration c)
     {
         // Entrada JSON por stdin desde un archivo privado o formulario getpass; no argumentos con claves.

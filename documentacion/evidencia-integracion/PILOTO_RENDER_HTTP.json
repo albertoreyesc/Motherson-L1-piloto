@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-19",
+  "estado": "APROBADO",
+  "url": "https://motherson-l1-piloto.onrender.com",
+  "checks": [
+    "Inventario requiere sesión",
+    "Estado SQL no expuesto anónimamente",
+    "CSRF ausente rechazado",
+    "Power BI pendiente no interrumpe el portal",
+    "Inventario piloto concilia con simulados",
+    "Repetición HTTP devuelve comprobante idéntico",
+    "Entrada compensatoria confirmada",
+    "Capturas concurrentes detectan conflicto sin doble descuento",
+    "Saldo restaurado tras conflicto concurrente",
+    "Historial de movimientos accesible a administración",
+    "Filtros de KPIs disponibles",
+    "Cambio de catálogo confirmado con cuenta personal",
+    "Catálogo restaurado mediante ajuste trazable",
+    "Capacidad ajustada con cuenta personal",
+    "Capacidad restaurada con ajuste trazable",
+    "Imagen subida a almacenamiento privado",
+    "Imagen consultable con sesión",
+    "Imagen de prueba eliminada por administración",
+    "Lector sin historial global",
+    "Lector sin escritura",
+    "Lector no sube imágenes",
+    "Operador sin Dashboard global",
+    "Operador sin administración de accesos",
+    "Cerrar sesión impide nuevas consultas autenticadas"
+  ],
+  "loadTest80Users": false
+}

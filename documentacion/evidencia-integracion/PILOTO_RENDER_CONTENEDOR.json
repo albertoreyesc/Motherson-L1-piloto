@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-19",
+  "scope": "Linux amd64 Production, nginx loopback y Azure SQL; HTTP solo dentro de prueba local; HTTPS verificado por separado",
+  "memoryLimitMB": 512,
+  "checks": [
+    "Contenedor Linux Production inicia detr\u00e1s de proxy loopback",
+    "Inventario an\u00f3nimo rechazado",
+    "Proxy ignora esquema enviado por cliente y mantiene cookies seguras",
+    "Cuenta personal entra desde contenedor con SQL restringido",
+    "Contenedor concilia inventario SQL",
+    "Contenedor exige CSRF",
+    "Contenedor mantiene Power BI pendiente",
+    "Logout revoca el acceso del contenedor"
+  ]
+}

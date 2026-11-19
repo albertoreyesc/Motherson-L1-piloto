@@ -1,3 +1,5 @@
+> **Piloto gratuito publicado (19/11/2026):** https://motherson-l1-piloto.onrender.com/ . Solo cuentas personales y datos simulados. Alojamiento Render Free con SQL Azure piloto separado. Power BI sigue pendiente de capacidad. Guía vigente: [despliegue/render/README.md](despliegue/render/README.md); acceso de participantes: [PARTICIPANTES.md](despliegue/render/PARTICIPANTES.md). Las notas anteriores de App Service F1 describen una ruta bloqueada por cuota, no el alojamiento actual.
+
 # Preparación del piloto de planta — 19/11/2026
 
 Perfil gratuito aislado para PC y tabletas; aproximadamente 80 participantes previstos. **Todavía no desplegado.** Consulta [la guía vigente del piloto](despliegue/piloto/README.md), límites, evidencias, cuentas personales y pasos sujetos a aprobación. La instalación Azure actual no se modifica. Las notas siguientes conservan fases históricas.
