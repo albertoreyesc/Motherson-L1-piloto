@@ -62,3 +62,7 @@ Redeploy real verificado: commit `52cecf3`, disparado automáticamente desde Git
 ### Revisión visual remota
 
 Acceso desde Brave en la URL real comprobado en tamaños PC 1440×960, tableta 1024×768 y teléfono 390×844. No se observó desbordamiento horizontal ni alertas visibles en las vistas comprobadas. Son ventanas emuladas, no dispositivos físicos. La cuenta del administrador siguió autenticada al recargar después del despliegue.
+
+### Credencial de Power BI
+
+Se reemplazó la credencial compartida en el chat: la nueva obtuvo token de aplicación HTTP 200 y la anterior se eliminó de Entra. Evidencia sin secretos en `POWERBI_ROTACION_PRIVADA.json`. La nueva está únicamente en configuración privada local y no se cargó en Render. El backend local que estuviera ejecutándose con la credencial anterior debe reiniciarse para leer la nueva. El piloto publicado mantiene Power BI desactivado: esto no verifica capacidad, visualización ni renovación del informe.

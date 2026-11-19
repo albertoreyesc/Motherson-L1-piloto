@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-19",
+  "clientId": "12e21873-395d-4a0e-9765-b6f90861e832",
+  "previousExposedCredentialRevoked": true,
+  "newCredentialTokenHttpStatus": 200,
+  "storedOnlyInPrivateConfiguration": true,
+  "renderPowerBiEnabled": false,
+  "note": "El backend local anterior necesita reiniciarse para leer la configuraci\u00f3n nueva; el piloto publicado no usa credenciales Power BI."
+}
