@@ -57,4 +57,8 @@ Render puede desplegar automáticamente los cambios de la rama conectada; el Doc
 
 Pendientes de verificar antes de ampliar participantes: dispositivos físicos y red de planta, carga progresiva (no se certifica capacidad para 80), lista real de participantes/roles, capacidad y renovación de Power BI si se decide habilitarlo. La selección automatizada de archivo Excel en Brave requiere acceso a archivos de la extensión y no se habilitó ese permiso; lectura/aplicación por frontend y ajustes por HTTP tienen pruebas, pero queda la importación manual en dispositivos reales. El frontend conserva advertencia de tamaño del módulo ExcelJS y dos alertas moderadas de dependencias detectadas por npm; no se aplicaron cambios de versión forzados en este despliegue.
 
-El ensayo de reinicio/redeploy remoto se documenta por separado en `PILOTO_RENDER_REINICIO.json` cuando termina; no confundir las comprobaciones de reinicio local con las del servicio remoto.
+Redeploy real verificado: commit `52cecf3`, disparado automáticamente desde GitHub; conservó sesión anterior, imagen SQL y 10,474 piezas. La imagen temporal se retiró. Ver `PILOTO_RENDER_REINICIO.json`. Se eliminó el firewall temporal del operador; solo quedan los dos rangos Render. Build Filters reales ignoran `documentacion/**` y `**/*.md` para evitar consumir compilaciones por actualizar informes; los cambios de código siguen publicándose automáticamente.
+
+### Revisión visual remota
+
+Acceso desde Brave en la URL real comprobado en tamaños PC 1440×960, tableta 1024×768 y teléfono 390×844. No se observó desbordamiento horizontal ni alertas visibles en las vistas comprobadas. Son ventanas emuladas, no dispositivos físicos. La cuenta del administrador siguió autenticada al recargar después del despliegue.

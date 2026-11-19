@@ -26,7 +26,11 @@
     "Lector no sube imágenes",
     "Operador sin Dashboard global",
     "Operador sin administración de accesos",
-    "Cerrar sesión impide nuevas consultas autenticadas"
+    "Cerrar sesión impide nuevas consultas autenticadas",
+    "Consulta de KPIs con corte actual: 200",
+    "Exportación de KPIs con corte actual: 200",
+    "Cuenta temporal lector desactivada: login 401",
+    "Cuenta temporal puesto desactivada: login 401"
   ],
   "loadTest80Users": false
 }

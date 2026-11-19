@@ -25,5 +25,32 @@
     "Load test up to 80",
     "Power BI capacity and renewal",
     "Manual browser Excel import"
-  ]
+  ],
+  "deployedCommit": "52cecf33165a3b46e789f026c8cc84aa8cefaf01",
+  "autoDeployVerified": true,
+  "redeployPersistenceVerified": true,
+  "temporaryOperatorFirewallRemoved": true,
+  "temporaryTestAccountsDisabled": true,
+  "buildIgnoredPaths": [
+    "documentacion/**",
+    "**/*.md"
+  ],
+  "responsiveViewports": [
+    {
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "responsiveHorizontalOverflow": false,
+  "responsiveVisibleAlerts": [],
+  "physicalDevicesVerified": false,
+  "remoteHttpChecks": 28
 }

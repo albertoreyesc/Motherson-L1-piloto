@@ -1,0 +1,9 @@
+{
+  "estado": "APROBADO",
+  "alcance": "Redeploy real del servicio Render Free, HTTPS, Azure SQL piloto",
+  "checks": [
+    "Sesion conservada con claves persistentes",
+    "Imagen privada conservada",
+    "10474 piezas conservadas en SQL"
+  ]
+}
