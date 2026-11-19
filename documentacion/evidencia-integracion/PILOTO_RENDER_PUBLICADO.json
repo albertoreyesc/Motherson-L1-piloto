@@ -23,10 +23,10 @@
     "Physical plant devices/network",
     "Participant list and personal accounts",
     "Load test up to 80",
-    "Power BI capacity and renewal",
+    "Power BI participant licenses/permissions, pilot model data source and refresh; capacity/token renewal if AppOwnsData is chosen",
     "Manual browser Excel import"
   ],
-  "deployedCommit": "52cecf33165a3b46e789f026c8cc84aa8cefaf01",
+  "deployedCommit": "e5a240e2d454fac84e57855aaa3768d1ae60a486",
   "autoDeployVerified": true,
   "redeployPersistenceVerified": true,
   "temporaryOperatorFirewallRemoved": true,
@@ -52,5 +52,10 @@
   "responsiveHorizontalOverflow": false,
   "responsiveVisibleAlerts": [],
   "physicalDevicesVerified": false,
-  "remoteHttpChecks": 28
+  "remoteHttpChecks": 28,
+  "powerBiMode": "UserOwnsData",
+  "powerBiOriginalReportRendered": true,
+  "powerBiPilotDataSynchronized": false,
+  "powerBiRemoteHttpChecks": 9,
+  "powerBiRenderingScope": "Owner Microsoft account only; corporate accounts and licenses not provided"
 }

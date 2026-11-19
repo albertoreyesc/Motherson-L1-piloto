@@ -1,4 +1,4 @@
-> **Piloto gratuito publicado (19/11/2026):** https://motherson-l1-piloto.onrender.com/ . Solo cuentas personales y datos simulados. Alojamiento Render Free con SQL Azure piloto separado. Power BI sigue pendiente de capacidad. Guía vigente: [despliegue/render/README.md](despliegue/render/README.md); acceso de participantes: [PARTICIPANTES.md](despliegue/render/PARTICIPANTES.md). Las notas anteriores de App Service F1 describen una ruta bloqueada por cuota, no el alojamiento actual.
+> **Piloto gratuito publicado (19/11/2026):** https://motherson-l1-piloto.onrender.com/ . Solo cuentas personales y datos simulados. Alojamiento Render Free con SQL Azure piloto separado. El informe original de Power BI ya se muestra con sesión Microsoft individual; licencias de participantes y conexión del informe a la base piloto siguen pendientes. Consulta [acceso de planta](documentacion/POWERBI_ACCESO_PLANTA.md). Guía vigente: [despliegue/render/README.md](despliegue/render/README.md); acceso de participantes: [PARTICIPANTES.md](despliegue/render/PARTICIPANTES.md). Las notas anteriores de App Service F1 describen una ruta bloqueada por cuota, no el alojamiento actual.
 
 # Preparación del piloto de planta — 19/11/2026
 
@@ -86,7 +86,7 @@ Se retiraron las rutas activas de alarmas, solicitudes, reservas y simulaciones 
 - portal/db — DDL, vistas, procedimiento y validaciones SQL.
 - portal/evidencias — resultados JSON y capturas de las pantallas.
 
-Para Equipo 2, usar reporting con el login mvp_desarrollo_lectura y el perfil privado portal/.local/acceso-equipo2-Desarrollo.json. El archivo no contiene la cuenta de aplicación y no debe publicarse. 127.0.0.1 solo sirve en esta máquina; aún no existe un servicio remoto compartido ni un dashboard Power BI incrustado.
+Para Equipo 2, usar reporting con el login mvp_desarrollo_lectura y el perfil privado portal/.local/acceso-equipo2-Desarrollo.json. El archivo no contiene la cuenta de aplicación y no debe publicarse. Nota histórica del perfil local: 127.0.0.1 solo sirve en esa máquina. El piloto remoto vigente y su Dashboard con sesión Microsoft están descritos al inicio de este documento.
 
 Las aperturas no son consumo ni surtimiento. reporting.vw_kpi_consumo_diario excluye simulaciones y por ello está vacía; los indicadores de demostración deben filtrar explícitamente es_simulado=1 en la vista de movimientos.
 

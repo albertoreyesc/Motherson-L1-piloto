@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-19",
+  "url": "https://motherson-l1-piloto.onrender.com",
+  "checks": [
+    "Dashboard requiere sesión del portal",
+    "Cuenta individual por HTTPS",
+    "Acceso individual Microsoft; sin token de aplicación",
+    "Enlace seguro al informe original",
+    "Aviso distingue fuente original de capturas del piloto",
+    "Tokens backend siguen bloqueados sin capacidad",
+    "Se conserva protección CSRF",
+    "Inventario piloto conservado",
+    "Cierre de sesión protege el Dashboard del portal"
+  ],
+  "renderedReport": true,
+  "note": "Visualización real dentro del iframe HTTPS de Render, mediante selección de la cuenta Microsoft del propietario. Se recorrieron y renderizaron las tres páginas; no acredita acceso de otros usuarios ni sincronización de la base piloto.",
+  "browserVerifiedPages": [
+    "Crítico por Surtir",
+    "Desempeño semanal",
+    "Diagnóstico"
+  ],
+  "codeCommit": "e5a240e2d454fac84e57855aaa3768d1ae60a486",
+  "renderDeployment": "dep-dbvkhe3l550s7384r8v0",
+  "frontendChecks": 39,
+  "backendOfflineChecks": 25,
+  "corporateLicensesVerified": false,
+  "paidResourcesCreated": false
+}
