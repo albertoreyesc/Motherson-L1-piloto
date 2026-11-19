@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-19",
+  "username": "admin.planta",
+  "displayName": "Administración Motherson L1",
+  "role": "ADMINISTRADOR",
+  "checks": [
+    "Nueva cuenta inicia sesión por HTTPS",
+    "Nombre de planta y rol administrador confirmados",
+    "Cuenta tiene permisos administrativos",
+    "Dashboard disponible con acceso Microsoft independiente",
+    "Inventario conservado",
+    "Cierre de sesión de cuenta nueva verificado"
+  ],
+  "powerBiAccountCreated": true,
+  "originalDatabaseModified": false,
+  "temporaryFirewallRemoved": true,
+  "credentialsInEvidence": false,
+  "powerBiUser": "admin.planta@reyescabreraalbertogmail.onmicrosoft.com",
+  "powerBiPermission": "Viewer en el espacio Motherson L1, verificado; no concede licencia.",
+  "powerBiLicense": "POWER_BI_STANDARD (Free)",
+  "powerBiNewUserViewingVerified": false,
+  "microsoftFirstSignInPending": true,
+  "powerBiPaidOrTrialAssigned": false
+}

@@ -23,3 +23,12 @@ Las altas, roles y revocaciones las gestiona el responsable del piloto. La lista
 Se conserva el informe original con las páginas Crítico por Surtir, Desempeño semanal y Diagnóstico. Power BI solicita una sesión Microsoft individual con permiso para ese informe y licencia admitida. La cuenta del portal no concede acceso a Power BI. Si el navegador bloquea la autenticación dentro del cuadro, usar «Abrir en otra pestaña». No compartir la cuenta de demostración. En un dispositivo compartido, cerrar tanto el portal como Microsoft.
 
 El informe muestra la base original de demostración, con actualización manual del modelo. Las capturas del piloto están en una base separada y no aparecerán en el informe hasta preparar y conciliar una copia del modelo para el piloto. «Recargar informe» solo vuelve a mostrar el modelo disponible.
+
+
+## Responsable de administración del piloto
+
+Se creó la cuenta del portal `admin.planta`, con nombre visible Administración Motherson L1 y rol Administrador. Su inicio de sesión, nombre, permisos y cierre de sesión se comprobaron por HTTPS. Las operaciones realizadas con esa cuenta se atribuyen a ese usuario; asignarla a un responsable y crear cuentas individuales para otras personas.
+
+También se creó una cuenta Microsoft estándar de Administración Motherson L1 en el directorio de pruebas existente, con permiso Viewer en el espacio del informe. Solo tiene Power BI Free, que no acredita acceso al informe compartido en el espacio actual. Primer inicio de sesión, cambio personal de contraseña inicial, configuración de seguridad y licencia admitida están pendientes. No se contrató Pro/PPU ni se activó una evaluación nueva. El directorio de pruebas no es el directorio corporativo de Motherson.
+
+El responsable conserva ambos accesos en un archivo privado fuera del repositorio. Las claves no se incluyen en esta guía ni en los ZIP de código. Evidencia sin contraseñas: `documentacion/evidencia-integracion/PILOTO_CUENTA_PLANTA.json`.
