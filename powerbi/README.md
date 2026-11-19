@@ -14,3 +14,16 @@ no cambia los parámetros del PBIX ni un modelo ya publicado.
 
 No se habilitó DirectQuery ni se incrustó un informe en el portal. Primero validar totales
 y atenciones en Import; después definir actualización y, si se requiere, incrustación.
+
+## Actualización y conciliación pendiente
+
+En Desktop, ajustar ServidorSQL y BaseSQL, borrar permisos de fuentes anteriores
+y autenticarse exclusivamente como powerbi_lector contra la base indicada.
+Actualizar y comparar inventario por ubicación, stock agregado y atenciones con
+SQL; repetir después de una captura de demostración. Registrar hora de corte y
+resultado. En el servicio, configurar las credenciales de la fuente y la frecuencia
+de actualización después de elegir cuenta/espacio. No copiar credenciales al PBIX
+ni al TMDL; definir la red permitida según el despliegue, sin abrir firewall aquí.
+
+Referencias oficiales: [usuarios contenidos Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql),
+[actualización programada Power BI](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh).

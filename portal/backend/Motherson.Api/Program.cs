@@ -13,18 +13,21 @@ if(args.Contains("--verificar-sql")){await Migration.Verify();return;}
 if(args.Contains("--integridad")){await Migration.Integrity();return;}
 if(args.Contains("--sembrar-pruebas")){await Migration.SeedTests();return;}
 if(args.Contains("--probar-permisos")){await Migration.TestPermissions();return;}
+if(args.Contains("--preparar-accesos-locales")){var i=Array.IndexOf(args,"--preparar-accesos-locales");if(i+1>=args.Length)throw new ArgumentException("Indica la carpeta del portal.");Environment.ExitCode=AzureLocalSetup.Run(args[i+1]);return;}
 var builder=WebApplication.CreateBuilder(args);
+if(args.Contains("--migrar-legado")){Environment.ExitCode=await LegacyArchive.Run(args,builder.Configuration);return;}
+if(args.Contains("--cargar-demo")){Environment.ExitCode=await DemoData.Run(args,builder.Configuration);return;}
 if(args.Contains("--diagnostico-azure")){Environment.ExitCode=await AzurePreflight.Run(builder.Configuration,args.Contains("--solo-configuracion"));return;}
 if(!string.IsNullOrWhiteSpace(builder.Configuration["MVP_AZURE_SERVER"])) AzurePreflight.Validate(builder.Configuration);
 var database=new SqlConnectionStringBuilder(builder.Configuration.GetConnectionString("Sql")??throw new InvalidOperationException("Falta conexión SQL del MVP.")).InitialCatalog;
 if(!Store.BaseAutorizada(database,builder.Configuration))throw new InvalidOperationException("Base MVP no autorizada.");
 var cookiePrefix="Motherson.L1.MVP.AccesoPuestoV1."+database;
-var keys=Directory.CreateDirectory(Path.Combine(builder.Environment.ContentRootPath,".local","keys"));if(!OperatingSystem.IsWindows())File.SetUnixFileMode(keys.FullName,UnixFileMode.UserRead|UnixFileMode.UserWrite|UnixFileMode.UserExecute);
+var keys=Directory.CreateDirectory(builder.Configuration["MVP_KEYS_PATH"]??Path.Combine(builder.Environment.ContentRootPath,".local","keys"));if(!OperatingSystem.IsWindows())File.SetUnixFileMode(keys.FullName,UnixFileMode.UserRead|UnixFileMode.UserWrite|UnixFileMode.UserExecute);
 builder.Services.AddDataProtection().SetApplicationName(cookiePrefix).PersistKeysToFileSystem(keys);
 builder.Services.AddSingleton<Store>();
 builder.Services.ConfigureHttpJsonOptions(o=>o.SerializerOptions.Converters.Add(new UtcConverter()));
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.Name=cookiePrefix+".Session";o.Cookie.HttpOnly=true;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.SecurePolicy=CookieSecurePolicy.SameAsRequest;o.ExpireTimeSpan=TimeSpan.FromMinutes(30);o.SlidingExpiration=false;o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
-builder.Services.AddAuthorization();builder.Services.AddAntiforgery(o=>{o.HeaderName="X-XSRF-TOKEN";o.Cookie.Name=cookiePrefix+".Xsrf";o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.HttpOnly=true;});
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.Name=cookiePrefix+".Session";o.Cookie.HttpOnly=true;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.ExpireTimeSpan=TimeSpan.FromMinutes(30);o.SlidingExpiration=false;o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
+builder.Services.AddAuthorization();builder.Services.AddAntiforgery(o=>{o.HeaderName="X-XSRF-TOKEN";o.Cookie.Name=cookiePrefix+".Xsrf";o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.HttpOnly=true;});
 builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.AddPolicy("login",c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"local",_=>new FixedWindowRateLimiterOptions{PermitLimit=10,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));});
 var app=builder.Build();var store=app.Services.GetRequiredService<Store>();
 await store.DetectarModelo();
@@ -72,21 +75,22 @@ else
     Gate(api.MapPost("/movimientos/salidas",async(SalidaInput i,HttpContext c)=>Results.Ok(await store.Move(Who(c),i.Ubicacion,"SALIDA",i.Piezas,i.Version,Key(c)))),"exit");
 }
 Gate(api.MapGet("/historial",async(string? parte,string? ubicacion,string? desde,string? hasta,string? origen,int? pagina,bool? exacta,string? responsable,int? turno,CancellationToken token)=>Results.Ok(await store.History(parte,ubicacion,desde,hasta,origen,pagina??1,token,exacta??false,responsable,turno))),store.ModeloPuestos?"historico":"view");
-if (store.archivoDemo is { } archivoDemo)
+if (store.archivoDemo is { } || store.SqlTransaccional)
 {
-    Gate(api.MapGet("/kpis/opciones", async (CancellationToken token) => Results.Ok(await archivoDemo.OpcionesKpis(token))), "historico");
+    Gate(api.MapGet("/kpis/opciones", async (CancellationToken token) => Results.Ok(store.SqlTransaccional ? await store.OpcionesSql() : await store.archivoDemo!.OpcionesKpis(token))), "historico");
     Gate(api.MapGet("/kpis", async Task<IResult> (HttpContext ctx) => Results.Ok(await store.ConsultarKpis(Who(ctx), ctx.Request.Query, ctx.RequestAborted))), "historico");
     Gate(api.MapGet("/kpis/exportar", async (HttpContext ctx) => {
         var datos = await store.ConsultarKpis(Who(ctx), ctx.Request.Query, ctx.RequestAborted);
         ctx.Response.Headers.ContentDisposition = "attachment; filename=motherson-l1-kpis.json";
         return Results.Json(datos);
     }), "historico");
-    Gate(api.MapGet("/historial/opciones", async (CancellationToken token) => Results.Ok(await archivoDemo.Opciones(token))), "historico");
+    Gate(api.MapGet("/historial/opciones", async (CancellationToken token) => Results.Ok(store.SqlTransaccional ? await store.OpcionesSql() : await store.archivoDemo!.Opciones(token))), "historico");
     Gate(api.MapGet("/historial/exportar", async (string? parte, string? ubicacion, string? desde, string? hasta,
         string? origen, bool? exacta, string? responsable, int? turno, HttpContext ctx) => {
             var filtro = Store.ValidarFiltro(parte, ubicacion, desde, hasta, origen, exacta??false, responsable, turno);
-            if(store.ContinuacionHabilitada) await store.ExportarContinuacion(filtro,ctx.Response,ctx.RequestAborted);
-            else await archivoDemo.Exportar(filtro,ctx.Response,ctx.RequestAborted);
+            if(store.SqlTransaccional) await store.ExportarHistorialSql(filtro,ctx.Response,ctx.RequestAborted);
+            else if(store.ContinuacionHabilitada) await store.ExportarContinuacion(filtro,ctx.Response,ctx.RequestAborted);
+            else await store.archivoDemo!.Exportar(filtro,ctx.Response,ctx.RequestAborted);
         }), "historico");
 }
 app.UseDefaultFiles();app.UseStaticFiles();app.Map("/api/{**rest}",()=>Results.NotFound(new{error="Esta ruta no forma parte del MVP."}));app.MapFallbackToFile("index.html");app.Run();

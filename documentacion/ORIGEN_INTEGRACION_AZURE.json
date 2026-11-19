@@ -9,5 +9,8 @@
   },
   "datos": "SIMULADOS; carga no ejecutada",
   "powerbi": "Sin espacio propio; PBIX original sin publicar; parámetros del TMDL adaptados",
-  "sql_ejecutado": false
+  "azure_sql_ejecutado": false,
+  "sql_local_ejecutado": true,
+  "datos_elegidos_usuario": "Demostración simulada",
+  "modo_backend": "SQL transaccional mes, sin dependencia de histórico-demo"
 }

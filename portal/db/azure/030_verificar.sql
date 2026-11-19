@@ -16,6 +16,10 @@ IF OBJECT_ID('dbo.MATERIAL','U') IS NOT NULL AND OBJECT_ID('dbo.UBICACION','U') 
  FROM dbo.MATERIAL m LEFT JOIN
  (SELECT numero_parte,SUM(CONVERT(bigint,cantidad)) AS total FROM dbo.UBICACION GROUP BY numero_parte) u
  ON u.numero_parte=m.numero_parte WHERE m.stock<>COALESCE(u.total,0);';
+SELECT name AS tabla_mes FROM sys.tables WHERE schema_id=SCHEMA_ID('mes') ORDER BY name;
+SELECT name AS procedimiento_mes FROM sys.procedures WHERE schema_id=SCHEMA_ID('mes') ORDER BY name;
+IF OBJECT_ID('mes.OPERACION','U') IS NOT NULL
+ EXEC sys.sp_executesql N'SELECT tipo,COUNT(*) operaciones FROM mes.OPERACION GROUP BY tipo;';
 SELECT r.name AS rol,u.name AS miembro FROM sys.database_role_members m
 JOIN sys.database_principals r ON r.principal_id=m.role_principal_id
 JOIN sys.database_principals u ON u.principal_id=m.member_principal_id

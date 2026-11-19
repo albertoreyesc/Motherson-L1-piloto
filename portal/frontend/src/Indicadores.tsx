@@ -25,13 +25,13 @@ export const dec=(v:number|null|undefined,d=1)=>v==null?'N/D':new Intl.NumberFor
 export const atencion=(m:MaterialKpi[])=>m.filter(x=>x.estado==='AGOTADO'||x.estado==='CRITICO'||x.estado==='ADVERTENCIA')
  .sort((a,b)=>ordenEstado[a.estado]-ordenEstado[b.estado]||(a.porcentajeMinimo??0)-(b.porcentajeMinimo??0)||a.parte.localeCompare(b.parte));
 // Fecha y hora local de México en el formato que recibe el backend.
-export function ahoraMexico(desfaseDias=0){const d=new Date(Date.now()+desfaseDias*864e5);const p=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Mexico_City',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d).map(x=>[x.type,x.value]));return {fecha:`${p.year}-${p.month}-${p.day}`,corte:`${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}`};}
+export function ahoraMexico(desfaseDias=0){const d=new Date(Date.now()+desfaseDias*864e5);const p=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Mexico_City',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d).map(x=>[x.type,x.value]));return {fecha:`${p.year}-${p.month}-${p.day}`,corte:`${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}.${String(d.getUTCMilliseconds()).padStart(3,'0')}`};}
 
 function Tarjeta({titulo,valor,nota,tono}:{titulo:string;valor:string;nota:string;tono?:'advertencia'|'critico'|'agotado'}){
  return <section className={'kpi-card'+(tono?' kpi-'+tono:'')}><small>{titulo}</small><strong>{valor}</strong><p>{nota}</p></section>;
 }
 
-export function Indicadores(){
+export function Indicadores({sql=false}:{sql?:boolean}={}){
  const hoy=ahoraMexico(),semana=ahoraMexico(-6);
  const [corte,setCorte]=useState(hoy.corte),[desde,setDesde]=useState(semana.fecha),[hasta,setHasta]=useState(hoy.fecha),[estacion,setEstacion]=useState(''),[parte,setParte]=useState('');
  const [opciones,setOpciones]=useState<Opciones>(),[datos,setDatos]=useState<Kpis>(),[busy,setBusy]=useState(false),[exportando,setExportando]=useState(false),[error,setError]=useState('');
@@ -49,15 +49,15 @@ export function Indicadores(){
  const e=datos?.estadoActual,a=datos?.actividad,c=datos?.contexto;
  const lista=e?atencion(e.materiales):[];
  return <>
-  <section className="panel" aria-busy={busy}><h2>Indicadores · Power BI Equipo 2</h2><p>Los 10 KPIs de la entrega: cinco de Estado actual y cinco de Actividad logística. El inventario se reconstruye al corte; la actividad cuenta los reabastecimientos del histórico maestro y las atenciones registradas en el portal.</p>
+  <section className="panel" aria-busy={busy}><h2>Indicadores · Motherson L1</h2><p>Los 10 KPIs de la entrega: cinco de Estado actual y cinco de Actividad logística. El inventario se reconstruye desde su apertura acreditada; la actividad cuenta las atenciones registradas. Los movimientos de material se contabilizan por separado.</p>
    <form className="kpi-filtros" onSubmit={ev=>{ev.preventDefault();void consultar()}}>
-    <label className="field">Corte (hora de México)<input type="datetime-local" value={corte} max={hoy.corte} onChange={ev=>setCorte(ev.target.value)} required/></label>
+    <label className="field">Corte (hora de México)<input type="datetime-local" step="0.001" value={corte} max={hoy.corte} onChange={ev=>setCorte(ev.target.value)} required/></label>
     <label className="field">Actividad desde<input type="date" value={desde} onChange={ev=>setDesde(ev.target.value)} required/></label>
     <label className="field">Actividad hasta<input type="date" value={hasta} onChange={ev=>setHasta(ev.target.value)} required/></label>
     <label className="field">Estación<select value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Todas</option>{opciones?.estaciones.map(s=><option key={s}>{s}</option>)}</select></label>
     <label className="field">Material<select value={parte} onChange={ev=>setParte(ev.target.value)}><option value="">Todos</option>{opciones?.materiales.map(s=><option key={s}>{s}</option>)}</select></label>
    </form>
-   <div className="kpi-acciones"><button disabled={busy} onClick={()=>void consultar()}><RefreshCw size={16} aria-hidden="true"/>{busy?'Calculando…':'Calcular indicadores'}</button><button className="secondary" disabled={busy} onClick={semanaHistorico}>Semana del histórico (19–25 oct)</button><button className="secondary" disabled={!datos||busy||exportando} onClick={()=>void descargar()}><Download size={16} aria-hidden="true"/>{exportando?'Generando Excel…':'Descargar Excel'}</button></div>
+   <div className="kpi-acciones"><button disabled={busy} onClick={()=>void consultar()}><RefreshCw size={16} aria-hidden="true"/>{busy?'Calculando…':'Calcular indicadores'}</button>{!sql&&<button className="secondary" disabled={busy} onClick={semanaHistorico}>Semana del histórico (19–25 oct)</button>}<button className="secondary" disabled={!datos||busy||exportando} onClick={()=>void descargar()}><Download size={16} aria-hidden="true"/>{exportando?'Generando Excel…':'Descargar Excel'}</button></div>
    {error&&<p className="error" role="alert">{error}</p>}
    {c&&<p className="kpi-contexto">Corte {c.corteLocal.replace('T',' ')} · actividad del {c.desde} al {c.hasta}{c.estacion?' · estación '+c.estacion:''}{c.parte?' · '+c.parte:''} · datos SIMULADOS</p>}
   </section>

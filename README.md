@@ -2,7 +2,7 @@
 
 Trabajo de integración iniciado el 18/11/2026. Destino: `motherson-l1-equipo.database.windows.net` / `Motherson_L1`.
 
-**Instalación y carga todavía no ejecutadas.** Consulta [el estado y la guía vigente](documentacion/INTEGRACION_AZURE_PROPIA.md).
+**Instalación y carga en Azure pendientes de aprobación; probadas en SQL local.** Consulta [el estado y la guía vigente](documentacion/INTEGRACION_AZURE_PROPIA.md).
 El diagnóstico y los scripts de instalación están separados de los scripts históricos de desarrollo.
 
 ---

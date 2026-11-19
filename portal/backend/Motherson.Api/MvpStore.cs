@@ -59,8 +59,8 @@ public sealed partial class Store(IConfiguration configuration){
  internal static FiltroHistorico ValidarFiltro(string? parte,string? ubicacion,string? desde,string? hasta,string? origen,bool exacta=false,string? responsable=null,int? turno=null){
   DateTime? Fecha(string? text,bool fin){if(string.IsNullOrEmpty(text))return null;if(!DateTime.TryParseExact(text,"yyyy-MM-dd",null,System.Globalization.DateTimeStyles.None,out var dt))throw new RuleException("Usa fecha AAAA-MM-DD.",400);if(fin)dt=dt.AddDays(1);return TimeZoneInfo.ConvertTimeToUtc(dt,TimeZoneInfo.FindSystemTimeZoneById("America/Mexico_City"));}
   var inicio=Fecha(desde,false);var fin=Fecha(hasta,true);if(inicio.HasValue&&fin.HasValue&&inicio>=fin)throw new RuleException("Intervalo de fechas inválido.",400);
-  int? id=null;string? espacio=null;if(!string.IsNullOrEmpty(ubicacion)){var bits=ubicacion.Split(':');if(bits.Length!=2||bits[0] is not("MVP" or "HISTORICO_21" or "CONTINUACION")||!int.TryParse(bits[1],out var n)||n<=0)throw new RuleException("Ubicación debe indicar MVP:id, HISTORICO_21:id o CONTINUACION:id.",400);id=n;espacio=bits[0];}
-  if(origen is not(null or "" or "MVP" or "HISTORICO_21" or "CONTINUACION"))throw new RuleException("Origen inválido.",400);
+  int? id=null;string? espacio=null;if(!string.IsNullOrEmpty(ubicacion)){var bits=ubicacion.Split(':');if(bits.Length!=2||bits[0] is not("MVP" or "HISTORICO_21" or "CONTINUACION" or "LEGADO_DIARIO")||!int.TryParse(bits[1],out var n)||n<=0)throw new RuleException("Ubicación debe indicar MVP:id, HISTORICO_21:id o CONTINUACION:id.",400);id=n;espacio=bits[0];}
+  if(origen is not(null or "" or "MVP" or "HISTORICO_21" or "CONTINUACION" or "LEGADO_DIARIO"))throw new RuleException("Origen inválido.",400);
   if(responsable?.Length>150||turno is <1 or >3)throw new RuleException("Responsable o turno histórico inválido.",400);
   return new(string.IsNullOrWhiteSpace(parte)?null:parte,id,espacio,inicio,fin,string.IsNullOrEmpty(origen)?null:origen,exacta,string.IsNullOrWhiteSpace(responsable)?null:responsable,turno);
  }

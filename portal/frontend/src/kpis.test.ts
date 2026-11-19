@@ -11,7 +11,7 @@ describe('Indicadores del Equipo 2',()=>{
   expect(atencion([m('N','NORMAL',300),m('C2','CRITICO',90),m('W','ADVERTENCIA',110),m('C1','CRITICO',40),m('A','AGOTADO',0)]).map(x=>x.parte)).toEqual(['A','C1','C2','W']);
  });
  it('arma el corte en hora de México con el formato del backend',()=>{
-  const r=ahoraMexico();expect(r.corte).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/);expect(r.fecha).toBe(r.corte.slice(0,10));
+  const r=ahoraMexico();expect(r.corte).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}$/);expect(r.fecha).toBe(r.corte.slice(0,10));
  });
  it('formatea porcentajes y valores faltantes',()=>{expect(pct(20)).toBe('20 %');expect(pct(null)).toBe('N/D')});
  it('genera el Excel con el resumen de los 10 KPIs y sus tablas',async()=>{

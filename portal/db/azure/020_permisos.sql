@@ -22,9 +22,10 @@ GRANT SELECT ON dbo.vw_kpi_atenciones TO mes_portal;
 GRANT EXECUTE ON dbo.IniciarAtencion TO mes_portal;
 GRANT EXECUTE ON dbo.FinalizarAtencion TO mes_portal;
 GRANT EXECUTE ON dbo.GuardarAccesoPuesto TO mes_portal;
-GRANT EXECUTE ON dbo.RegistrarMovimiento TO mes_portal;
-GRANT EXECUTE ON dbo.AjustarCapacidadEstanteria TO mes_portal;
-GRANT EXECUTE ON dbo.AjustarMateriales TO mes_portal;
+GRANT EXECUTE ON mes.RegistrarMovimiento TO mes_portal;
+GRANT EXECUTE ON mes.AjustarCatalogo TO mes_portal;
+GRANT SELECT ON SCHEMA::mes TO mes_portal;
+DENY EXECUTE ON dbo.RegistrarMovimiento TO mes_portal;
 GRANT SELECT ON dbo.ESTACION TO mes_lectura;
 GRANT SELECT ON dbo.COLOR TO mes_lectura;
 GRANT SELECT ON dbo.PUESTO_LOGISTICO(id_puesto,Nombre,Tipo) TO mes_lectura;
@@ -34,6 +35,8 @@ GRANT SELECT ON dbo.MATERIAL TO mes_lectura;
 GRANT SELECT ON dbo.UBICACION TO mes_lectura;
 GRANT SELECT ON dbo.REGISTRO TO mes_lectura;
 GRANT SELECT ON dbo.vw_registro_bi TO mes_lectura;
+GRANT SELECT ON mes.vw_movimientos TO mes_lectura;
+GRANT SELECT ON mes.vw_ajustes TO mes_lectura;
 IF NOT EXISTS(SELECT 1 FROM sys.database_role_members WHERE role_principal_id=DATABASE_PRINCIPAL_ID('mes_portal') AND member_principal_id=USER_ID('portal_app'))
     ALTER ROLE mes_portal ADD MEMBER portal_app;
 IF NOT EXISTS(SELECT 1 FROM sys.database_role_members WHERE role_principal_id=DATABASE_PRINCIPAL_ID('mes_lectura') AND member_principal_id=USER_ID('powerbi_lector'))

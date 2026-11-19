@@ -43,7 +43,7 @@ internal static class KpisMotor
     }
     public static DateTime FechaLocal(string texto)
     {
-        if (!DateTime.TryParseExact(texto, ["yyyy-MM-dd", "yyyy-MM-ddTHH:mm", "yyyy-MM-ddTHH:mm:ss"],
+        if (!DateTime.TryParseExact(texto, ["yyyy-MM-dd", "yyyy-MM-ddTHH:mm", "yyyy-MM-ddTHH:mm:ss", "yyyy-MM-ddTHH:mm:ss.FFFFFFF"],
             System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var fecha))
             throw new RuleException("Fecha de consulta inválida.", 400);
         return TimeZoneInfo.ConvertTimeToUtc(DateTime.SpecifyKind(fecha, DateTimeKind.Unspecified), Mexico);

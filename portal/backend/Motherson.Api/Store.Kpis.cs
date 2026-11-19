@@ -7,7 +7,8 @@ public sealed partial class Store
     // Proyección de consulta. No crea registros ni objetos en SQL Server.
     public async Task<object> ConsultarKpis(Cuenta actor, IQueryCollection q, CancellationToken token)
     {
-        var fuente = archivoDemo ?? throw new RuleException("Histórico no disponible.", 503);
+        var fuente = archivoDemo;
+        if (fuente is null && !SqlTransaccional) throw new RuleException("Histórico no disponible.", 503);
         string Texto(string nombre, string defecto = "") => q[nombre].FirstOrDefault() ?? defecto;
         var corteTexto = Texto("corte", "2026-10-23T23:30");
         var desdeTexto = Texto("desde", "2026-10-19");
@@ -29,13 +30,15 @@ public sealed partial class Store
         var responsable = Texto("responsable"); var estado = Texto("estado");
         if (!new[] { "", "NORMAL", "ADVERTENCIA", "CRITICO", "AGOTADO", "SIN_DATOS" }.Contains(estado))
             throw new RuleException("Estado inválido.",400);
-        var persona = await fuente.AlcancePersonaKpi(responsable, token);
+        (int Puesto, int Turno)? persona = fuente is null ? null : await fuente.AlcancePersonaKpi(responsable, token);
         if (actor.PuestoId is int autorizado && ((puesto.HasValue && puesto != autorizado) ||
             (persona.HasValue && persona.Value.Puesto != autorizado))) throw new RuleException("Puesto no autorizado.",403);
 
         InventarioAlarma[] filas; object cobertura; string modo; DateTime fechaStock;
         var continuacion = await EstadoContinuacion();
-        if (corte < continuacion.Base.FechaStock) {
+        if (corte < continuacion.Base.FechaStock && fuente is null)
+            throw new RuleException("No hay un saldo acreditado para ese corte. Las atenciones simuladas no permiten reconstruir inventario anterior a la apertura.", 400);
+        if (corte < continuacion.Base.FechaStock && fuente is not null) {
             var datos = await fuente.Cobertura(corte, actor.PuestoId, token);
             filas = datos.Filas;
             modo = "HISTORICO_MAESTRO"; fechaStock = corte;
@@ -63,6 +66,7 @@ public sealed partial class Store
             cobertura = RespuestaCobertura(filas, corte, consumos, _ => continuacion.InicioObservacion,
                 "CONTINUACION", new { modo, fechaStockInicial = fechaStock });
         }
+        DiarioMovimientos.CalcularCapacidad(filas);
         bool PuestoIncluido(int id) => (!actor.PuestoId.HasValue || id == actor.PuestoId) &&
             (!puesto.HasValue || id == puesto) && (!persona.HasValue || id == persona.Value.Puesto);
         filas = filas.Where(f => PuestoIncluido(f.id_puesto) && (estacion == "" || f.estacion == estacion) &&
@@ -96,7 +100,7 @@ public sealed partial class Store
             .GroupBy(f => f.estacion).Select(g => new { estacion = g.Key, materiales = g.Select(f => f.numero_parte).Distinct().Count() }).ToArray();
 
         // La solicitud identifica una operación; sus siete etapas no se cuentan siete veces.
-        var operaciones = (await fuente.OperacionesKpis(corte, token)).Concat(await OperacionesPortalKpis(corte)).Where(o => PuestoIncluido(o.Puesto) &&
+        var operaciones = (fuente is null ? Array.Empty<OperacionKpi>() : await fuente.OperacionesKpis(corte, token)).Concat(await OperacionesPortalKpis(corte)).Where(o => PuestoIncluido(o.Puesto) &&
             (estacion == "" || o.Estacion == estacion) && (parte == "" || o.Parte == parte) &&
             (!turno.HasValue || o.TurnoInicio == turno) && (responsable == "" || o.Responsable == responsable)).ToArray();
         var completadas = operaciones.Where(o => KpisMotor.Completada(o, desde, hasta, corte)).ToArray();
@@ -120,7 +124,7 @@ public sealed partial class Store
             contexto = new { corte, corteLocal = corteTexto, desde = desdeTexto, hasta = hastaTexto, desdeUtc = desde,
                 hastaUtcExclusivo = hasta, estacion, parte, puesto, turnoInicio = turno, responsable, estado,
                 linea = "L1", zona = "America/Mexico_City", modo, fechaStock, simulado = true,
-                maestro = HistoricoDemo.Base, politicaMinimo = "MINIMO_120_V1", denominador = evaluables,
+                maestro = SqlTransaccional ? "AZURE_SQL" : HistoricoDemo.Base, politicaMinimo = "MINIMO_120_V1", denominador = evaluables,
                 notaDenominador = "Materiales evaluables en el alcance, antes del filtro Estado.",
                 notaStock = "El periodo y turno filtran actividad; el inventario es compartido y se reconstruye al corte. El responsable restringe inventario a su puesto, no a un saldo personal.",
                 notaActividad = "Completados por entrega; turno del filtro = inicio. Abiertos incluyen arrastre. Identidad = última etapa fechada conocida al corte.",

@@ -13,7 +13,9 @@ GO
 :r 011_movimientos.sql
 :r 012_objetos_portal.sql
 :r 013_indices_bi.sql
-:r 014_ajustes_catalogo.sql
+:r 015_diario_sql.sql
+:r 016_operaciones_transaccionales.sql
+:r 017_vistas_y_apertura.sql
 COMMIT;
 GO
 SELECT N'Objetos instalados; faltan usuarios, permisos y datos iniciales autorizados.' AS resultado;

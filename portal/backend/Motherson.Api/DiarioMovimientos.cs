@@ -355,7 +355,7 @@ public sealed class DiarioMovimientos : IDisposable
         "variante" => f.variante_revision,
         _ => throw new RuleException("Campo de material no permitido: " + campo, 400)
     };
-    static void ValidarValorMaterial(CambioMaterial m)
+    public static void ValidarValorMaterial(CambioMaterial m)
     {
         var v = m.Nuevo;
         var valido = m.Campo switch

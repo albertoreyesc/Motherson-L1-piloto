@@ -20,12 +20,20 @@ public sealed partial class Store
     public bool EsDemo => archivoDemo is not null;
     /// Base compartida con el Equipo 2: mismo modelo que Demo; además cada movimiento se aplica en SQL.
     public bool Compartida { get; private set; }
-    string EsquemaVistas => EsDemo ? "dbo" : "reporting";
+    string EsquemaVistas => (SqlTransaccional || EsDemo) ? "dbo" : "reporting";
 
     public async Task DetectarModelo()
     {
         await using var c = await Open();
         Compartida = EsBaseCompartida(c.Database, configuration);
+        if (SqlTransaccional)
+        {
+            if (!Compartida) throw new InvalidOperationException("El modo transaccional requiere una base compartida explícita.");
+            var version = await c.ExecuteScalarAsync<int>("SELECT version_esquema FROM mes.CONFIGURACION WHERE id=1");
+            if (version != 1) throw new InvalidOperationException("Versión SQL no compatible.");
+            ModeloPuestos = true;
+            return;
+        }
         if (c.Database == HistoricoDemo.Base || Compartida)
         {
             ModeloPuestos = await c.ExecuteScalarAsync<int>(
@@ -188,7 +196,7 @@ public sealed partial class Store
             }).ToArray();
         }
         return new {
-            modelo_puestos = true, continuacion_habilitada = ContinuacionHabilitada, exportacion_historica = EsDemo, atributos, materiales = materialesVigentes, puestos,
+            sql_transaccional = SqlTransaccional, modelo_puestos = true, continuacion_habilitada = ContinuacionHabilitada, exportacion_historica = EsDemo || SqlTransaccional, atributos, materiales = materialesVigentes, puestos,
             imagenes = VersionesImagenes(materiales.Select(m => (string)m.numero_parte)),
             // Variantes válidas para la importación de Excel (COLOR.nombre de esta base).
             colores = await c.QueryAsync<string>("SELECT nombre FROM dbo.COLOR ORDER BY nombre"),
@@ -198,7 +206,7 @@ public sealed partial class Store
                 SELECT id_turno,nombre_turno,CONVERT(varchar(8),hora_inicio) hora_inicio,
                        CONVERT(varchar(8),hora_fin) hora_fin FROM dbo.TURNO ORDER BY hora_inicio
                 """),
-            corte = archivoDemo is { } archivo ? (object)archivo.Corte() :
+            corte = SqlTransaccional ? await CorteSql() : archivoDemo is { } archivo ? (object)archivo.Corte() :
                 await c.QuerySingleAsync("SELECT maestro,revision,corte_fuente,fecha_carga,sellado FROM archivo.CORTE")
         };
     }

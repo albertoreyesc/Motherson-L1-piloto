@@ -8,11 +8,18 @@ namespace Motherson;
 public sealed partial class Store : IDisposable
 {
     DiarioMovimientos? diario;
-    public bool ContinuacionHabilitada => diario is not null;
+    public bool ContinuacionHabilitada => SqlTransaccional || diario is not null;
     string Raiz => configuration["MVP_ROOT"] ?? throw new RuleException("Falta la raíz del portal.", 503);
 
     public async Task PrepararContinuacion()
     {
+        if (SqlTransaccional)
+        {
+            await using var sql = await Open();
+            if (await sql.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.BASE_INVENTARIO WHERE id=1") != 1)
+                throw new InvalidOperationException("Falta cargar y aprobar el saldo inicial de SQL.");
+            return;
+        }
         if (!EsDemo) return;
         var carpeta = Path.GetFullPath(configuration["MVP_DIARIO_PATH"] ?? Path.Combine(Raiz, ".local", Compartida ? "continuacion-movimientos-compartida" : "continuacion-movimientos"));
         var publica = Path.GetFullPath(Path.Combine(Raiz, "backend", "Motherson.Api", "wwwroot"));
@@ -40,6 +47,7 @@ public sealed partial class Store : IDisposable
 
     async Task<EstadoDiario> EstadoContinuacion()
     {
+        if (SqlTransaccional) return await LeerEstadoSql();
         var d = diario ?? throw new RuleException("La continuación no está habilitada.", 503);
         d.VerificarBase(await LeerBaseContinuacion());
         return await d.Leer();
@@ -50,6 +58,12 @@ public sealed partial class Store : IDisposable
 
     public async Task<object> GuardarMovimiento(Cuenta actor, MovimientoNuevo input, Guid id)
     {
+        if (SqlTransaccional)
+        {
+            if (input.Tipo is not ("ENTRADA" or "SALIDA") || input.Cantidad is < 1 or > 1000000 || input.Version < 1 || (input.Tipo=="ENTRADA" && input.EsConsumo))
+                throw new RuleException("Captura inválida.",400);
+            return await EjecutarSql(actor, id, input, "mes.RegistrarMovimiento");
+        }
         var d = diario ?? throw new RuleException("La continuación no está habilitada.", 503);
         var r = await d.Registrar(input, actor, id, async () =>
             (await Actor(actor.Id, actor.TipoCuenta, actor.SelloAcceso), await LeerBaseContinuacion()),
@@ -63,6 +77,7 @@ public sealed partial class Store : IDisposable
 
     public async Task<object> AjustarCapacidad(Cuenta actor, AjusteCapacidadInput input, Guid id)
     {
+        if (SqlTransaccional) return await EjecutarSql(actor, id, new SolicitudAjuste([new(input.Estanteria, input.Anterior, input.Nueva)], []), "mes.AjustarCatalogo");
         var d = diario ?? throw new RuleException("La continuación no está habilitada.", 503);
         var ajuste = await d.RegistrarAjuste([new CambioCapacidad(input.Estanteria, input.Anterior, input.Nueva)], actor, id,
             async () => (await Actor(actor.Id, actor.TipoCuenta, actor.SelloAcceso), await LeerBaseContinuacion()),
@@ -76,6 +91,11 @@ public sealed partial class Store : IDisposable
     /// Todo o nada: si un cambio no es válido, no se aplica ninguno.
     public async Task<object> ImportarMateriales(Cuenta actor, ImportacionMaterialesInput input, Guid id)
     {
+        if (SqlTransaccional)
+        {
+            foreach(var change in input.Cambios ?? []) DiarioMovimientos.ValidarValorMaterial(change);
+            return await EjecutarSql(actor, id, new SolicitudAjuste([], input.Cambios ?? []), "mes.AjustarCatalogo");
+        }
         var d = diario ?? throw new RuleException("La continuación no está habilitada.", 503);
         var cambios = input.Cambios ?? [];
         if (cambios.Length == 0) throw new RuleException("El archivo no trae cambios.", 400);
@@ -86,7 +106,7 @@ public sealed partial class Store : IDisposable
             var existentes = (await c.QueryAsync<string>("SELECT nombre FROM dbo.COLOR")).ToHashSet(StringComparer.Ordinal);
             var faltan = variantes.Where(v => !existentes.Contains(v)).ToArray();
             if (faltan.Length > 0)
-                throw new RuleException("Estas variantes no existen en el catálogo de colores: " + string.Join(", ", faltan) + ". Pide al Equipo 2 que las agregue o deja la celda vacía.", 400);
+                throw new RuleException("Estas variantes no existen en el catálogo de colores: " + string.Join(", ", faltan) + ". Solicita a administración que las agregue o deja la celda vacía.", 400);
         }
         var ajuste = await d.RegistrarAjuste([], cambios, actor, id,
             async () => (await Actor(actor.Id, actor.TipoCuenta, actor.SelloAcceso), await LeerBaseContinuacion()),
@@ -156,8 +176,9 @@ public sealed partial class Store : IDisposable
 
     public async Task<object> CoberturaHistorica(Cuenta actor, DateTimeOffset corte, CancellationToken token)
     {
-        if (archivoDemo is null) throw new RuleException("No hay fuentes históricas disponibles.", 503);
         if (corte.UtcDateTime > DateTime.UtcNow) throw new RuleException("El corte no puede estar en el futuro.", 400);
+        if (SqlTransaccional) return await CoberturaSqlAlCorte(actor,corte.UtcDateTime);
+        if (archivoDemo is null) throw new RuleException("No hay fuentes históricas disponibles.", 503);
         var datos = await archivoDemo.Cobertura(corte.UtcDateTime, actor.PuestoId, token);
         return RespuestaCobertura(datos.Filas, corte.UtcDateTime, datos.Consumos,
             id => datos.Aperturas.TryGetValue(id, out var inicio) ? inicio : null, "HISTORICO_21",
@@ -189,6 +210,7 @@ public sealed partial class Store : IDisposable
 
     async Task<object> HistorialContinuacion(FiltroHistorico filtro, int pagina, CancellationToken token)
     {
+        if (SqlTransaccional) return await PaginaHistorialSql(filtro, pagina, token);
         var nuevas = await MovimientosContinuacion(filtro);
         return await archivoDemo!.PaginaCombinada(filtro, pagina, nuevas, token);
     }
