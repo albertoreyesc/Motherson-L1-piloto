@@ -2,7 +2,7 @@
 
 Fecha: 19/11/2026. Aproximadamente 80 participantes; tabletas y PC; duración y presupuesto sin definir. El usuario pidió exclusivamente recursos gratuitos. No hay restricciones de red comunicadas; todavía debe validarlo TI. No se envió ningún mensaje a TI ni se otorgó acceso a terceros.
 
-## Propuesta concreta para aprobación
+## Propuesta autorizada para pruebas gratuitas
 
 - Repositorio privado existente, rama separada del piloto; nunca publicar secretos.
 - Grupo NUEVO `rg-motherson-piloto-<sufijo>` y servidor NUEVO `motherson-piloto-<sufijo>.database.windows.net`.
@@ -63,7 +63,7 @@ Produce `portal/.local/piloto-build/piloto.zip` sin secretos. Incluye frontend c
 
 ## Creación, solo después de aprobación
 
-1. Confirmar suscripción/tenant, elegibilidad SQL gratuita, cuota F1 y región de la oferta (la instalación anterior usa Canada Central). Usar Azure CLI autenticado localmente. No se encontró Azure CLI ni GitHub CLI en esta máquina al preparar la entrega.
+1. Confirmar suscripción/tenant, elegibilidad SQL gratuita, cuota F1 y región de la oferta (la instalación anterior usa Canada Central). Usar Azure CLI autenticado localmente. Azure CLI y GitHub CLI quedaron instalados el 19/11/2026; falta completar el inicio de sesión en ambos servicios.
 2. Ejecutar `python3 despliegue/piloto/parametros.py`. Crea contraseñas nuevas aleatorias en archivo privado con permisos 600, nunca en Git. Revisión de facturación debe mostrar cero. No reutilizar claves del portal actual.
 3. Crear únicamente el grupo nuevo y revisar el plan:
 
@@ -122,7 +122,9 @@ Checklist con TI: acceso HTTPS 443, DNS del hostname real, navegador actualizado
 
 Ver `documentacion/evidencia-integracion/PILOTO_LOCAL.json` y `PILOTO_HTTP_LOCAL.json`. La prueba de 80 sesiones es de inventario en un servidor y SQL locales, no reproduce las cuotas de F1 ni la latencia de planta. La prueba no certifica 80 capturas simultáneas ni 80 usuarios durante una jornada.
 
-Pendiente: aprobación de publicación; disponibilidad gratuita real y región; repositorio privado y OIDC; rotar secreto expuesto si se habilita Power BI; habilitar cuentas de personas reales; pruebas de dispositivos físicos; TLS/cookies y persistencia en Azure; prueba de carga progresiva en F1; Dashboard y renovación con capacidad autorizada. No existe todavía una URL de piloto publicada.
+Publicación gratuita y subida de la rama autorizadas por el usuario el 19/11/2026. No se autorizaron recursos de pago.
+
+Pendiente: autenticación de Azure y GitHub; disponibilidad gratuita real y región; repositorio privado y OIDC; rotar secreto expuesto si se habilita Power BI; habilitar cuentas de personas reales; pruebas de dispositivos físicos; TLS/cookies y persistencia en Azure; prueba de carga progresiva en F1; Dashboard y renovación con capacidad autorizada. No existe todavía una URL de piloto publicada.
 
 
 ### Resultado local de esta preparación
