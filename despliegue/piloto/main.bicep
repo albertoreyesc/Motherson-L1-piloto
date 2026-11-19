@@ -61,7 +61,7 @@ resource app 'Microsoft.Web/sites@2023-12-01' = {
     clientAffinityEnabled: true
     siteConfig: {
       netFrameworkVersion: 'v10.0'
-      use32BitWorkerProcess: false
+      use32BitWorkerProcess: true
       alwaysOn: false
       ftpsState: 'Disabled'
       minTlsVersion: '1.2'
