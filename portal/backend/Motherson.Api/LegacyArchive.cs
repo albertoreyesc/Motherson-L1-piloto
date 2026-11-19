@@ -83,11 +83,11 @@ public static class LegacyArchive
         }
         return rows;
     }
-    public static async Task<int> Import(SqlConnection sql,ArchivoLegado[] files)
+    public static async Task<int> Import(SqlConnection sql,ArchivoLegado[] files,Action<string>? progress=null)
     {
         var plan=Validate(files);
         files=files.GroupBy(f=>f.Sha256,StringComparer.OrdinalIgnoreCase).Select(g=>g.First()).ToArray();
-        var imported=0;
+        var imported=0;var reported=0;
         await sql.ExecuteAsync("CREATE TABLE #legado(sha256 char(64),linea int,archivo nvarchar(120),datos nvarchar(max));");
         async Task<SqlTransaction> Begin()
         {
@@ -105,6 +105,7 @@ public static class LegacyArchive
             foreach(var file in files)
             {
                 file.Verificar();var expected=plan[file.Nombre+":"+file.Sha256];
+                progress?.Invoke("Archivo "+file.Nombre+": "+expected+" filas acreditadas.");
                 await using(var tx=await Begin())
                 {
                     await sql.ExecuteAsync("IF NOT EXISTS(SELECT 1 FROM mes.ARCHIVO_LEGADO WHERE sha256=@hash) INSERT mes.ARCHIVO_LEGADO(sha256,archivo,filas_esperadas) VALUES(@hash,@name,@count)",new{hash=file.Sha256,name=file.Nombre,count=expected},tx);
@@ -123,7 +124,7 @@ public static class LegacyArchive
                     await bulk.WriteToServerAsync(table);
                     await sql.ExecuteAsync("IF EXISTS(SELECT 1 FROM #legado s JOIN mes.HISTORICO_LEGADO d ON d.sha256=s.sha256 AND d.linea=s.linea WHERE DATALENGTH(d.datos)<>DATALENGTH(s.datos) OR d.datos COLLATE Latin1_General_100_BIN2<>s.datos COLLATE Latin1_General_100_BIN2) THROW 51009,'La evidencia previa no coincide; no se sobrescribió.',1;",transaction:tx);
                     var added=await sql.ExecuteAsync("INSERT mes.HISTORICO_LEGADO(sha256,linea,archivo,datos) SELECT s.sha256,s.linea,s.archivo,s.datos FROM #legado s WHERE NOT EXISTS(SELECT 1 FROM mes.HISTORICO_LEGADO d WHERE d.sha256=s.sha256 AND d.linea=s.linea)",transaction:tx,commandTimeout:120);
-                    await tx.CommitAsync();imported+=added;table.Clear();
+                    await tx.CommitAsync();imported+=added;if(imported/10000>reported/10000){progress?.Invoke("Filas nuevas confirmadas: "+imported);reported=imported;}table.Clear();
                 }
                 var line=0;
                 foreach(var json in file.Leer()){table.Rows.Add(file.Sha256,++line,file.Nombre,json);if(table.Rows.Count==1000)await WriteBatch();}
@@ -149,6 +150,6 @@ public static class LegacyArchive
         Console.WriteLine(JsonSerializer.Serialize(new{accion="PRESERVAR_LEGADO_SIN_REAPLICAR_SALDOS",filas=plan,aplicar=args.Contains("--aplicar")}));
         if(!args.Contains("--aplicar"))return 0;
         var target=AzurePreflight.Validate(configuration);await using var sql=new SqlConnection(target.ConnectionString);await sql.OpenAsync();
-        var count=await Import(sql,files);Console.WriteLine(JsonSerializer.Serialize(new{filasNuevas=count}));return 0;
+        var count=await Import(sql,files,Console.Error.WriteLine);Console.WriteLine(JsonSerializer.Serialize(new{filasNuevas=count}));return 0;
     }
 }

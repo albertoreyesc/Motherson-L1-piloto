@@ -6,13 +6,14 @@ import {HistorialMaestro} from './HistorialMaestro';
 import {CoberturaHistorica} from './CoberturaHistorica';
 import {QuickEntryPanel} from './QuickEntryPanel';
 import {Indicadores} from './Indicadores';
+import {DashboardEquipo2} from './DashboardEquipo2';
 import {AccesosPuestos,AtencionesPuestos} from './AtencionesPuestos';
 import {ResumenAlarmas,ContextoAlarmas,DetalleAlarma,etiquetas,estados,prioridad,type EstadoInventario,type Severidad} from './Alarmas';
 import {ImagenMaterial} from './ImagenMaterial';
 import {CapacidadEstanteria} from './CapacidadEstanteria';
 import {ImportarMateriales} from './ImportarMateriales';
 import {IntegridadCatalogo,ValorCatalogo,PuestoCatalogo,campoCatalogo} from './CatalogoAtributos';
-const seccionesBase=['Resumen','Materiales y catálogos','Estaciones y ubicaciones','Inventario','Entradas y salidas','Historial de movimientos','Indicadores'];
+const seccionesBase=['Resumen','Materiales y catálogos','Estaciones y ubicaciones','Inventario','Entradas y salidas','Historial de movimientos','KPIs','Dashboard'];
 function Table<T>({rows,columns}:{rows:T[];columns:[string,(r:T)=>React.ReactNode][]}){return <div className="table-wrap" role="region" aria-label="Datos consultados" tabIndex={0}><table><thead><tr>{columns.map(([label])=><th key={label} scope="col">{label}</th>)}</tr></thead><tbody>{rows.map((r,i)=><tr key={i}>{columns.map(([label,render])=><td key={label}>{render(r)}</td>)}</tr>)}</tbody></table>{!rows.length&&<p className="empty">Sin registros para esta consulta.</p>}</div>}
 export function MvpApp({user,onLogout}:{user:User;onLogout:()=>void}){
  const [page,setPage]=useState(0),[catalog,setCatalog]=useState<Catalogo|null>(null),[rows,setRows]=useState<Inventario[]>([]),[error,setError]=useState(''),[loading,setLoading]=useState(true),[part,setPart]=useState(''),[station,setStation]=useState(''),[rack,setRack]=useState('');
@@ -22,7 +23,7 @@ export function MvpApp({user,onLogout}:{user:User;onLogout:()=>void}){
  const [verAtenciones,setVerAtenciones]=useState(false);
  const permiteHistorial=!modeloPuestos||user.permissions.includes('historico');
  const kpisDisponibles=permiteHistorial&&!!catalog?.exportacion_historica;
- const visible=(i:number)=>(i!==5||permiteHistorial)&&(i!==6||kpisDisponibles);
+ const visible=(i:number)=>(i!==5||permiteHistorial)&&(i!==6||kpisDisponibles)&&(i!==7||permiteHistorial);
  const [mostrarVacios,setMostrarVacios]=useState(false);
  const [estado,setEstado]=useState<EstadoInventario|null>(null),[severidad,setSeveridad]=useState<Severidad|''>(''),[alarmaUbicacion,setAlarmaUbicacion]=useState<number|null>(null);const solicitud=useRef(0);
  async function refresh(){const id=++solicitud.current;setLoading(true);try{const [c,r]=await Promise.all([api<Catalogo>('/catalogo'),api<EstadoInventario>('/inventario?alarmas=true')]);if(id===solicitud.current){setCatalog(c);setEstado(r);setRows(r.filas);setError('')}}finally{if(id===solicitud.current)setLoading(false)}}
@@ -52,5 +53,6 @@ export function MvpApp({user,onLogout}:{user:User;onLogout:()=>void}){
  {page===4&&(!modeloPuestos||continuacion&&!verAtenciones)&&(user.permissions.some(p=>p==='entry'||p==='exit')?<QuickEntryPanel continuacion={continuacion} user={user} rows={user.perfil==="ADMINISTRADOR"?rows:rows.filter(r=>r.id_puesto===user.puestoId)} onRefresh={refresh} refreshing={loading}/>:<section className="panel"><h2>Consulta autorizada</h2><p>Esta cuenta puede consultar inventario e historial. No tiene permiso de captura.</p></section>)}
  {page===5&&permiteHistorial&&<HistorialMaestro sql={!!catalog?.sql_transaccional} exportable={!!catalog?.exportacion_historica}/>}
  {page===6&&kpisDisponibles&&<Indicadores sql={!!catalog?.sql_transaccional}/>}
+ {page===7&&permiteHistorial&&<DashboardEquipo2/>}
  </>}<footer>Motherson · Línea 1 · Captura e histórico en un mismo portal</footer></main></div></div>;
 }

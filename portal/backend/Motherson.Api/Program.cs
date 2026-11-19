@@ -25,6 +25,7 @@ var cookiePrefix="Motherson.L1.MVP.AccesoPuestoV1."+database;
 var keys=Directory.CreateDirectory(builder.Configuration["MVP_KEYS_PATH"]??Path.Combine(builder.Environment.ContentRootPath,".local","keys"));if(!OperatingSystem.IsWindows())File.SetUnixFileMode(keys.FullName,UnixFileMode.UserRead|UnixFileMode.UserWrite|UnixFileMode.UserExecute);
 builder.Services.AddDataProtection().SetApplicationName(cookiePrefix).PersistKeysToFileSystem(keys);
 builder.Services.AddSingleton<Store>();
+builder.Services.AddHttpClient<PowerBiEmbed>();
 builder.Services.ConfigureHttpJsonOptions(o=>o.SerializerOptions.Converters.Add(new UtcConverter()));
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.Name=cookiePrefix+".Session";o.Cookie.HttpOnly=true;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.ExpireTimeSpan=TimeSpan.FromMinutes(30);o.SlidingExpiration=false;o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
 builder.Services.AddAuthorization();builder.Services.AddAntiforgery(o=>{o.HeaderName="X-XSRF-TOKEN";o.Cookie.Name=cookiePrefix+".Xsrf";o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.HttpOnly=true;});
@@ -32,7 +33,7 @@ builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.AddPolicy("login
 var app=builder.Build();var store=app.Services.GetRequiredService<Store>();
 await store.DetectarModelo();
 await store.PrepararContinuacion();
-app.Use(async(ctx,next)=>{ctx.Response.Headers["X-Content-Type-Options"]="nosniff";ctx.Response.Headers["Referrer-Policy"]="no-referrer";ctx.Response.Headers["X-Frame-Options"]="DENY";ctx.Response.Headers["Content-Security-Policy"]="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'";if(ctx.Request.Path.StartsWithSegments("/api"))ctx.Response.Headers.CacheControl="no-store";
+app.Use(async(ctx,next)=>{ctx.Response.Headers["X-Content-Type-Options"]="nosniff";ctx.Response.Headers["Referrer-Policy"]="no-referrer";ctx.Response.Headers["X-Frame-Options"]="DENY";ctx.Response.Headers["Content-Security-Policy"]="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src https://app.powerbi.com https://*.powerbi.com; frame-ancestors 'none'";if(ctx.Request.Path.StartsWithSegments("/api"))ctx.Response.Headers.CacheControl="no-store";
  try{await next();}catch(Exception ex){var status=ex switch{RuleException r=>r.Status,AntiforgeryValidationException=>400,BadHttpRequestException=>400,SqlException s when s.Number==51001=>401,SqlException s when s.Number==51003=>403,SqlException s when s.Number is 51004 or 51010 or 51011 or 547 or 8115=>400,SqlException s when s.Number is 51009 or 51012 or 2601 or 2627 or 1205=>409,SqlException=>503,_=>500};ctx.Response.StatusCode=status;var message=ex is RuleException?ex.Message:ex is SqlException se&&se.Number>=51000&&se.Number<=51012?se.Message:status==400?"Dato o referencia inválida.":status==503?"SQL Server no está disponible.":"No se confirmó la operación.";app.Logger.LogWarning("Petición {Path}: {Status}",ctx.Request.Path,status);await ctx.Response.WriteAsJsonAsync(new{error=message});}});
 app.UseAuthentication();app.UseAuthorization();app.UseRateLimiter();
 app.Use(async(ctx,next)=>{if(ctx.Request.Path.StartsWithSegments("/api")&&HttpMethods.IsPost(ctx.Request.Method))await ctx.RequestServices.GetRequiredService<IAntiforgery>().ValidateRequestAsync(ctx);await next();});
@@ -74,6 +75,9 @@ else
     Gate(api.MapPost("/central/entries",async(EntradaInput i,HttpContext c)=>Results.Ok(await store.Move(Who(c),i.Ubicacion,"ENTRADA",i.Cajas,i.Version,Key(c)))),"entry");
     Gate(api.MapPost("/movimientos/salidas",async(SalidaInput i,HttpContext c)=>Results.Ok(await store.Move(Who(c),i.Ubicacion,"SALIDA",i.Piezas,i.Version,Key(c)))),"exit");
 }
+// Power BI propio: acceso administrativo; tokens solo por POST autenticado y CSRF.
+Gate(api.MapGet("/dashboard-equipo2",()=>Results.Ok(store.DashboardEquipo2())),"historico");
+Gate(api.MapPost("/dashboard/embed-token",async(PowerBiEmbed embed,CancellationToken ct)=>Results.Ok(await embed.Generar(ct))),"historico");
 Gate(api.MapGet("/historial",async(string? parte,string? ubicacion,string? desde,string? hasta,string? origen,int? pagina,bool? exacta,string? responsable,int? turno,CancellationToken token)=>Results.Ok(await store.History(parte,ubicacion,desde,hasta,origen,pagina??1,token,exacta??false,responsable,turno))),store.ModeloPuestos?"historico":"view");
 if (store.archivoDemo is { } || store.SqlTransaccional)
 {

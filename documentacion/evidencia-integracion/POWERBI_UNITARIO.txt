@@ -1,0 +1,2 @@
+11 comprobaciones de destino y cifrado aprobadas; sin conexión SQL.
+23 comprobaciones locales de destino, cifrado y Power BI aprobadas. Power BI REST simulado; publicación real no probada.

@@ -240,3 +240,5 @@
 .importar-problemas summary{cursor:pointer;font-weight:700}
 .importar-problemas ul{margin:var(--space-8) 0 0;padding-left:var(--space-24);max-height:260px;overflow:auto}
 .importar-variantes{margin:var(--space-8) 0 0;padding:8px 12px;border-radius:var(--radius-6);background:var(--yellowSoft);color:var(--yellowInk)}
+/* Dashboard del Equipo 2 (Power BI incrustado) */
+.dashboard-equipo2 .panel-head{align-items:flex-start;flex-wrap:wrap}.dashboard-equipo2 .panel-head p{margin:8px 0 0;color:var(--muted);font-size:13px}.dashboard-equipo2 .button-row{margin:0}.button-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border:1px solid var(--border);border-radius:var(--radius-6);background:var(--white);color:var(--black);font-size:13px;font-weight:700;text-decoration:none}.button-link:hover{background:var(--surface)}.dashboard-frame{display:block;width:100%;height:min(78vh,860px);min-height:520px;border:1px solid var(--border);border-radius:var(--radius-8);background:var(--surface)}@media(max-width:760px){.dashboard-frame{height:70vh;min-height:420px}}

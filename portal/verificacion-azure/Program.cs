@@ -9,6 +9,10 @@ var connection=JsonDocument.Parse(File.ReadAllText(Path.Combine(root,".local/con
 var settings=new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?>{["ConnectionStrings:Sql"]=connection,["MVP_BASE_COMPARTIDA"]="Motherson_L1"}).Build();AzurePreflight.Validate(settings);
 var passed=new List<string>();void Check(bool ok,string message){if(!ok)throw new Exception(message);passed.Add(message);}
 await using var app=new SqlConnection(connection);await app.OpenAsync();
+if(args.Contains("--progreso-legado"))
+{
+ Console.WriteLine(JsonSerializer.Serialize(await app.QueryAsync("SELECT a.archivo,a.filas_esperadas,a.completo,(SELECT COUNT_BIG(*) FROM mes.HISTORICO_LEGADO h WITH (READUNCOMMITTED) WHERE h.sha256=a.sha256) filas_observadas FROM mes.ARCHIVO_LEGADO a WITH (READUNCOMMITTED) ORDER BY a.archivo,a.sha256",commandTimeout:60)));return;
+}
 Check(await app.ExecuteScalarAsync<string>("SELECT USER_NAME()") == "portal_app","Conexión real Azure como portal_app");
 Check(await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.BASE_INVENTARIO")==1,"Apertura SQL confirmada");
 Check(await app.ExecuteScalarAsync<bool>("SELECT es_simulado FROM mes.CONFIGURACION WHERE id=1"),"Demostración identificada como simulada");
@@ -47,5 +51,13 @@ if(args.Contains("--transacciones-revertidas"))
   throw new Exception("Un puesto pudo realizar salida");
  }
  catch(SqlException e)when(e.Number==51003){passed.Add("SQL rechaza salida de cuenta de puesto");}
+}
+if(args.Contains("--legado-completo"))
+{
+ Check(await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.HISTORICO_LEGADO")==1456098,"Archivo SQL conserva los 1,456,098 registros aprobados");
+ Check(await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.ARCHIVO_LEGADO WHERE completo=1")==17,"Diecisiete archivos/representaciones confirmados completos");
+ Check(await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.ARCHIVO_LEGADO a WHERE completo=0 OR filas_esperadas<>(SELECT COUNT(*) FROM mes.HISTORICO_LEGADO h WHERE h.sha256=a.sha256)")==0,"Todos los conteos por hash coinciden con la confirmación de archivo");
+ Check(await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.vw_historial_json",commandTimeout:180)==230993,"Historial conserva 230,987 movimientos legados y seis nuevos");
+ Check(await app.ExecuteScalarAsync<int>("SELECT SUM(cantidad) FROM dbo.UBICACION")==10474,"La carga histórica no reaplicó movimientos al saldo actual");
 }
 Console.WriteLine(JsonSerializer.Serialize(new{resultado="CORRECTO",entorno="AZURE_SQL_REAL",fecha=DateTimeOffset.UtcNow,total=passed.Count,casos=passed,conteos=counts,piezas=await app.ExecuteScalarAsync<int>("SELECT SUM(cantidad) FROM dbo.UBICACION"),movimientos=await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.MOVIMIENTO"),ajustes=await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.AJUSTE"),legado=await app.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes.HISTORICO_LEGADO")}));

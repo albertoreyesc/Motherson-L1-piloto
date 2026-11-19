@@ -1,0 +1,14 @@
+{
+  "resultado": "CORRECTO",
+  "entorno": "BACKEND_REAL_SQL_AZURE",
+  "total": 7,
+  "casos": [
+    "Configuración inaccesible sin sesión",
+    "Administrador ve publicación pendiente real",
+    "Solicitud de token sin CSRF rechazada",
+    "Sin cuenta/capacidad no se emite token ni se inventa publicación",
+    "Configuración del endpoint no contiene secretos",
+    "Actualización conserva modo SQL transaccional",
+    "Inventario mantiene las 10,474 piezas"
+  ]
+}

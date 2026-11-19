@@ -1,3 +1,5 @@
+Estado posterior: [actualización e histórico completos del 19/11/2026](ACTUALIZACION_HISTORICO_Y_POWERBI_2026-11-19.md). Power BI sigue pendiente por falta de cuenta/espacio/capacidad.
+
 # Integración transaccional con Azure propio
 
 18/11/2026. Rama local: `integracion/azure-propia`.

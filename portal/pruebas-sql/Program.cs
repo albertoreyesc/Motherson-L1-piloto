@@ -45,7 +45,7 @@ if(args.Contains("--legado"))
   Path.Combine(source,"continuacion-movimientos-compartida/eventos.jsonl"),Path.Combine(source,"continuacion-movimientos/eventos.jsonl")]);
  var plan=LegacyArchive.Validate(files);var expected=plan.Values.Sum();
  var stock=await Value("SELECT COALESCE(SUM(cantidad),0) FROM dbo.UBICACION");
- Check(await LegacyArchive.Import(sql,files)==expected,"Legado completo validado y preservado en SQL real");
+ Check(await LegacyArchive.Import(sql,files,Console.Error.WriteLine)==(args.Contains("--reintento")?0:expected),args.Contains("--reintento")?"Reimportación completa no duplica ninguna fila":"Legado completo validado y preservado en SQL real");
  Check(await Value("SELECT COUNT(*) FROM mes.HISTORICO_LEGADO")==expected,"Conteos por archivo del legado coinciden con el plan");
  Check(await Value("SELECT COUNT(*) FROM mes.vw_historial_json")==230987,"Consulta normalizada conserva 230,976 movimientos y 11 del diario");
  Check(await Value("SELECT COALESCE(SUM(cantidad),0) FROM dbo.UBICACION")==stock,"Migración completa no vuelve a aplicar ningún saldo");

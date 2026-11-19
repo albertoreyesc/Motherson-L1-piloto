@@ -27,3 +27,5 @@ ni al TMDL; definir la red permitida según el despliegue, sin abrir firewall aq
 
 Referencias oficiales: [usuarios contenidos Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql),
 [actualización programada Power BI](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh).
+
+El flujo privado de Dashboard y sus requisitos están documentados en [publicación propia](../documentacion/POWERBI_PUBLICACION_PROPIA.md). La carga histórica ya está archivada y conciliada en Azure; la publicación y una actualización real del PBIX siguen pendientes.

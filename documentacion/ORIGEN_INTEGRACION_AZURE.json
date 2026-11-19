@@ -8,10 +8,25 @@
     "base": "Motherson_L1"
   },
   "datos": "SIMULADOS; carga y apertura ejecutadas el 19/11/2026",
-  "powerbi": "Sin espacio propio; PBIX original sin publicar; parámetros del TMDL adaptados",
+  "powerbi": "Preparado AppOwnsData; publicación bloqueada por falta de cuenta de trabajo/escuela y espacio/capacidad propios",
   "azure_sql_ejecutado": true,
   "sql_local_ejecutado": true,
   "datos_elegidos_usuario": "Demostración simulada",
   "modo_backend": "SQL transaccional mes, sin dependencia de histórico-demo",
-  "informe_ejecucion": "INSTALACION_AZURE_EJECUTADA_2026-11-19.md"
+  "informe_ejecucion": "INSTALACION_AZURE_EJECUTADA_2026-11-19.md",
+  "actualizacion_portal": {
+    "origen": "Motherson-L1-main (3).zip",
+    "sha256": "14a978e1406cbb75c2df156a99b8dbad7f0269b0f09f2e1ed3668d2b67d508e4",
+    "integracion": "Dashboard/KPIs y estilos sobre la rama transaccional, sin sustituir controles Azure"
+  },
+  "historico": {
+    "ejecutado_en_azure": true,
+    "fecha": "2026-11-19",
+    "filas_archivadas": 1456098,
+    "movimientos_legados_consultables": 230987,
+    "movimientos_actuales": 6,
+    "piezas_sin_cambios": 10474,
+    "origen": "Copia local motherson-demo-2026-11-12; fuentes selladas y dos diarios",
+    "reimportacion_filas_nuevas": 0
+  }
 }

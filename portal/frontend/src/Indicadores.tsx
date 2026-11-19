@@ -49,7 +49,7 @@ export function Indicadores({sql=false}:{sql?:boolean}={}){
  const e=datos?.estadoActual,a=datos?.actividad,c=datos?.contexto;
  const lista=e?atencion(e.materiales):[];
  return <>
-  <section className="panel" aria-busy={busy}><h2>Indicadores · Motherson L1</h2><p>Los 10 KPIs de la entrega: cinco de Estado actual y cinco de Actividad logística. El inventario se reconstruye desde su apertura acreditada; la actividad cuenta las atenciones registradas. Los movimientos de material se contabilizan por separado.</p>
+  <section className="panel" aria-busy={busy}><h2>KPIs · Motherson L1</h2><p>Los 10 KPIs de la entrega: cinco de Estado actual y cinco de Actividad logística. El inventario se reconstruye desde su apertura acreditada; la actividad cuenta las atenciones registradas. Los movimientos de material se contabilizan por separado.</p>
    <form className="kpi-filtros" onSubmit={ev=>{ev.preventDefault();void consultar()}}>
     <label className="field">Corte (hora de México)<input type="datetime-local" step="0.001" value={corte} max={hoy.corte} onChange={ev=>setCorte(ev.target.value)} required/></label>
     <label className="field">Actividad desde<input type="date" value={desde} onChange={ev=>setDesde(ev.target.value)} required/></label>

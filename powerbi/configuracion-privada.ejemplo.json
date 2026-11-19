@@ -1,0 +1,11 @@
+{
+  "PowerBI": {
+    "Mode": "AppOwnsData",
+    "CapacityReady": false,
+    "TenantId": "",
+    "ClientId": "",
+    "ClientSecret": "",
+    "WorkspaceId": "",
+    "ReportId": ""
+  }
+}
