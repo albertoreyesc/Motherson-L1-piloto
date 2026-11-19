@@ -151,3 +151,9 @@ La importación Excel mantiene sus pruebas de frontend y se ejerció la aplicaci
 - En la segunda suscripción disponible, Azure subscription 1, se registró Microsoft.Web y se consultó F1 en Canada Central, North Central US, West US 2, East US y France Central: cuota cero. No se crearon recursos allí ni planes pagados.
 - Para desbloquear: en Azure Portal, Suscripción Azure for Students → Usage + quotas / App Service, solicitar **1 instancia F1 Windows en Canada Central**. Si el portal no ofrece solicitud, usar el procedimiento gratuito de soporte de cuota; no aceptar una actualización a pago. No se envió una solicitud de soporte en nombre del usuario. Fuente: https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/troubleshoot-non-zone-redundant-quota-requests .
 - No hay Web App ni URL funcional del piloto. Power BI sigue desactivado. OIDC y publicación del portal pendientes de disponibilidad F1. La rama se publica sin modificar main; el flujo de despliegue no debe ejecutarse hasta contar con Web App y federación configuradas.
+
+### Rama privada publicada
+
+Se comprobó la subida de `piloto/preparacion-gratuita-2026-11-19` a `https://github.com/lita1-coder/Motherson-L1`; el repositorio sigue privado. No se modificó `main`. El historial local de esta entrega proviene de una importación y no tiene ancestro común con `origin/main`: la rama se puede descargar/clonar directamente, pero antes de integrarla hay que revisar y conciliar ambos árboles; no fusionar automáticamente historias. No se abrió un PR ni se ejecutó un despliegue automático.
+
+La cuenta conectada tiene permiso WRITE y no ADMIN. La creación de environments y ciertas variables/protecciones podrían requerir al propietario del repositorio. OIDC todavía no se creó: falta el recurso Web App sobre el que limitar el permiso de despliegue.

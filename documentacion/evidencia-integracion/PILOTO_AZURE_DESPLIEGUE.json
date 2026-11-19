@@ -10,7 +10,12 @@
   "backup": "Local",
   "webAppCreated": false,
   "webBlocker": "F1 quota zero in checked regions; no paid fallback",
-  "githubPushed": false,
+  "githubPushed": true,
   "sqlOperatorFirewallRemoved": true,
-  "originalDatabaseModified": false
+  "originalDatabaseModified": false,
+  "githubRepository": "https://github.com/lita1-coder/Motherson-L1",
+  "githubPrivate": true,
+  "githubBranch": "piloto/preparacion-gratuita-2026-11-19",
+  "githubOidcConfigured": false,
+  "freePlanCreated": false
 }
