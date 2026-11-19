@@ -15,3 +15,5 @@ __pycache__/
 *.tsbuildinfo
 .venv/
 portal/db/azure/privado/
+
+.DS_Store

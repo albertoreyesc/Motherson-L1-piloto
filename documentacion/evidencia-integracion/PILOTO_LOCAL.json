@@ -1,0 +1,25 @@
+{
+  "estado": "APROBADO",
+  "alcance": "SQL local nuevo, no Azure",
+  "comprobaciones": [
+    "Perfil aislado de producci\u00F3n v\u00E1lido",
+    "Servidor existente rechazado",
+    "Tokens de prueba rechazados en Production",
+    "Im\u00E1genes privadas fuera del directorio p\u00FAblico",
+    "Rutas privadas relativas rechazadas",
+    "Administrador compartido rechazado",
+    "Suite limitada a SQL local aislado",
+    "Base local inicialmente vac\u00EDa",
+    "Carga simulada de 10474 piezas",
+    "Aplicaci\u00F3n sin db_owner",
+    "Aplicaci\u00F3n sin actualizaci\u00F3n directa de saldos",
+    "Administrador personal identificado",
+    "Operador personal limitado a su puesto",
+    "Lector sin capturas ni historial global",
+    "No existe acceso admin.local compartido en piloto",
+    "Contrase\u00F1a err\u00F3nea rechazada",
+    "UUID repetido no duplica movimiento",
+    "Operador personal captura entrada y restaura saldo",
+    "Revocaci\u00F3n invalida sesi\u00F3n personal"
+  ]
+}

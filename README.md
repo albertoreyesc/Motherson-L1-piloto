@@ -1,3 +1,9 @@
+# Preparación del piloto de planta — 19/11/2026
+
+Perfil gratuito aislado para PC y tabletas; aproximadamente 80 participantes previstos. **Todavía no desplegado.** Consulta [la guía vigente del piloto](despliegue/piloto/README.md), límites, evidencias, cuentas personales y pasos sujetos a aprobación. La instalación Azure actual no se modifica. Las notas siguientes conservan fases históricas.
+
+---
+
 Estado actual: ZIP (3) integrado, histórico completo cargado en Azure y Dashboard/KPIs actualizados. [Resultado, pruebas y bloqueo de publicación Power BI](documentacion/ACTUALIZACION_HISTORICO_Y_POWERBI_2026-11-19.md).
 
 Estado 19/11/2026: instalación propia aplicada en Azure SQL con demostración y portal local conectado. [Resultado y pendientes](documentacion/INSTALACION_AZURE_EJECUTADA_2026-11-19.md).

@@ -15,6 +15,13 @@ if(args.Contains("--sembrar-pruebas")){await Migration.SeedTests();return;}
 if(args.Contains("--probar-permisos")){await Migration.TestPermissions();return;}
 if(args.Contains("--preparar-accesos-locales")){var i=Array.IndexOf(args,"--preparar-accesos-locales");if(i+1>=args.Length)throw new ArgumentException("Indica la carpeta del portal.");Environment.ExitCode=AzureLocalSetup.Run(args[i+1]);return;}
 var builder=WebApplication.CreateBuilder(args);
+if(args.Contains("--piloto-inicializar")||args.Contains("--piloto-usuario")||args.Contains("--piloto-permisos"))
+{
+    try{if(args.Contains("--piloto-inicializar"))await PilotSetup.Initialize(args,builder.Configuration);else if(args.Contains("--piloto-permisos"))await PilotSetup.Permissions(args,builder.Configuration);else await PilotSetup.User(builder.Configuration);}
+    catch{Console.Error.WriteLine("Aprovisionamiento piloto detenido. Revisa destino, estado vacío y configuración privada; no se muestran credenciales.");Environment.ExitCode=2;}
+    return;
+}
+PilotHosting.Validate(builder.Configuration,builder.Environment);
 if(args.Contains("--migrar-legado")){Environment.ExitCode=await LegacyArchive.Run(args,builder.Configuration);return;}
 if(args.Contains("--cargar-demo")){Environment.ExitCode=await DemoData.Run(args,builder.Configuration);return;}
 if(args.Contains("--diagnostico-azure")){Environment.ExitCode=await AzurePreflight.Run(builder.Configuration,args.Contains("--solo-configuracion"));return;}
@@ -29,15 +36,18 @@ builder.Services.AddHttpClient<PowerBiEmbed>();
 builder.Services.ConfigureHttpJsonOptions(o=>o.SerializerOptions.Converters.Add(new UtcConverter()));
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.Name=cookiePrefix+".Session";o.Cookie.HttpOnly=true;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.ExpireTimeSpan=TimeSpan.FromMinutes(30);o.SlidingExpiration=false;o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
 builder.Services.AddAuthorization();builder.Services.AddAntiforgery(o=>{o.HeaderName="X-XSRF-TOKEN";o.Cookie.Name=cookiePrefix+".Xsrf";o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.HttpOnly=true;});
-builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.AddPolicy("login",c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"local",_=>new FixedWindowRateLimiterOptions{PermitLimit=10,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));});
-var app=builder.Build();var store=app.Services.GetRequiredService<Store>();
+builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.AddPolicy("login",c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"local",_=>new FixedWindowRateLimiterOptions{PermitLimit=builder.Configuration.GetValue<bool>("Pilot:Enabled")?100:10,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));});
+var app=builder.Build();
+if(!app.Environment.IsDevelopment()){app.UseHsts();app.UseHttpsRedirection();}
+var store=app.Services.GetRequiredService<Store>();
 await store.DetectarModelo();
 await store.PrepararContinuacion();
 app.Use(async(ctx,next)=>{ctx.Response.Headers["X-Content-Type-Options"]="nosniff";ctx.Response.Headers["Referrer-Policy"]="no-referrer";ctx.Response.Headers["X-Frame-Options"]="DENY";ctx.Response.Headers["Content-Security-Policy"]="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src https://app.powerbi.com https://*.powerbi.com; frame-ancestors 'none'";if(ctx.Request.Path.StartsWithSegments("/api"))ctx.Response.Headers.CacheControl="no-store";
  try{await next();}catch(Exception ex){var status=ex switch{RuleException r=>r.Status,AntiforgeryValidationException=>400,BadHttpRequestException=>400,SqlException s when s.Number==51001=>401,SqlException s when s.Number==51003=>403,SqlException s when s.Number is 51004 or 51010 or 51011 or 547 or 8115=>400,SqlException s when s.Number is 51009 or 51012 or 2601 or 2627 or 1205=>409,SqlException=>503,_=>500};ctx.Response.StatusCode=status;var message=ex is RuleException?ex.Message:ex is SqlException se&&se.Number>=51000&&se.Number<=51012?se.Message:status==400?"Dato o referencia inválida.":status==503?"SQL Server no está disponible.":"No se confirmó la operación.";app.Logger.LogWarning("Petición {Path}: {Status}",ctx.Request.Path,status);await ctx.Response.WriteAsJsonAsync(new{error=message});}});
 app.UseAuthentication();app.UseAuthorization();app.UseRateLimiter();
 app.Use(async(ctx,next)=>{if(ctx.Request.Path.StartsWithSegments("/api")&&HttpMethods.IsPost(ctx.Request.Method))await ctx.RequestServices.GetRequiredService<IAntiforgery>().ValidateRequestAsync(ctx);await next();});
-app.MapGet("/api/health",async()=>{await using var c=await store.Open();return Results.Ok(new{api="ok",sql="ok",baseDatos=c.Database,simulado=true});});
+app.MapGet("/health/live",()=>Results.Ok(new{status="ok"}));
+app.MapGet("/api/health",async()=>{await using var c=await store.Open();return Results.Ok(new{api="ok",sql="ok",baseDatos=c.Database,simulado=true});}).RequireAuthorization();
 app.MapGet("/api/auth/csrf",(HttpContext c,IAntiforgery af)=>Results.Ok(new{token=af.GetAndStoreTokens(c).RequestToken}));
 app.MapPost("/api/auth/login",async(LoginInput input,HttpContext ctx)=>{var actor=await store.Login(input);if(actor is null)return Results.Json(new{error="Credenciales inválidas."},statusCode:401);await ctx.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity([new Claim(ClaimTypes.NameIdentifier,actor.Id.ToString()),new Claim("tipo_cuenta",actor.TipoCuenta),new Claim("sello_acceso",actor.SelloAcceso??"")],CookieAuthenticationDefaults.AuthenticationScheme)));return Results.Ok(new{authenticated=true});}).RequireRateLimiting("login");
 app.MapPost("/api/auth/logout",async Task<IResult>(HttpContext c)=>{await c.SignOutAsync();return Results.Ok();}).RequireAuthorization();

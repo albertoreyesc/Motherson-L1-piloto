@@ -22,6 +22,10 @@ def run_compartida(args):
     if not admin.exists():raise SystemExit('Falta la configuración privada de admin.local (admin-puestos-Motherson_L1.json).')
     env=os.environ.copy();env.update(MVP_ROOT=str(ROOT),MVP_DATABASE=base.group(1).strip(),MVP_BASE_COMPARTIDA=base.group(1).strip(),MVP_AZURE_SERVER="motherson-l1-equipo.database.windows.net",MVP_SQL_TRANSACCIONAL="true",ConnectionStrings__Sql=cadena,ASPNETCORE_URLS='http://127.0.0.1:'+str(args.puerto),ASPNETCORE_ENVIRONMENT='Development',MVP_ADMIN_PUESTOS_HASH=json.loads(admin.read_text(encoding='utf-8'))['hash'])
     runtime=ROOT/'.local/dotnet/dotnet'
+    powerbi=ROOT/'.local/powerbi-privado.json'
+    if powerbi.exists():
+        for key,value in json.loads(powerbi.read_text(encoding='utf-8'))['PowerBI'].items():
+            env['PowerBI__'+key]=str(value).lower() if isinstance(value,bool) else str(value)
     dll=ROOT/'backend/Motherson.Api/bin/Debug/net10.0/Motherson.Api.dll'
     if runtime.exists() and dll.exists():
         return subprocess.call([str(runtime),str(dll)],cwd=ROOT/'backend/Motherson.Api',env=env)

@@ -9,7 +9,8 @@ namespace Motherson;
 public sealed class PowerBiEmbed(IConfiguration configuration,HttpClient http,TokenCredential? credential=null)
 {
     public static bool Configurado(IConfiguration c) => c["PowerBI:Mode"]=="AppOwnsData"
-        && c.GetValue<bool>("PowerBI:CapacityReady")
+        && (c.GetValue<bool>("PowerBI:CapacityReady")
+            || (c["ASPNETCORE_ENVIRONMENT"]=="Development" && c.GetValue<bool>("PowerBI:AllowTrialTokens")))
         && new[]{"TenantId","ClientId","WorkspaceId","ReportId"}.All(k=>Guid.TryParse(c["PowerBI:"+k],out var id)&&id!=Guid.Empty)
         && !string.IsNullOrWhiteSpace(c["PowerBI:ClientSecret"]);
     public static bool EmbedUrlValida(string? url) => Uri.TryCreate(url,UriKind.Absolute,out var u)

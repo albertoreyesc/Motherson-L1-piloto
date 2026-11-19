@@ -1,0 +1,10 @@
+{
+  "estado": "PREPARADO_NO_DESPLEGADO",
+  "zip_sha256": "802af763ab84467fc48f11afb657e61221dc42d3b3615d452e702e4afe18ca89",
+  "zip_bytes": 6436584,
+  "bicep": "Compilado localmente; validacion ARM remota pendiente",
+  "plan": "F1",
+  "sql_useFreeLimit": true,
+  "sql_freeLimitExhaustionBehavior": "AutoPause",
+  "sql_original_modificado": false
+}

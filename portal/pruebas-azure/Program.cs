@@ -37,6 +37,9 @@ var settings=new Dictionary<string,string?>{["PowerBI:Mode"]="AppOwnsData",["Pow
 IConfiguration Options()=>new ConfigurationBuilder().AddInMemoryCollection(settings).Build();
 Check(PowerBiEmbed.Configurado(Options()),"Configuración completa rechazada");
 settings["PowerBI:CapacityReady"]="false";Check(!PowerBiEmbed.Configurado(Options()),"Capacidad sin acreditar aceptada");
+settings["PowerBI:AllowTrialTokens"]="true";settings["ASPNETCORE_ENVIRONMENT"]="Production";Check(!PowerBiEmbed.Configurado(Options()),"Tokens de prueba aceptados en producción");
+settings["ASPNETCORE_ENVIRONMENT"]="Development";Check(PowerBiEmbed.Configurado(Options()),"Tokens de prueba rechazados en desarrollo");
+settings.Remove("PowerBI:AllowTrialTokens");settings.Remove("ASPNETCORE_ENVIRONMENT");
 using(var fake=new FakePowerBi())using(var http=new HttpClient(fake))
 {
  try{await new PowerBiEmbed(Options(),http,new FakeCredential()).Generar(default);throw new Exception("Se emitió acceso sin configuración");}catch(RuleException e)when(e.Status==503){Check(fake.Requests==0,"Se consultó Power BI sin configuración");}

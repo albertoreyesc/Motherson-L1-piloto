@@ -23,7 +23,15 @@ public sealed partial class Store(IConfiguration configuration){
  // Base compartida (Azure del Equipo 2): se autoriza por nombre con MVP_BASE_COMPARTIDA. Sin esa variable nada cambia.
  public static bool EsBaseCompartida(string db,IConfiguration cfg)=>cfg["MVP_BASE_COMPARTIDA"] is {Length:>0} b&&string.Equals(db,b,StringComparison.OrdinalIgnoreCase);
  public static bool BaseAutorizada(string db,IConfiguration cfg)=>db is "Motherson_L1_MVP_Desarrollo" or "Motherson_L1_MVP_Pruebas" or HistoricoDemo.Base||EsBaseCompartida(db,cfg);
- public async Task<SqlConnection> Open(){var c=new SqlConnection(configuration.GetConnectionString("Sql")??throw new RuleException("Falta conexión SQL.",503));await c.OpenAsync();if(!BaseAutorizada(c.Database,configuration)){await c.DisposeAsync();throw new RuleException("Base MVP no autorizada.",503);}return c;}
+ public async Task<SqlConnection> Open(){
+  var text=configuration.GetConnectionString("Sql")??throw new RuleException("Falta conexión SQL.",503);
+  for(var attempt=0;;attempt++){
+   var c=new SqlConnection(text);
+   try{await c.OpenAsync();if(!BaseAutorizada(c.Database,configuration))throw new RuleException("Base MVP no autorizada.",503);return c;}
+   catch(SqlException e)when(configuration.GetValue<bool>("Pilot:Enabled")&&e.Number==40613&&attempt<5){await c.DisposeAsync();await Task.Delay(TimeSpan.FromSeconds(Math.Min(16,2*(1<<attempt))));}
+   catch{await c.DisposeAsync();throw;}
+  }
+ }
  public async Task<Cuenta> Actor(int id,string tipo="USUARIO",string? sello=null){
   if(ModeloPuestos)return await ActorPuesto(id,tipo,sello);
   if(tipo!="USUARIO")throw new RuleException("Sesión inválida.",401);
@@ -41,7 +49,7 @@ public sealed partial class Store(IConfiguration configuration){
  }
  public async Task<IEnumerable<dynamic>> Query(string sql,object? args=null){await using var c=await Open();return await c.QueryAsync(sql,args);}
  static object? AtributosCatalogo(){
-  var root=Environment.GetEnvironmentVariable("MVP_ROOT");if(root is null)return null;var path=Path.Combine(root,"config","catalogo-documentado.json");
+  var root=Environment.GetEnvironmentVariable("MVP_ROOT");if(root is null)return null;var path=Path.Combine(root,"config","catalogo-documentado.json");if(!File.Exists(path))path=Path.Combine(AppContext.BaseDirectory,"config","catalogo-documentado.json");
   try{return File.Exists(path)?JsonSerializer.Deserialize<JsonElement>(File.ReadAllText(path)):null;}catch(IOException){return null;}catch(JsonException){return null;}
  }
  public async Task<object> Catalog(Cuenta actor){if(ModeloPuestos)return await CatalogoPuestos(actor);await using var c=await Open();return new{atributos=AtributosCatalogo(),materiales=await c.QueryAsync("SELECT m.numero_parte,m.id_puesto,m.descripcion,m.uso,m.cantidad_por_caja,m.minimo,p.nombre puesto FROM dbo.MATERIAL m JOIN dbo.PUESTO_LOGISTICO p ON p.id_puesto=m.id_puesto ORDER BY numero_parte"),estaciones=await c.QueryAsync("SELECT * FROM dbo.ESTACION ORDER BY nombre_estacion"),estanterias=await c.QueryAsync("SELECT * FROM dbo.ESTANTERIA ORDER BY id_estacion,estanteria,nivel"),puestos=await c.QueryAsync("SELECT id_puesto,nombre,tipo FROM dbo.PUESTO_LOGISTICO ORDER BY nombre"),turnos=await c.QueryAsync("SELECT id_turno,nombre_turno,CONVERT(varchar(8),hora_inicio) hora_inicio,CONVERT(varchar(8),hora_fin) hora_fin FROM dbo.TURNO ORDER BY hora_inicio"),corte=await c.QuerySingleAsync("SELECT maestro,revision,corte_fuente,fecha_carga,sellado FROM archivo.CORTE")};}

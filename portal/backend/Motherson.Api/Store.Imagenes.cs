@@ -13,7 +13,7 @@ public sealed partial class Store
     static readonly string[] ExtensionesImagen = [".png", ".jpg"];
     static readonly byte[] FirmaPng = [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A];
 
-    string CarpetaImagenes => Path.Combine(Raiz, ".local", "imagenes-materiales");
+    string CarpetaImagenes => configuration["MVP_IMAGES_PATH"] ?? Path.Combine(Raiz, ".local", "imagenes-materiales");
 
     /// El número de parte puede tener espacios y sufijos: el nombre del archivo es su SHA-256.
     static string NombreImagen(string parte) =>

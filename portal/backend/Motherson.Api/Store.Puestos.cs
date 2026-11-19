@@ -65,6 +65,7 @@ public sealed partial class Store
 
     async Task<Cuenta?> LoginPuesto(LoginInput input)
     {
+        if (configuration.GetValue<bool>("Pilot:Enabled")) return await LoginPiloto(input);
         if (input.Username.Equals(AdminLocal, StringComparison.OrdinalIgnoreCase))
         {
             var admin = AdminPuestos();
@@ -83,6 +84,7 @@ public sealed partial class Store
 
     async Task<Cuenta> ActorPuesto(int id, string tipo, string? sello)
     {
+        if (configuration.GetValue<bool>("Pilot:Enabled")) return await ActorPiloto(id,tipo,sello);
         Cuenta? cuenta = null;
         if (tipo == "ADMIN_PUESTOS" && id == 0)
             cuenta = AdminPuestos();
@@ -101,6 +103,7 @@ public sealed partial class Store
 
     public async Task GuardarAcceso(AccesoPuestoInput input)
     {
+        if (configuration.GetValue<bool>("Pilot:Enabled")) throw new RuleException("En el piloto se administran cuentas individuales mediante el aprovisionamiento privado.",403);
         string? usuario = null;
         string? hash = null;
         if (input.Puesto <= 0) throw new RuleException("Selecciona un puesto válido.", 400);

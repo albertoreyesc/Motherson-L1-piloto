@@ -15,16 +15,26 @@ public static class AzurePreflight
         var text = configuration.GetConnectionString("Sql");
         if (string.IsNullOrWhiteSpace(text)) throw new InvalidOperationException("Falta ConnectionStrings__Sql.");
         var connection = new SqlConnectionStringBuilder(text);
+        var expectedServer = ExpectedServer(configuration);
         var host = connection.DataSource.StartsWith("tcp:", StringComparison.OrdinalIgnoreCase)
             ? connection.DataSource[4..] : connection.DataSource;
-        if (!host.Equals(Server, StringComparison.OrdinalIgnoreCase) &&
-            !host.Equals(Server + ",1433", StringComparison.OrdinalIgnoreCase))
+        if (!host.Equals(expectedServer, StringComparison.OrdinalIgnoreCase) &&
+            !host.Equals(expectedServer + ",1433", StringComparison.OrdinalIgnoreCase))
             throw new InvalidOperationException("La conexión no apunta al servidor Azure acordado.");
         if (connection.InitialCatalog != Database || configuration["MVP_BASE_COMPARTIDA"] != Database)
             throw new InvalidOperationException("La conexión y MVP_BASE_COMPARTIDA deben usar Motherson_L1.");
         if (connection.TrustServerCertificate || connection.Encrypt == SqlConnectionEncryptOption.Optional)
             throw new InvalidOperationException("Azure requiere cifrado y validación del certificado.");
         return connection;
+    }
+
+    public static string ExpectedServer(IConfiguration c)
+    {
+        if (!c.GetValue<bool>("Pilot:Enabled")) return Server;
+        var host = c["MVP_AZURE_SERVER"] ?? "";
+        if (!System.Text.RegularExpressions.Regex.IsMatch(host, @"^motherson-piloto-[a-z0-9-]+\.database\.windows\.net$") || host == Server)
+            throw new InvalidOperationException("El piloto requiere un servidor independiente con prefijo motherson-piloto-.");
+        return host;
     }
 
     public static async Task<int> Run(IConfiguration configuration, bool configurationOnly)

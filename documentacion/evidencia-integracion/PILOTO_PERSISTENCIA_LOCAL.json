@@ -1,0 +1,9 @@
+{
+  "estado": "APROBADO",
+  "alcance": "Reinicio backend local; no App Service",
+  "checks": [
+    "Sesion conservada con claves persistentes",
+    "Imagen privada conservada",
+    "10474 piezas conservadas en SQL"
+  ]
+}

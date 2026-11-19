@@ -75,3 +75,12 @@ consultarlo temporalmente se necesita su permiso; no equivale a publicación pro
 - [Permisos y tokens](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-tokens).
 - [Renovación de token](https://learn.microsoft.com/en-us/javascript/api/overview/powerbi/refresh-token).
 - [Publicar en web hace público el informe](https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web).
+
+
+## Prueba real del backend — 19 de noviembre de 2026
+
+El usuario publicó Motherson en su espacio 851cabfa-9a0e-43ef-a5b0-88576f9201b7, confirmó actualización exitosa y agregó la aplicación como Member. Informe: 561bace1-3a3f-4671-b8e3-9eaf4b90a00c. Las capturas muestran 10,474 piezas, 85 materiales y 1,146 reabastecimientos en la semana seleccionada.
+
+Se verificaron autenticación de aplicación, consulta del informe y generación de token real. El portal local devolvió HTTP 200 tanto en el estado privado como en POST /api/dashboard/embed-token, usando sesión y protección CSRF. El secreto solo vive en portal/.local/powerbi-privado.json (permisos 600, ignorado por Git). El lanzador local carga esa configuración en variables de entorno. No se guarda ningún token en la evidencia.
+
+AllowTrialTokens permite desarrollo solamente cuando ASPNETCORE_ENVIRONMENT=Development. CapacityReady sigue false: no se ha adquirido ni acreditado capacidad de producción. Dos comprobaciones adicionales verifican que la excepción de prueba no funciona en Production; las 25 comprobaciones locales pasaron. Falta comprobar visualmente el informe incrustado en el navegador. La prueba puede estar sujeta al límite de tokens de evaluación de Microsoft. Antes de producción, reemplazar la credencial compartida en el chat por una nueva y configurar capacidad compatible.

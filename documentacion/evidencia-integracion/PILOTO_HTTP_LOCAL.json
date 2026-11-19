@@ -1,0 +1,40 @@
+{
+  "estado": "APROBADO",
+  "checks": [
+    "Inventario requiere sesión",
+    "Estado SQL no expuesto anónimamente",
+    "CSRF ausente rechazado",
+    "Power BI pendiente no interrumpe el portal",
+    "Inventario piloto concilia con simulados",
+    "Repetición HTTP devuelve comprobante idéntico",
+    "Entrada compensatoria confirmada",
+    "Capturas concurrentes detectan conflicto sin doble descuento",
+    "Saldo restaurado tras conflicto concurrente",
+    "Historial de movimientos accesible a administración",
+    "Filtros de KPIs disponibles",
+    "Cambio de catálogo confirmado con cuenta personal",
+    "Catálogo restaurado mediante ajuste trazable",
+    "Capacidad ajustada con cuenta personal",
+    "Capacidad restaurada con ajuste trazable",
+    "Imagen subida a almacenamiento privado",
+    "Imagen consultable con sesión",
+    "Imagen de prueba eliminada por administración",
+    "Lector sin historial global",
+    "Lector sin escritura",
+    "Lector no sube imágenes",
+    "Operador sin Dashboard global",
+    "Operador sin administración de accesos",
+    "80 sesiones locales consultan inventario concurrentemente",
+    "Cerrar sesión impide nuevas consultas autenticadas",
+    "Consulta de KPIs con corte posterior a apertura",
+    "Exportación de KPIs autenticada"
+  ],
+  "carga": {
+    "sesiones": 80,
+    "solicitudes": 80,
+    "concurrencia_maxima_cliente": 80,
+    "p95_segundos": 0.178,
+    "max_segundos": 0.188,
+    "alcance": "LOCAL; no certifica Azure F1 ni dispositivos de planta"
+  }
+}
