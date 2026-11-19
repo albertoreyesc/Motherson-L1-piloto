@@ -6,7 +6,7 @@ namespace Motherson;
 // El enlace NO se guarda en el código ni en GitHub: se lee de la variable MVP_POWERBI_URL
 // o del archivo privado .local/dashboard-equipo2.json con la forma {"url":"https://app.powerbi.com/..."}.
 // Solo se aceptan enlaces https de Power BI, para que el portal no incruste otros sitios.
-public sealed record DashboardEquipo2(bool Configurado, string? Url, string Modo="sesion_microsoft", string? Motivo=null);
+public sealed record DashboardEquipo2(bool Configurado, string? Url, string Modo="sesion_microsoft", string? Motivo=null, string? AvisoDatos=null);
 
 public sealed partial class Store
 {
@@ -26,7 +26,7 @@ public sealed partial class Store
         if (string.IsNullOrWhiteSpace(url)) return new(false, null);
         if (!EsEnlacePowerBi(url))
             throw new RuleException("El enlace del dashboard debe ser un enlace https de Power BI (app.powerbi.com).", 503);
-        return new(true, url.Trim());
+        return new(true, url.Trim(), AvisoDatos: configuration["PowerBI:DataNotice"]);
     }
 
     public static bool EsEnlacePowerBi(string url) => PowerBiEmbed.EmbedUrlValida(url.Trim());

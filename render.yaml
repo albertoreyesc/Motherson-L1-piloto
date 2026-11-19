@@ -19,7 +19,11 @@ services:
       - key: MVP_BASE_COMPARTIDA
         value: Motherson_L1
       - key: PowerBI__Mode
-        value: AppOwnsData
+        value: UserOwnsData
+      - key: MVP_POWERBI_URL
+        sync: false
+      - key: PowerBI__DataNotice
+        value: 'Informe histórico de demostración conectado a la base original. Las capturas de este piloto se guardan en otra base y todavía no aparecen en Power BI. Actualización del modelo: manual.'
       - key: PowerBI__AllowTrialTokens
         value: 'false'
       - key: PowerBI__CapacityReady

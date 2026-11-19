@@ -16,3 +16,10 @@ El alojamiento es gratuito y puede tardar en despertar tras un periodo sin uso. 
 Para una incidencia indica sección, hora aproximada, material/ubicación y mensaje mostrado. No compartas contraseñas, cookies, tokens ni fotografías con información de planta.
 
 Las altas, roles y revocaciones las gestiona el responsable del piloto. La lista de participantes reales está pendiente; las cuentas usadas para verificar permisos ya fueron desactivadas.
+
+
+## Dashboard original de Power BI
+
+Se conserva el informe original con las páginas Crítico por Surtir, Desempeño semanal y Diagnóstico. Power BI solicita una sesión Microsoft individual con permiso para ese informe y licencia admitida. La cuenta del portal no concede acceso a Power BI. Si el navegador bloquea la autenticación dentro del cuadro, usar «Abrir en otra pestaña». No compartir la cuenta de demostración. En un dispositivo compartido, cerrar tanto el portal como Microsoft.
+
+El informe muestra la base original de demostración, con actualización manual del modelo. Las capturas del piloto están en una base separada y no aparecerán en el informe hasta preparar y conciliar una copia del modelo para el piloto. «Recargar informe» solo vuelve a mostrar el modelo disponible.

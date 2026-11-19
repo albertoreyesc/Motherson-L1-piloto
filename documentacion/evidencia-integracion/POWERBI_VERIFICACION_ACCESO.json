@@ -1,0 +1,79 @@
+{
+  "workspace": {
+    "id": "851cabfa-9a0e-43ef-a5b0-88576f9201b7",
+    "name": "Motherson L1",
+    "isOnDedicatedCapacity": false,
+    "capacityId": null
+  },
+  "capacities": [
+    {
+      "id": "0668305c-2646-4918-b24c-dc82f7f9584c",
+      "displayName": "Premium Per User - Reserved",
+      "sku": "PP3",
+      "state": "Active"
+    }
+  ],
+  "report": {
+    "id": "561bace1-3a3f-4671-b8e3-9eaf4b90a00c",
+    "name": "Motherson",
+    "datasetId": "22d01542-205e-48da-a3a3-2d5988621954"
+  },
+  "sources": [
+    {
+      "datasourceType": "Sql",
+      "connectionDetails": {
+        "server": "motherson-l1-equipo.database.windows.net",
+        "database": "motherson_l1"
+      }
+    }
+  ],
+  "refreshes": [
+    {
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-19T08:09:24.487Z",
+      "endTime": "2026-11-19T08:09:28.75Z",
+      "status": "Completed"
+    },
+    {
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-19T08:09:11.47Z",
+      "endTime": "2026-11-19T08:09:16.44Z",
+      "status": "Completed"
+    },
+    {
+      "refreshType": "OnDemand",
+      "startTime": "2026-11-19T08:06:58.097Z",
+      "endTime": "2026-11-19T08:07:05.91Z",
+      "status": "Completed"
+    }
+  ],
+  "refreshSchedule": {
+    "enabled": false,
+    "days": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "times": [
+      "17:00"
+    ],
+    "localTimeZoneId": "UTC"
+  },
+  "date": "2026-11-19",
+  "scope": "Espacio accesible por la identidad del proyecto, no todo el tenant corporativo de Motherson",
+  "accountLicenseObserved": "Free account; Power BI trial 59 days left",
+  "corporateAccountsProvided": false,
+  "backendTrialTokensEnabled": false,
+  "capacityReady": false,
+  "purchasedResources": false,
+  "uiReportPagesVerified": [
+    "Crítico por Surtir",
+    "Desempeño semanal",
+    "Diagnóstico"
+  ],
+  "pilotDataSynchronized": false
+}
