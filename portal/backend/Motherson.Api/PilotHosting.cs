@@ -10,7 +10,11 @@ public static class PilotHosting
         AzurePreflight.Validate(c);
         if(c.GetValue<bool>("PowerBI:AllowTrialTokens")) throw new InvalidOperationException("No se admiten tokens de evaluación en el piloto publicado.");
         if(!string.IsNullOrEmpty(c["MVP_ADMIN_PUESTOS_HASH"])) throw new InvalidOperationException("El piloto requiere cuentas personales, sin admin.local compartido.");
-        foreach(var key in new[]{"MVP_ROOT","MVP_KEYS_PATH","MVP_IMAGES_PATH"})
+        var sql=c.GetValue<bool>("Pilot:SqlPersistence");
+        if(sql&&(string.IsNullOrWhiteSpace(c["Pilot:KeyEncryptionCertificate"])||string.IsNullOrWhiteSpace(c["Pilot:KeyEncryptionPassword"])))
+            throw new InvalidOperationException("Falta el certificado privado para proteger las claves persistentes.");
+        if(c.GetValue<bool>("Pilot:LoopbackProxy")&&!sql)throw new InvalidOperationException("El alojamiento efímero requiere persistencia SQL.");
+        foreach(var key in sql?new[]{"MVP_ROOT"}:new[]{"MVP_ROOT","MVP_KEYS_PATH","MVP_IMAGES_PATH"})
         {
             var path=c[key];
             if(string.IsNullOrWhiteSpace(path)||!Path.IsPathFullyQualified(path)) throw new InvalidOperationException("Falta una ruta persistente absoluta del piloto.");

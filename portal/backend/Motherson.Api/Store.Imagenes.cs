@@ -31,6 +31,7 @@ public sealed partial class Store
     /// Versión por material para refrescar la imagen en el navegador cuando se reemplaza.
     internal Dictionary<string, long> VersionesImagenes(IEnumerable<string> partes)
     {
+        if (AlmacenamientoSql) return VersionesImagenesSql(partes);
         var versiones = new Dictionary<string, long>(StringComparer.Ordinal);
         if (configuration["MVP_ROOT"] is null) return versiones;
         foreach (var parte in partes)
@@ -51,6 +52,12 @@ public sealed partial class Store
     public async Task<IResult> Imagen(Cuenta actor, string? parte)
     {
         var material = await MaterialAutorizado(actor, parte);
+        if (AlmacenamientoSql)
+        {
+            await using var c=await Open();
+            var imagen=await c.QuerySingleOrDefaultAsync<ImagenSql>("SELECT contenido Contenido,tipo Tipo,version Version FROM mes.IMAGEN_PILOTO WHERE numero_parte=@material",new{material});
+            return imagen is null?throw new RuleException("El material no tiene imagen.",404):Results.File(imagen.Contenido,imagen.Tipo);
+        }
         var ruta = RutaImagen(material) ?? throw new RuleException("El material no tiene imagen.", 404);
         return Results.File(ruta, ruta.EndsWith(".png", StringComparison.Ordinal) ? "image/png" : "image/jpeg");
     }
@@ -70,6 +77,12 @@ public sealed partial class Store
         var datos = memoria.ToArray();
         var extension = TipoImagen(datos) ?? throw new RuleException("Solo se aceptan imágenes PNG o JPG.", 400);
 
+        if (AlmacenamientoSql)
+        {
+            await using var c=await Open();
+            var version=await c.ExecuteScalarAsync<long>(new CommandDefinition("mes.GuardarImagenPiloto",new{parte=material,contenido=datos,tipo=extension==".png"?"image/png":"image/jpeg"},commandType:System.Data.CommandType.StoredProcedure,cancellationToken:token));
+            return new {numero_parte=material,version};
+        }
         Directory.CreateDirectory(CarpetaImagenes);
         var destino = Path.Combine(CarpetaImagenes, NombreImagen(material) + extension);
         var temporal = destino + "." + Guid.NewGuid().ToString("N") + ".tmp";
@@ -84,6 +97,12 @@ public sealed partial class Store
     public async Task<object> EliminarImagen(Cuenta actor, string? parte)
     {
         var material = await MaterialAutorizado(actor, parte);
+        if (AlmacenamientoSql)
+        {
+            await using var c=await Open();
+            await c.ExecuteAsync("mes.EliminarImagenPiloto",new{parte=material},commandType:System.Data.CommandType.StoredProcedure);
+            return new {numero_parte=material,eliminada=true};
+        }
         foreach (var e in ExtensionesImagen) File.Delete(Path.Combine(CarpetaImagenes, NombreImagen(material) + e));
         return new { numero_parte = material, eliminada = true };
     }

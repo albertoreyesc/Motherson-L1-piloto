@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.HttpOverrides;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.Data.SqlClient;
 using Motherson;
 if(args.Contains("--migrar")){await Migration.Run(args);return;}
@@ -15,10 +18,10 @@ if(args.Contains("--sembrar-pruebas")){await Migration.SeedTests();return;}
 if(args.Contains("--probar-permisos")){await Migration.TestPermissions();return;}
 if(args.Contains("--preparar-accesos-locales")){var i=Array.IndexOf(args,"--preparar-accesos-locales");if(i+1>=args.Length)throw new ArgumentException("Indica la carpeta del portal.");Environment.ExitCode=AzureLocalSetup.Run(args[i+1]);return;}
 var builder=WebApplication.CreateBuilder(args);
-if(args.Contains("--piloto-inicializar")||args.Contains("--piloto-usuario")||args.Contains("--piloto-permisos"))
+if(args.Contains("--piloto-inicializar")||args.Contains("--piloto-usuario")||args.Contains("--piloto-permisos")||args.Contains("--piloto-almacenamiento"))
 {
-    try{if(args.Contains("--piloto-inicializar"))await PilotSetup.Initialize(args,builder.Configuration);else if(args.Contains("--piloto-permisos"))await PilotSetup.Permissions(args,builder.Configuration);else await PilotSetup.User(builder.Configuration);}
-    catch{Console.Error.WriteLine("Aprovisionamiento piloto detenido. Revisa destino, estado vacío y configuración privada; no se muestran credenciales.");Environment.ExitCode=2;}
+    try{if(args.Contains("--piloto-inicializar"))await PilotSetup.Initialize(args,builder.Configuration);else if(args.Contains("--piloto-permisos"))await PilotSetup.Permissions(args,builder.Configuration);else if(args.Contains("--piloto-almacenamiento"))await PilotSetup.Storage(args,builder.Configuration);else await PilotSetup.User(builder.Configuration);}
+    catch(Exception ex){Console.Error.WriteLine("Aprovisionamiento piloto detenido. Tipo: "+ex.GetType().Name+(ex is SqlException se?"; SQL "+se.Number:"")+". Revisa el destino y la configuración privada; no se muestran credenciales.");Environment.ExitCode=2;}
     return;
 }
 PilotHosting.Validate(builder.Configuration,builder.Environment);
@@ -29,8 +32,22 @@ if(!string.IsNullOrWhiteSpace(builder.Configuration["MVP_AZURE_SERVER"])) AzureP
 var database=new SqlConnectionStringBuilder(builder.Configuration.GetConnectionString("Sql")??throw new InvalidOperationException("Falta conexión SQL del MVP.")).InitialCatalog;
 if(!Store.BaseAutorizada(database,builder.Configuration))throw new InvalidOperationException("Base MVP no autorizada.");
 var cookiePrefix="Motherson.L1.MVP.AccesoPuestoV1."+database;
-var keys=Directory.CreateDirectory(builder.Configuration["MVP_KEYS_PATH"]??Path.Combine(builder.Environment.ContentRootPath,".local","keys"));if(!OperatingSystem.IsWindows())File.SetUnixFileMode(keys.FullName,UnixFileMode.UserRead|UnixFileMode.UserWrite|UnixFileMode.UserExecute);
-builder.Services.AddDataProtection().SetApplicationName(cookiePrefix).PersistKeysToFileSystem(keys);
+var protection=builder.Services.AddDataProtection().SetApplicationName(cookiePrefix);
+if(builder.Configuration.GetValue<bool>("Pilot:SqlPersistence")&&builder.Configuration.GetValue<bool>("Pilot:Enabled"))
+{
+    builder.Services.Configure<KeyManagementOptions>(o=>o.XmlRepository=new PilotKeyRepository(builder.Configuration));
+    var cert=X509CertificateLoader.LoadPkcs12(Convert.FromBase64String(builder.Configuration["Pilot:KeyEncryptionCertificate"]!),builder.Configuration["Pilot:KeyEncryptionPassword"],OperatingSystem.IsMacOS()?X509KeyStorageFlags.DefaultKeySet:X509KeyStorageFlags.EphemeralKeySet);
+    if(!cert.HasPrivateKey||cert.NotAfter.ToUniversalTime()<=DateTime.UtcNow)throw new InvalidOperationException("El certificado de protección debe estar vigente y contener su clave privada.");
+    protection.ProtectKeysWithCertificate(cert);
+}
+else
+{
+    var keys=Directory.CreateDirectory(builder.Configuration["MVP_KEYS_PATH"]??Path.Combine(builder.Environment.ContentRootPath,".local","keys"));
+    if(!OperatingSystem.IsWindows())File.SetUnixFileMode(keys.FullName,UnixFileMode.UserRead|UnixFileMode.UserWrite|UnixFileMode.UserExecute);
+    protection.PersistKeysToFileSystem(keys);
+}
+if(builder.Configuration.GetValue<bool>("Pilot:LoopbackProxy"))
+    builder.Services.Configure<ForwardedHeadersOptions>(o=>{o.ForwardedHeaders=ForwardedHeaders.XForwardedProto;o.ForwardLimit=1;});
 builder.Services.AddSingleton<Store>();
 builder.Services.AddHttpClient<PowerBiEmbed>();
 builder.Services.ConfigureHttpJsonOptions(o=>o.SerializerOptions.Converters.Add(new UtcConverter()));
@@ -38,6 +55,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization();builder.Services.AddAntiforgery(o=>{o.HeaderName="X-XSRF-TOKEN";o.Cookie.Name=cookiePrefix+".Xsrf";o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.HttpOnly=true;});
 builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.AddPolicy("login",c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"local",_=>new FixedWindowRateLimiterOptions{PermitLimit=builder.Configuration.GetValue<bool>("Pilot:Enabled")?100:10,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));});
 var app=builder.Build();
+if(builder.Configuration.GetValue<bool>("Pilot:LoopbackProxy"))app.UseForwardedHeaders();
 if(!app.Environment.IsDevelopment()){app.UseHsts();app.UseHttpsRedirection();}
 var store=app.Services.GetRequiredService<Store>();
 await store.DetectarModelo();

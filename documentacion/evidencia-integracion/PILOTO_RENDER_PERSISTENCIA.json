@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-19",
+  "scope": "Backend local Production HTTPS con certificado verificado y Azure SQL piloto; no certifica hosting Render",
+  "checks": [
+    "Inventario requiere cuenta",
+    "Inicio de sesi\u00f3n Production por HTTPS verificado",
+    "Cookies Secure y SameSite Strict",
+    "CSRF obligatorio en Production",
+    "Inventario Azure SQL simulado conciliado",
+    "Material de prueba inicialmente sin foto",
+    "Imagen guardada con cuenta SQL restringida",
+    "Imagen recuperada desde SQL",
+    "Versiones de im\u00e1genes SQL disponibles",
+    "No se guardaron fotos ni claves en disco ef\u00edmero",
+    "Cookie v\u00e1lida tras reiniciar y recuperar claves cifradas de SQL",
+    "Imagen persiste tras reiniciar",
+    "Eliminaci\u00f3n autorizada de la imagen de prueba",
+    "Dashboard indica capacidad pendiente",
+    "Cierre de sesi\u00f3n revoca acceso"
+  ]
+}
