@@ -7,10 +7,11 @@
     "servidor": "motherson-l1-equipo.database.windows.net",
     "base": "Motherson_L1"
   },
-  "datos": "SIMULADOS; carga no ejecutada",
+  "datos": "SIMULADOS; carga y apertura ejecutadas el 19/11/2026",
   "powerbi": "Sin espacio propio; PBIX original sin publicar; parámetros del TMDL adaptados",
-  "azure_sql_ejecutado": false,
+  "azure_sql_ejecutado": true,
   "sql_local_ejecutado": true,
   "datos_elegidos_usuario": "Demostración simulada",
-  "modo_backend": "SQL transaccional mes, sin dependencia de histórico-demo"
+  "modo_backend": "SQL transaccional mes, sin dependencia de histórico-demo",
+  "informe_ejecucion": "INSTALACION_AZURE_EJECUTADA_2026-11-19.md"
 }

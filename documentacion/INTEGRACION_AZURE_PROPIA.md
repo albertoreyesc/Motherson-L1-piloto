@@ -4,7 +4,8 @@
 
 Destino único: `motherson-l1-equipo.database.windows.net` / `Motherson_L1`.
 El usuario eligió **datos simulados de demostración**. La instalación, cuentas,
-permisos y carga en Azure siguen pendientes de aprobación agrupada.
+permisos y carga fueron aprobados y aplicados el 19/11/2026. Véase
+[resultado de instalación](INSTALACION_AZURE_EJECUTADA_2026-11-19.md).
 
 ## Estado comprobado
 
@@ -12,7 +13,8 @@ El diagnóstico autorizado del 18/11/2026 encontró cero tablas, vistas,
 procedimientos y funciones de usuario; tampoco existen portal_app ni
 powerbi_lector. Se consultó como dbo, con CONTROL y VIEW DEFINITION.
 Repetir el diagnóstico antes de aplicar: el estado puede cambiar desde entonces.
-No se creó ningún objeto ni se cargaron datos en Azure durante el desarrollo.
+La preparación del 18/11/2026 no alteró Azure. La ejecución aprobada del 19/11/2026
+se documenta por separado; la base ya contiene objetos y datos simulados.
 
 El código y SQL de esta entrega se probaron con SQL Server 2022 local y .NET 10
 instalado de forma aislada en portal/.local/dotnet. Esto no sustituye la prueba

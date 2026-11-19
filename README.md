@@ -1,3 +1,5 @@
+Estado 19/11/2026: instalación propia aplicada en Azure SQL con demostración y portal local conectado. [Resultado y pendientes](documentacion/INSTALACION_AZURE_EJECUTADA_2026-11-19.md).
+
 # Integración con Azure propio · Motherson L1
 
 Trabajo de integración iniciado el 18/11/2026. Destino: `motherson-l1-equipo.database.windows.net` / `Motherson_L1`.

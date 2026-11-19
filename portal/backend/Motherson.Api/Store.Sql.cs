@@ -96,7 +96,7 @@ public sealed partial class Store
         var scope=rows.Where(r=>actor.PuestoId is null||r.id_puesto==actor.PuestoId).ToArray();
         var consumptions=state.Hechos.Where(h=>h.FechaUtc<=corte&&h.Captura.EsConsumo).Select(h=>new ConsumoCobertura(
             "SQL:"+h.IdOperacion,h.Captura.Ubicacion,h.Parte,"CONTINUACION","SALIDA",state.Piezas(h),h.FechaUtc,true)).ToArray();
-        return RespuestaCobertura(scope,corte,consumptions,_=>state.InicioObservacion,"CONTINUACION",new {modo="SQL_AL_CORTE",fechaStockInicial=state.Base.FechaStock});
+        return RespuestaCobertura(scope,corte,consumptions,_=>state.InicioObservacion,"CONTINUACION",new {modo="SQL_AL_CORTE",fechaStockInicial=state.Base.FechaStock, inicioObservacion=state.InicioObservacion, movimientosNuevos=state.Hechos.Count(h=>h.FechaUtc<=corte && (actor.PuestoId is null || h.Puesto==actor.PuestoId))});
     }
 
     const string FiltroHistorialSql = """

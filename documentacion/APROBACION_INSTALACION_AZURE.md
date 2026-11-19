@@ -1,8 +1,10 @@
-# Conjunto concreto pendiente de aprobación
+# Conjunto aprobado para instalación
 
 Destino exclusivo: motherson-l1-equipo.database.windows.net / Motherson_L1.
 Los datos seleccionados por el usuario son SIMULADOS DE DEMOSTRACIÓN.
-Este documento no constituye autorización ni registra ejecución.
+Propuesta aprobada expresamente por el usuario el 19/11/2026. La ejecución y
+sus resultados están en INSTALACION_AZURE_EJECUTADA_2026-11-19.md.
+El detalle siguiente conserva el conjunto que fue presentado para autorización.
 
 ## Aplicación propuesta
 

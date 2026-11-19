@@ -1,0 +1,64 @@
+{
+  "estado": "DETENIDO_REVISAR",
+  "entorno": "AZURE_SQL_REAL",
+  "casos": [
+    "Login real de admin.local",
+    "Inventario disponible con SQL real",
+    "85 ubicaciones marcadas como simulación",
+    "Salida HTTP confirmada y registrada en Azure",
+    "Repetición devuelve comprobante idéntico sin duplicar",
+    "Inventario disponible con SQL real",
+    "Salida descuenta una caja exacta",
+    "Inventario disponible con SQL real",
+    "Inventario disponible con SQL real",
+    "Entrada compensatoria recupera el saldo original",
+    "Inventario disponible con SQL real"
+  ],
+  "total": 11,
+  "operaciones": [
+    {
+      "id": "a8aae7af-b9a0-4764-b7f0-07dc8a409e7f",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 1,
+        "version": 1,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "a8aae7af-b9a0-4764-b7f0-07dc8a409e7f",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 1,
+        "version": 1,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "37abbe5f-1d0a-443f-84ce-f5eb6dbe00d6",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "ENTRADA",
+        "cantidad": 1,
+        "version": 2,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "af4028f3-d87f-4c13-afd9-d9aac2684a74",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 4,
+        "version": 3,
+        "esConsumo": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "estado": "CORRECTO",
+  "entorno": "AZURE_SQL_REAL",
+  "casos": [
+    "Login real de admin.local",
+    "Inventario disponible con SQL real",
+    "85 ubicaciones marcadas como simulación",
+    "Salida HTTP confirmada y registrada en Azure",
+    "Repetición devuelve comprobante idéntico sin duplicar",
+    "Inventario disponible con SQL real",
+    "Salida descuenta una caja exacta",
+    "Inventario disponible con SQL real",
+    "Inventario disponible con SQL real",
+    "Entrada compensatoria recupera el saldo original",
+    "Inventario disponible con SQL real",
+    "Salida insuficiente rechazada sin cambiar saldo",
+    "Inventario disponible con SQL real",
+    "Saldo intacto tras salida rechazada",
+    "Inventario disponible con SQL real",
+    "Dos capturas concurrentes: una confirma y otra rechaza versión obsoleta",
+    "Inventario disponible con SQL real",
+    "Inventario disponible con SQL real",
+    "Compensación de concurrencia conserva el saldo original",
+    "Inventario disponible con SQL real",
+    "Captura sin protección CSRF rechazada",
+    "Aumento de capacidad confirmado en Azure",
+    "Disminución compensatoria de capacidad confirmada",
+    "Capacidad inferior a ocupación rechazada",
+    "Importación con fila obsoleta rechazada completa",
+    "Inventario disponible con SQL real",
+    "Inventario disponible con SQL real",
+    "Importación rechazada no deja cambios parciales",
+    "Aplicación completa de dos materiales confirmada",
+    "Restauración de mínimos original registrada",
+    "Inventario disponible con SQL real",
+    "Todos los saldos finales coinciden con la demostración inicial",
+    "Historial consultable desde SQL sin archivo JSONL",
+    "Sesión sobrevive al reinicio del backend",
+    "Inventario disponible con SQL real",
+    "Existencias SQL sobreviven al reinicio",
+    "Historial SQL disponible después de reiniciar"
+  ],
+  "total": 37,
+  "operaciones": [
+    {
+      "id": "aa993ec5-fe10-4a87-92b5-37c5ba3386c0",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 1,
+        "version": 3,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "aa993ec5-fe10-4a87-92b5-37c5ba3386c0",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 1,
+        "version": 3,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "58ae581a-e0cc-4280-8bbe-8928b00bc044",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "ENTRADA",
+        "cantidad": 1,
+        "version": 4,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "98160db2-0aba-46bb-8a1c-75e9ee251d5c",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 4,
+        "version": 5,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "f76496ed-6ce4-430d-ab74-0618bd43d9f4",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 1,
+        "version": 5,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "404ba5f8-2446-4932-8a7d-f074d9f35d76",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "SALIDA",
+        "cantidad": 1,
+        "version": 5,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "d514ea82-0663-4d21-877b-a3a4de343636",
+      "ruta": "/api/continuacion/movimientos",
+      "solicitud": {
+        "ubicacion": 13,
+        "tipo": "ENTRADA",
+        "cantidad": 1,
+        "version": 6,
+        "esConsumo": false
+      }
+    },
+    {
+      "id": "1bf6a0af-bbed-44d2-a2c6-787d31842fc3",
+      "ruta": "/api/catalogo/capacidad",
+      "solicitud": {
+        "estanteria": 13,
+        "anterior": 3,
+        "nueva": 4
+      }
+    },
+    {
+      "id": "103242d9-ebbf-475f-b81d-e3f99260d9bf",
+      "ruta": "/api/catalogo/capacidad",
+      "solicitud": {
+        "estanteria": 13,
+        "anterior": 4,
+        "nueva": 3
+      }
+    },
+    {
+      "id": "86d1c7f7-dc3a-4362-82c2-7f098056ebca",
+      "ruta": "/api/catalogo/capacidad",
+      "solicitud": {
+        "estanteria": 13,
+        "anterior": 3,
+        "nueva": 2
+      }
+    },
+    {
+      "id": "5036aa4d-cdc8-4364-92a9-2a37f1cb7643",
+      "ruta": "/api/catalogo/materiales",
+      "solicitud": {
+        "cambios": [
+          {
+            "parte": "11K 947 409",
+            "campo": "minimo",
+            "anterior": "343",
+            "nuevo": "344"
+          },
+          {
+            "parte": "17A 800 375 CE",
+            "campo": "minimo",
+            "anterior": "120",
+            "nuevo": "22"
+          }
+        ]
+      }
+    },
+    {
+      "id": "358dbd46-aaac-4eeb-922b-efe6894ef800",
+      "ruta": "/api/catalogo/materiales",
+      "solicitud": {
+        "cambios": [
+          {
+            "parte": "11K 947 409",
+            "campo": "minimo",
+            "anterior": "343",
+            "nuevo": "344"
+          },
+          {
+            "parte": "17A 800 375 CE",
+            "campo": "minimo",
+            "anterior": "21",
+            "nuevo": "22"
+          }
+        ]
+      }
+    },
+    {
+      "id": "967ab75b-448d-43f8-9951-68c713e99fa8",
+      "ruta": "/api/catalogo/materiales",
+      "solicitud": {
+        "cambios": [
+          {
+            "parte": "11K 947 409",
+            "campo": "minimo",
+            "anterior": "344",
+            "nuevo": "343"
+          },
+          {
+            "parte": "17A 800 375 CE",
+            "campo": "minimo",
+            "anterior": "22",
+            "nuevo": "21"
+          }
+        ]
+      }
+    }
+  ]
+}

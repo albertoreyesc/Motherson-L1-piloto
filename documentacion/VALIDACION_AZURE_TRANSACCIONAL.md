@@ -1,6 +1,9 @@
 # Validación de la integración preparada
 
-Fecha: 18/11/2026. Rama: integracion/azure-propia. Azure no modificado.
+Preparación: 18/11/2026. Rama: integracion/azure-propia.
+Las pruebas de esta sección fueron locales. La ejecución posterior, aprobada el
+19/11/2026 y verificada contra Azure real, está en
+[instalación ejecutada](INSTALACION_AZURE_EJECUTADA_2026-11-19.md).
 
 ## Ejecutado y probado localmente
 
@@ -53,7 +56,7 @@ manifiesto y dos diarios de la copia del 12/11/2026, con procedencia y hashes.
 No se afirma que contenga actividad privada posterior ausente del ZIP de GitHub.
 El archivo antiguo no se vuelve a aplicar al saldo de demostración.
 
-## Pendiente en infraestructura propia
+## Pendiente al finalizar la preparación del 18/11/2026
 
 - Crear esquema/cuentas/permisos y cargar demostración, después de aprobación.
 - Repetir pruebas con conexiones reales de portal_app y powerbi_lector en Azure.
@@ -63,4 +66,4 @@ El archivo antiguo no se vuelve a aplicar al saldo de demostración.
 - Definir cuenta y espacio Power BI antes de publicar; incrustación aparte.
 
 No se publicó en GitHub ni se cambió main. Los resultados locales no acreditan
-una integración real ya instalada en Azure.
+una integración real ya instalada en Azure en esa fase de preparación.
