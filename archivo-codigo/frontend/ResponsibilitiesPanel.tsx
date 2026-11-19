@@ -1,0 +1,9 @@
+import {EntryAssignments} from './EntryAssignments';
+import React,{useEffect,useState} from 'react';
+import {api,type Catalog,type Row} from './api';
+export function ResponsibilitiesPanel({cat,action}:{cat:Catalog;action:(p:string,b:unknown)=>Promise<any>}){
+ const [data,setData]=useState<Row>({users:[],assignments:[]}),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false);
+ async function load(){setData(await api('/responsibilities'))}
+ useEffect(()=>{load().catch(e=>setError(e.message))},[]);
+ return <><EntryAssignments cat={cat}/><section className="panel"><h2>Responsabilidad por puesto logístico</h2><p>El puesto identifica la tarea; la cuenta identifica a la persona. Asignar un puesto no concede roles ni cambia turnos.</p>{error&&<p className="error" role="alert">{error}</p>}{notice&&<p className="success" role="status">{notice}</p>}<form onSubmit={async e=>{e.preventDefault();const f=new FormData(e.currentTarget);setBusy(true);setError('');try{await action('/responsibilities',{usuarioId:Number(f.get('user')),puestoId:Number(f.get('post'))});await load();setNotice('Responsabilidad asignada y auditada.')}catch(e){setError((e as Error).message)}finally{setBusy(false)}}}><div className="form-grid"><label className="field"><span>Usuario activo</span><select name="user" required>{data.users.map((u:Row)=><option key={u.Id} value={u.Id}>{u.NombreVisible??u.Nombre} · {u.Nombre}</option>)}</select></label><label className="field"><span>Puesto</span><select name="post" required>{cat.puestos.map(p=><option key={p.Id} value={p.Id}>{p.Codigo}</option>)}</select></label></div><button disabled={busy}>Asignar responsabilidad</button></form><div className="table-wrap"><table><thead><tr><th>Cuenta</th><th>Puesto asignado</th></tr></thead><tbody>{data.assignments.map((r:Row)=><tr key={r.UsuarioId+':'+r.PuestoId}><td>{r.Nombre}</td><td>{r.Puesto}</td></tr>)}</tbody></table></div></section></>;
+}

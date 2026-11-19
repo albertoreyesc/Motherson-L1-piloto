@@ -1,0 +1,11 @@
+{
+  "base": "Motherson_L1_MVP_Pruebas",
+  "fuentes_integras": 10,
+  "eventos_preservados": 709042,
+  "piezas_apertura": 10404,
+  "dias_consumo_real": 0,
+  "comprobantes_y_saldos_conciliados": true,
+  "filtro_real_y_exclusion_de_apertura": "Comprobados mediante datos temporales revertidos",
+  "lectura_vistas": 230976,
+  "escrituras_o_secretos_denegados": 4
+}

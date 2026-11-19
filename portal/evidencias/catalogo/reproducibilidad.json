@@ -1,0 +1,27 @@
+[
+  {
+    "archivo": "catalogo-documentado.json",
+    "sha256": "b21e8ae94fed4e3f4c17873db2600d83d4d04d03b90b475bd1326df13e88a918",
+    "reproducible": true
+  },
+  {
+    "archivo": "plan-catalogo.json",
+    "sha256": "72ea9d163f16c91383f291d57afe40265f730bd914ea816c38cf6c49264e51ab",
+    "reproducible": true
+  },
+  {
+    "archivo": "diagnostico-catalogo.json",
+    "sha256": "9e09c66b471b15f6ae6ceabdf12c43bf341a6347c9bf925dda52c51580aceeb1",
+    "reproducible": true
+  },
+  {
+    "archivo": "conciliacion-catalogo.json",
+    "sha256": "952899749781f3a84b2306f0ae843e5a4dd8685e00a235648552cae1e39afa51",
+    "reproducible": true
+  },
+  {
+    "archivo": "conciliacion-catalogo.csv",
+    "sha256": "633244f8a09cec85989a8a7ee8044c6c71b41316f17ea2b715eb92bfd30f8441",
+    "reproducible": true
+  }
+]

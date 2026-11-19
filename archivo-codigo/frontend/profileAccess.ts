@@ -1,0 +1,4 @@
+import type {User} from './api';
+export function initialSection(user:User){if(user.permissions.includes('catalog')&&!user.permissions.includes('admin'))return 5;return user.permissions.includes('entry')&&!user.permissions.some(p=>['supervise','admin'].includes(p))?6:0}
+export function profileSections(user:User,canEnter=false){const can=(p:string)=>user.permissions.includes(p);const simple=can('entry')&&!can('supervise')&&!can('admin');return (simple?[6,1,7,3,4]:[0,1,6,2,7,3,4,5]).filter(i=>(i!==6||can('entry')&&(!user.roles.includes('lider surtidores')||canEnter))&&(i!==5||can('admin')||can('assign')||can('catalog')))}
+export function boundedCutTime(day:string,requested:string,serverLocal?:string){const today=serverLocal?.slice(0,10),now=serverLocal?.slice(11,19);return day===today&&now&&requested>now?now:requested}

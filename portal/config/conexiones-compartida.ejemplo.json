@@ -1,0 +1,3 @@
+{
+  "app": "Server=tcp:mothersonbdd.database.windows.net,1433;Database=db;User Id=alberto;Password=ESCRIBE_AQUI_LA_CONTRASENA;Encrypt=True;TrustServerCertificate=False;Connect Timeout=90"
+}

@@ -1,0 +1,28 @@
+{
+  "accion": "turnos",
+  "pruebas_antes": {
+    "tablas": 8,
+    "materiales": 68,
+    "ubicaciones": 68,
+    "movimientos_previos": 75,
+    "eventos_maestro": 709042,
+    "huella_maestro": -1296663251,
+    "huella_movimientos": 538144033,
+    "movimientos_consultables": 230976,
+    "materiales_varias_ubicaciones": 0,
+    "modelo_puestos": true
+  },
+  "fk_turno": true,
+  "pruebas_despues": {
+    "tablas": 8,
+    "materiales": 68,
+    "ubicaciones": 68,
+    "movimientos_previos": 75,
+    "eventos_maestro": 709042,
+    "huella_maestro": -1296663251,
+    "huella_movimientos": 538144033,
+    "movimientos_consultables": 230976,
+    "materiales_varias_ubicaciones": 0,
+    "modelo_puestos": true
+  }
+}

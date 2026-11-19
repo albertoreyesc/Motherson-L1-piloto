@@ -1,0 +1,11 @@
+{
+  "base": "Motherson_L1_MVP_Pruebas",
+  "material": "LAB-CONC-SAL",
+  "inicial": 22,
+  "trasEntrada": 46,
+  "final": 22,
+  "versionInicial": 2,
+  "versionFinal": 4,
+  "contextoActualizado": true,
+  "comprobantesConfirmados": 2
+}

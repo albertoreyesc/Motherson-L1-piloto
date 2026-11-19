@@ -1,0 +1,66 @@
+// Motherson L1. TURNO se consulta por hora de inicio, sin FK física.
+// El archivo histórico se documenta aparte. Este archivo describe el modelo operativo.
+Ref: dbo.ESTANTERIA.id_estacion > dbo.ESTACION.id_estacion
+Ref: dbo.MATERIAL.id_color > dbo.COLOR.id_color
+Ref: dbo.MATERIAL.id_puesto > dbo.PUESTO_LOGISTICO.id_puesto
+Ref: dbo.REGISTRO.id_puesto > dbo.PUESTO_LOGISTICO.id_puesto
+Ref: dbo.REGISTRO.id_ubicacion > dbo.UBICACION.id_ubicacion
+Ref: dbo.UBICACION.id_estanteria > dbo.ESTANTERIA.id_estanteria
+Ref: dbo.UBICACION.numero_parte > dbo.MATERIAL.numero_parte
+
+Table dbo.ESTACION {
+  id_estacion int [pk, increment, not null, note: 'Identificador de la estación.']
+  id_linea int [not null, note: 'Identificador de Línea 1.']
+  nombre_estacion nvarchar(100) [not null, note: 'Nombre o código de la estación.']
+}
+
+Table dbo.ESTANTERIA {
+  id_estanteria int [pk, increment, not null, note: 'Identificador del nivel de estantería.']
+  id_estacion int [not null, note: 'Identificador de la estación.']
+  estanteria nvarchar(80) [not null, note: 'Estantería dentro de la estación.']
+  nivel nvarchar(30) [not null, note: 'Nivel o posición de la estantería.']
+  cajas_estanteria int [note: 'Capacidad nominal del nivel en cajas.']
+}
+
+Table dbo.MATERIAL {
+  numero_parte varchar(100) [pk, not null, note: 'Referencia completa del material, incluyendo sus sufijos.']
+  id_puesto int [not null, note: 'Identificador del puesto logístico.']
+  descripcion nvarchar(250) [note: 'Descripción documental del material.']
+  uso nvarchar(150) [note: 'Clasificación documental de uso en PFEP.']
+  cantidad_por_caja int [note: 'Piezas contenidas en una caja.']
+  minimo int [note: 'Mínimo del material en piezas.']
+  id_color int [note: 'Referencia opcional al código documentado de variante o revisión.']
+  stock int [note: 'Existencia conocida en piezas al corte de migración. NULL cuando es desconocida.']
+}
+
+Table dbo.UBICACION {
+  id_ubicacion int [pk, increment, not null, note: 'Identificador estable de la asignación material y estantería.']
+  numero_parte varchar(100) [not null, note: 'Referencia completa del material, incluyendo sus sufijos.']
+  id_estanteria int [not null, note: 'Identificador del nivel de estantería.']
+}
+
+Table dbo.REGISTRO {
+  id_registro int [pk, increment, not null, note: 'Identificador de la atención por puesto.']
+  id_puesto int [not null, note: 'Identificador del puesto logístico.']
+  id_ubicacion int [not null, note: 'Identificador estable de la asignación material y estantería.']
+  fecha_hora_inicio datetime2(7) [not null, note: 'Inicio UTC capturado por el servidor.']
+  fecha_hora_fin datetime2(7) [note: 'Fin UTC capturado por el servidor. NULL mientras la atención esté abierta.']
+}
+
+Table dbo.PUESTO_LOGISTICO {
+  id_puesto int [pk, increment, not null, note: 'Identificador del puesto logístico.']
+  nombre nvarchar(120) [not null, note: 'Código del puesto logístico.']
+  usuario nvarchar(80) [note: 'Nombre de inicio de sesión compartido por puesto.']
+}
+
+Table dbo.COLOR {
+  id_color int [pk, increment, not null, note: 'Referencia opcional al código documentado de variante o revisión.']
+  nombre varchar(10) [not null, unique, note: 'Código documentado de variante o revisión.']
+}
+
+Table dbo.TURNO {
+  id_turno int [pk, increment, not null, note: 'Identificador del catálogo de turnos.']
+  nombre_turno nvarchar(40) [not null, note: 'Nombre del turno PFEP.']
+  hora_inicio time(0) [not null, note: 'Inicio inclusivo del turno en hora de México.']
+  hora_fin time(0) [not null, note: 'Fin exclusivo del turno en hora de México.']
+}

@@ -1,0 +1,1414 @@
+{
+  "version": 1,
+  "definicionUso": "Clasificación de utilización del PFEP: COMPARTIDO o EXCLUSIVO. AUTO es una columna distinta y no se copia dentro de uso.",
+  "materiales": {
+    "11K 947 409": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 297,
+          "celda": "J297",
+          "parte_original": "11K 947 409"
+        }
+      }
+    },
+    "17A 800 375 CE": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 132,
+          "celda": "J132",
+          "parte_original": "17A 800 375 CE"
+        }
+      }
+    },
+    "17A 800 375 CF": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 133,
+          "celda": "J133",
+          "parte_original": "17A 800 375 CF"
+        }
+      }
+    },
+    "17A 800 375 CG": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 134,
+          "celda": "J134",
+          "parte_original": "17A 800 375 CG"
+        }
+      }
+    },
+    "17A 800 375 CH": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 135,
+          "celda": "J135",
+          "parte_original": "17A 800 375 CH"
+        }
+      }
+    },
+    "17A 800 375 CJ": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 136,
+          "celda": "J136",
+          "parte_original": "17A 800 375 CJ"
+        }
+      }
+    },
+    "17A 919 068": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 142,
+          "celda": "J142",
+          "parte_original": "17A 919 068"
+        }
+      }
+    },
+    "17A 919 225 B  RDW": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 143,
+          "celda": "J143",
+          "parte_original": "17A 919 225 B  RDW"
+        }
+      }
+    },
+    "17A 919 225 C  RDW": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 144,
+          "celda": "J144",
+          "parte_original": "17A 919 225 C  RDW"
+        }
+      }
+    },
+    "17B 819 593 C": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 80,
+          "celda": "J80",
+          "parte_original": "17B 819 593 C"
+        }
+      }
+    },
+    "17B 819 593 D": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 81,
+          "celda": "J81",
+          "parte_original": "17B 819 593 D"
+        }
+      }
+    },
+    "17B 819 728 F  UYD": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 267,
+          "celda": "J267",
+          "parte_original": "17B 819 728 F  UYD"
+        }
+      }
+    },
+    "17B 819 728 F  UZA": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 268,
+          "celda": "J268",
+          "parte_original": "17B 819 728 F  UZA"
+        }
+      }
+    },
+    "17B 857 506 A  82V": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 269,
+          "celda": "J269",
+          "parte_original": "17B 857 506 A  82V"
+        }
+      }
+    },
+    "17B 857 506 A  RM5": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 270,
+          "celda": "J270",
+          "parte_original": "17B 857 506 A  RM5"
+        }
+      }
+    },
+    "17B 858 019 E  HUZ": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 88,
+          "celda": "J88",
+          "parte_original": "17B 858 019 E  HUZ"
+        }
+      }
+    },
+    "17B 858 069    041": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 271,
+          "celda": "J271",
+          "parte_original": "17B 858 069    041"
+        }
+      }
+    },
+    "17B 858 069 A  041": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 272,
+          "celda": "J272",
+          "parte_original": "17B 858 069 A  041"
+        }
+      }
+    },
+    "17B 858 189 A  1QB": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 273,
+          "celda": "J273",
+          "parte_original": "17B 858 189 A  1QB"
+        }
+      }
+    },
+    "17B 858 418 C  HUZ": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 91,
+          "celda": "J91",
+          "parte_original": "17B 858 418 C  HUZ"
+        }
+      }
+    },
+    "2GA 035 285 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 7,
+          "celda": "J7",
+          "parte_original": "2GA 035 285 A"
+        }
+      }
+    },
+    "2Q0 953 254": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 27,
+          "celda": "J27",
+          "parte_original": "2Q0 953 254"
+        }
+      }
+    },
+    "3D0 907 543 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 28,
+          "celda": "J28",
+          "parte_original": "3D0 907 543 A"
+        }
+      }
+    },
+    "3Q1 959 435 F": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 31,
+          "celda": "J31",
+          "parte_original": "3Q1 959 435 F"
+        }
+      }
+    },
+    "3WA 905 861 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 149,
+          "celda": "J149",
+          "parte_original": "3WA 905 861 A"
+        }
+      }
+    },
+    "510 880 505 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 172,
+          "celda": "J172",
+          "parte_original": "510 880 505 A"
+        }
+      }
+    },
+    "510 880 506 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 173,
+          "celda": "J173",
+          "parte_original": "510 880 506 A"
+        }
+      }
+    },
+    "57N 819 241": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 183,
+          "celda": "J183",
+          "parte_original": "57N 819 241"
+        }
+      }
+    },
+    "57N 819 704  B  HUZ": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 189,
+          "celda": "J189",
+          "parte_original": "57N 819 704  B  HUZ"
+        }
+      }
+    },
+    "57N 857 053    XCC": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 192,
+          "celda": "J192",
+          "parte_original": "57N 857 053    XCC"
+        }
+      }
+    },
+    "57N 857 889 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 184,
+          "celda": "J184",
+          "parte_original": "57N 857 889 A"
+        }
+      }
+    },
+    "57N 857 890 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 185,
+          "celda": "J185",
+          "parte_original": "57N 857 890 A"
+        }
+      }
+    },
+    "57N 858 065 A MEC": {
+      "uso": {
+        "estado": "PENDIENTE_VALIDACION",
+        "valor": null,
+        "motivo": "PFEP contiene 57N 858 065 MEC sin A. No se equiparan las referencias.",
+        "fuente": null
+      }
+    },
+    "57N 858 335    041": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 227,
+          "celda": "J227",
+          "parte_original": "57N 858 335    041"
+        }
+      }
+    },
+    "57N 858 335 A  7IW": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 228,
+          "celda": "J228",
+          "parte_original": "57N 858 335 A  7IW"
+        }
+      }
+    },
+    "57N 858 415    041": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 229,
+          "celda": "J229",
+          "parte_original": "57N 858 415    041"
+        }
+      }
+    },
+    "57N 858 415 A  7IW": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 230,
+          "celda": "J230",
+          "parte_original": "57N 858 415 A  7IW"
+        }
+      }
+    },
+    "57N 858 416    041": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 231,
+          "celda": "J231",
+          "parte_original": "57N 858 416    041"
+        }
+      }
+    },
+    "57N 858 416 B  7IX": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 232,
+          "celda": "J232",
+          "parte_original": "57N 858 416 B  7IX"
+        }
+      }
+    },
+    "57N 858 599    6PS": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 248,
+          "celda": "J248",
+          "parte_original": "57N 858 599    6PS"
+        }
+      }
+    },
+    "57N 858 600    6PS": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 249,
+          "celda": "J249",
+          "parte_original": "57N 858 600    6PS"
+        }
+      }
+    },
+    "57N 947 156": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 200,
+          "celda": "J200",
+          "parte_original": "57N 947 156"
+        }
+      }
+    },
+    "5E0 941 070": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 201,
+          "celda": "J201",
+          "parte_original": "5E0 941 070"
+        }
+      }
+    },
+    "5G0 857 173": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 32,
+          "celda": "J32",
+          "parte_original": "5G0 857 173"
+        }
+      }
+    },
+    "5G1 857 745": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 34,
+          "celda": "J34",
+          "parte_original": "5G1 857 745"
+        }
+      }
+    },
+    "5G1 971 845": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 165,
+          "celda": "J165",
+          "parte_original": "5G1 971 845"
+        }
+      }
+    },
+    "5NN 858 560    82V": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 279,
+          "celda": "J279",
+          "parte_original": "5NN 858 560    82V"
+        }
+      }
+    },
+    "5NN 919 605 C": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 280,
+          "celda": "J280",
+          "parte_original": "5NN 919 605 C"
+        }
+      }
+    },
+    "5NN 919 605 D": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 281,
+          "celda": "J281",
+          "parte_original": "5NN 919 605 D"
+        }
+      }
+    },
+    "5Q0 820 573": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 39,
+          "celda": "J39",
+          "parte_original": "5Q0 820 573"
+        }
+      }
+    },
+    "5Q0 941 070 C": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 42,
+          "celda": "J42",
+          "parte_original": "5Q0 941 070 C"
+        }
+      }
+    },
+    "5Q0 953 223": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 43,
+          "celda": "J43",
+          "parte_original": "5Q0 953 223"
+        }
+      }
+    },
+    "5Q0 953 223 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 44,
+          "celda": "J44",
+          "parte_original": "5Q0 953 223 A"
+        }
+      }
+    },
+    "5Q1 953 521 HR IGI": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 158,
+          "celda": "J158",
+          "parte_original": "5Q1 953 521 HR IGI"
+        }
+      }
+    },
+    "5Q1 953 521 JC IGI": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 159,
+          "celda": "J159",
+          "parte_original": "5Q1 953 521 JC IGI"
+        }
+      }
+    },
+    "5Q1 971 303 D": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 48,
+          "celda": "J48",
+          "parte_original": "5Q1 971 303 D"
+        }
+      }
+    },
+    "5QA 919 294 L": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "COMPARTIDO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 50,
+          "celda": "J50",
+          "parte_original": "5QA 919 294 L"
+        }
+      }
+    },
+    "5QM 723 913 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 163,
+          "celda": "J163",
+          "parte_original": "5QM 723 913 A"
+        }
+      }
+    },
+    "5TA 972 596": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 211,
+          "celda": "J211",
+          "parte_original": "5TA 972 596"
+        }
+      }
+    },
+    "5TB 880 841 F": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 212,
+          "celda": "J212",
+          "parte_original": "5TB 880 841 F"
+        }
+      }
+    },
+    "5WA 907 527 A": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 213,
+          "celda": "J213",
+          "parte_original": "5WA 907 527 A"
+        }
+      }
+    },
+    "TTT  035 180 L": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 276,
+          "celda": "J276",
+          "parte_original": "TTT  035 180 L"
+        }
+      }
+    },
+    "TTT 035 180 J": {
+      "uso": {
+        "estado": "DOCUMENTADO",
+        "valor": "EXCLUSIVO",
+        "motivo": "USO explícito, único y consistente entre PFEP (4) y PFEP (1).",
+        "fuente": {
+          "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+          "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+          "hoja": "NumerosDeParte",
+          "columnas": {
+            "parte": "B",
+            "auto": "I",
+            "uso": "J",
+            "linea": "AB"
+          },
+          "fila": 275,
+          "celda": "J275",
+          "parte_original": "TTT 035 180 J"
+        }
+      }
+    }
+  },
+  "puestos": {
+    "DESENGANCHE L1": {
+      "nombre": "Liberador de plataformas",
+      "tipo": {
+        "estado": "NO_DOCUMENTADO",
+        "motivo": "No hay clasificación de tipo por puesto confirmada."
+      },
+      "fuente": {
+        "archivo": "logistic_catalog.py",
+        "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+        "definicion": "POSTS"
+      }
+    },
+    "K.E.": {
+      "nombre": "Kitting Eléctrico",
+      "tipo": {
+        "estado": "NO_DOCUMENTADO",
+        "motivo": "No hay clasificación de tipo por puesto confirmada."
+      },
+      "fuente": {
+        "archivo": "logistic_catalog.py",
+        "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+        "definicion": "POSTS"
+      }
+    },
+    "MONTACARGAS": {
+      "nombre": "Montacargas de plataformas",
+      "tipo": {
+        "estado": "NO_DOCUMENTADO",
+        "motivo": "No hay clasificación de tipo por puesto confirmada."
+      },
+      "fuente": {
+        "archivo": "logistic_catalog.py",
+        "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+        "definicion": "POSTS"
+      }
+    },
+    "SG": {
+      "nombre": "Secuenciado de guanteras",
+      "tipo": {
+        "estado": "NO_DOCUMENTADO",
+        "motivo": "No hay clasificación de tipo por puesto confirmada."
+      },
+      "fuente": {
+        "archivo": "logistic_catalog.py",
+        "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+        "definicion": "POSTS"
+      }
+    },
+    "SZ01": {
+      "nombre": "Surtidor Zona 01",
+      "tipo": {
+        "estado": "NO_DOCUMENTADO",
+        "motivo": "No hay clasificación de tipo por puesto confirmada."
+      },
+      "fuente": {
+        "archivo": "logistic_catalog.py",
+        "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+        "definicion": "POSTS"
+      }
+    },
+    "SZ02": {
+      "nombre": "Surtidor Zona 02",
+      "tipo": {
+        "estado": "NO_DOCUMENTADO",
+        "motivo": "No hay clasificación de tipo por puesto confirmada."
+      },
+      "fuente": {
+        "archivo": "logistic_catalog.py",
+        "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+        "definicion": "POSTS"
+      }
+    }
+  },
+  "fuentes": [
+    {
+      "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+      "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+      "hoja": "NumerosDeParte",
+      "columnas": {
+        "parte": "B",
+        "auto": "I",
+        "uso": "J",
+        "linea": "AB"
+      }
+    },
+    {
+      "archivo": "PFEP LOGISTICA - UPAEP (1).xlsx",
+      "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+      "hoja": "NumerosDeParte",
+      "columnas": {
+        "parte": "B",
+        "auto": "I",
+        "uso": "J",
+        "linea": "AB"
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "faltante": {
+    "/historial": {
+      "estado": 503,
+      "error": "El paquete histórico de demostración falta o no coincide con su manifiesto."
+    },
+    "/catalogo": {
+      "estado": 503,
+      "error": "El paquete histórico de demostración falta o no coincide con su manifiesto."
+    },
+    "/historial/exportar": {
+      "estado": 503,
+      "error": "El paquete histórico de demostración falta o no coincide con su manifiesto."
+    }
+  },
+  "huella_incorrecta": {
+    "/historial": {
+      "estado": 503,
+      "error": "El paquete histórico de demostración falta o no coincide con su manifiesto."
+    },
+    "/catalogo": {
+      "estado": 503,
+      "error": "El paquete histórico de demostración falta o no coincide con su manifiesto."
+    },
+    "/historial/exportar": {
+      "estado": 503,
+      "error": "El paquete histórico de demostración falta o no coincide con su manifiesto."
+    }
+  }
+}

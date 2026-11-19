@@ -1,0 +1,1590 @@
+{
+    "documentName": "Motherson L1 MVP — 9 tablas y 9 relaciones",
+    "lastUpdatedAt": "2026-11-03T18:02:46.466Z",
+    "schemaConfig": {
+        "defaultSchemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "schemas": [
+            {
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "schemaName": "dbo",
+                "description": ""
+            }
+        ]
+    },
+    "tableViewModels": [
+        {
+            "tableModel": {
+                "tableModelId": "850f8415-7cc1-58c1-84df-b8c2d35874a7",
+                "physicalName": "ESTACION",
+                "logicalName": "ESTACION",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "bcc86fae-2197-58e9-be9c-986251a6827e",
+                    "d90b42af-011a-59b6-9879-312dfb6f46b9",
+                    "824faa4b-f0b8-519c-916f-1659d40b633c"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": -8.33,
+            "left": -25,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "d4aaf8be-0bb8-58ed-8766-71a9515ba851",
+                "physicalName": "ESTANTERIA",
+                "logicalName": "ESTANTERIA",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "f5122abf-9c2a-5266-907c-ae5a6d752c8d",
+                    "a200b196-113a-5c53-8da3-650725118591",
+                    "72233c30-013e-59ca-80fb-f582d2f3c22f",
+                    "06ceded1-c0d6-53d4-b6ce-bd2b407c5d26",
+                    "5ff7b9f7-86ee-53eb-8904-5a755917748c"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 322.90999999999997,
+            "left": -31.25,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "16f00758-27e2-5402-adb5-e652493f7c51",
+                "physicalName": "COLOR",
+                "logicalName": "COLOR",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "2c15f45b-de89-5266-a21d-fdb669b267cc",
+                    "59a632ab-9ad5-52fc-b515-73d72049d3d2"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 4.17,
+            "left": 1508.27,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "da398dfa-a8cc-5a82-8ae6-c19078c3b792",
+                "physicalName": "PUESTO_LOGISTICO",
+                "logicalName": "PUESTO_LOGISTICO",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "96ce145b-ade5-55ce-ac57-156be01dccbc",
+                    "83b0fa62-5f94-5f67-8159-8f4d44362b9b",
+                    "d6223d3b-c292-577a-a7ad-f3eb65e3c1d6"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 326.03000000000003,
+            "left": 1324.95,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "4d442a80-b04e-5f68-9205-66820aac1f03",
+                "physicalName": "MATERIAL",
+                "logicalName": "MATERIAL",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "3fa4311b-d4ff-573f-ba57-ac603efd7346",
+                    "00ed600b-9068-507a-a21a-3463f7f2e848",
+                    "fd31dbfb-0fd3-583e-95c6-431b2f9a44e5",
+                    "5be87397-7420-5bdf-a92c-9249c0db24ce",
+                    "a741f6eb-370d-50e0-9769-ccf52ef74893",
+                    "cb766470-11bb-50e9-8d30-33be443c63d9",
+                    "f35575e0-d393-5e8f-be1d-9de8c2b28579"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": -83.28999999999999,
+            "left": 628.8100000000001,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "7e0264bf-5ac1-589a-ba8b-d81283a16f17",
+                "physicalName": "UBICACION",
+                "logicalName": "UBICACION",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "dd2cb9a2-9e51-5658-9bd0-62f92ab9e7c5",
+                    "a84fa088-4499-555d-9378-34ed6fd25b7c",
+                    "064d7263-9a72-53f2-ba94-da84581359df",
+                    "b4a0297c-54bc-5be6-bce9-d49a4cffbc30",
+                    "d1bbfd0e-f1b0-58d5-806a-ec3e21b9b8aa"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 317.35,
+            "left": 622.5600000000001,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "ac338c1f-7280-595e-94cc-789a9789e590",
+                "physicalName": "TURNO",
+                "logicalName": "TURNO",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "544ed550-2eaf-5102-8fe2-c7a3ef26063d",
+                    "b960c724-2402-5c10-9a83-2e95c3c9e7ce",
+                    "698d1933-946d-50c4-b8f4-fbc4e3138260",
+                    "cbab8f6c-1ea6-5f0c-a01b-c6e771242eef"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 880.4699999999999,
+            "left": 1352.73,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "ba54ea9b-13c6-50ff-a607-78b859352f3a",
+                "physicalName": "USUARIOS",
+                "logicalName": "USUARIOS",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "6bc9f128-1d7c-51e5-8f74-3c92c76a18a8",
+                    "4aa3ace4-80c2-5c46-a958-717710e5a1f1",
+                    "108ca544-f84c-5925-8d00-816bc55ac5c2",
+                    "310b7b69-e51c-55cb-a91c-af6dcb5ded4e",
+                    "b174ffbe-82f8-56a0-8992-a19b6bb482f2",
+                    "b7546d1d-a90f-5530-886c-25daa4719983"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 852.6999999999999,
+            "left": -68.73999999999995,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "tableModel": {
+                "tableModelId": "786ccd30-e6e8-5eb1-8b03-797801cea3a8",
+                "physicalName": "REGISTRO",
+                "logicalName": "REGISTRO",
+                "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+                "columnModelIds": [
+                    "f411ce52-6c30-57b6-abfe-a6c49fea489c",
+                    "343d1cc8-26c2-5643-82a3-07136a58622c",
+                    "906792d9-b4a6-5259-b6e9-56b66e77b88e",
+                    "447daf17-bbf4-5147-8744-fceabd6c030e",
+                    "36e03981-7644-55c1-99e9-bc2bf682b464",
+                    "df0ed81d-5ecf-59fc-a335-0330daaa33ad",
+                    "44c34648-20bf-5c59-9455-0cc7f7fb0788",
+                    "46f7ecdd-4260-597a-b3d2-c54879d0dbb3",
+                    "4920a6c9-d2c2-59a9-8643-0ca95318ee45",
+                    "75892f8d-c9a4-531e-af0c-1156df26038a",
+                    "090ce48c-d6e7-511d-973d-b0ea22af6bea",
+                    "a6e7a7be-d502-5596-9daf-4d822b5df85f",
+                    "3057970b-fab1-5a37-922a-8bef33b60f8d",
+                    "9dd21f93-3a0e-5b50-bf44-09de08297c3d",
+                    "1a5cffbe-9f9b-5269-a10c-573572b05c90",
+                    "1f819d37-4391-56f9-8eaf-2d9e24f5b392",
+                    "9da917c8-d9c3-5637-8f31-17bbb4cf5959",
+                    "0571f1d6-5af2-54cb-be84-5d6445bfaf98"
+                ],
+                "description": "Vista documental del MVP; no modifica SQL Server."
+            },
+            "top": 650,
+            "left": 600,
+            "headerBackgroundColor": {
+                "red": 21,
+                "green": 94,
+                "blue": 117
+            },
+            "headerForegroundColor": {
+                "red": 255,
+                "green": 255,
+                "blue": 255
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        }
+    ],
+    "columnGroupModels": [],
+    "columnModels": [
+        {
+            "columnModelId": "00ed600b-9068-507a-a21a-3463f7f2e848",
+            "columnShareModelId": "d7edba54-4d13-5f60-94e2-cb36e164615a",
+            "notNull": true
+        },
+        {
+            "columnModelId": "0571f1d6-5af2-54cb-be84-5d6445bfaf98",
+            "columnShareModelId": "687dfc2f-5f50-55bc-b5d4-0e117797e44f",
+            "notNull": true
+        },
+        {
+            "columnModelId": "064d7263-9a72-53f2-ba94-da84581359df",
+            "columnShareModelId": "a2c12c8d-428f-5202-abe7-b35c298f88ee",
+            "notNull": true
+        },
+        {
+            "columnModelId": "06ceded1-c0d6-53d4-b6ce-bd2b407c5d26",
+            "columnShareModelId": "51cdec0e-e4d1-5359-8ae1-65e140e78cf5",
+            "notNull": true
+        },
+        {
+            "columnModelId": "090ce48c-d6e7-511d-973d-b0ea22af6bea",
+            "columnShareModelId": "9e7e6beb-b5a3-5590-849a-dd99844963cf",
+            "notNull": true
+        },
+        {
+            "columnModelId": "108ca544-f84c-5925-8d00-816bc55ac5c2",
+            "columnShareModelId": "ff3b8b82-1f75-5686-b555-2a6e72ce7ed9"
+        },
+        {
+            "columnModelId": "1a5cffbe-9f9b-5269-a10c-573572b05c90",
+            "columnShareModelId": "58eb596b-9be0-58ff-8c78-2fbe66cdd373",
+            "notNull": true
+        },
+        {
+            "columnModelId": "1f819d37-4391-56f9-8eaf-2d9e24f5b392",
+            "columnShareModelId": "fa20499f-7820-5f93-91ba-8b0db027c738",
+            "notNull": true
+        },
+        {
+            "columnModelId": "2c15f45b-de89-5266-a21d-fdb669b267cc",
+            "columnShareModelId": "5747e3d0-4f96-51ac-83be-737c1d14c886",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "3057970b-fab1-5a37-922a-8bef33b60f8d",
+            "columnShareModelId": "df88b3d9-510d-5667-adc1-8abbb1e9718a",
+            "notNull": true
+        },
+        {
+            "columnModelId": "310b7b69-e51c-55cb-a91c-af6dcb5ded4e",
+            "columnShareModelId": "8fd45fc9-b4a1-5d16-b579-44b288eb5905",
+            "notNull": true
+        },
+        {
+            "columnModelId": "343d1cc8-26c2-5643-82a3-07136a58622c",
+            "columnShareModelId": "0acbe015-1167-5bc5-bb5e-142d94a75a04",
+            "notNull": true
+        },
+        {
+            "columnModelId": "36e03981-7644-55c1-99e9-bc2bf682b464",
+            "columnShareModelId": "4def8861-b7a2-55d1-81a8-ea0aa3dea15a",
+            "notNull": true
+        },
+        {
+            "columnModelId": "3fa4311b-d4ff-573f-ba57-ac603efd7346",
+            "columnShareModelId": "aacde338-513d-50b1-923f-8e71724e6cc6",
+            "primaryKey": true,
+            "notNull": true
+        },
+        {
+            "columnModelId": "447daf17-bbf4-5147-8744-fceabd6c030e",
+            "columnShareModelId": "99498c94-0782-5a0a-8864-3913e1dca8dd"
+        },
+        {
+            "columnModelId": "44c34648-20bf-5c59-9455-0cc7f7fb0788",
+            "columnShareModelId": "ba7feb49-4832-5189-bf33-5787d6ac229d",
+            "notNull": true
+        },
+        {
+            "columnModelId": "46f7ecdd-4260-597a-b3d2-c54879d0dbb3",
+            "columnShareModelId": "b5590cce-542d-5ede-bc81-1e5f1ea08d47"
+        },
+        {
+            "columnModelId": "4920a6c9-d2c2-59a9-8643-0ca95318ee45",
+            "columnShareModelId": "61ab3512-a065-525e-b85d-05c4977a2c48"
+        },
+        {
+            "columnModelId": "4aa3ace4-80c2-5c46-a958-717710e5a1f1",
+            "columnShareModelId": "4af63082-3050-538f-b976-11fdbbc5a34b",
+            "notNull": true
+        },
+        {
+            "columnModelId": "544ed550-2eaf-5102-8fe2-c7a3ef26063d",
+            "columnShareModelId": "de6b8c22-ba75-5c6b-9618-9c501ee27634",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "59a632ab-9ad5-52fc-b515-73d72049d3d2",
+            "columnShareModelId": "1ca0a44f-540c-537f-9892-80c53669d58d",
+            "notNull": true
+        },
+        {
+            "columnModelId": "5be87397-7420-5bdf-a92c-9249c0db24ce",
+            "columnShareModelId": "38eafb92-4671-5987-ac96-d388764f183a"
+        },
+        {
+            "columnModelId": "5ff7b9f7-86ee-53eb-8904-5a755917748c",
+            "columnShareModelId": "09a3b570-8271-5e87-8ab0-9e238344f08a"
+        },
+        {
+            "columnModelId": "698d1933-946d-50c4-b8f4-fbc4e3138260",
+            "columnShareModelId": "20abb295-705c-56d4-8e86-730463add650",
+            "notNull": true
+        },
+        {
+            "columnModelId": "6bc9f128-1d7c-51e5-8f74-3c92c76a18a8",
+            "columnShareModelId": "d3d0b65c-2f13-58ec-a715-5359a85ad03a",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "72233c30-013e-59ca-80fb-f582d2f3c22f",
+            "columnShareModelId": "669b5865-ff52-549b-9ec2-217e6af8c228",
+            "notNull": true
+        },
+        {
+            "columnModelId": "75892f8d-c9a4-531e-af0c-1156df26038a",
+            "columnShareModelId": "c4ed626a-6fee-55fa-a76b-7882aefc2df7",
+            "notNull": true
+        },
+        {
+            "columnModelId": "824faa4b-f0b8-519c-916f-1659d40b633c",
+            "columnShareModelId": "f187f3b9-9e1f-5d24-9419-73fe5bbbb7b8",
+            "notNull": true
+        },
+        {
+            "columnModelId": "83b0fa62-5f94-5f67-8159-8f4d44362b9b",
+            "columnShareModelId": "a02b9241-5103-520b-9795-223902de8984",
+            "notNull": true
+        },
+        {
+            "columnModelId": "906792d9-b4a6-5259-b6e9-56b66e77b88e",
+            "columnShareModelId": "5158223b-b62c-560e-b810-a663fd981432",
+            "notNull": true
+        },
+        {
+            "columnModelId": "96ce145b-ade5-55ce-ac57-156be01dccbc",
+            "columnShareModelId": "7721bf18-67ef-5e61-a307-65dbe23b7b2b",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "9da917c8-d9c3-5637-8f31-17bbb4cf5959",
+            "columnShareModelId": "5e1d6de0-657c-5ac0-8553-8fe67e1d1e85",
+            "notNull": true
+        },
+        {
+            "columnModelId": "9dd21f93-3a0e-5b50-bf44-09de08297c3d",
+            "columnShareModelId": "f6a98479-a5b5-5d8b-b01f-dee806691493",
+            "notNull": true
+        },
+        {
+            "columnModelId": "a200b196-113a-5c53-8da3-650725118591",
+            "columnShareModelId": "4fa7a7c7-afaf-5282-a397-07b039ab9544",
+            "notNull": true
+        },
+        {
+            "columnModelId": "a6e7a7be-d502-5596-9daf-4d822b5df85f",
+            "columnShareModelId": "97869179-4799-5f52-ba46-aa3d8320bf1b",
+            "notNull": true
+        },
+        {
+            "columnModelId": "a741f6eb-370d-50e0-9769-ccf52ef74893",
+            "columnShareModelId": "f4486e58-250e-5a8a-8d1f-e7b863c202c2"
+        },
+        {
+            "columnModelId": "a84fa088-4499-555d-9378-34ed6fd25b7c",
+            "columnShareModelId": "08c48eca-ed13-5146-a693-765daf85a973",
+            "notNull": true
+        },
+        {
+            "columnModelId": "b174ffbe-82f8-56a0-8992-a19b6bb482f2",
+            "columnShareModelId": "ca1a2618-05ca-520e-a230-602f23a8c381",
+            "notNull": true
+        },
+        {
+            "columnModelId": "b4a0297c-54bc-5be6-bce9-d49a4cffbc30",
+            "columnShareModelId": "8f2cccb9-5ee6-5ee6-8cc8-3b4600fbc622"
+        },
+        {
+            "columnModelId": "b7546d1d-a90f-5530-886c-25daa4719983",
+            "columnShareModelId": "b34324bb-ff82-502e-94c4-6cb431c27f12",
+            "notNull": true
+        },
+        {
+            "columnModelId": "b960c724-2402-5c10-9a83-2e95c3c9e7ce",
+            "columnShareModelId": "b2ef5c36-ee59-5382-8c22-241238863ae0",
+            "notNull": true
+        },
+        {
+            "columnModelId": "bcc86fae-2197-58e9-be9c-986251a6827e",
+            "columnShareModelId": "0107dee4-6c06-5194-8f2b-e9c64b7eb5c3",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "cb766470-11bb-50e9-8d30-33be443c63d9",
+            "columnShareModelId": "099881d0-de44-532e-a810-8f988398b97e"
+        },
+        {
+            "columnModelId": "cbab8f6c-1ea6-5f0c-a01b-c6e771242eef",
+            "columnShareModelId": "394fdcef-5013-5598-8571-03137fdfc34c",
+            "notNull": true
+        },
+        {
+            "columnModelId": "d1bbfd0e-f1b0-58d5-806a-ec3e21b9b8aa",
+            "columnShareModelId": "01131efb-787e-531c-a0df-4e4b98e094f2",
+            "notNull": true
+        },
+        {
+            "columnModelId": "d6223d3b-c292-577a-a7ad-f3eb65e3c1d6",
+            "columnShareModelId": "b6f42dad-771b-5bd7-b14e-b30310bbf631"
+        },
+        {
+            "columnModelId": "d90b42af-011a-59b6-9879-312dfb6f46b9",
+            "columnShareModelId": "796b9e11-5241-58ce-943a-f795623b1fd2",
+            "notNull": true
+        },
+        {
+            "columnModelId": "dd2cb9a2-9e51-5658-9bd0-62f92ab9e7c5",
+            "columnShareModelId": "9aef5842-a909-53e4-9b7d-f026d80ac5b1",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "df0ed81d-5ecf-59fc-a335-0330daaa33ad",
+            "columnShareModelId": "d35f9be8-3281-54ed-884d-4c91ffc871ad",
+            "notNull": true
+        },
+        {
+            "columnModelId": "f35575e0-d393-5e8f-be1d-9de8c2b28579",
+            "columnShareModelId": "6cc577d2-40e8-5b35-ad9f-c3e61aa00e6e"
+        },
+        {
+            "columnModelId": "f411ce52-6c30-57b6-abfe-a6c49fea489c",
+            "columnShareModelId": "eac0f7dd-d38b-5c97-ade2-63eb62bbbc6c",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "f5122abf-9c2a-5266-907c-ae5a6d752c8d",
+            "columnShareModelId": "604a7898-538b-51ae-98ef-9739088bb319",
+            "primaryKey": true,
+            "notNull": true,
+            "autoIncrement": true
+        },
+        {
+            "columnModelId": "fd31dbfb-0fd3-583e-95c6-431b2f9a44e5",
+            "columnShareModelId": "c679088e-d8d5-5ed8-b787-4991848a20fa"
+        }
+    ],
+    "columnShareModels": [
+        {
+            "columnShareModelId": "09a3b570-8271-5e87-8ab0-9e238344f08a",
+            "physicalName": "cajas_estanteria",
+            "logicalName": "cajas_estanteria",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "8f2cccb9-5ee6-5ee6-8cc8-3b4600fbc622",
+            "physicalName": "cantidad",
+            "logicalName": "cantidad",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "b5590cce-542d-5ede-bc81-1e5f1ea08d47",
+            "physicalName": "cantidad_cajas",
+            "logicalName": "cantidad_cajas",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "ba7feb49-4832-5189-bf33-5787d6ac229d",
+            "physicalName": "cantidad_movimiento",
+            "logicalName": "cantidad_movimiento",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "099881d0-de44-532e-a810-8f988398b97e",
+            "physicalName": "cantidad_por_caja",
+            "logicalName": "cantidad_por_caja",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "61ab3512-a065-525e-b85d-05c4977a2c48",
+            "physicalName": "cantidad_por_caja_aplicada",
+            "logicalName": "cantidad_por_caja_aplicada",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "38eafb92-4671-5987-ac96-d388764f183a",
+            "physicalName": "descripcion",
+            "logicalName": "descripcion",
+            "columnTypeId": 1007,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "687dfc2f-5f50-55bc-b5d4-0e117797e44f",
+            "physicalName": "es_simulado",
+            "logicalName": "es_simulado",
+            "columnTypeId": 1012,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "ca1a2618-05ca-520e-a230-602f23a8c381",
+            "physicalName": "esta_activo",
+            "logicalName": "esta_activo",
+            "columnTypeId": 1012,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "669b5865-ff52-549b-9ec2-217e6af8c228",
+            "physicalName": "estanteria",
+            "logicalName": "estanteria",
+            "columnTypeId": 1002,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "f6a98479-a5b5-5d8b-b01f-dee806691493",
+            "physicalName": "fecha_hora_fin",
+            "logicalName": "fecha_hora_fin",
+            "columnTypeId": 1015,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "df88b3d9-510d-5667-adc1-8abbb1e9718a",
+            "physicalName": "fecha_hora_inicio",
+            "logicalName": "fecha_hora_inicio",
+            "columnTypeId": 1015,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "97869179-4799-5f52-ba46-aa3d8320bf1b",
+            "physicalName": "fecha_movimiento",
+            "logicalName": "fecha_movimiento",
+            "columnTypeId": 1015,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "8fd45fc9-b4a1-5d16-b579-44b288eb5905",
+            "physicalName": "hash_contrasena",
+            "logicalName": "hash_contrasena",
+            "columnTypeId": 1011,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "394fdcef-5013-5598-8571-03137fdfc34c",
+            "physicalName": "hora_fin",
+            "logicalName": "hora_fin",
+            "columnTypeId": 1010,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "20abb295-705c-56d4-8e86-730463add650",
+            "physicalName": "hora_inicio",
+            "logicalName": "hora_inicio",
+            "columnTypeId": 1010,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "fa20499f-7820-5f93-91ba-8b0db027c738",
+            "physicalName": "huella_peticion",
+            "logicalName": "huella_peticion",
+            "columnTypeId": 1017,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "5747e3d0-4f96-51ac-83be-737c1d14c886",
+            "physicalName": "id_color",
+            "logicalName": "id_color",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "c679088e-d8d5-5ed8-b787-4991848a20fa",
+            "physicalName": "id_color",
+            "logicalName": "id_color",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "0107dee4-6c06-5194-8f2b-e9c64b7eb5c3",
+            "physicalName": "id_estacion",
+            "logicalName": "id_estacion",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "4fa7a7c7-afaf-5282-a397-07b039ab9544",
+            "physicalName": "id_estacion",
+            "logicalName": "id_estacion",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "604a7898-538b-51ae-98ef-9739088bb319",
+            "physicalName": "id_estanteria",
+            "logicalName": "id_estanteria",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "a2c12c8d-428f-5202-abe7-b35c298f88ee",
+            "physicalName": "id_estanteria",
+            "logicalName": "id_estanteria",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "796b9e11-5241-58ce-943a-f795623b1fd2",
+            "physicalName": "id_linea",
+            "logicalName": "id_linea",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "58eb596b-9be0-58ff-8c78-2fbe66cdd373",
+            "physicalName": "id_operacion",
+            "logicalName": "id_operacion",
+            "columnTypeId": 1016,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "4def8861-b7a2-55d1-81a8-ea0aa3dea15a",
+            "physicalName": "id_puesto",
+            "logicalName": "id_puesto",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "7721bf18-67ef-5e61-a307-65dbe23b7b2b",
+            "physicalName": "id_puesto",
+            "logicalName": "id_puesto",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "d7edba54-4d13-5f60-94e2-cb36e164615a",
+            "physicalName": "id_puesto",
+            "logicalName": "id_puesto",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "eac0f7dd-d38b-5c97-ade2-63eb62bbbc6c",
+            "physicalName": "id_registro",
+            "logicalName": "id_registro",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "99498c94-0782-5a0a-8864-3913e1dca8dd",
+            "physicalName": "id_turno",
+            "logicalName": "id_turno",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "de6b8c22-ba75-5c6b-9618-9c501ee27634",
+            "physicalName": "id_turno",
+            "logicalName": "id_turno",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "5158223b-b62c-560e-b810-a663fd981432",
+            "physicalName": "id_ubicacion",
+            "logicalName": "id_ubicacion",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "9aef5842-a909-53e4-9b7d-f026d80ac5b1",
+            "physicalName": "id_ubicacion",
+            "logicalName": "id_ubicacion",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "0acbe015-1167-5bc5-bb5e-142d94a75a04",
+            "physicalName": "id_usuarios",
+            "logicalName": "id_usuarios",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "d3d0b65c-2f13-58ec-a715-5359a85ad03a",
+            "physicalName": "id_usuarios",
+            "logicalName": "id_usuarios",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "6cc577d2-40e8-5b35-ad9f-c3e61aa00e6e",
+            "physicalName": "minimo",
+            "logicalName": "minimo",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "51cdec0e-e4d1-5359-8ae1-65e140e78cf5",
+            "physicalName": "nivel",
+            "logicalName": "nivel",
+            "columnTypeId": 1003,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "1ca0a44f-540c-537f-9892-80c53669d58d",
+            "physicalName": "nombre",
+            "logicalName": "nombre",
+            "columnTypeId": 1001,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "a02b9241-5103-520b-9795-223902de8984",
+            "physicalName": "nombre",
+            "logicalName": "nombre",
+            "columnTypeId": 1004,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "f187f3b9-9e1f-5d24-9419-73fe5bbbb7b8",
+            "physicalName": "nombre_estacion",
+            "logicalName": "nombre_estacion",
+            "columnTypeId": 1001,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "b2ef5c36-ee59-5382-8c22-241238863ae0",
+            "physicalName": "nombre_turno",
+            "logicalName": "nombre_turno",
+            "columnTypeId": 1009,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "4af63082-3050-538f-b976-11fdbbc5a34b",
+            "physicalName": "nombre_usuario",
+            "logicalName": "nombre_usuario",
+            "columnTypeId": 1002,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "ff3b8b82-1f75-5686-b555-2a6e72ce7ed9",
+            "physicalName": "nombre_visible",
+            "logicalName": "nombre_visible",
+            "columnTypeId": 1008,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "08c48eca-ed13-5146-a693-765daf85a973",
+            "physicalName": "numero_parte",
+            "logicalName": "numero_parte",
+            "columnTypeId": 1006,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "aacde338-513d-50b1-923f-8e71724e6cc6",
+            "physicalName": "numero_parte",
+            "logicalName": "numero_parte",
+            "columnTypeId": 1006,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "5e1d6de0-657c-5ac0-8553-8fe67e1d1e85",
+            "physicalName": "origen",
+            "logicalName": "origen",
+            "columnTypeId": 1018,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "b34324bb-ff82-502e-94c4-6cb431c27f12",
+            "physicalName": "perfil",
+            "logicalName": "perfil",
+            "columnTypeId": 1013,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "c4ed626a-6fee-55fa-a76b-7882aefc2df7",
+            "physicalName": "saldo_anterior",
+            "logicalName": "saldo_anterior",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "9e7e6beb-b5a3-5590-849a-dd99844963cf",
+            "physicalName": "saldo_posterior",
+            "logicalName": "saldo_posterior",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "b6f42dad-771b-5bd7-b14e-b30310bbf631",
+            "physicalName": "tipo",
+            "logicalName": "tipo",
+            "columnTypeId": 1005,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "d35f9be8-3281-54ed-884d-4c91ffc871ad",
+            "physicalName": "tipo_movimiento",
+            "logicalName": "tipo_movimiento",
+            "columnTypeId": 1014,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "f4486e58-250e-5a8a-8d1f-e7b863c202c2",
+            "physicalName": "uso",
+            "logicalName": "uso",
+            "columnTypeId": 1008,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "columnShareModelId": "01131efb-787e-531c-a0df-4e4b98e094f2",
+            "physicalName": "version_concurrencia",
+            "logicalName": "version_concurrencia",
+            "columnTypeId": 1000,
+            "description": "Columna del DDL operativo",
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        }
+    ],
+    "relationViewModels": [
+        {
+            "relationModel": {
+                "relationModelId": "005784ee-20a4-51bc-bcd5-82c60341bd24",
+                "relationName": "FK_UBICACION_id_estanteria",
+                "parentTableModelId": "d4aaf8be-0bb8-58ed-8766-71a9515ba851",
+                "parentCardinality": "1",
+                "childTableModelId": "7e0264bf-5ac1-589a-ba8b-d81283a16f17",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "f5122abf-9c2a-5266-907c-ae5a6d752c8d",
+                        "childColumnModelId": "064d7263-9a72-53f2-ba94-da84581359df"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_UBICACION_id_estanteria",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.11945176778524157,
+                    "offsetX": -0.3583408611796699,
+                    "offsetY": -41.14941947753101
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "096721c3-6cbb-58fb-b7e9-9aa7f41f2037",
+                "relationName": "FK_REGISTRO_id_ubicacion",
+                "parentTableModelId": "7e0264bf-5ac1-589a-ba8b-d81283a16f17",
+                "parentCardinality": "1",
+                "childTableModelId": "786ccd30-e6e8-5eb1-8b03-797801cea3a8",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "dd2cb9a2-9e51-5658-9bd0-62f92ab9e7c5",
+                        "childColumnModelId": "906792d9-b4a6-5259-b6e9-56b66e77b88e"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_REGISTRO_id_ubicacion",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.3046969340919828,
+                    "offsetX": 17.476526498303883,
+                    "offsetY": -0.19043858021882443
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "09840c0c-01e8-57b1-84b5-ccd12ad13a77",
+                "relationName": "FK_REGISTRO_id_puesto",
+                "parentTableModelId": "da398dfa-a8cc-5a82-8ae6-c19078c3b792",
+                "parentCardinality": "1",
+                "childTableModelId": "786ccd30-e6e8-5eb1-8b03-797801cea3a8",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "96ce145b-ade5-55ce-ac57-156be01dccbc",
+                        "childColumnModelId": "36e03981-7644-55c1-99e9-bc2bf682b464"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_REGISTRO_id_puesto",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.4000596054876343,
+                    "offsetX": 12.456821110376268,
+                    "offsetY": 14.375713074128612
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "592b3140-0074-5ca4-a63b-a2a90d4ec3b1",
+                "relationName": "FK_MATERIAL_id_color",
+                "parentTableModelId": "16f00758-27e2-5402-adb5-e652493f7c51",
+                "parentCardinality": "0..1",
+                "childTableModelId": "4d442a80-b04e-5f68-9205-66820aac1f03",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "2c15f45b-de89-5266-a21d-fdb669b267cc",
+                        "childColumnModelId": "fd31dbfb-0fd3-583e-95c6-431b2f9a44e5"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_MATERIAL_id_color",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.6714251302458327,
+                    "offsetX": 0.2249381263743544,
+                    "offsetY": -31.805358518076467
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "7e98dc84-2783-50df-a9f8-bad8b5ec2628",
+                "relationName": "FK_MATERIAL_id_puesto",
+                "parentTableModelId": "da398dfa-a8cc-5a82-8ae6-c19078c3b792",
+                "parentCardinality": "1",
+                "childTableModelId": "4d442a80-b04e-5f68-9205-66820aac1f03",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "96ce145b-ade5-55ce-ac57-156be01dccbc",
+                        "childColumnModelId": "00ed600b-9068-507a-a21a-3463f7f2e848"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [
+                    {
+                        "x": 1481.39,
+                        "y": 302.86
+                    }
+                ],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_MATERIAL_id_puesto",
+                "position": {
+                    "segment": 1,
+                    "fraction": 0.5832848793281388,
+                    "offsetX": 10.796742120021918,
+                    "offsetY": -28.54597667627843
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "9036c69d-d622-5fa1-b9a3-ed1a75c5be46",
+                "relationName": "FK_REGISTRO_id_turno",
+                "parentTableModelId": "ac338c1f-7280-595e-94cc-789a9789e590",
+                "parentCardinality": "0..1",
+                "childTableModelId": "786ccd30-e6e8-5eb1-8b03-797801cea3a8",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "544ed550-2eaf-5102-8fe2-c7a3ef26063d",
+                        "childColumnModelId": "447daf17-bbf4-5147-8744-fceabd6c030e"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_REGISTRO_id_turno",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.7647666903137067,
+                    "offsetX": 0.12359030631091628,
+                    "offsetY": -38.58692032690442
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "ad371755-6ef0-58e4-bb05-bfc68f231eab",
+                "relationName": "FK_REGISTRO_id_usuarios",
+                "parentTableModelId": "ba54ea9b-13c6-50ff-a607-78b859352f3a",
+                "parentCardinality": "1",
+                "childTableModelId": "786ccd30-e6e8-5eb1-8b03-797801cea3a8",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "6bc9f128-1d7c-51e5-8f74-3c92c76a18a8",
+                        "childColumnModelId": "343d1cc8-26c2-5643-82a3-07136a58622c"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_REGISTRO_id_usuarios",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.1356015045646424,
+                    "offsetX": 0.06302680136076333,
+                    "offsetY": -34.82233841977677
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "b1578e25-8cce-55f8-9432-cc0ae986df57",
+                "relationName": "FK_ESTANTERIA_id_estacion",
+                "parentTableModelId": "850f8415-7cc1-58c1-84df-b8c2d35874a7",
+                "parentCardinality": "1",
+                "childTableModelId": "d4aaf8be-0bb8-58ed-8766-71a9515ba851",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "bcc86fae-2197-58e9-be9c-986251a6827e",
+                        "childColumnModelId": "a200b196-113a-5c53-8da3-650725118591"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_ESTANTERIA_id_estacion",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.3936371032495406,
+                    "offsetX": 22.829908060761994,
+                    "offsetY": -0.04635923986231205
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        },
+        {
+            "relationModel": {
+                "relationModelId": "f095d747-593f-5b11-aac7-b5d2f681b857",
+                "relationName": "FK_UBICACION_numero_parte",
+                "parentTableModelId": "4d442a80-b04e-5f68-9205-66820aac1f03",
+                "parentCardinality": "1",
+                "childTableModelId": "7e0264bf-5ac1-589a-ba8b-d81283a16f17",
+                "childCardinality": "0..N",
+                "relationPairs": [
+                    {
+                        "parentColumnModelId": "3fa4311b-d4ff-573f-ba57-ac603efd7346",
+                        "childColumnModelId": "a84fa088-4499-555d-9378-34ed6fd25b7c"
+                    }
+                ],
+                "onUpdateAction": "NO ACTION",
+                "onDeleteAction": "NO ACTION"
+            },
+            "lineViewModel": {
+                "strokeWidth": 1.2,
+                "edges": [],
+                "orthogonalLines": [],
+                "color": {
+                    "red": 100,
+                    "green": 116,
+                    "blue": 139
+                }
+            },
+            "labelViewModel": {
+                "label": "FK_UBICACION_numero_parte",
+                "position": {
+                    "segment": 0,
+                    "fraction": 0.33307354991042726,
+                    "offsetX": 22.55936432193198,
+                    "offsetY": -0.3734807915626561
+                },
+                "color": {
+                    "red": 0,
+                    "green": 0,
+                    "blue": 0
+                },
+                "style": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "fontSize": 10
+                }
+            },
+            "createdAt": "2026-11-02T00:00:00.000Z"
+        }
+    ],
+    "foregroundMemos": [],
+    "backgroundMemos": [],
+    "erdSettingModel": {
+        "displayStyle": {
+            "styleName": "Physical"
+        },
+        "exportDdlSetting": {
+            "fileName": "modelo-21",
+            "withTable": true,
+            "withIndex": true,
+            "withForeignKey": true,
+            "withSchema": true,
+            "withComment": true,
+            "commentStyle": "logical_name",
+            "commentSeparator": " : "
+        },
+        "showRelationNames": true
+    },
+    "databaseSetting": {
+        "databaseType": "ms_sqlserver",
+        "columnTypes": [
+            {
+                "id": 1000,
+                "name": "int",
+                "description": "SQL Server",
+                "baseQuery": "int",
+                "category": "other",
+                "withAutoIncrement": true
+            },
+            {
+                "id": 1001,
+                "name": "nvarchar(100)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(100)",
+                "category": "other"
+            },
+            {
+                "id": 1002,
+                "name": "nvarchar(80)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(80)",
+                "category": "other"
+            },
+            {
+                "id": 1003,
+                "name": "nvarchar(30)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(30)",
+                "category": "other"
+            },
+            {
+                "id": 1004,
+                "name": "nvarchar(120)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(120)",
+                "category": "other"
+            },
+            {
+                "id": 1005,
+                "name": "nvarchar(60)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(60)",
+                "category": "other"
+            },
+            {
+                "id": 1006,
+                "name": "varchar(100)",
+                "description": "SQL Server",
+                "baseQuery": "varchar(100)",
+                "category": "other"
+            },
+            {
+                "id": 1007,
+                "name": "nvarchar(250)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(250)",
+                "category": "other"
+            },
+            {
+                "id": 1008,
+                "name": "nvarchar(150)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(150)",
+                "category": "other"
+            },
+            {
+                "id": 1009,
+                "name": "nvarchar(40)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(40)",
+                "category": "other"
+            },
+            {
+                "id": 1010,
+                "name": "time(0)",
+                "description": "SQL Server",
+                "baseQuery": "time(0)",
+                "category": "other"
+            },
+            {
+                "id": 1011,
+                "name": "nvarchar(500)",
+                "description": "SQL Server",
+                "baseQuery": "nvarchar(500)",
+                "category": "other"
+            },
+            {
+                "id": 1012,
+                "name": "bit",
+                "description": "SQL Server",
+                "baseQuery": "bit",
+                "category": "other"
+            },
+            {
+                "id": 1013,
+                "name": "varchar(20)",
+                "description": "SQL Server",
+                "baseQuery": "varchar(20)",
+                "category": "other"
+            },
+            {
+                "id": 1014,
+                "name": "varchar(10)",
+                "description": "SQL Server",
+                "baseQuery": "varchar(10)",
+                "category": "other"
+            },
+            {
+                "id": 1015,
+                "name": "datetime",
+                "description": "SQL Server",
+                "baseQuery": "datetime",
+                "category": "other"
+            },
+            {
+                "id": 1016,
+                "name": "uniqueidentifier",
+                "description": "SQL Server",
+                "baseQuery": "uniqueidentifier",
+                "category": "other"
+            },
+            {
+                "id": 1017,
+                "name": "char(64)",
+                "description": "SQL Server",
+                "baseQuery": "char(64)",
+                "category": "other"
+            },
+            {
+                "id": 1018,
+                "name": "varchar(24)",
+                "description": "SQL Server",
+                "baseQuery": "varchar(24)",
+                "category": "other"
+            }
+        ],
+        "version": 20260504
+    }
+}

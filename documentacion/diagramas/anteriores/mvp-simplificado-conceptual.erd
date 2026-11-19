@@ -1,0 +1,1349 @@
+{
+  "documentName": "Motherson L1 — modelo conceptual — 8 tablas y 9 relaciones",
+  "lastUpdatedAt": "2026-11-03T18:36:40.810103+00:00",
+  "schemaConfig": {
+    "defaultSchemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+    "schemas": [
+      {
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "schemaName": "dbo",
+        "description": ""
+      }
+    ]
+  },
+  "tableViewModels": [
+    {
+      "tableModel": {
+        "tableModelId": "98484c5c-caf1-5a64-85a4-35526ac6cbff",
+        "physicalName": "ESTACION",
+        "logicalName": "ESTACION",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "736b7897-b42f-5497-b5d5-85e6335a4373",
+          "dab5de0d-0d30-5e24-a633-0fd5f3d620e9",
+          "d2280375-5a6d-5d07-a173-32ebc4f18f27"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 40,
+      "top": 110,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "8da822f2-8d8d-5d43-ac1b-f7d979dca3c5",
+        "physicalName": "ESTANTERIA",
+        "logicalName": "ESTANTERIA",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "1544a7bc-9c79-5a4c-8b37-8d217850a64e",
+          "98c1d73c-9f02-586b-9e28-3668b10fabdb",
+          "caec412f-1ffb-5859-a36d-e1e11f70aad8",
+          "e88b3edc-56ff-525b-961b-4691ea873b54",
+          "02fe4446-3deb-5342-8463-73b9dc182f86"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 40,
+      "top": 390,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "d045cccd-1e04-5cd2-a137-a9de60ad16f9",
+        "physicalName": "MATERIAL",
+        "logicalName": "MATERIAL",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "6d4ab6df-f759-509c-820d-d83c707851d7",
+          "caadd87d-5f0e-5518-af7b-7a2eb3936940",
+          "6e49d1ae-5e07-5383-bad6-1af9230100f1",
+          "232cde12-23d0-5325-b0a9-6acbc00a3a8e",
+          "be6ff484-88aa-5490-9c97-ae8446d17702",
+          "43dae6ed-59b8-58de-b5e1-ad8290ec8594"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 490,
+      "top": 110,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "f3701e98-e4ca-5626-b1c1-5b5eb8be9916",
+        "physicalName": "UBICACION",
+        "logicalName": "UBICACION",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "19ebcca6-1262-5efa-8b01-dc07cb54bb5b",
+          "de9ff710-3186-5fa3-941a-8e2062a19276",
+          "f189c563-eb91-5d20-8fd3-4eaefeca3cda",
+          "2a7db4da-4bd9-5d8c-8add-06d46a26aaa7"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 490,
+      "top": 490,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "4aad9b6c-127b-5360-baf3-342312135ac0",
+        "physicalName": "PUESTO_LOGISTICO",
+        "logicalName": "PUESTO_LOGISTICO",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "cd773609-4dc6-5b32-9660-74bb3408d6fa",
+          "2ffc6a3e-6a42-52d1-a069-68ec66c5fe03",
+          "47da700a-0364-5f07-b125-86de36f141d3"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 1030,
+      "top": 110,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "8a7e9ca5-d988-5f08-ac6f-260ac8e3f075",
+        "physicalName": "USUARIOS",
+        "logicalName": "USUARIOS",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "c9fab90a-d25d-5f97-9733-7031b60e55db",
+          "f6357d0b-44d7-5ac7-988b-8e9b96a8b09d",
+          "a66889f8-ace9-5bbc-8171-dbf93fc1e839",
+          "4c3826a4-c082-52de-aee8-c5375d407058",
+          "12b61d03-d0b8-56d6-a5ba-a9b40bc2a3dc",
+          "a8532b39-78c9-5171-8277-e424784b9162"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 1030,
+      "top": 480,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "f0459c58-795d-5c5e-a002-fa1526a6e3de",
+        "physicalName": "REGISTRO",
+        "logicalName": "REGISTRO",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "072ae592-7ff8-53bb-b780-aa9b23ba818b",
+          "95801159-ddfd-5bb9-b58e-b10905b65b2d",
+          "4d234a06-3d82-5d22-9ec6-fec0471243bb",
+          "52fdb65d-cba5-540a-adc8-34c1b6c010d0",
+          "737db72d-6afc-537e-b01d-9416ba267570",
+          "891a5ef2-79a9-5637-8bdc-a79b9306d497",
+          "bfbc59ee-7f1b-5a5e-b191-baaec708eeae",
+          "e883b322-52d7-5f71-9589-1d0ef9b5c6f3",
+          "517a1610-afde-51f0-9c96-38ca93ffd09c",
+          "d275352e-72d5-507e-905e-03d7197f30ba",
+          "37ffb81b-1b79-5a7a-8612-11a125d66c70",
+          "12066461-32dd-577c-bb8f-9fd90030b3b4",
+          "def3eafb-1fe7-52b3-a0a9-8a21a9badbf8",
+          "6d007945-197b-5c75-8b68-510f23a7eec5",
+          "40b1c7d4-60c2-549c-ab45-ef0149364231"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 490,
+      "top": 810,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "tableModel": {
+        "tableModelId": "b8809063-461d-539e-8707-6b4cdc2f6934",
+        "physicalName": "TURNO",
+        "logicalName": "TURNO",
+        "schemaId": "24338286-94f5-5faa-afc3-641a2ce94d81",
+        "columnModelIds": [
+          "1d7963d4-8ece-575b-9538-904f83880854",
+          "34618b3d-c7b3-584a-b5cf-14afd6e4f0d3",
+          "6d0c7e14-36ad-5984-8c89-b0cfa0879306",
+          "bf24dcfa-45fc-5c4e-81fb-81366a0520df"
+        ],
+        "description": "Estructura auditada de Pruebas; documentación sin modificaciones SQL."
+      },
+      "left": 40,
+      "top": 1020,
+      "headerBackgroundColor": {
+        "red": 21,
+        "green": 94,
+        "blue": 117
+      },
+      "headerForegroundColor": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    }
+  ],
+  "columnGroupModels": [],
+  "columnModels": [
+    {
+      "columnModelId": "736b7897-b42f-5497-b5d5-85e6335a4373",
+      "columnShareModelId": "e09f6be4-0613-525a-9bb1-77589576989a",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "dab5de0d-0d30-5e24-a633-0fd5f3d620e9",
+      "columnShareModelId": "75edda92-9ad2-5882-8920-f5af7d78ba5e",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "d2280375-5a6d-5d07-a173-32ebc4f18f27",
+      "columnShareModelId": "a8784e7a-f780-5ada-9ce0-2e149d2a0884",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "1544a7bc-9c79-5a4c-8b37-8d217850a64e",
+      "columnShareModelId": "f33e3de7-0995-54f6-b04a-62f9b8bb2227",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "98c1d73c-9f02-586b-9e28-3668b10fabdb",
+      "columnShareModelId": "7c447f63-b110-58a0-b7e6-b1b747d2d07f",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "caec412f-1ffb-5859-a36d-e1e11f70aad8",
+      "columnShareModelId": "3b8a0396-8b2b-5a14-8535-04de221c63c1",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "e88b3edc-56ff-525b-961b-4691ea873b54",
+      "columnShareModelId": "95e32f9a-03c6-5f57-b27c-0601dabc1528",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "02fe4446-3deb-5342-8463-73b9dc182f86",
+      "columnShareModelId": "42d3f115-a735-51b8-b4da-a829311d114c",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "6d4ab6df-f759-509c-820d-d83c707851d7",
+      "columnShareModelId": "017c5d55-0986-509e-846a-cf4964327b5b",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "caadd87d-5f0e-5518-af7b-7a2eb3936940",
+      "columnShareModelId": "46af23f6-3bf0-5fd4-9af6-6292958a1852",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "6e49d1ae-5e07-5383-bad6-1af9230100f1",
+      "columnShareModelId": "ccdf3994-a4b8-5adb-8b95-a03c1b4dd39c",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "232cde12-23d0-5325-b0a9-6acbc00a3a8e",
+      "columnShareModelId": "2583ed5c-f61b-5a10-acb3-911a693edd58",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "be6ff484-88aa-5490-9c97-ae8446d17702",
+      "columnShareModelId": "4ba6d6bb-54a2-593c-8df1-216a6487fc62",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "43dae6ed-59b8-58de-b5e1-ad8290ec8594",
+      "columnShareModelId": "946b205e-dd2b-516d-b753-993bb29a913d",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "19ebcca6-1262-5efa-8b01-dc07cb54bb5b",
+      "columnShareModelId": "337ce034-f492-5e4e-b1ea-d27e9df5228a",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "de9ff710-3186-5fa3-941a-8e2062a19276",
+      "columnShareModelId": "4e46180c-63f9-5eae-afef-e73444b327f0",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "f189c563-eb91-5d20-8fd3-4eaefeca3cda",
+      "columnShareModelId": "7875f80d-48bc-5962-9d4c-59ce94f9293c",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "2a7db4da-4bd9-5d8c-8add-06d46a26aaa7",
+      "columnShareModelId": "3fba2880-2675-5e33-a4c7-a80d6e240960",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "cd773609-4dc6-5b32-9660-74bb3408d6fa",
+      "columnShareModelId": "3808f739-8ede-5c3c-bd63-1b7204f24a8c",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "2ffc6a3e-6a42-52d1-a069-68ec66c5fe03",
+      "columnShareModelId": "c32c73df-79fd-55e9-94b5-a9a61a1e3571",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "47da700a-0364-5f07-b125-86de36f141d3",
+      "columnShareModelId": "75917faa-359f-5944-a442-3f13cf6ed03c",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "c9fab90a-d25d-5f97-9733-7031b60e55db",
+      "columnShareModelId": "2f1581a2-13f2-5b0c-9de4-fbfb9e4f0907",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "f6357d0b-44d7-5ac7-988b-8e9b96a8b09d",
+      "columnShareModelId": "638c05e5-2506-5ebe-b5b5-b3c169b54f8c",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "a66889f8-ace9-5bbc-8171-dbf93fc1e839",
+      "columnShareModelId": "cd7122d9-c7f5-59e4-a49f-a4d9b0a71e97",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "4c3826a4-c082-52de-aee8-c5375d407058",
+      "columnShareModelId": "e17b55fe-ed3b-5bfd-b912-42ad4202ddbc",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "12b61d03-d0b8-56d6-a5ba-a9b40bc2a3dc",
+      "columnShareModelId": "ba09b6c0-7f6c-5251-addd-250d4b770e3c",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "a8532b39-78c9-5171-8277-e424784b9162",
+      "columnShareModelId": "2e3bf974-2a8b-5be5-acd4-9fcf73820515",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "072ae592-7ff8-53bb-b780-aa9b23ba818b",
+      "columnShareModelId": "75ee7990-1c22-5087-8e34-b5ff28eb7b8f",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "95801159-ddfd-5bb9-b58e-b10905b65b2d",
+      "columnShareModelId": "6b577b3d-6a08-5413-bd9f-8f306a82b00e",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "4d234a06-3d82-5d22-9ec6-fec0471243bb",
+      "columnShareModelId": "b18cfd65-3d72-5dc6-b49b-0564e813f91e",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "52fdb65d-cba5-540a-adc8-34c1b6c010d0",
+      "columnShareModelId": "e53eddc2-e0e5-5b8f-8d6f-42b3a2f49a75",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "737db72d-6afc-537e-b01d-9416ba267570",
+      "columnShareModelId": "a808f8a8-cce6-5c47-a20c-8180e3622acb",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "891a5ef2-79a9-5637-8bdc-a79b9306d497",
+      "columnShareModelId": "ef828937-8565-50c1-b76f-e3df706aa537",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "bfbc59ee-7f1b-5a5e-b191-baaec708eeae",
+      "columnShareModelId": "26cb75af-c33d-5556-a3d0-444bdbd55f72",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "e883b322-52d7-5f71-9589-1d0ef9b5c6f3",
+      "columnShareModelId": "51090bc9-661b-5d29-8c48-2b18dfe5d4b4",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "517a1610-afde-51f0-9c96-38ca93ffd09c",
+      "columnShareModelId": "8f3f69b1-ec88-57f5-9e87-246087ed1a88",
+      "notNull": false,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "d275352e-72d5-507e-905e-03d7197f30ba",
+      "columnShareModelId": "5d4bbcec-438f-5efd-aea0-94ecd5dfca92",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "37ffb81b-1b79-5a7a-8612-11a125d66c70",
+      "columnShareModelId": "eddd77f1-172f-5946-a48c-74c293258ed3",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "12066461-32dd-577c-bb8f-9fd90030b3b4",
+      "columnShareModelId": "13af5d36-f5a1-55fe-b117-743b65673282",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "def3eafb-1fe7-52b3-a0a9-8a21a9badbf8",
+      "columnShareModelId": "ea5703b9-5977-5e73-8959-88e8aacbe26c",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "6d007945-197b-5c75-8b68-510f23a7eec5",
+      "columnShareModelId": "66ef9abc-5b3a-5d0b-bad9-991e9be6b479",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "40b1c7d4-60c2-549c-ab45-ef0149364231",
+      "columnShareModelId": "d0610407-8067-548e-8f28-2cd4a9dd7018",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "1d7963d4-8ece-575b-9538-904f83880854",
+      "columnShareModelId": "5c4730cf-0f19-5624-88bc-d82416640e30",
+      "notNull": true,
+      "primaryKey": true,
+      "autoIncrement": true
+    },
+    {
+      "columnModelId": "34618b3d-c7b3-584a-b5cf-14afd6e4f0d3",
+      "columnShareModelId": "72690da0-ec8b-5b57-b273-b43bd630ed6c",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "6d0c7e14-36ad-5984-8c89-b0cfa0879306",
+      "columnShareModelId": "3f04a7bc-8694-5bc5-8c6b-0783e20ffa3d",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    },
+    {
+      "columnModelId": "bf24dcfa-45fc-5c4e-81fb-81366a0520df",
+      "columnShareModelId": "e3b0525f-b7cd-545a-b820-9be45bf12ecf",
+      "notNull": true,
+      "primaryKey": false,
+      "autoIncrement": false
+    }
+  ],
+  "columnShareModels": [
+    {
+      "columnShareModelId": "e09f6be4-0613-525a-9bb1-77589576989a",
+      "physicalName": "id_estacion",
+      "logicalName": "id_estacion",
+      "columnTypeId": 1000,
+      "description": "Identificador estable de la estación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "75edda92-9ad2-5882-8920-f5af7d78ba5e",
+      "physicalName": "id_linea",
+      "logicalName": "id_linea",
+      "columnTypeId": 1000,
+      "description": "Línea de producción; el MVP admite únicamente L1.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "a8784e7a-f780-5ada-9ce0-2e149d2a0884",
+      "physicalName": "nombre_estacion",
+      "logicalName": "nombre_estacion",
+      "columnTypeId": 1001,
+      "description": "Código o nombre documentado de la estación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "f33e3de7-0995-54f6-b04a-62f9b8bb2227",
+      "physicalName": "id_estanteria",
+      "logicalName": "id_estanteria",
+      "columnTypeId": 1000,
+      "description": "Identificador del nivel de estantería.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "7c447f63-b110-58a0-b7e6-b1b747d2d07f",
+      "physicalName": "id_estacion",
+      "logicalName": "id_estacion",
+      "columnTypeId": 1000,
+      "description": "Identificador estable de la estación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "3b8a0396-8b2b-5a14-8535-04de221c63c1",
+      "physicalName": "estanteria",
+      "logicalName": "estanteria",
+      "columnTypeId": 1002,
+      "description": "Código de estantería dentro de la estación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "95e32f9a-03c6-5f57-b27c-0601dabc1528",
+      "physicalName": "nivel",
+      "logicalName": "nivel",
+      "columnTypeId": 1003,
+      "description": "Nivel o posición documentada.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "42d3f115-a735-51b8-b4da-a829311d114c",
+      "physicalName": "cajas_estanteria",
+      "logicalName": "cajas_estanteria",
+      "columnTypeId": 1000,
+      "description": "Capacidad del nivel en cajas; no representa existencias.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "017c5d55-0986-509e-846a-cf4964327b5b",
+      "physicalName": "numero_parte",
+      "logicalName": "numero_parte",
+      "columnTypeId": 1004,
+      "description": "Referencia completa del material; conserva sufijos y ceros.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "46af23f6-3bf0-5fd4-9af6-6292958a1852",
+      "physicalName": "id_puesto",
+      "logicalName": "id_puesto",
+      "columnTypeId": 1000,
+      "description": "Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "ccdf3994-a4b8-5adb-8b95-a03c1b4dd39c",
+      "physicalName": "descripcion",
+      "logicalName": "descripcion",
+      "columnTypeId": 1005,
+      "description": "Descripción documental del material.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "2583ed5c-f61b-5a10-acb3-911a693edd58",
+      "physicalName": "uso",
+      "logicalName": "uso",
+      "columnTypeId": 1006,
+      "description": "Clasificación de uso del PFEP: COMPARTIDO o EXCLUSIVO; no es modelo de vehículo.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "4ba6d6bb-54a2-593c-8df1-216a6487fc62",
+      "physicalName": "cantidad_por_caja",
+      "logicalName": "cantidad_por_caja",
+      "columnTypeId": 1000,
+      "description": "Piezas por caja del material.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "946b205e-dd2b-516d-b753-993bb29a913d",
+      "physicalName": "minimo",
+      "logicalName": "minimo",
+      "columnTypeId": 1000,
+      "description": "Umbral mínimo en piezas del material; distinto de la cobertura temporal por ubicación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "337ce034-f492-5e4e-b1ea-d27e9df5228a",
+      "physicalName": "id_ubicacion",
+      "logicalName": "id_ubicacion",
+      "columnTypeId": 1000,
+      "description": "Asignación estable de material a nivel de estantería.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "4e46180c-63f9-5eae-afef-e73444b327f0",
+      "physicalName": "numero_parte",
+      "logicalName": "numero_parte",
+      "columnTypeId": 1004,
+      "description": "Referencia completa del material; conserva sufijos y ceros.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "7875f80d-48bc-5962-9d4c-59ce94f9293c",
+      "physicalName": "id_estanteria",
+      "logicalName": "id_estanteria",
+      "columnTypeId": 1000,
+      "description": "Identificador del nivel de estantería.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "3fba2880-2675-5e33-a4c7-a80d6e240960",
+      "physicalName": "cantidad",
+      "logicalName": "cantidad",
+      "columnTypeId": 1000,
+      "description": "Saldo conocido de piezas; NULL significa apertura pendiente, no cero.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "3808f739-8ede-5c3c-bd63-1b7204f24a8c",
+      "physicalName": "id_puesto",
+      "logicalName": "id_puesto",
+      "columnTypeId": 1000,
+      "description": "Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "c32c73df-79fd-55e9-94b5-a9a61a1e3571",
+      "physicalName": "nombre",
+      "logicalName": "nombre",
+      "columnTypeId": 1007,
+      "description": "Código del puesto (SZ01, SZ02, SG, K.E., MONTACARGAS o DESENGANCHE L1). El nombre completo documentado se presenta por separado.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "75917faa-359f-5944-a442-3f13cf6ed03c",
+      "physicalName": "tipo",
+      "logicalName": "tipo",
+      "columnTypeId": 1008,
+      "description": "Clasificación del puesto; permanece NULL cuando falta definición documental.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "2f1581a2-13f2-5b0c-9de4-fbfb9e4f0907",
+      "physicalName": "id_usuarios",
+      "logicalName": "id_usuarios",
+      "columnTypeId": 1000,
+      "description": "Identificador de la cuenta individual que captura; conserva la atribución antigua.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "638c05e5-2506-5ebe-b5b5-b3c169b54f8c",
+      "physicalName": "nombre_usuario",
+      "logicalName": "nombre_usuario",
+      "columnTypeId": 1002,
+      "description": "Nombre de acceso único.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "cd7122d9-c7f5-59e4-a49f-a4d9b0a71e97",
+      "physicalName": "nombre_visible",
+      "logicalName": "nombre_visible",
+      "columnTypeId": 1006,
+      "description": "Nombre mostrado de la cuenta cuando está documentado.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "e17b55fe-ed3b-5bfd-b912-42ad4202ddbc",
+      "physicalName": "esta_activo",
+      "logicalName": "esta_activo",
+      "columnTypeId": 1014,
+      "description": "Permite revocar el acceso sin borrar cuenta, puesto ni comprobantes.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "ba09b6c0-7f6c-5251-addd-250d4b770e3c",
+      "physicalName": "perfil",
+      "logicalName": "perfil",
+      "columnTypeId": 1015,
+      "description": "Permisos del MVP: ADMINISTRADOR, ENTRADAS, MOVIMIENTOS o CONSULTA; solo ADMINISTRADOR puede registrar salidas.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "2e3bf974-2a8b-5be5-acd4-9fcf73820515",
+      "physicalName": "id_puesto",
+      "logicalName": "id_puesto",
+      "columnTypeId": 1000,
+      "description": "Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "75ee7990-1c22-5087-8e34-b5ff28eb7b8f",
+      "physicalName": "id_registro",
+      "logicalName": "id_registro",
+      "columnTypeId": 1000,
+      "description": "Identificador del comprobante inmutable.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "6b577b3d-6a08-5413-bd9f-8f306a82b00e",
+      "physicalName": "id_usuarios",
+      "logicalName": "id_usuarios",
+      "columnTypeId": 1000,
+      "description": "Identificador de la cuenta individual que captura; conserva la atribución antigua.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "b18cfd65-3d72-5dc6-b49b-0564e813f91e",
+      "physicalName": "id_ubicacion",
+      "logicalName": "id_ubicacion",
+      "columnTypeId": 1000,
+      "description": "Asignación estable de material a nivel de estantería.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "e53eddc2-e0e5-5b8f-8d6f-42b3a2f49a75",
+      "physicalName": "id_turno",
+      "logicalName": "id_turno",
+      "columnTypeId": 1000,
+      "description": "Turno PFEP del movimiento; puede ser NULL fuera de jornada.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "a808f8a8-cce6-5c47-a20c-8180e3622acb",
+      "physicalName": "id_puesto",
+      "logicalName": "id_puesto",
+      "columnTypeId": 1000,
+      "description": "Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "ef828937-8565-50c1-b76f-e3df706aa537",
+      "physicalName": "tipo_movimiento",
+      "logicalName": "tipo_movimiento",
+      "columnTypeId": 1009,
+      "description": "APERTURA, ENTRADA o SALIDA.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "26cb75af-c33d-5556-a3d0-444bdbd55f72",
+      "physicalName": "cantidad_movimiento",
+      "logicalName": "cantidad_movimiento",
+      "columnTypeId": 1000,
+      "description": "Piezas del movimiento; el signo se interpreta según el tipo.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "51090bc9-661b-5d29-8c48-2b18dfe5d4b4",
+      "physicalName": "cantidad_cajas",
+      "logicalName": "cantidad_cajas",
+      "columnTypeId": 1000,
+      "description": "Cajas completas ingresadas; NULL en salidas y aperturas.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "8f3f69b1-ec88-57f5-9e87-246087ed1a88",
+      "physicalName": "cantidad_por_caja_aplicada",
+      "logicalName": "cantidad_por_caja_aplicada",
+      "columnTypeId": 1000,
+      "description": "Factor aplicado a esa entrada, conservado aunque cambie el catálogo.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "5d4bbcec-438f-5efd-aea0-94ecd5dfca92",
+      "physicalName": "saldo_anterior",
+      "logicalName": "saldo_anterior",
+      "columnTypeId": 1000,
+      "description": "Saldo previo a la operación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "eddd77f1-172f-5946-a48c-74c293258ed3",
+      "physicalName": "saldo_posterior",
+      "logicalName": "saldo_posterior",
+      "columnTypeId": 1000,
+      "description": "Saldo tras la operación.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "13af5d36-f5a1-55fe-b117-743b65673282",
+      "physicalName": "fecha_movimiento",
+      "logicalName": "fecha_movimiento",
+      "columnTypeId": 1010,
+      "description": "Instante UTC del movimiento; se presenta en hora de México.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "ea5703b9-5977-5e73-8959-88e8aacbe26c",
+      "physicalName": "fecha_hora_inicio",
+      "logicalName": "fecha_hora_inicio",
+      "columnTypeId": 1010,
+      "description": "Inicio UTC de procesamiento de la captura.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "66ef9abc-5b3a-5d0b-bad9-991e9be6b479",
+      "physicalName": "fecha_hora_fin",
+      "logicalName": "fecha_hora_fin",
+      "columnTypeId": 1010,
+      "description": "Fin UTC de procesamiento de la captura.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "d0610407-8067-548e-8f28-2cd4a9dd7018",
+      "physicalName": "origen",
+      "logicalName": "origen",
+      "columnTypeId": 1011,
+      "description": "CAPTURA_SIMULADA, APERTURA_SIMULADA, CAPTURA_REAL o APERTURA_REAL. Esta entrega registra capturas simuladas.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "5c4730cf-0f19-5624-88bc-d82416640e30",
+      "physicalName": "id_turno",
+      "logicalName": "id_turno",
+      "columnTypeId": 1000,
+      "description": "Turno PFEP del movimiento; puede ser NULL fuera de jornada.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "72690da0-ec8b-5b57-b273-b43bd630ed6c",
+      "physicalName": "nombre_turno",
+      "logicalName": "nombre_turno",
+      "columnTypeId": 1012,
+      "description": "PFEP T1 o PFEP T2.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "3f04a7bc-8694-5bc5-8c6b-0783e20ffa3d",
+      "physicalName": "hora_inicio",
+      "logicalName": "hora_inicio",
+      "columnTypeId": 1013,
+      "description": "Inicio local del turno; inclusivo.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "columnShareModelId": "e3b0525f-b7cd-545a-b820-9be45bf12ecf",
+      "physicalName": "hora_fin",
+      "logicalName": "hora_fin",
+      "columnTypeId": 1013,
+      "description": "Fin local del turno; exclusivo.",
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    }
+  ],
+  "relationViewModels": [
+    {
+      "relationModel": {
+        "relationModelId": "85265c7a-724a-53ca-8104-a1bfdc7726e1",
+        "relationName": "FK__ESTANTERI__id_es__3C69FB99",
+        "parentTableModelId": "98484c5c-caf1-5a64-85a4-35526ac6cbff",
+        "parentCardinality": "1",
+        "childTableModelId": "8da822f2-8d8d-5d43-ac1b-f7d979dca3c5",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "736b7897-b42f-5497-b5d5-85e6335a4373",
+            "childColumnModelId": "98c1d73c-9f02-586b-9e28-3668b10fabdb"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "2412e3a0-f9d8-54ce-8e6a-c28a534add81",
+        "relationName": "FK__MATERIAL__id_pue__45F365D3",
+        "parentTableModelId": "4aad9b6c-127b-5360-baf3-342312135ac0",
+        "parentCardinality": "1",
+        "childTableModelId": "d045cccd-1e04-5cd2-a137-a9de60ad16f9",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "cd773609-4dc6-5b32-9660-74bb3408d6fa",
+            "childColumnModelId": "caadd87d-5f0e-5518-af7b-7a2eb3936940"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "e87bb4cc-1031-56d4-8f79-936dae3e8d71",
+        "relationName": "FK__REGISTRO__id_pue__5EBF139D",
+        "parentTableModelId": "4aad9b6c-127b-5360-baf3-342312135ac0",
+        "parentCardinality": "1",
+        "childTableModelId": "f0459c58-795d-5c5e-a002-fa1526a6e3de",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "cd773609-4dc6-5b32-9660-74bb3408d6fa",
+            "childColumnModelId": "737db72d-6afc-537e-b01d-9416ba267570"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "27d87aca-73e3-56b1-89b8-86d5f2ded989",
+        "relationName": "FK__REGISTRO__id_tur__5DCAEF64",
+        "parentTableModelId": "b8809063-461d-539e-8707-6b4cdc2f6934",
+        "parentCardinality": "0..1",
+        "childTableModelId": "f0459c58-795d-5c5e-a002-fa1526a6e3de",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "1d7963d4-8ece-575b-9538-904f83880854",
+            "childColumnModelId": "52fdb65d-cba5-540a-adc8-34c1b6c010d0"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "ab9681db-ba4a-5e61-b509-cf4e03ce6378",
+        "relationName": "FK__REGISTRO__id_ubi__5CD6CB2B",
+        "parentTableModelId": "f3701e98-e4ca-5626-b1c1-5b5eb8be9916",
+        "parentCardinality": "1",
+        "childTableModelId": "f0459c58-795d-5c5e-a002-fa1526a6e3de",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "19ebcca6-1262-5efa-8b01-dc07cb54bb5b",
+            "childColumnModelId": "4d234a06-3d82-5d22-9ec6-fec0471243bb"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "4a664735-b064-5c9a-8907-536da83a71ff",
+        "relationName": "FK__REGISTRO__id_usu__5BE2A6F2",
+        "parentTableModelId": "8a7e9ca5-d988-5f08-ac6f-260ac8e3f075",
+        "parentCardinality": "1",
+        "childTableModelId": "f0459c58-795d-5c5e-a002-fa1526a6e3de",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "c9fab90a-d25d-5f97-9733-7031b60e55db",
+            "childColumnModelId": "95801159-ddfd-5bb9-b58e-b10905b65b2d"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "d15a93cb-556e-5b7d-969b-1232bcc73888",
+        "relationName": "FK__UBICACION__id_es__4D94879B",
+        "parentTableModelId": "8da822f2-8d8d-5d43-ac1b-f7d979dca3c5",
+        "parentCardinality": "1",
+        "childTableModelId": "f3701e98-e4ca-5626-b1c1-5b5eb8be9916",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "1544a7bc-9c79-5a4c-8b37-8d217850a64e",
+            "childColumnModelId": "f189c563-eb91-5d20-8fd3-4eaefeca3cda"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "88886bb9-bda8-5a48-a031-bd2882304e2d",
+        "relationName": "FK__UBICACION__numer__4CA06362",
+        "parentTableModelId": "d045cccd-1e04-5cd2-a137-a9de60ad16f9",
+        "parentCardinality": "1",
+        "childTableModelId": "f3701e98-e4ca-5626-b1c1-5b5eb8be9916",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "6d4ab6df-f759-509c-820d-d83c707851d7",
+            "childColumnModelId": "de9ff710-3186-5fa3-941a-8e2062a19276"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    },
+    {
+      "relationModel": {
+        "relationModelId": "83f8aa8a-a300-5006-a608-39d66ecb90a0",
+        "relationName": "FK_USUARIOS_PUESTO",
+        "parentTableModelId": "4aad9b6c-127b-5360-baf3-342312135ac0",
+        "parentCardinality": "0..1",
+        "childTableModelId": "8a7e9ca5-d988-5f08-ac6f-260ac8e3f075",
+        "childCardinality": "0..N",
+        "relationPairs": [
+          {
+            "parentColumnModelId": "cd773609-4dc6-5b32-9660-74bb3408d6fa",
+            "childColumnModelId": "a8532b39-78c9-5171-8277-e424784b9162"
+          }
+        ],
+        "onUpdateAction": "NO ACTION",
+        "onDeleteAction": "NO ACTION"
+      },
+      "lineViewModel": {
+        "strokeWidth": 1.2,
+        "edges": [],
+        "orthogonalLines": [],
+        "color": {
+          "red": 100,
+          "green": 116,
+          "blue": 139
+        }
+      },
+      "createdAt": "2026-11-03T18:36:40.810103+00:00"
+    }
+  ],
+  "foregroundMemos": [],
+  "backgroundMemos": [],
+  "erdSettingModel": {
+    "displayStyle": {
+      "styleName": "Physical"
+    },
+    "exportDdlSetting": {
+      "fileName": "mvp-simplificado",
+      "withTable": true,
+      "withIndex": true,
+      "withForeignKey": true,
+      "withSchema": true,
+      "withComment": true,
+      "commentStyle": "logical_name",
+      "commentSeparator": " : "
+    },
+    "showRelationNames": false
+  },
+  "databaseSetting": {
+    "databaseType": "ms_sqlserver",
+    "columnTypes": [
+      {
+        "id": 1000,
+        "name": "int",
+        "description": "SQL Server",
+        "baseQuery": "int",
+        "category": "other",
+        "withAutoIncrement": true
+      },
+      {
+        "id": 1001,
+        "name": "nvarchar(100)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(100)",
+        "category": "other"
+      },
+      {
+        "id": 1002,
+        "name": "nvarchar(80)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(80)",
+        "category": "other"
+      },
+      {
+        "id": 1003,
+        "name": "nvarchar(30)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(30)",
+        "category": "other"
+      },
+      {
+        "id": 1004,
+        "name": "varchar(100)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(100)",
+        "category": "other"
+      },
+      {
+        "id": 1005,
+        "name": "nvarchar(250)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(250)",
+        "category": "other"
+      },
+      {
+        "id": 1006,
+        "name": "nvarchar(150)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(150)",
+        "category": "other"
+      },
+      {
+        "id": 1007,
+        "name": "nvarchar(120)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(120)",
+        "category": "other"
+      },
+      {
+        "id": 1008,
+        "name": "nvarchar(60)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(60)",
+        "category": "other"
+      },
+      {
+        "id": 1009,
+        "name": "varchar(10)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(10)",
+        "category": "other"
+      },
+      {
+        "id": 1010,
+        "name": "datetime2(7)",
+        "description": "SQL Server",
+        "baseQuery": "datetime2(7)",
+        "category": "other"
+      },
+      {
+        "id": 1011,
+        "name": "varchar(24)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(24)",
+        "category": "other"
+      },
+      {
+        "id": 1012,
+        "name": "nvarchar(40)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(40)",
+        "category": "other"
+      },
+      {
+        "id": 1013,
+        "name": "time(0)",
+        "description": "SQL Server",
+        "baseQuery": "time(0)",
+        "category": "other"
+      },
+      {
+        "id": 1014,
+        "name": "bit",
+        "description": "SQL Server",
+        "baseQuery": "bit",
+        "category": "other"
+      },
+      {
+        "id": 1015,
+        "name": "varchar(20)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(20)",
+        "category": "other"
+      }
+    ],
+    "version": 20260504
+  }
+}

@@ -1,0 +1,9 @@
+# Local LAB limits for an 8 GB Apple Silicon Mac with about 3.82 GiB assigned to Docker.
+# Automatically merged with compose.yaml by `docker compose` from this directory.
+# Resource settings only: no database initialization, migration, or seed.
+services:
+  sql:
+    mem_limit: 3g
+    cpus: 2.0
+    environment:
+      MSSQL_MEMORY_LIMIT_MB: "2048"

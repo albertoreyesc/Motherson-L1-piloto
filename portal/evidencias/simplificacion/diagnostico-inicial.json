@@ -1,0 +1,126 @@
+[
+  {
+    "base": "Motherson_L1_MVP_Desarrollo",
+    "colores": 0,
+    "materiales_con_color": 0,
+    "simulacion_inconsistente": 0,
+    "cuentas": [
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "admin.local",
+        "perfil": "ADMINISTRADOR",
+        "esta_activo": true,
+        "registros": 64
+      }
+    ],
+    "atribucion": [
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 1,
+        "puesto_material": "DESENGANCHE L1",
+        "movimientos": 1
+      },
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 2,
+        "puesto_material": "K.E.",
+        "movimientos": 2
+      },
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 4,
+        "puesto_material": "SG",
+        "movimientos": 5
+      },
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 5,
+        "puesto_material": "SZ01",
+        "movimientos": 31
+      },
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 6,
+        "puesto_material": "SZ02",
+        "movimientos": 25
+      }
+    ],
+    "usos_documentados": 62,
+    "registros": 64,
+    "eventos": 709042
+  },
+  {
+    "base": "Motherson_L1_MVP_Pruebas",
+    "colores": 0,
+    "materiales_con_color": 0,
+    "simulacion_inconsistente": 0,
+    "cuentas": [
+      {
+        "id_usuarios": 1,
+        "nombre_usuario": "admin.local",
+        "perfil": "ADMINISTRADOR",
+        "esta_activo": true,
+        "registros": 75
+      },
+      {
+        "id_usuarios": 2,
+        "nombre_usuario": "consulta.prueba",
+        "perfil": "CONSULTA",
+        "esta_activo": true,
+        "registros": 0
+      },
+      {
+        "id_usuarios": 3,
+        "nombre_usuario": "entrada.prueba",
+        "perfil": "ENTRADAS",
+        "esta_activo": true,
+        "registros": 0
+      }
+    ],
+    "atribucion": [
+      {
+        "id_usuarios": 1,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 1,
+        "puesto_material": "DESENGANCHE L1",
+        "movimientos": 13
+      },
+      {
+        "id_usuarios": 1,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 2,
+        "puesto_material": "K.E.",
+        "movimientos": 2
+      },
+      {
+        "id_usuarios": 1,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 4,
+        "puesto_material": "SG",
+        "movimientos": 5
+      },
+      {
+        "id_usuarios": 1,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 5,
+        "puesto_material": "SZ01",
+        "movimientos": 31
+      },
+      {
+        "id_usuarios": 1,
+        "nombre_usuario": "admin.local",
+        "id_puesto": 6,
+        "puesto_material": "SZ02",
+        "movimientos": 24
+      }
+    ],
+    "usos_documentados": 62,
+    "registros": 75,
+    "eventos": 709042
+  }
+]

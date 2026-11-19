@@ -1,0 +1,20 @@
+{
+  "usuarios": [
+    {
+      "nombre_usuario": "admin.local",
+      "perfil": "ADMINISTRADOR",
+      "id_puesto": null
+    },
+    {
+      "nombre_usuario": "consulta.prueba",
+      "perfil": "CONSULTA",
+      "id_puesto": null
+    },
+    {
+      "nombre_usuario": "entrada.prueba",
+      "perfil": "ENTRADAS",
+      "id_puesto": 1
+    }
+  ],
+  "criterio": "Solo cuenta de prueba entrada.prueba: mismo puesto del material de prueba LAB-MAT-001. No representa asignación de personal de planta."
+}

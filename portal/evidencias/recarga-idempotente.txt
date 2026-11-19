@@ -1,0 +1,2 @@
+Corte ya cargado; no se repite la apertura.
+{"base_datos":"Motherson_L1_MVP_Desarrollo","tablas_operativas":9,"eventos_originales":709042,"movimientos_historicos":230901,"aperturas":63,"piezas_actuales":10116,"dias_consumo_real":0}

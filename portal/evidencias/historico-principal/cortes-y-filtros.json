@@ -1,0 +1,26 @@
+{
+  "corte1": {
+    "corte": "2026-02-04T15:45:43.0000000Z",
+    "estados": {
+      "RIESGO_PARO": 2,
+      "SIN_DATOS": 95,
+      "ADVERTENCIA": 3,
+      "NORMAL": 1
+    }
+  },
+  "corte2": {
+    "corte": "2026-04-06T21:31:11.0000000Z",
+    "estados": {
+      "ADVERTENCIA": 2,
+      "SIN_DATOS": 92,
+      "AGOTADO": 4,
+      "CRITICO": 2,
+      "NORMAL": 1
+    }
+  },
+  "responsables": 12,
+  "materiales": 86,
+  "maestroAnual": 230839,
+  "filtroMaterial": 2949,
+  "filtroResponsable": 32732
+}

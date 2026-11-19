@@ -1,0 +1,56 @@
+{
+  "base": "Motherson_L1_MVP_Pruebas",
+  "casos": [
+    {
+      "caso": "72 + 2×24 − 15 = 105; repetición idempotente",
+      "resultado": "APROBADO",
+      "duracion_s": 2.137
+    },
+    {
+      "caso": "Reutilización de identificador con otro contenido",
+      "resultado": "APROBADO",
+      "duracion_s": 0.034
+    },
+    {
+      "caso": "Cantidades, saldo insuficiente, apertura pendiente y referencia inválida",
+      "resultado": "APROBADO",
+      "duracion_s": 0.106
+    },
+    {
+      "caso": "Fallo de comprobante revierte actualización de saldo",
+      "resultado": "APROBADO",
+      "duracion_s": 0.024
+    },
+    {
+      "caso": "Dos salidas superpuestas no generan saldo negativo",
+      "resultado": "APROBADO",
+      "duracion_s": 0.07
+    },
+    {
+      "caso": "Dos entradas superpuestas no exceden capacidad",
+      "resultado": "APROBADO",
+      "duracion_s": 0.023
+    },
+    {
+      "caso": "Permisos comprobados por backend y sesión obligatoria",
+      "resultado": "APROBADO",
+      "duracion_s": 0.158
+    },
+    {
+      "caso": "Historial unificado, IDs sin colisión y filtros de ubicación/fecha",
+      "resultado": "APROBADO",
+      "duracion_s": 1.64
+    },
+    {
+      "caso": "Módulos retirados no tienen rutas activas",
+      "resultado": "APROBADO",
+      "duracion_s": 0.005
+    },
+    {
+      "caso": "Consultar no genera registros",
+      "resultado": "APROBADO",
+      "duracion_s": 0.054
+    }
+  ],
+  "saldo_final": 105
+}

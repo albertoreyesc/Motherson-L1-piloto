@@ -1,0 +1,24 @@
+[
+  {
+    "base": "Motherson_L1_MVP_Desarrollo",
+    "tablas_dbo": 9,
+    "registros": 64,
+    "eventos": 709042,
+    "huella_columnas": "3da43c1fe828a3a9e6b58280504ea97503a777ccb0c3a9160257205a4d874876",
+    "huella_objetos": "bdadc467a5732bb81da1a68b569392ae84598e7ff632cafff948cb05827765f0",
+    "huella_relaciones": "a58d228526037feb0a548280279e645f700b3c23b09bbf2471916c6e8b5ec19c",
+    "huella_inventario": "f66c7225953f14f20e0bdbdcb1a0c44bde58307bb0f882a70e46caa8eb1fa3c0",
+    "huella_fuentes": "ff7164ed909f60dd928655595a922d2e74c96ee1f116d9c9fc2db08eb1fa1e5f"
+  },
+  {
+    "base": "Motherson_L1_MVP_Pruebas",
+    "tablas_dbo": 9,
+    "registros": 75,
+    "eventos": 709042,
+    "huella_columnas": "3da43c1fe828a3a9e6b58280504ea97503a777ccb0c3a9160257205a4d874876",
+    "huella_objetos": "fdee54ba0ef286990f37909d7c733c4b380b68f897fbe5df5e80e4b46c5531bf",
+    "huella_relaciones": "a58d228526037feb0a548280279e645f700b3c23b09bbf2471916c6e8b5ec19c",
+    "huella_inventario": "3cfa0347e22d2a3787621706395554f92c2ffedbbb4a7a8279603e4e90c1771b",
+    "huella_fuentes": "ff7164ed909f60dd928655595a922d2e74c96ee1f116d9c9fc2db08eb1fa1e5f"
+  }
+]

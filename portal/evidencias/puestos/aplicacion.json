@@ -1,0 +1,7004 @@
+{
+  "accion": "aplicar",
+  "pruebas_antes": {
+    "tablas": 8,
+    "materiales": 68,
+    "ubicaciones": 68,
+    "movimientos_previos": 75,
+    "eventos_maestro": 709042,
+    "huella_maestro": -1296663251,
+    "huella_movimientos": 538144033,
+    "movimientos_consultables": 230976,
+    "materiales_varias_ubicaciones": 0,
+    "modelo_puestos": false
+  },
+  "cruce": {
+    "Motherson_L1_MVP_Desarrollo": {
+      "archivo": "UPAEP Update 08-10-2026 (5).xlsx",
+      "sha256": "6c3cd3064b89a46d8aac0b34afc4e0978c6416ac04bf0dbe05b5256331d0c182",
+      "totales_filas": {
+        "PUESTO": 183,
+        "FUERA_DEL_MVP": 126,
+        "SIN_SUFIJO": 12,
+        "CONFIRMADO": 26,
+        "CRUCE_AMBIGUO": 1,
+        "FORMATO_NO_VALIDADO": 3,
+        "SUFIJO_AMBIGUO": 25
+      },
+      "asignaciones": {
+        "17A 800 375 CE": "CE",
+        "17A 800 375 CF": "CF",
+        "17A 800 375 CG": "CG",
+        "17A 800 375 CH": "CH",
+        "17A 800 375 CJ": "CJ",
+        "17B 819 593 C": "C",
+        "17B 819 593 D": "D",
+        "2GA 035 285 A": "A",
+        "3D0 907 543 A": "A",
+        "3Q1 959 435 F": "F",
+        "3WA 905 861 A": "A",
+        "510 880 505 A": "A",
+        "510 880 506 A": "A",
+        "57N 857 889 A": "A",
+        "57N 857 890 A": "A",
+        "5NN 919 605 C": "C",
+        "5NN 919 605 D": "D",
+        "5Q0 941 070 C": "C",
+        "5Q0 953 223 A": "A",
+        "5Q1 971 303 D": "D",
+        "5QA 919 294 L": "L",
+        "5QM 723 913 A": "A",
+        "5WA 907 527 A": "A",
+        "TTT  035 180 L": "L",
+        "TTT 035 180 J": "J"
+      },
+      "materiales_sin_coincidencia": [],
+      "filas": [
+        {
+          "hoja": "Partes",
+          "fila": 3,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 4,
+          "texto_original": "5QS 907 530 H",
+          "parte": "5QS 907 530 H",
+          "puesto_contexto": "SZ01",
+          "codigo": "H",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 5,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 6,
+          "texto_original": "5G0 857 173",
+          "parte": "5G0 857 173",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 7,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 8,
+          "texto_original": "5Q0 941 070 C",
+          "parte": "5Q0 941 070 C",
+          "puesto_contexto": "SZ01",
+          "codigo": "C",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 9,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 10,
+          "texto_original": "5Q1 937 085 D",
+          "parte": "5Q1 937 085 D",
+          "puesto_contexto": "SZ01",
+          "codigo": "D",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 11,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 12,
+          "texto_original": "5QA 919 294 L",
+          "parte": "5QA 919 294 L",
+          "puesto_contexto": "SZ01",
+          "codigo": "L",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 13,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 14,
+          "texto_original": "5E0 941 070",
+          "parte": "5E0 941 070",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 15,
+          "texto_original": "5QS 919 300 E ",
+          "parte": "5QS 919 300 E",
+          "puesto_contexto": null,
+          "codigo": "E",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 16,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 17,
+          "texto_original": "5WA 937 084 AN ",
+          "parte": "5WA 937 084 AN",
+          "puesto_contexto": "SZ01",
+          "codigo": "AN",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 18,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 19,
+          "texto_original": "5WA 937 084 AL",
+          "parte": "5WA 937 084 AL",
+          "puesto_contexto": "SZ01",
+          "codigo": "AL",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 20,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 21,
+          "texto_original": "5WA 937 084 AM",
+          "parte": "5WA 937 084 AM",
+          "puesto_contexto": "SZ01",
+          "codigo": "AM",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 22,
+          "texto_original": "5Q1 937 084 F ",
+          "parte": "5Q1 937 084 F",
+          "puesto_contexto": null,
+          "codigo": "F",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 24,
+          "texto_original": "5QS 919 294 C ",
+          "parte": "5QS 919 294 C",
+          "puesto_contexto": null,
+          "codigo": "C",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 25,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 26,
+          "texto_original": "5Q0 937 085 CS",
+          "parte": "5Q0 937 085 CS",
+          "puesto_contexto": "SZ01",
+          "codigo": "CS",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 27,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 28,
+          "texto_original": "2Q0 953 254",
+          "parte": "2Q0 953 254",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 29,
+          "texto_original": "57N 883 801 ",
+          "parte": "57N 883 801",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 30,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 31,
+          "texto_original": "17B 857 889",
+          "parte": "17B 857 889",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 32,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 33,
+          "texto_original": "5G1 971 845",
+          "parte": "5G1 971 845",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 34,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 35,
+          "texto_original": "57N 857 889 A",
+          "parte": "57N 857 889 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 36,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 37,
+          "texto_original": "2G5 035 285",
+          "parte": "2G5 035 285",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 38,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 39,
+          "texto_original": "2GA 035 285 A",
+          "parte": "2GA 035 285 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 40,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 41,
+          "texto_original": "17A 819 241",
+          "parte": "17A 819 241",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 42,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 43,
+          "texto_original": "57N 819 063",
+          "parte": "57N 819 063",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 44,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 45,
+          "texto_original": "57N 819 241",
+          "parte": "57N 819 241",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 46,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 47,
+          "texto_original": "17A 819 063",
+          "parte": "17A 819 063",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 48,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 49,
+          "texto_original": "17B 857 890",
+          "parte": "17B 857 890",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 50,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 51,
+          "texto_original": "17B 858 801",
+          "parte": "17B 858 801",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 52,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 53,
+          "texto_original": "5GM 863 801 A",
+          "parte": "5GM 863 801 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 54,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 55,
+          "texto_original": "3J1 906 131",
+          "parte": "3J1 906 131",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 56,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 57,
+          "texto_original": "3WA 907 007 H",
+          "parte": "3WA 907 007 H",
+          "puesto_contexto": "SZ01",
+          "codigo": "H",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 58,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 59,
+          "texto_original": "57N 857 890 A",
+          "parte": "57N 857 890 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 60,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 61,
+          "texto_original": "57N 858 802 A",
+          "parte": "57N 858 802 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 62,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 63,
+          "texto_original": "5TB 819 152",
+          "parte": "5TB 819 152",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 64,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 65,
+          "texto_original": "3Q0 907 530 BH",
+          "parte": "3Q0 907 530 BH",
+          "puesto_contexto": "SZ01",
+          "codigo": "BH",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 66,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 67,
+          "texto_original": "510 880 505 A",
+          "parte": "510 880 505 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 68,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 69,
+          "texto_original": "510 880 506 A",
+          "parte": "510 880 506 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 70,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 71,
+          "texto_original": "5QM 419 502 AS",
+          "parte": "5QM 419 502 AS",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": "AS",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 72,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 73,
+          "texto_original": "5QV 419 512",
+          "parte": "5QV 419 512",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 74,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 75,
+          "texto_original": "5QV 419 512 A",
+          "parte": "5QV 419 512 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 76,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 77,
+          "texto_original": "5G1 819 152 A",
+          "parte": "5G1 819 152 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 78,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 79,
+          "texto_original": "5TB 819 151 ",
+          "parte": "5TB 819 151",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 80,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 81,
+          "texto_original": "5TB 880 841 F",
+          "parte": "5TB 880 841 F",
+          "puesto_contexto": null,
+          "codigo": "F",
+          "estado": "CRUCE_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 82,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 83,
+          "texto_original": "3D0 907 543 A",
+          "parte": "3D0 907 543 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 84,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 85,
+          "texto_original": "571 941 633 J WVQ",
+          "parte": "571 941 633 J WVQ",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 86,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 87,
+          "texto_original": "571 941 633 H WVQ",
+          "parte": "571 941 633 H WVQ",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 88,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 89,
+          "texto_original": "17B 857 005 B  82V",
+          "parte": "17B 857 005 B 82V",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 90,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 91,
+          "texto_original": "17B 857 005 B  RM5",
+          "parte": "17B 857 005 B RM5",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 92,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 93,
+          "texto_original": "17B 858 365 A  82V",
+          "parte": "17B 858 365 A 82V",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 94,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 95,
+          "texto_original": "17B 858 365 A  RM5",
+          "parte": "17B 858 365 A RM5",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 96,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 97,
+          "texto_original": "57N 857 007    4PK",
+          "parte": "57N 857 007 4PK",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 98,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 99,
+          "texto_original": "57N 858 365    4PK",
+          "parte": "57N 858 365 4PK",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 100,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 101,
+          "texto_original": "57N 858 365 A  4PK",
+          "parte": "57N 858 365 A 4PK",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 102,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 103,
+          "texto_original": "5G1 819 151 A",
+          "parte": "5G1 819 151 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 104,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 105,
+          "texto_original": "571 035 876 K",
+          "parte": "571 035 876 K",
+          "puesto_contexto": null,
+          "codigo": "K",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 106,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 107,
+          "texto_original": "571 035 877 B",
+          "parte": "571 035 877 B",
+          "puesto_contexto": null,
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 108,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 109,
+          "texto_original": "571 971 845",
+          "parte": "571 971 845",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 110,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 111,
+          "texto_original": "572 035 876 H",
+          "parte": "572 035 876 H",
+          "puesto_contexto": null,
+          "codigo": "H",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 112,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 113,
+          "texto_original": "11K 947 409",
+          "parte": "11K 947 409",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 114,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 115,
+          "texto_original": "17B 857 097    82V",
+          "parte": "17B 857 097 82V",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 116,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 117,
+          "texto_original": "17B 857 097    RM5",
+          "parte": "17B 857 097 RM5",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 118,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 119,
+          "texto_original": "17B 857 097 A  82V",
+          "parte": "17B 857 097 A 82V",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 120,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 121,
+          "texto_original": "17B 857 097 A  RM5",
+          "parte": "17B 857 097 A RM5",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 122,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 123,
+          "texto_original": "57N 857 097    XCC",
+          "parte": "57N 857 097 XCC",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 124,
+          "texto_original": "N90698606",
+          "parte": "N90698606",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FORMATO_NO_VALIDADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 125,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 126,
+          "texto_original": "17B 819 593 C",
+          "parte": "17B 819 593 C",
+          "puesto_contexto": "SG",
+          "codigo": "C",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 127,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 128,
+          "texto_original": "17B 819 593 D",
+          "parte": "17B 819 593 D",
+          "puesto_contexto": "SG",
+          "codigo": "D",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 129,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 130,
+          "texto_original": "17B 858 418 C  HUZ",
+          "parte": "17B 858 418 C HUZ",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 131,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 132,
+          "texto_original": "5TB 819 593 B",
+          "parte": "5TB 819 593 B",
+          "puesto_contexto": null,
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 133,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 134,
+          "texto_original": "571 953 509    ECU",
+          "parte": "571 953 509 ECU",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 135,
+          "texto_original": "3G8 035 842 B",
+          "parte": "3G8 035 842 B",
+          "puesto_contexto": null,
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 136,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 137,
+          "texto_original": "57N 858 065 A MEC",
+          "parte": "57N 858 065 A MEC",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 138,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 139,
+          "texto_original": "57N 947 095",
+          "parte": "57N 947 095",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 140,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 141,
+          "texto_original": "57N 947 096",
+          "parte": "57N 947 096",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 142,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 143,
+          "texto_original": "57N 947 155",
+          "parte": "57N 947 155",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 144,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 145,
+          "texto_original": "57N 947 156",
+          "parte": "57N 947 156",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 146,
+          "texto_original": "N91158501",
+          "parte": "N91158501",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FORMATO_NO_VALIDADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 147,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 148,
+          "texto_original": "17B 858 019 E  HUZ",
+          "parte": "17B 858 019 E HUZ",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 149,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 150,
+          "texto_original": "57N 858 019 A",
+          "parte": "57N 858 019 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 151,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 152,
+          "texto_original": "57N 858 020 A  9B9",
+          "parte": "57N 858 020 A 9B9",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 153,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 154,
+          "texto_original": "17B 819 728 F  UYD",
+          "parte": "17B 819 728 F UYD",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 155,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 156,
+          "texto_original": "17B 819 728 F  UZA",
+          "parte": "17B 819 728 F UZA",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 157,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 158,
+          "texto_original": "17B 858 189 A  1QB",
+          "parte": "17B 858 189 A 1QB",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 159,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 160,
+          "texto_original": "57N 819 704  B  HUZ",
+          "parte": "57N 819 704 B HUZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 161,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 162,
+          "texto_original": "3D0 907 543 A",
+          "parte": "3D0 907 543 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 163,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 164,
+          "texto_original": "5NN 919 605 C",
+          "parte": "5NN 919 605 C",
+          "puesto_contexto": "SZ02",
+          "codigo": "C",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 165,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 166,
+          "texto_original": "17B 858 069    041",
+          "parte": "17B 858 069 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 167,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 168,
+          "texto_original": "17B 858 069 A  041",
+          "parte": "17B 858 069 A 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 169,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 170,
+          "texto_original": "2G7 035 871",
+          "parte": "2G7 035 871",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 171,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 172,
+          "texto_original": "TTT 035 180 J",
+          "parte": "TTT 035 180 J",
+          "puesto_contexto": "SZ02",
+          "codigo": "J",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 173,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 174,
+          "texto_original": "TTT  035 180 L",
+          "parte": "TTT 035 180 L",
+          "puesto_contexto": "SZ02",
+          "codigo": "L",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 175,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 176,
+          "texto_original": "57L 920 340 B",
+          "parte": "57L 920 340 B",
+          "puesto_contexto": "SZ02",
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 177,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 178,
+          "texto_original": "57N 819 703 B   HUZ",
+          "parte": "57N 819 703 B HUZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 179,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 180,
+          "texto_original": "5NN 919 605 D",
+          "parte": "5NN 919 605 D",
+          "puesto_contexto": "SZ02",
+          "codigo": "D",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 181,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 182,
+          "texto_original": "57N 857 053    XCC",
+          "parte": "57N 857 053 XCC",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 183,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 184,
+          "texto_original": "57N 858 599    6PS",
+          "parte": "57N 858 599 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 185,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 186,
+          "texto_original": "57N 858 600    6PS",
+          "parte": "57N 858 600 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 187,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 188,
+          "texto_original": "5NN 858 559 C  82V",
+          "parte": "5NN 858 559 C 82V",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 189,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 190,
+          "texto_original": "57N 858 560    4PK",
+          "parte": "57N 858 560 4PK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 191,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 192,
+          "texto_original": "57N 857 919    4PK",
+          "parte": "57N 857 919 4PK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 193,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 194,
+          "texto_original": "57N 858 559    4PK",
+          "parte": "57N 858 559 4PK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 195,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 196,
+          "texto_original": "5WA 907 527 A",
+          "parte": "5WA 907 527 A",
+          "puesto_contexto": "SZ02",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 197,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 198,
+          "texto_original": "5NN 858 560    82V",
+          "parte": "5NN 858 560 82V",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 199,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 200,
+          "texto_original": "571 919 605 C",
+          "parte": "571 919 605 C",
+          "puesto_contexto": "SZ02",
+          "codigo": "C",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 201,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 202,
+          "texto_original": "571 919 606 B",
+          "parte": "571 919 606 B",
+          "puesto_contexto": "SZ02",
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 203,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 204,
+          "texto_original": "17A 919 068",
+          "parte": "17A 919 068",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 205,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 206,
+          "texto_original": "57N 858 189    6PS",
+          "parte": "57N 858 189 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 207,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 208,
+          "texto_original": "57N 858 763    6PS",
+          "parte": "57N 858 763 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 209,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 210,
+          "texto_original": "57N 858 122    6PS",
+          "parte": "57N 858 122 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 211,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 212,
+          "texto_original": "57N 858 122 A  6PS",
+          "parte": "57N 858 122 A 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 213,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 214,
+          "texto_original": "17B 857 506 A  82V",
+          "parte": "17B 857 506 A 82V",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 215,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 216,
+          "texto_original": "17B 857 506 A  RM5",
+          "parte": "17B 857 506 A RM5",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 217,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 218,
+          "texto_original": "3Q1 959 435 F",
+          "parte": "3Q1 959 435 F",
+          "puesto_contexto": "SZ01",
+          "codigo": "F",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 219,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 220,
+          "texto_original": "5G1 857 745",
+          "parte": "5G1 857 745",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 221,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 222,
+          "texto_original": "5GM 863 143 A",
+          "parte": "5GM 863 143 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 223,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 224,
+          "texto_original": "5Q0 819 663",
+          "parte": "5Q0 819 663",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 225,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 226,
+          "texto_original": "5Q0 820 573",
+          "parte": "5Q0 820 573",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 227,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 228,
+          "texto_original": "5Q1 971 303 D",
+          "parte": "5Q1 971 303 D",
+          "puesto_contexto": "SZ01",
+          "codigo": "D",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 229,
+          "texto_original": "N90944603",
+          "parte": "N90944603",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FORMATO_NO_VALIDADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 230,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 231,
+          "texto_original": "5QN 723 913 ",
+          "parte": "5QN 723 913",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 232,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 233,
+          "texto_original": "5QM 721 913 A",
+          "parte": "5QM 721 913 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 234,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 235,
+          "texto_original": "5QM 723 913 A",
+          "parte": "5QM 723 913 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 236,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 237,
+          "texto_original": "5TA 972 596",
+          "parte": "5TA 972 596",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 238,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 239,
+          "texto_original": "17B 857 017 A",
+          "parte": "17B 857 017 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 240,
+          "texto_original": "57N 857 017 HUD ",
+          "parte": "57N 857 017 HUD",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 241,
+          "texto_original": "57N 857 017 ",
+          "parte": "57N 857 017",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 242,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 243,
+          "texto_original": "17A 880 204 Q",
+          "parte": "17A 880 204 Q",
+          "puesto_contexto": null,
+          "codigo": "Q",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 244,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 245,
+          "texto_original": "17A 880 204 R",
+          "parte": "17A 880 204 R",
+          "puesto_contexto": null,
+          "codigo": "R",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 246,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 247,
+          "texto_original": "57L 880 204 D",
+          "parte": "57L 880 204 D",
+          "puesto_contexto": null,
+          "codigo": "D",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 248,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 249,
+          "texto_original": "57N 857 003 D  6PS",
+          "parte": "57N 857 003 D 6PS",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 250,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 251,
+          "texto_original": "57N 857 003 E  6PS",
+          "parte": "57N 857 003 E 6PS",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 252,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 253,
+          "texto_original": "57N 880 204 E",
+          "parte": "57N 880 204 E",
+          "puesto_contexto": null,
+          "codigo": "E",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 254,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 255,
+          "texto_original": "17B 857 003 N  RA3",
+          "parte": "17B 857 003 N RA3",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 256,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 257,
+          "texto_original": "57N 858 335 A  7IW",
+          "parte": "57N 858 335 A 7IW",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 258,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 259,
+          "texto_original": "57N 858 415    041",
+          "parte": "57N 858 415 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 260,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 261,
+          "texto_original": "57N 858 415 A  7IW",
+          "parte": "57N 858 415 A 7IW",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 262,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 263,
+          "texto_original": "57N 858 061 A  QFD",
+          "parte": "57N 858 061 A QFD",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 264,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 265,
+          "texto_original": "57N 858 417 B  QGI",
+          "parte": "57N 858 417 B QGI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 266,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 267,
+          "texto_original": "57N 858 417 B  QHI",
+          "parte": "57N 858 417 B QHI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 268,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 269,
+          "texto_original": "57N 858 418    QEF",
+          "parte": "57N 858 418 QEF",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 270,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 271,
+          "texto_original": "57N 858 418 A  MFV",
+          "parte": "57N 858 418 A MFV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 272,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 273,
+          "texto_original": "57N 858 418 A  QDZ",
+          "parte": "57N 858 418 A QDZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 274,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 275,
+          "texto_original": "57N 858 418 A  QEI",
+          "parte": "57N 858 418 A QEI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 276,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 277,
+          "texto_original": "57N 858 416 B  7IX",
+          "parte": "57N 858 416 B 7IX",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 278,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 279,
+          "texto_original": "57N 858 417    QEF",
+          "parte": "57N 858 417 QEF",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 280,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 281,
+          "texto_original": "57N 858 417 A  MFV",
+          "parte": "57N 858 417 A MFV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 282,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 283,
+          "texto_original": "57N 858 418 B  QFI",
+          "parte": "57N 858 418 B QFI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 284,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 285,
+          "texto_original": "57N 858 418 B  QGI",
+          "parte": "57N 858 418 B QGI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 286,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 287,
+          "texto_original": "57N 858 418 B  QHI",
+          "parte": "57N 858 418 B QHI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 288,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 289,
+          "texto_original": "57N 858 066 A  QFD",
+          "parte": "57N 858 066 A QFD",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 290,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 291,
+          "texto_original": "57N 858 066    QDY",
+          "parte": "57N 858 066 QDY",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 292,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 293,
+          "texto_original": "57N 858 066    QEB",
+          "parte": "57N 858 066 QEB",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 294,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 295,
+          "texto_original": "57N 858 417 A  QDZ",
+          "parte": "57N 858 417 A QDZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 296,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 297,
+          "texto_original": "57N 858 335    041",
+          "parte": "57N 858 335 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 298,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 299,
+          "texto_original": "57N 858 417 A  QEI",
+          "parte": "57N 858 417 A QEI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 300,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 301,
+          "texto_original": "57N 858 417 B  QFI",
+          "parte": "57N 858 417 B QFI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 302,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 303,
+          "texto_original": "57N 858 416    041",
+          "parte": "57N 858 416 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 304,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 305,
+          "texto_original": "57N 858 061    QDY",
+          "parte": "57N 858 061 QDY",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 306,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 307,
+          "texto_original": "57N 858 061    QEB",
+          "parte": "57N 858 061 QEB",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 308,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 309,
+          "texto_original": "5Q0 953 223",
+          "parte": "5Q0 953 223",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 310,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 311,
+          "texto_original": "5Q0 953 223 A",
+          "parte": "5Q0 953 223 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 312,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 313,
+          "texto_original": "17A 800 375 CE",
+          "parte": "17A 800 375 CE",
+          "puesto_contexto": "SZ01",
+          "codigo": "CE",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 314,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 315,
+          "texto_original": "17A 800 375 CF",
+          "parte": "17A 800 375 CF",
+          "puesto_contexto": "SZ01",
+          "codigo": "CF",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 316,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 317,
+          "texto_original": "17A 800 375 CG",
+          "parte": "17A 800 375 CG",
+          "puesto_contexto": "SZ01",
+          "codigo": "CG",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 318,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 319,
+          "texto_original": "17A 800 375 CH",
+          "parte": "17A 800 375 CH",
+          "puesto_contexto": "SZ01",
+          "codigo": "CH",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 320,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 321,
+          "texto_original": "17A 800 375 CJ",
+          "parte": "17A 800 375 CJ",
+          "puesto_contexto": "SZ01",
+          "codigo": "CJ",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 322,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 323,
+          "texto_original": "17A 919 225 B  RDW",
+          "parte": "17A 919 225 B RDW",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 324,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 325,
+          "texto_original": "17A 919 225 C  RDW",
+          "parte": "17A 919 225 C RDW",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 326,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 327,
+          "texto_original": "3WA 905 861 A",
+          "parte": "3WA 905 861 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 328,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 329,
+          "texto_original": "5G1 941 431 N  WZU",
+          "parte": "5G1 941 431 N WZU",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 330,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 331,
+          "texto_original": "17B 858 415 C  2UT",
+          "parte": "17B 858 415 C 2UT",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 332,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 333,
+          "texto_original": "17B 858 415 C  7KK",
+          "parte": "17B 858 415 C 7KK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 334,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 335,
+          "texto_original": "17B 858 415 C  SL1",
+          "parte": "17B 858 415 C SL1",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 336,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 337,
+          "texto_original": "17B 858 415 C  TU2",
+          "parte": "17B 858 415 C TU2",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 338,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 339,
+          "texto_original": "17B 858 415 D  ASZ",
+          "parte": "17B 858 415 D ASZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 340,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 341,
+          "texto_original": "17B 858 415 D  ZBA",
+          "parte": "17B 858 415 D ZBA",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 342,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 343,
+          "texto_original": "17B 858 415 D  ZJV",
+          "parte": "17B 858 415 D ZJV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 344,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 345,
+          "texto_original": "17B 858 416 C  2UT",
+          "parte": "17B 858 416 C 2UT",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 346,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 347,
+          "texto_original": "17B 858 416 C  7KK",
+          "parte": "17B 858 416 C 7KK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 348,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 349,
+          "texto_original": "17B 858 416 C  SL1",
+          "parte": "17B 858 416 C SL1",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 350,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 351,
+          "texto_original": "17B 858 416 C  TU2",
+          "parte": "17B 858 416 C TU2",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 352,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 353,
+          "texto_original": "17B 858 416 D  ASZ",
+          "parte": "17B 858 416 D ASZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 354,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 355,
+          "texto_original": "17B 858 416 D  ZBA",
+          "parte": "17B 858 416 D ZBA",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 356,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 357,
+          "texto_original": "17B 858 416 D  ZJV",
+          "parte": "17B 858 416 D ZJV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 358,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 359,
+          "texto_original": "5Q1 953 521 HC IGI",
+          "parte": "5Q1 953 521 HC IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 360,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 361,
+          "texto_original": "5Q1 953 521 HJ IGI",
+          "parte": "5Q1 953 521 HJ IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 362,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 363,
+          "texto_original": "5Q1 953 521 HN IGI",
+          "parte": "5Q1 953 521 HN IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 364,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 365,
+          "texto_original": "5Q1 953 521 HR IGI",
+          "parte": "5Q1 953 521 HR IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 366,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 367,
+          "texto_original": "5Q1 953 521 JC IGI",
+          "parte": "5Q1 953 521 JC IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 368,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 369,
+          "texto_original": "1EE 953 507 DP  ASS",
+          "parte": "1EE 953 507 DP ASS",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 370,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 371,
+          "texto_original": "1EE 953 507 DK ASS",
+          "parte": "1EE 953 507 DK ASS",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 372,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 373,
+          "texto_original": "17A 920 320 G",
+          "parte": "17A 920 320 G",
+          "puesto_contexto": "K.E.",
+          "codigo": "G",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 374,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 375,
+          "texto_original": "17A 920 420 G",
+          "parte": "17A 920 420 G",
+          "puesto_contexto": "K.E.",
+          "codigo": "G",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 376,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 377,
+          "texto_original": "2GJ 920 310 F",
+          "parte": "2GJ 920 310 F",
+          "puesto_contexto": "K.E.",
+          "codigo": "F",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 378,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 379,
+          "texto_original": "2GJ 920 410 J",
+          "parte": "2GJ 920 410 J",
+          "puesto_contexto": "K.E.",
+          "codigo": "J",
+          "estado": "FUERA_DEL_MVP"
+        }
+      ]
+    },
+    "Motherson_L1_MVP_Pruebas": {
+      "archivo": "UPAEP Update 08-10-2026 (5).xlsx",
+      "sha256": "6c3cd3064b89a46d8aac0b34afc4e0978c6416ac04bf0dbe05b5256331d0c182",
+      "totales_filas": {
+        "PUESTO": 183,
+        "FUERA_DEL_MVP": 126,
+        "SIN_SUFIJO": 12,
+        "CONFIRMADO": 26,
+        "CRUCE_AMBIGUO": 1,
+        "FORMATO_NO_VALIDADO": 3,
+        "SUFIJO_AMBIGUO": 25
+      },
+      "asignaciones": {
+        "17A 800 375 CE": "CE",
+        "17A 800 375 CF": "CF",
+        "17A 800 375 CG": "CG",
+        "17A 800 375 CH": "CH",
+        "17A 800 375 CJ": "CJ",
+        "17B 819 593 C": "C",
+        "17B 819 593 D": "D",
+        "2GA 035 285 A": "A",
+        "3D0 907 543 A": "A",
+        "3Q1 959 435 F": "F",
+        "3WA 905 861 A": "A",
+        "510 880 505 A": "A",
+        "510 880 506 A": "A",
+        "57N 857 889 A": "A",
+        "57N 857 890 A": "A",
+        "5NN 919 605 C": "C",
+        "5NN 919 605 D": "D",
+        "5Q0 941 070 C": "C",
+        "5Q0 953 223 A": "A",
+        "5Q1 971 303 D": "D",
+        "5QA 919 294 L": "L",
+        "5QM 723 913 A": "A",
+        "5WA 907 527 A": "A",
+        "TTT  035 180 L": "L",
+        "TTT 035 180 J": "J"
+      },
+      "materiales_sin_coincidencia": [
+        "LAB-CONC-ENT",
+        "LAB-CONC-SAL",
+        "LAB-MAT-001",
+        "LAB-PENDIENTE",
+        "LAB-ROLLBACK"
+      ],
+      "filas": [
+        {
+          "hoja": "Partes",
+          "fila": 3,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 4,
+          "texto_original": "5QS 907 530 H",
+          "parte": "5QS 907 530 H",
+          "puesto_contexto": "SZ01",
+          "codigo": "H",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 5,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 6,
+          "texto_original": "5G0 857 173",
+          "parte": "5G0 857 173",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 7,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 8,
+          "texto_original": "5Q0 941 070 C",
+          "parte": "5Q0 941 070 C",
+          "puesto_contexto": "SZ01",
+          "codigo": "C",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 9,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 10,
+          "texto_original": "5Q1 937 085 D",
+          "parte": "5Q1 937 085 D",
+          "puesto_contexto": "SZ01",
+          "codigo": "D",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 11,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 12,
+          "texto_original": "5QA 919 294 L",
+          "parte": "5QA 919 294 L",
+          "puesto_contexto": "SZ01",
+          "codigo": "L",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 13,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 14,
+          "texto_original": "5E0 941 070",
+          "parte": "5E0 941 070",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 15,
+          "texto_original": "5QS 919 300 E ",
+          "parte": "5QS 919 300 E",
+          "puesto_contexto": null,
+          "codigo": "E",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 16,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 17,
+          "texto_original": "5WA 937 084 AN ",
+          "parte": "5WA 937 084 AN",
+          "puesto_contexto": "SZ01",
+          "codigo": "AN",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 18,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 19,
+          "texto_original": "5WA 937 084 AL",
+          "parte": "5WA 937 084 AL",
+          "puesto_contexto": "SZ01",
+          "codigo": "AL",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 20,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 21,
+          "texto_original": "5WA 937 084 AM",
+          "parte": "5WA 937 084 AM",
+          "puesto_contexto": "SZ01",
+          "codigo": "AM",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 22,
+          "texto_original": "5Q1 937 084 F ",
+          "parte": "5Q1 937 084 F",
+          "puesto_contexto": null,
+          "codigo": "F",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 24,
+          "texto_original": "5QS 919 294 C ",
+          "parte": "5QS 919 294 C",
+          "puesto_contexto": null,
+          "codigo": "C",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 25,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 26,
+          "texto_original": "5Q0 937 085 CS",
+          "parte": "5Q0 937 085 CS",
+          "puesto_contexto": "SZ01",
+          "codigo": "CS",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 27,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 28,
+          "texto_original": "2Q0 953 254",
+          "parte": "2Q0 953 254",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 29,
+          "texto_original": "57N 883 801 ",
+          "parte": "57N 883 801",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 30,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 31,
+          "texto_original": "17B 857 889",
+          "parte": "17B 857 889",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 32,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 33,
+          "texto_original": "5G1 971 845",
+          "parte": "5G1 971 845",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 34,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 35,
+          "texto_original": "57N 857 889 A",
+          "parte": "57N 857 889 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 36,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 37,
+          "texto_original": "2G5 035 285",
+          "parte": "2G5 035 285",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 38,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 39,
+          "texto_original": "2GA 035 285 A",
+          "parte": "2GA 035 285 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 40,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 41,
+          "texto_original": "17A 819 241",
+          "parte": "17A 819 241",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 42,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 43,
+          "texto_original": "57N 819 063",
+          "parte": "57N 819 063",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 44,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 45,
+          "texto_original": "57N 819 241",
+          "parte": "57N 819 241",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 46,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 47,
+          "texto_original": "17A 819 063",
+          "parte": "17A 819 063",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 48,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 49,
+          "texto_original": "17B 857 890",
+          "parte": "17B 857 890",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 50,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 51,
+          "texto_original": "17B 858 801",
+          "parte": "17B 858 801",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 52,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 53,
+          "texto_original": "5GM 863 801 A",
+          "parte": "5GM 863 801 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 54,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 55,
+          "texto_original": "3J1 906 131",
+          "parte": "3J1 906 131",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 56,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 57,
+          "texto_original": "3WA 907 007 H",
+          "parte": "3WA 907 007 H",
+          "puesto_contexto": "SZ01",
+          "codigo": "H",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 58,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 59,
+          "texto_original": "57N 857 890 A",
+          "parte": "57N 857 890 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 60,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 61,
+          "texto_original": "57N 858 802 A",
+          "parte": "57N 858 802 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 62,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 63,
+          "texto_original": "5TB 819 152",
+          "parte": "5TB 819 152",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 64,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 65,
+          "texto_original": "3Q0 907 530 BH",
+          "parte": "3Q0 907 530 BH",
+          "puesto_contexto": "SZ01",
+          "codigo": "BH",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 66,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 67,
+          "texto_original": "510 880 505 A",
+          "parte": "510 880 505 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 68,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 69,
+          "texto_original": "510 880 506 A",
+          "parte": "510 880 506 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 70,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 71,
+          "texto_original": "5QM 419 502 AS",
+          "parte": "5QM 419 502 AS",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": "AS",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 72,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 73,
+          "texto_original": "5QV 419 512",
+          "parte": "5QV 419 512",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 74,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 75,
+          "texto_original": "5QV 419 512 A",
+          "parte": "5QV 419 512 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 76,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 77,
+          "texto_original": "5G1 819 152 A",
+          "parte": "5G1 819 152 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 78,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 79,
+          "texto_original": "5TB 819 151 ",
+          "parte": "5TB 819 151",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 80,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 81,
+          "texto_original": "5TB 880 841 F",
+          "parte": "5TB 880 841 F",
+          "puesto_contexto": null,
+          "codigo": "F",
+          "estado": "CRUCE_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 82,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 83,
+          "texto_original": "3D0 907 543 A",
+          "parte": "3D0 907 543 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 84,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 85,
+          "texto_original": "571 941 633 J WVQ",
+          "parte": "571 941 633 J WVQ",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 86,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 87,
+          "texto_original": "571 941 633 H WVQ",
+          "parte": "571 941 633 H WVQ",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 88,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 89,
+          "texto_original": "17B 857 005 B  82V",
+          "parte": "17B 857 005 B 82V",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 90,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 91,
+          "texto_original": "17B 857 005 B  RM5",
+          "parte": "17B 857 005 B RM5",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 92,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 93,
+          "texto_original": "17B 858 365 A  82V",
+          "parte": "17B 858 365 A 82V",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 94,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 95,
+          "texto_original": "17B 858 365 A  RM5",
+          "parte": "17B 858 365 A RM5",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 96,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 97,
+          "texto_original": "57N 857 007    4PK",
+          "parte": "57N 857 007 4PK",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 98,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 99,
+          "texto_original": "57N 858 365    4PK",
+          "parte": "57N 858 365 4PK",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 100,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 101,
+          "texto_original": "57N 858 365 A  4PK",
+          "parte": "57N 858 365 A 4PK",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 102,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 103,
+          "texto_original": "5G1 819 151 A",
+          "parte": "5G1 819 151 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 104,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 105,
+          "texto_original": "571 035 876 K",
+          "parte": "571 035 876 K",
+          "puesto_contexto": null,
+          "codigo": "K",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 106,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 107,
+          "texto_original": "571 035 877 B",
+          "parte": "571 035 877 B",
+          "puesto_contexto": null,
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 108,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 109,
+          "texto_original": "571 971 845",
+          "parte": "571 971 845",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 110,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 111,
+          "texto_original": "572 035 876 H",
+          "parte": "572 035 876 H",
+          "puesto_contexto": null,
+          "codigo": "H",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 112,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 113,
+          "texto_original": "11K 947 409",
+          "parte": "11K 947 409",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 114,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 115,
+          "texto_original": "17B 857 097    82V",
+          "parte": "17B 857 097 82V",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 116,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 117,
+          "texto_original": "17B 857 097    RM5",
+          "parte": "17B 857 097 RM5",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 118,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 119,
+          "texto_original": "17B 857 097 A  82V",
+          "parte": "17B 857 097 A 82V",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 120,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 121,
+          "texto_original": "17B 857 097 A  RM5",
+          "parte": "17B 857 097 A RM5",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 122,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 123,
+          "texto_original": "57N 857 097    XCC",
+          "parte": "57N 857 097 XCC",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 124,
+          "texto_original": "N90698606",
+          "parte": "N90698606",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FORMATO_NO_VALIDADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 125,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 126,
+          "texto_original": "17B 819 593 C",
+          "parte": "17B 819 593 C",
+          "puesto_contexto": "SG",
+          "codigo": "C",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 127,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 128,
+          "texto_original": "17B 819 593 D",
+          "parte": "17B 819 593 D",
+          "puesto_contexto": "SG",
+          "codigo": "D",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 129,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 130,
+          "texto_original": "17B 858 418 C  HUZ",
+          "parte": "17B 858 418 C HUZ",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 131,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 132,
+          "texto_original": "5TB 819 593 B",
+          "parte": "5TB 819 593 B",
+          "puesto_contexto": null,
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 133,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 134,
+          "texto_original": "571 953 509    ECU",
+          "parte": "571 953 509 ECU",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 135,
+          "texto_original": "3G8 035 842 B",
+          "parte": "3G8 035 842 B",
+          "puesto_contexto": null,
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 136,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 137,
+          "texto_original": "57N 858 065 A MEC",
+          "parte": "57N 858 065 A MEC",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 138,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 139,
+          "texto_original": "57N 947 095",
+          "parte": "57N 947 095",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 140,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 141,
+          "texto_original": "57N 947 096",
+          "parte": "57N 947 096",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 142,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 143,
+          "texto_original": "57N 947 155",
+          "parte": "57N 947 155",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 144,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 145,
+          "texto_original": "57N 947 156",
+          "parte": "57N 947 156",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 146,
+          "texto_original": "N91158501",
+          "parte": "N91158501",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FORMATO_NO_VALIDADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 147,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 148,
+          "texto_original": "17B 858 019 E  HUZ",
+          "parte": "17B 858 019 E HUZ",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 149,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 150,
+          "texto_original": "57N 858 019 A",
+          "parte": "57N 858 019 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 151,
+          "texto_original": "SG",
+          "parte": "SG",
+          "puesto_contexto": "SG",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 152,
+          "texto_original": "57N 858 020 A  9B9",
+          "parte": "57N 858 020 A 9B9",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 153,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 154,
+          "texto_original": "17B 819 728 F  UYD",
+          "parte": "17B 819 728 F UYD",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 155,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 156,
+          "texto_original": "17B 819 728 F  UZA",
+          "parte": "17B 819 728 F UZA",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 157,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 158,
+          "texto_original": "17B 858 189 A  1QB",
+          "parte": "17B 858 189 A 1QB",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 159,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 160,
+          "texto_original": "57N 819 704  B  HUZ",
+          "parte": "57N 819 704 B HUZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 161,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 162,
+          "texto_original": "3D0 907 543 A",
+          "parte": "3D0 907 543 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 163,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 164,
+          "texto_original": "5NN 919 605 C",
+          "parte": "5NN 919 605 C",
+          "puesto_contexto": "SZ02",
+          "codigo": "C",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 165,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 166,
+          "texto_original": "17B 858 069    041",
+          "parte": "17B 858 069 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 167,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 168,
+          "texto_original": "17B 858 069 A  041",
+          "parte": "17B 858 069 A 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 169,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 170,
+          "texto_original": "2G7 035 871",
+          "parte": "2G7 035 871",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 171,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 172,
+          "texto_original": "TTT 035 180 J",
+          "parte": "TTT 035 180 J",
+          "puesto_contexto": "SZ02",
+          "codigo": "J",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 173,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 174,
+          "texto_original": "TTT  035 180 L",
+          "parte": "TTT 035 180 L",
+          "puesto_contexto": "SZ02",
+          "codigo": "L",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 175,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 176,
+          "texto_original": "57L 920 340 B",
+          "parte": "57L 920 340 B",
+          "puesto_contexto": "SZ02",
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 177,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 178,
+          "texto_original": "57N 819 703 B   HUZ",
+          "parte": "57N 819 703 B HUZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 179,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 180,
+          "texto_original": "5NN 919 605 D",
+          "parte": "5NN 919 605 D",
+          "puesto_contexto": "SZ02",
+          "codigo": "D",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 181,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 182,
+          "texto_original": "57N 857 053    XCC",
+          "parte": "57N 857 053 XCC",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 183,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 184,
+          "texto_original": "57N 858 599    6PS",
+          "parte": "57N 858 599 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 185,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 186,
+          "texto_original": "57N 858 600    6PS",
+          "parte": "57N 858 600 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 187,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 188,
+          "texto_original": "5NN 858 559 C  82V",
+          "parte": "5NN 858 559 C 82V",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 189,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 190,
+          "texto_original": "57N 858 560    4PK",
+          "parte": "57N 858 560 4PK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 191,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 192,
+          "texto_original": "57N 857 919    4PK",
+          "parte": "57N 857 919 4PK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 193,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 194,
+          "texto_original": "57N 858 559    4PK",
+          "parte": "57N 858 559 4PK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 195,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 196,
+          "texto_original": "5WA 907 527 A",
+          "parte": "5WA 907 527 A",
+          "puesto_contexto": "SZ02",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 197,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 198,
+          "texto_original": "5NN 858 560    82V",
+          "parte": "5NN 858 560 82V",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 199,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 200,
+          "texto_original": "571 919 605 C",
+          "parte": "571 919 605 C",
+          "puesto_contexto": "SZ02",
+          "codigo": "C",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 201,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 202,
+          "texto_original": "571 919 606 B",
+          "parte": "571 919 606 B",
+          "puesto_contexto": "SZ02",
+          "codigo": "B",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 203,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 204,
+          "texto_original": "17A 919 068",
+          "parte": "17A 919 068",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 205,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 206,
+          "texto_original": "57N 858 189    6PS",
+          "parte": "57N 858 189 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 207,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 208,
+          "texto_original": "57N 858 763    6PS",
+          "parte": "57N 858 763 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 209,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 210,
+          "texto_original": "57N 858 122    6PS",
+          "parte": "57N 858 122 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 211,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 212,
+          "texto_original": "57N 858 122 A  6PS",
+          "parte": "57N 858 122 A 6PS",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 213,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 214,
+          "texto_original": "17B 857 506 A  82V",
+          "parte": "17B 857 506 A 82V",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 215,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 216,
+          "texto_original": "17B 857 506 A  RM5",
+          "parte": "17B 857 506 A RM5",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 217,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 218,
+          "texto_original": "3Q1 959 435 F",
+          "parte": "3Q1 959 435 F",
+          "puesto_contexto": "SZ01",
+          "codigo": "F",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 219,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 220,
+          "texto_original": "5G1 857 745",
+          "parte": "5G1 857 745",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 221,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 222,
+          "texto_original": "5GM 863 143 A",
+          "parte": "5GM 863 143 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 223,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 224,
+          "texto_original": "5Q0 819 663",
+          "parte": "5Q0 819 663",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 225,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 226,
+          "texto_original": "5Q0 820 573",
+          "parte": "5Q0 820 573",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 227,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 228,
+          "texto_original": "5Q1 971 303 D",
+          "parte": "5Q1 971 303 D",
+          "puesto_contexto": "SZ01",
+          "codigo": "D",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 229,
+          "texto_original": "N90944603",
+          "parte": "N90944603",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FORMATO_NO_VALIDADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 230,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 231,
+          "texto_original": "5QN 723 913 ",
+          "parte": "5QN 723 913",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 232,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 233,
+          "texto_original": "5QM 721 913 A",
+          "parte": "5QM 721 913 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 234,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 235,
+          "texto_original": "5QM 723 913 A",
+          "parte": "5QM 723 913 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 236,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 237,
+          "texto_original": "5TA 972 596",
+          "parte": "5TA 972 596",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 238,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 239,
+          "texto_original": "17B 857 017 A",
+          "parte": "17B 857 017 A",
+          "puesto_contexto": null,
+          "codigo": "A",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 240,
+          "texto_original": "57N 857 017 HUD ",
+          "parte": "57N 857 017 HUD",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 241,
+          "texto_original": "57N 857 017 ",
+          "parte": "57N 857 017",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 242,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 243,
+          "texto_original": "17A 880 204 Q",
+          "parte": "17A 880 204 Q",
+          "puesto_contexto": null,
+          "codigo": "Q",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 244,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 245,
+          "texto_original": "17A 880 204 R",
+          "parte": "17A 880 204 R",
+          "puesto_contexto": null,
+          "codigo": "R",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 246,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 247,
+          "texto_original": "57L 880 204 D",
+          "parte": "57L 880 204 D",
+          "puesto_contexto": null,
+          "codigo": "D",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 248,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 249,
+          "texto_original": "57N 857 003 D  6PS",
+          "parte": "57N 857 003 D 6PS",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 250,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 251,
+          "texto_original": "57N 857 003 E  6PS",
+          "parte": "57N 857 003 E 6PS",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 252,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 253,
+          "texto_original": "57N 880 204 E",
+          "parte": "57N 880 204 E",
+          "puesto_contexto": null,
+          "codigo": "E",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 254,
+          "texto_original": "DESENGANCHE L1",
+          "parte": "DESENGANCHE L1",
+          "puesto_contexto": "DESENGANCHE L1",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 255,
+          "texto_original": "17B 857 003 N  RA3",
+          "parte": "17B 857 003 N RA3",
+          "puesto_contexto": null,
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 256,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 257,
+          "texto_original": "57N 858 335 A  7IW",
+          "parte": "57N 858 335 A 7IW",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 258,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 259,
+          "texto_original": "57N 858 415    041",
+          "parte": "57N 858 415 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 260,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 261,
+          "texto_original": "57N 858 415 A  7IW",
+          "parte": "57N 858 415 A 7IW",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 262,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 263,
+          "texto_original": "57N 858 061 A  QFD",
+          "parte": "57N 858 061 A QFD",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 264,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 265,
+          "texto_original": "57N 858 417 B  QGI",
+          "parte": "57N 858 417 B QGI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 266,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 267,
+          "texto_original": "57N 858 417 B  QHI",
+          "parte": "57N 858 417 B QHI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 268,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 269,
+          "texto_original": "57N 858 418    QEF",
+          "parte": "57N 858 418 QEF",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 270,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 271,
+          "texto_original": "57N 858 418 A  MFV",
+          "parte": "57N 858 418 A MFV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 272,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 273,
+          "texto_original": "57N 858 418 A  QDZ",
+          "parte": "57N 858 418 A QDZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 274,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 275,
+          "texto_original": "57N 858 418 A  QEI",
+          "parte": "57N 858 418 A QEI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 276,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 277,
+          "texto_original": "57N 858 416 B  7IX",
+          "parte": "57N 858 416 B 7IX",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 278,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 279,
+          "texto_original": "57N 858 417    QEF",
+          "parte": "57N 858 417 QEF",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 280,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 281,
+          "texto_original": "57N 858 417 A  MFV",
+          "parte": "57N 858 417 A MFV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 282,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 283,
+          "texto_original": "57N 858 418 B  QFI",
+          "parte": "57N 858 418 B QFI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 284,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 285,
+          "texto_original": "57N 858 418 B  QGI",
+          "parte": "57N 858 418 B QGI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 286,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 287,
+          "texto_original": "57N 858 418 B  QHI",
+          "parte": "57N 858 418 B QHI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 288,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 289,
+          "texto_original": "57N 858 066 A  QFD",
+          "parte": "57N 858 066 A QFD",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 290,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 291,
+          "texto_original": "57N 858 066    QDY",
+          "parte": "57N 858 066 QDY",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 292,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 293,
+          "texto_original": "57N 858 066    QEB",
+          "parte": "57N 858 066 QEB",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 294,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 295,
+          "texto_original": "57N 858 417 A  QDZ",
+          "parte": "57N 858 417 A QDZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 296,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 297,
+          "texto_original": "57N 858 335    041",
+          "parte": "57N 858 335 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 298,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 299,
+          "texto_original": "57N 858 417 A  QEI",
+          "parte": "57N 858 417 A QEI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 300,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 301,
+          "texto_original": "57N 858 417 B  QFI",
+          "parte": "57N 858 417 B QFI",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 302,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 303,
+          "texto_original": "57N 858 416    041",
+          "parte": "57N 858 416 041",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 304,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 305,
+          "texto_original": "57N 858 061    QDY",
+          "parte": "57N 858 061 QDY",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 306,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 307,
+          "texto_original": "57N 858 061    QEB",
+          "parte": "57N 858 061 QEB",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 308,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 309,
+          "texto_original": "5Q0 953 223",
+          "parte": "5Q0 953 223",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SIN_SUFIJO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 310,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 311,
+          "texto_original": "5Q0 953 223 A",
+          "parte": "5Q0 953 223 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 312,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 313,
+          "texto_original": "17A 800 375 CE",
+          "parte": "17A 800 375 CE",
+          "puesto_contexto": "SZ01",
+          "codigo": "CE",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 314,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 315,
+          "texto_original": "17A 800 375 CF",
+          "parte": "17A 800 375 CF",
+          "puesto_contexto": "SZ01",
+          "codigo": "CF",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 316,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 317,
+          "texto_original": "17A 800 375 CG",
+          "parte": "17A 800 375 CG",
+          "puesto_contexto": "SZ01",
+          "codigo": "CG",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 318,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 319,
+          "texto_original": "17A 800 375 CH",
+          "parte": "17A 800 375 CH",
+          "puesto_contexto": "SZ01",
+          "codigo": "CH",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 320,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 321,
+          "texto_original": "17A 800 375 CJ",
+          "parte": "17A 800 375 CJ",
+          "puesto_contexto": "SZ01",
+          "codigo": "CJ",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 322,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 323,
+          "texto_original": "17A 919 225 B  RDW",
+          "parte": "17A 919 225 B RDW",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 324,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 325,
+          "texto_original": "17A 919 225 C  RDW",
+          "parte": "17A 919 225 C RDW",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 326,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 327,
+          "texto_original": "3WA 905 861 A",
+          "parte": "3WA 905 861 A",
+          "puesto_contexto": "SZ01",
+          "codigo": "A",
+          "estado": "CONFIRMADO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 328,
+          "texto_original": "SZ01",
+          "parte": "SZ01",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 329,
+          "texto_original": "5G1 941 431 N  WZU",
+          "parte": "5G1 941 431 N WZU",
+          "puesto_contexto": "SZ01",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 330,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 331,
+          "texto_original": "17B 858 415 C  2UT",
+          "parte": "17B 858 415 C 2UT",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 332,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 333,
+          "texto_original": "17B 858 415 C  7KK",
+          "parte": "17B 858 415 C 7KK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 334,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 335,
+          "texto_original": "17B 858 415 C  SL1",
+          "parte": "17B 858 415 C SL1",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 336,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 337,
+          "texto_original": "17B 858 415 C  TU2",
+          "parte": "17B 858 415 C TU2",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 338,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 339,
+          "texto_original": "17B 858 415 D  ASZ",
+          "parte": "17B 858 415 D ASZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 340,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 341,
+          "texto_original": "17B 858 415 D  ZBA",
+          "parte": "17B 858 415 D ZBA",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 342,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 343,
+          "texto_original": "17B 858 415 D  ZJV",
+          "parte": "17B 858 415 D ZJV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 344,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 345,
+          "texto_original": "17B 858 416 C  2UT",
+          "parte": "17B 858 416 C 2UT",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 346,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 347,
+          "texto_original": "17B 858 416 C  7KK",
+          "parte": "17B 858 416 C 7KK",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 348,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 349,
+          "texto_original": "17B 858 416 C  SL1",
+          "parte": "17B 858 416 C SL1",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 350,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 351,
+          "texto_original": "17B 858 416 C  TU2",
+          "parte": "17B 858 416 C TU2",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 352,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 353,
+          "texto_original": "17B 858 416 D  ASZ",
+          "parte": "17B 858 416 D ASZ",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 354,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 355,
+          "texto_original": "17B 858 416 D  ZBA",
+          "parte": "17B 858 416 D ZBA",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 356,
+          "texto_original": "SZ02",
+          "parte": "SZ02",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 357,
+          "texto_original": "17B 858 416 D  ZJV",
+          "parte": "17B 858 416 D ZJV",
+          "puesto_contexto": "SZ02",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 358,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 359,
+          "texto_original": "5Q1 953 521 HC IGI",
+          "parte": "5Q1 953 521 HC IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 360,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 361,
+          "texto_original": "5Q1 953 521 HJ IGI",
+          "parte": "5Q1 953 521 HJ IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 362,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 363,
+          "texto_original": "5Q1 953 521 HN IGI",
+          "parte": "5Q1 953 521 HN IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 364,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 365,
+          "texto_original": "5Q1 953 521 HR IGI",
+          "parte": "5Q1 953 521 HR IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 366,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 367,
+          "texto_original": "5Q1 953 521 JC IGI",
+          "parte": "5Q1 953 521 JC IGI",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "SUFIJO_AMBIGUO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 368,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 369,
+          "texto_original": "1EE 953 507 DP  ASS",
+          "parte": "1EE 953 507 DP ASS",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 370,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 371,
+          "texto_original": "1EE 953 507 DK ASS",
+          "parte": "1EE 953 507 DK ASS",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 372,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 373,
+          "texto_original": "17A 920 320 G",
+          "parte": "17A 920 320 G",
+          "puesto_contexto": "K.E.",
+          "codigo": "G",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 374,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 375,
+          "texto_original": "17A 920 420 G",
+          "parte": "17A 920 420 G",
+          "puesto_contexto": "K.E.",
+          "codigo": "G",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 376,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 377,
+          "texto_original": "2GJ 920 310 F",
+          "parte": "2GJ 920 310 F",
+          "puesto_contexto": "K.E.",
+          "codigo": "F",
+          "estado": "FUERA_DEL_MVP"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 378,
+          "texto_original": "K.E.",
+          "parte": "K.E.",
+          "puesto_contexto": "K.E.",
+          "codigo": null,
+          "estado": "PUESTO"
+        },
+        {
+          "hoja": "Partes",
+          "fila": 379,
+          "texto_original": "2GJ 920 410 J",
+          "parte": "2GJ 920 410 J",
+          "puesto_contexto": "K.E.",
+          "codigo": "J",
+          "estado": "FUERA_DEL_MVP"
+        }
+      ]
+    }
+  },
+  "desarrollo": {
+    "tablas": 8,
+    "materiales": 63,
+    "ubicaciones": 63,
+    "movimientos_previos": 64,
+    "eventos_maestro": 709042,
+    "huella_maestro": -1296663251,
+    "huella_movimientos": 1752801801,
+    "movimientos_consultables": 230965,
+    "materiales_varias_ubicaciones": 0,
+    "modelo_puestos": false
+  },
+  "respaldo_verificado": "/var/opt/mssql/data/mvp_puestos_pruebas_20261104T182549477500Z.bak",
+  "catalogo": [
+    {
+      "numero_parte": "17A 800 375 CE",
+      "variante_revision": "CE"
+    },
+    {
+      "numero_parte": "17A 800 375 CF",
+      "variante_revision": "CF"
+    },
+    {
+      "numero_parte": "17A 800 375 CG",
+      "variante_revision": "CG"
+    },
+    {
+      "numero_parte": "17A 800 375 CH",
+      "variante_revision": "CH"
+    },
+    {
+      "numero_parte": "17A 800 375 CJ",
+      "variante_revision": "CJ"
+    },
+    {
+      "numero_parte": "17B 819 593 C",
+      "variante_revision": "C"
+    },
+    {
+      "numero_parte": "17B 819 593 D",
+      "variante_revision": "D"
+    },
+    {
+      "numero_parte": "2GA 035 285 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "3D0 907 543 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "3Q1 959 435 F",
+      "variante_revision": "F"
+    },
+    {
+      "numero_parte": "3WA 905 861 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "510 880 505 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "510 880 506 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "57N 857 889 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "57N 857 890 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "5NN 919 605 C",
+      "variante_revision": "C"
+    },
+    {
+      "numero_parte": "5NN 919 605 D",
+      "variante_revision": "D"
+    },
+    {
+      "numero_parte": "5Q0 941 070 C",
+      "variante_revision": "C"
+    },
+    {
+      "numero_parte": "5Q0 953 223 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "5Q1 971 303 D",
+      "variante_revision": "D"
+    },
+    {
+      "numero_parte": "5QA 919 294 L",
+      "variante_revision": "L"
+    },
+    {
+      "numero_parte": "5QM 723 913 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "5WA 907 527 A",
+      "variante_revision": "A"
+    },
+    {
+      "numero_parte": "TTT  035 180 L",
+      "variante_revision": "L"
+    },
+    {
+      "numero_parte": "TTT 035 180 J",
+      "variante_revision": "J"
+    }
+  ],
+  "pruebas_despues": {
+    "tablas": 8,
+    "materiales": 68,
+    "ubicaciones": 68,
+    "movimientos_previos": 75,
+    "eventos_maestro": 709042,
+    "huella_maestro": -1296663251,
+    "huella_movimientos": 538144033,
+    "movimientos_consultables": 230976,
+    "materiales_varias_ubicaciones": 0,
+    "modelo_puestos": true
+  }
+}

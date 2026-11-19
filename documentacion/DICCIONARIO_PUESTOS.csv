@@ -1,0 +1,36 @@
+tabla,columna,tipo_sql,admite_null,pk,referencia_fk,descripcion
+COLOR,id_color,int,False,True,,Referencia opcional al código documentado de variante o revisión.
+COLOR,nombre,varchar(10),False,False,,Código documentado de variante o revisión.
+ESTACION,id_estacion,int,False,True,,Identificador de la estación.
+ESTACION,id_linea,int,False,False,,Identificador de Línea 1.
+ESTACION,nombre_estacion,nvarchar(100),False,False,,Nombre o código de la estación.
+ESTANTERIA,id_estanteria,int,False,True,,Identificador del nivel de estantería.
+ESTANTERIA,id_estacion,int,False,False,ESTACION.id_estacion,Identificador de la estación.
+ESTANTERIA,estanteria,nvarchar(80),False,False,,Estantería dentro de la estación.
+ESTANTERIA,nivel,nvarchar(30),False,False,,Nivel o posición de la estantería.
+ESTANTERIA,cajas_estanteria,int,True,False,,Capacidad nominal del nivel en cajas.
+MATERIAL,numero_parte,varchar(100),False,True,,"Referencia completa del material, incluyendo sus sufijos."
+MATERIAL,id_puesto,int,False,False,PUESTO_LOGISTICO.id_puesto,Identificador del puesto logístico.
+MATERIAL,descripcion,nvarchar(250),True,False,,Descripción documental del material.
+MATERIAL,uso,nvarchar(150),True,False,,Clasificación documental de uso en PFEP.
+MATERIAL,cantidad_por_caja,int,True,False,,Piezas contenidas en una caja.
+MATERIAL,minimo,int,True,False,,Mínimo del material en piezas.
+MATERIAL,id_color,int,True,False,COLOR.id_color,Referencia opcional al código documentado de variante o revisión.
+MATERIAL,stock,int,True,False,,Existencia conocida en piezas al corte de migración. NULL cuando es desconocida.
+PUESTO_LOGISTICO,id_puesto,int,False,True,,Identificador del puesto logístico.
+PUESTO_LOGISTICO,nombre,nvarchar(120),False,False,,Código del puesto logístico.
+PUESTO_LOGISTICO,usuario,nvarchar(80),True,False,,Nombre de inicio de sesión compartido por puesto.
+PUESTO_LOGISTICO,password,nvarchar(500),True,False,,Hash de la contraseña del puesto. NULL si el acceso está revocado.
+REGISTRO,id_registro,int,False,True,,Identificador de la atención por puesto.
+REGISTRO,id_puesto,int,False,False,PUESTO_LOGISTICO.id_puesto,Identificador del puesto logístico.
+REGISTRO,id_ubicacion,int,False,False,UBICACION.id_ubicacion,Identificador estable de la asignación material y estantería.
+REGISTRO,fecha_hora_inicio,datetime2(7),False,False,,Inicio UTC capturado por el servidor.
+REGISTRO,fecha_hora_fin,datetime2(7),True,False,,Fin UTC capturado por el servidor. NULL mientras la atención esté abierta.
+REGISTRO,id_turno,int,True,False,TURNO.id_turno,Turno de inicio de la atención. NULL fuera del horario PFEP.
+TURNO,id_turno,int,False,True,,Identificador del catálogo de turnos.
+TURNO,nombre_turno,nvarchar(40),False,False,,Nombre del turno PFEP.
+TURNO,hora_inicio,time(0),False,False,,Inicio inclusivo del turno en hora de México.
+TURNO,hora_fin,time(0),False,False,,Fin exclusivo del turno en hora de México.
+UBICACION,id_ubicacion,int,False,True,,Identificador estable de la asignación material y estantería.
+UBICACION,numero_parte,varchar(100),False,False,MATERIAL.numero_parte,"Referencia completa del material, incluyendo sus sufijos."
+UBICACION,id_estanteria,int,False,False,ESTANTERIA.id_estanteria,Identificador del nivel de estantería.

@@ -1,0 +1,20 @@
+[
+  {
+    "servidor": "http://127.0.0.1:5087",
+    "lecturas_sin_nuevos_movimientos": true,
+    "ubicaciones": 63,
+    "corte": "2026-11-03T02:09:41.9736828Z",
+    "motivo": "FUERA_CALENDARIO_DOCUMENTADO"
+  },
+  {
+    "servidor": "http://127.0.0.1:5088",
+    "lecturas_sin_nuevos_movimientos": true,
+    "ubicaciones": 68,
+    "corte": "2026-11-03T02:09:42.2863582Z",
+    "motivo": "FUERA_CALENDARIO_DOCUMENTADO"
+  },
+  {
+    "permiso_consulta": true,
+    "sin_sesion": 401
+  }
+]

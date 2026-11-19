@@ -1,0 +1,1187 @@
+{
+  "version": 1,
+  "cambios": [
+    {
+      "numero_parte": "11K 947 409",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 297,
+        "celda": "J297",
+        "parte_original": "11K 947 409"
+      }
+    },
+    {
+      "numero_parte": "17A 800 375 CE",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 132,
+        "celda": "J132",
+        "parte_original": "17A 800 375 CE"
+      }
+    },
+    {
+      "numero_parte": "17A 800 375 CF",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 133,
+        "celda": "J133",
+        "parte_original": "17A 800 375 CF"
+      }
+    },
+    {
+      "numero_parte": "17A 800 375 CG",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 134,
+        "celda": "J134",
+        "parte_original": "17A 800 375 CG"
+      }
+    },
+    {
+      "numero_parte": "17A 800 375 CH",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 135,
+        "celda": "J135",
+        "parte_original": "17A 800 375 CH"
+      }
+    },
+    {
+      "numero_parte": "17A 800 375 CJ",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 136,
+        "celda": "J136",
+        "parte_original": "17A 800 375 CJ"
+      }
+    },
+    {
+      "numero_parte": "17A 919 068",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 142,
+        "celda": "J142",
+        "parte_original": "17A 919 068"
+      }
+    },
+    {
+      "numero_parte": "17A 919 225 B  RDW",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 143,
+        "celda": "J143",
+        "parte_original": "17A 919 225 B  RDW"
+      }
+    },
+    {
+      "numero_parte": "17A 919 225 C  RDW",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 144,
+        "celda": "J144",
+        "parte_original": "17A 919 225 C  RDW"
+      }
+    },
+    {
+      "numero_parte": "17B 819 593 C",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 80,
+        "celda": "J80",
+        "parte_original": "17B 819 593 C"
+      }
+    },
+    {
+      "numero_parte": "17B 819 593 D",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 81,
+        "celda": "J81",
+        "parte_original": "17B 819 593 D"
+      }
+    },
+    {
+      "numero_parte": "17B 819 728 F  UYD",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 267,
+        "celda": "J267",
+        "parte_original": "17B 819 728 F  UYD"
+      }
+    },
+    {
+      "numero_parte": "17B 819 728 F  UZA",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 268,
+        "celda": "J268",
+        "parte_original": "17B 819 728 F  UZA"
+      }
+    },
+    {
+      "numero_parte": "17B 857 506 A  82V",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 269,
+        "celda": "J269",
+        "parte_original": "17B 857 506 A  82V"
+      }
+    },
+    {
+      "numero_parte": "17B 857 506 A  RM5",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 270,
+        "celda": "J270",
+        "parte_original": "17B 857 506 A  RM5"
+      }
+    },
+    {
+      "numero_parte": "17B 858 019 E  HUZ",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 88,
+        "celda": "J88",
+        "parte_original": "17B 858 019 E  HUZ"
+      }
+    },
+    {
+      "numero_parte": "17B 858 069    041",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 271,
+        "celda": "J271",
+        "parte_original": "17B 858 069    041"
+      }
+    },
+    {
+      "numero_parte": "17B 858 069 A  041",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 272,
+        "celda": "J272",
+        "parte_original": "17B 858 069 A  041"
+      }
+    },
+    {
+      "numero_parte": "17B 858 189 A  1QB",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 273,
+        "celda": "J273",
+        "parte_original": "17B 858 189 A  1QB"
+      }
+    },
+    {
+      "numero_parte": "17B 858 418 C  HUZ",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 91,
+        "celda": "J91",
+        "parte_original": "17B 858 418 C  HUZ"
+      }
+    },
+    {
+      "numero_parte": "2GA 035 285 A",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 7,
+        "celda": "J7",
+        "parte_original": "2GA 035 285 A"
+      }
+    },
+    {
+      "numero_parte": "2Q0 953 254",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 27,
+        "celda": "J27",
+        "parte_original": "2Q0 953 254"
+      }
+    },
+    {
+      "numero_parte": "3D0 907 543 A",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 28,
+        "celda": "J28",
+        "parte_original": "3D0 907 543 A"
+      }
+    },
+    {
+      "numero_parte": "3Q1 959 435 F",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 31,
+        "celda": "J31",
+        "parte_original": "3Q1 959 435 F"
+      }
+    },
+    {
+      "numero_parte": "3WA 905 861 A",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 149,
+        "celda": "J149",
+        "parte_original": "3WA 905 861 A"
+      }
+    },
+    {
+      "numero_parte": "510 880 505 A",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 172,
+        "celda": "J172",
+        "parte_original": "510 880 505 A"
+      }
+    },
+    {
+      "numero_parte": "510 880 506 A",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 173,
+        "celda": "J173",
+        "parte_original": "510 880 506 A"
+      }
+    },
+    {
+      "numero_parte": "57N 819 241",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 183,
+        "celda": "J183",
+        "parte_original": "57N 819 241"
+      }
+    },
+    {
+      "numero_parte": "57N 819 704  B  HUZ",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 189,
+        "celda": "J189",
+        "parte_original": "57N 819 704  B  HUZ"
+      }
+    },
+    {
+      "numero_parte": "57N 857 053    XCC",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 192,
+        "celda": "J192",
+        "parte_original": "57N 857 053    XCC"
+      }
+    },
+    {
+      "numero_parte": "57N 857 889 A",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 184,
+        "celda": "J184",
+        "parte_original": "57N 857 889 A"
+      }
+    },
+    {
+      "numero_parte": "57N 857 890 A",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 185,
+        "celda": "J185",
+        "parte_original": "57N 857 890 A"
+      }
+    },
+    {
+      "numero_parte": "57N 858 335    041",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 227,
+        "celda": "J227",
+        "parte_original": "57N 858 335    041"
+      }
+    },
+    {
+      "numero_parte": "57N 858 335 A  7IW",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 228,
+        "celda": "J228",
+        "parte_original": "57N 858 335 A  7IW"
+      }
+    },
+    {
+      "numero_parte": "57N 858 415    041",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 229,
+        "celda": "J229",
+        "parte_original": "57N 858 415    041"
+      }
+    },
+    {
+      "numero_parte": "57N 858 415 A  7IW",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 230,
+        "celda": "J230",
+        "parte_original": "57N 858 415 A  7IW"
+      }
+    },
+    {
+      "numero_parte": "57N 858 416    041",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 231,
+        "celda": "J231",
+        "parte_original": "57N 858 416    041"
+      }
+    },
+    {
+      "numero_parte": "57N 858 416 B  7IX",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 232,
+        "celda": "J232",
+        "parte_original": "57N 858 416 B  7IX"
+      }
+    },
+    {
+      "numero_parte": "57N 858 599    6PS",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 248,
+        "celda": "J248",
+        "parte_original": "57N 858 599    6PS"
+      }
+    },
+    {
+      "numero_parte": "57N 858 600    6PS",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 249,
+        "celda": "J249",
+        "parte_original": "57N 858 600    6PS"
+      }
+    },
+    {
+      "numero_parte": "57N 947 156",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 200,
+        "celda": "J200",
+        "parte_original": "57N 947 156"
+      }
+    },
+    {
+      "numero_parte": "5E0 941 070",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 201,
+        "celda": "J201",
+        "parte_original": "5E0 941 070"
+      }
+    },
+    {
+      "numero_parte": "5G0 857 173",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 32,
+        "celda": "J32",
+        "parte_original": "5G0 857 173"
+      }
+    },
+    {
+      "numero_parte": "5G1 857 745",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 34,
+        "celda": "J34",
+        "parte_original": "5G1 857 745"
+      }
+    },
+    {
+      "numero_parte": "5G1 971 845",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 165,
+        "celda": "J165",
+        "parte_original": "5G1 971 845"
+      }
+    },
+    {
+      "numero_parte": "5NN 858 560    82V",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 279,
+        "celda": "J279",
+        "parte_original": "5NN 858 560    82V"
+      }
+    },
+    {
+      "numero_parte": "5NN 919 605 C",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 280,
+        "celda": "J280",
+        "parte_original": "5NN 919 605 C"
+      }
+    },
+    {
+      "numero_parte": "5NN 919 605 D",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 281,
+        "celda": "J281",
+        "parte_original": "5NN 919 605 D"
+      }
+    },
+    {
+      "numero_parte": "5Q0 820 573",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 39,
+        "celda": "J39",
+        "parte_original": "5Q0 820 573"
+      }
+    },
+    {
+      "numero_parte": "5Q0 941 070 C",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 42,
+        "celda": "J42",
+        "parte_original": "5Q0 941 070 C"
+      }
+    },
+    {
+      "numero_parte": "5Q0 953 223",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 43,
+        "celda": "J43",
+        "parte_original": "5Q0 953 223"
+      }
+    },
+    {
+      "numero_parte": "5Q0 953 223 A",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 44,
+        "celda": "J44",
+        "parte_original": "5Q0 953 223 A"
+      }
+    },
+    {
+      "numero_parte": "5Q1 953 521 HR IGI",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 158,
+        "celda": "J158",
+        "parte_original": "5Q1 953 521 HR IGI"
+      }
+    },
+    {
+      "numero_parte": "5Q1 953 521 JC IGI",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 159,
+        "celda": "J159",
+        "parte_original": "5Q1 953 521 JC IGI"
+      }
+    },
+    {
+      "numero_parte": "5Q1 971 303 D",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 48,
+        "celda": "J48",
+        "parte_original": "5Q1 971 303 D"
+      }
+    },
+    {
+      "numero_parte": "5QA 919 294 L",
+      "uso": "COMPARTIDO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 50,
+        "celda": "J50",
+        "parte_original": "5QA 919 294 L"
+      }
+    },
+    {
+      "numero_parte": "5QM 723 913 A",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 163,
+        "celda": "J163",
+        "parte_original": "5QM 723 913 A"
+      }
+    },
+    {
+      "numero_parte": "5TA 972 596",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 211,
+        "celda": "J211",
+        "parte_original": "5TA 972 596"
+      }
+    },
+    {
+      "numero_parte": "5TB 880 841 F",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 212,
+        "celda": "J212",
+        "parte_original": "5TB 880 841 F"
+      }
+    },
+    {
+      "numero_parte": "5WA 907 527 A",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 213,
+        "celda": "J213",
+        "parte_original": "5WA 907 527 A"
+      }
+    },
+    {
+      "numero_parte": "TTT  035 180 L",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 276,
+        "celda": "J276",
+        "parte_original": "TTT  035 180 L"
+      }
+    },
+    {
+      "numero_parte": "TTT 035 180 J",
+      "uso": "EXCLUSIVO",
+      "fuente": {
+        "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+        "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+        "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+        "hoja": "NumerosDeParte",
+        "columnas": {
+          "parte": "B",
+          "auto": "I",
+          "uso": "J",
+          "linea": "AB"
+        },
+        "fila": 275,
+        "celda": "J275",
+        "parte_original": "TTT 035 180 J"
+      }
+    }
+  ],
+  "huella_fuentes": [
+    "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+    "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3"
+  ]
+}

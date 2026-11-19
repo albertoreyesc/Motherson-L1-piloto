@@ -1,0 +1,269 @@
+{
+  "materiales": 63,
+  "uso_documentado": 62,
+  "uso_pendiente": 1,
+  "color_documentado": 0,
+  "puestos": 6,
+  "tipo_documentado": 0,
+  "fuentes": [
+    {
+      "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+      "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/PFEP LOGISTICA - UPAEP (4).xlsx",
+      "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+      "hoja": "NumerosDeParte",
+      "columnas": {
+        "parte": "B",
+        "auto": "I",
+        "uso": "J",
+        "linea": "AB"
+      }
+    },
+    {
+      "archivo": "PFEP LOGISTICA - UPAEP (1).xlsx",
+      "ruta": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/originals/PFEP LOGISTICA - UPAEP (1).xlsx",
+      "sha256": "5c2d407fa81ad65305df914ace2bc54fc9d40d22552e2c6ced7f419baf2ea5e3",
+      "hoja": "NumerosDeParte",
+      "columnas": {
+        "parte": "B",
+        "auto": "I",
+        "uso": "J",
+        "linea": "AB"
+      }
+    }
+  ],
+  "revision_excel": [
+    {
+      "archivo": "PFEP LOGISTICA - UPAEP (4).xlsx",
+      "cabeceras_relevantes": [
+        {
+          "hoja": "NumerosDeParte",
+          "fila": 1,
+          "columna": 10,
+          "texto": "USO "
+        },
+        {
+          "hoja": "NumerosDeParte",
+          "fila": 1,
+          "columna": 27,
+          "texto": "TIPO DE SURTIMIENTO"
+        }
+      ],
+      "filas_parte": 297,
+      "claves_repetidas": [
+        {
+          "clave": "5TB819151",
+          "filas": [
+            {
+              "fila": 52,
+              "parte": "5TB 819 151",
+              "uso": "EXCLUSIVO",
+              "linea": null,
+              "celda": "J52"
+            },
+            {
+              "fila": 283,
+              "parte": "5TB 819 151",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J283"
+            }
+          ]
+        },
+        {
+          "clave": "5TB819152",
+          "filas": [
+            {
+              "fila": 53,
+              "parte": "5TB 819 152",
+              "uso": "EXCLUSIVO",
+              "linea": null,
+              "celda": "J53"
+            },
+            {
+              "fila": 284,
+              "parte": "5TB 819 152",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J284"
+            }
+          ]
+        },
+        {
+          "clave": "2G7035871",
+          "filas": [
+            {
+              "fila": 77,
+              "parte": "2G7 035 871",
+              "uso": "COMPARTIDO",
+              "linea": null,
+              "celda": "J77"
+            },
+            {
+              "fila": 274,
+              "parte": "2G7 035 871",
+              "uso": "COMPARTIDO",
+              "linea": 1,
+              "celda": "J274"
+            }
+          ]
+        },
+        {
+          "clave": "5G1941431NWZU",
+          "filas": [
+            {
+              "fila": 79,
+              "parte": "5G1 941 431 N  WZU",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J79"
+            },
+            {
+              "fila": 153,
+              "parte": "5G1 941 431 N  WZU",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J153"
+            }
+          ]
+        },
+        {
+          "clave": "5G1819151A",
+          "filas": [
+            {
+              "fila": 103,
+              "parte": "5G1 819 151 A",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J103"
+            },
+            {
+              "fila": 151,
+              "parte": "5G1 819 151 A",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J151"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "PFEP LOGISTICA - UPAEP (1).xlsx",
+      "cabeceras_relevantes": [
+        {
+          "hoja": "NumerosDeParte",
+          "fila": 1,
+          "columna": 10,
+          "texto": "USO "
+        },
+        {
+          "hoja": "NumerosDeParte",
+          "fila": 1,
+          "columna": 27,
+          "texto": "TIPO DE SURTIMIENTO"
+        }
+      ],
+      "filas_parte": 297,
+      "claves_repetidas": [
+        {
+          "clave": "5TB819151",
+          "filas": [
+            {
+              "fila": 52,
+              "parte": "5TB 819 151",
+              "uso": "EXCLUSIVO",
+              "linea": null,
+              "celda": "J52"
+            },
+            {
+              "fila": 283,
+              "parte": "5TB 819 151",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J283"
+            }
+          ]
+        },
+        {
+          "clave": "5TB819152",
+          "filas": [
+            {
+              "fila": 53,
+              "parte": "5TB 819 152",
+              "uso": "EXCLUSIVO",
+              "linea": null,
+              "celda": "J53"
+            },
+            {
+              "fila": 284,
+              "parte": "5TB 819 152",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J284"
+            }
+          ]
+        },
+        {
+          "clave": "2G7035871",
+          "filas": [
+            {
+              "fila": 77,
+              "parte": "2G7 035 871",
+              "uso": "COMPARTIDO",
+              "linea": null,
+              "celda": "J77"
+            },
+            {
+              "fila": 274,
+              "parte": "2G7 035 871",
+              "uso": "COMPARTIDO",
+              "linea": 1,
+              "celda": "J274"
+            }
+          ]
+        },
+        {
+          "clave": "5G1941431NWZU",
+          "filas": [
+            {
+              "fila": 79,
+              "parte": "5G1 941 431 N  WZU",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J79"
+            },
+            {
+              "fila": 153,
+              "parte": "5G1 941 431 N  WZU",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J153"
+            }
+          ]
+        },
+        {
+          "clave": "5G1819151A",
+          "filas": [
+            {
+              "fila": 103,
+              "parte": "5G1 819 151 A",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J103"
+            },
+            {
+              "fila": 151,
+              "parte": "5G1 819 151 A",
+              "uso": "EXCLUSIVO",
+              "linea": 1,
+              "celda": "J151"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "definicion_uso": "Clasificación de utilización del PFEP: COMPARTIDO o EXCLUSIVO. AUTO es una columna distinta y no se copia dentro de uso.",
+  "color_csv": "El exportador anterior usa cargar_datos.color_de_parte; sus códigos y SIN COLOR son deducciones, no confirmaciones de color físico.",
+  "migracion": "preparar_historico.py y MvpMigration.cs no incluyen uso, id_color ni tipo. prepare_sources.py tampoco extrae USO del PFEP. La consulta Catalog sí recupera los tres campos."
+}

@@ -1,0 +1,2071 @@
+{
+  "Motherson_L1_MVP_Desarrollo": {
+    "materiales": [
+      {
+        "numero_parte": "11K 947 409",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "LUZ MALETERA",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 980,
+        "minimo": 343,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CE",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CF",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CF",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CG",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CG",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CH",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CH",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CJ",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CJ",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 919 068",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "TAPA SENSOR SOLAR",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 135,
+        "minimo": 48,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 919 225 B  RDW",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "INTERRUPTOR EMERGENCIA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 160,
+        "minimo": 112,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 919 225 C  RDW",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "INTERRUPTOR EMERGENCIA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 160,
+        "minimo": 112,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 593 C",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "PANEL FRIO C",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 55,
+        "minimo": 77,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 593 D",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "PANEL FRIO D",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 55,
+        "minimo": 77,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 728 F  UYD",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "DIFUSOR CENTRAL ¨728  F UYD¨",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 26,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 728 F  UZA",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "DIFUSOR CENTRAL 728  F ZYA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 26,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 857 506 A  82V",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "TAPA FUSIBLES TITAN A",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 14,
+        "minimo": 25,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 857 506 A  RM5",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "TAPA FUSIBLES STORM A",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 14,
+        "minimo": 25,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 019 E  HUZ",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "BLENDE JETTA A7 SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 3,
+        "minimo": 8,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 069    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARATULA CENTRAL JETTA  SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 66,
+        "minimo": 70,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 069 A  041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARATULA CENTRAL JETTA  SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 66,
+        "minimo": 70,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 189 A  1QB",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE JETTA SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 9,
+        "minimo": 16,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 418 C  HUZ",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "BLENDE JETTA SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 4,
+        "minimo": 10,
+        "color": null
+      },
+      {
+        "numero_parte": "2GA 035 285 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CAJA COMUNICACION SAS",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 24,
+        "minimo": 34,
+        "color": null
+      },
+      {
+        "numero_parte": "2Q0 953 254",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "UNIDAD DE LECTURA",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 84,
+        "minimo": 30,
+        "color": null
+      },
+      {
+        "numero_parte": "3D0 907 543 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SENSOR DE TEMPERATURA",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 312,
+        "minimo": 110,
+        "color": null
+      },
+      {
+        "numero_parte": "3Q1 959 435 F",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "KESSY F",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 45,
+        "minimo": 63,
+        "color": null
+      },
+      {
+        "numero_parte": "3WA 905 861 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELV",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 12,
+        "minimo": 34,
+        "color": null
+      },
+      {
+        "numero_parte": "510 880 505 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 53,
+        "color": null
+      },
+      {
+        "numero_parte": "510 880 506 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 53,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 819 241",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "PIEZA INTERMEDIA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 40,
+        "minimo": 112,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 819 704  B  HUZ",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARCASA DIFUSOR DERECHO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 12,
+        "minimo": 17,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 857 053    XCC",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARATULA TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 44,
+        "minimo": 108,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 857 889 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELEMENTO DEFORMACION",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 49,
+        "minimo": 35,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 857 890 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELEMENTO DEFORMACION",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 22,
+        "minimo": 39,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 065 A MEC",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": null,
+        "uso": null,
+        "cantidad_por_caja": 5,
+        "minimo": 14,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 335    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 56,
+        "minimo": 79,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 335 A  7IW",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 56,
+        "minimo": 59,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 415    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 100,
+        "minimo": 140,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 415 A  7IW",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 100,
+        "minimo": 105,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 416    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 12,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 416 B  7IX",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 11,
+        "minimo": 12,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 599    6PS",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 54,
+        "minimo": 95,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 600    6PS",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 80,
+        "minimo": 140,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 947 156",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CONDUCTOR DE LUZ (No lleva Luz)",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 32,
+        "color": null
+      },
+      {
+        "numero_parte": "5E0 941 070",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "AYUDA DE MONTAJE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 400,
+        "minimo": 280,
+        "color": null
+      },
+      {
+        "numero_parte": "5G0 857 173",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELEMENTO DE AJUSTE",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 600,
+        "minimo": 210,
+        "color": null
+      },
+      {
+        "numero_parte": "5G1 857 745",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE DEFO",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 400,
+        "minimo": 140,
+        "color": null
+      },
+      {
+        "numero_parte": "5G1 971 845",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE OCU",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 90,
+        "minimo": 32,
+        "color": null
+      },
+      {
+        "numero_parte": "5NN 858 560    82V",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARCASA SUPERIOR",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 12,
+        "minimo": 42,
+        "color": null
+      },
+      {
+        "numero_parte": "5NN 919 605 C",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "PANTALLA 605 C",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 7,
+        "minimo": 13,
+        "color": null
+      },
+      {
+        "numero_parte": "5NN 919 605 D",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "PANTALLA 605 D",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 7,
+        "minimo": 13,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 820 573",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "TAPON CALEFACTOR",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 1300,
+        "minimo": 910,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 941 070 C",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE BCM",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 300,
+        "minimo": 210,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 953 223",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE SMLS",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 250,
+        "minimo": 175,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 953 223 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE SMLS A",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 100,
+        "minimo": 70,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q1 953 521 HR IGI",
+        "id_puesto": 2,
+        "id_color": null,
+        "descripcion": "MANDOS COLUMNA HR",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 8,
+        "minimo": 6,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q1 953 521 JC IGI",
+        "id_puesto": 2,
+        "id_color": null,
+        "descripcion": "MANDOS COLUMNA JC",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 8,
+        "minimo": 6,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q1 971 303 D",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE KESSY",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 220,
+        "minimo": 154,
+        "color": null
+      },
+      {
+        "numero_parte": "5QA 919 294 L",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "PDC",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 80,
+        "minimo": 56,
+        "color": null
+      },
+      {
+        "numero_parte": "5QM 723 913 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE CRASH A",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 32,
+        "color": null
+      },
+      {
+        "numero_parte": "5TA 972 596",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE CABLE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 350,
+        "minimo": 245,
+        "color": null
+      },
+      {
+        "numero_parte": "5TB 880 841 F",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": null,
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 4,
+        "minimo": 13,
+        "color": null
+      },
+      {
+        "numero_parte": "5WA 907 527 A",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "SENSOR DE TEMPERATURA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 336,
+        "minimo": 236,
+        "color": null
+      },
+      {
+        "numero_parte": "TTT  035 180 L",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "RADIO JETTA A7 SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 9,
+        "color": null
+      },
+      {
+        "numero_parte": "TTT 035 180 J",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "RADIO JETTA A7 SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 13,
+        "color": null
+      }
+    ],
+    "puestos": [
+      {
+        "id_puesto": 1,
+        "nombre": "DESENGANCHE L1",
+        "tipo": null
+      },
+      {
+        "id_puesto": 2,
+        "nombre": "K.E.",
+        "tipo": null
+      },
+      {
+        "id_puesto": 3,
+        "nombre": "MONTACARGAS",
+        "tipo": null
+      },
+      {
+        "id_puesto": 4,
+        "nombre": "SG",
+        "tipo": null
+      },
+      {
+        "id_puesto": 5,
+        "nombre": "SZ01",
+        "tipo": null
+      },
+      {
+        "id_puesto": 6,
+        "nombre": "SZ02",
+        "tipo": null
+      }
+    ],
+    "colores_huerfanos": 0,
+    "partes_duplicadas": 0,
+    "huella_registros": -2019942250,
+    "huella_eventos": -1296663251,
+    "inventario": [
+      {
+        "id_ubicacion": 2,
+        "cantidad": 103,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 5,
+        "cantidad": 19,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 6,
+        "cantidad": 219,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 7,
+        "cantidad": 7,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 8,
+        "cantidad": 1944,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 10,
+        "cantidad": 600,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 13,
+        "cantidad": 46,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 14,
+        "cantidad": 796,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 15,
+        "cantidad": 174,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 17,
+        "cantidad": 93,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 18,
+        "cantidad": 241,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 19,
+        "cantidad": 65,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 20,
+        "cantidad": 45,
+        "version_concurrencia": 3
+      },
+      {
+        "id_ubicacion": 22,
+        "cantidad": 16,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 23,
+        "cantidad": 223,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 24,
+        "cantidad": 38,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 26,
+        "cantidad": 66,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 28,
+        "cantidad": 23,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 29,
+        "cantidad": 136,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 30,
+        "cantidad": 13,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 31,
+        "cantidad": 142,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 32,
+        "cantidad": 167,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 33,
+        "cantidad": 312,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 35,
+        "cantidad": 353,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 36,
+        "cantidad": 32,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 37,
+        "cantidad": 134,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 39,
+        "cantidad": 199,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 40,
+        "cantidad": 126,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 42,
+        "cantidad": 205,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 43,
+        "cantidad": 18,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 45,
+        "cantidad": 412,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 47,
+        "cantidad": 232,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 49,
+        "cantidad": 246,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 50,
+        "cantidad": 14,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 51,
+        "cantidad": 105,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 52,
+        "cantidad": 339,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 55,
+        "cantidad": 71,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 56,
+        "cantidad": 122,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 57,
+        "cantidad": 40,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 58,
+        "cantidad": 51,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 59,
+        "cantidad": 65,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 60,
+        "cantidad": 357,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 62,
+        "cantidad": 163,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 63,
+        "cantidad": 16,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 65,
+        "cantidad": 31,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 70,
+        "cantidad": 241,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 72,
+        "cantidad": 22,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 73,
+        "cantidad": 42,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 74,
+        "cantidad": 23,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 76,
+        "cantidad": 94,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 77,
+        "cantidad": 149,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 80,
+        "cantidad": 24,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 81,
+        "cantidad": 60,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 84,
+        "cantidad": 37,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 87,
+        "cantidad": 147,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 88,
+        "cantidad": 97,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 89,
+        "cantidad": 70,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 90,
+        "cantidad": 45,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 92,
+        "cantidad": 80,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 93,
+        "cantidad": 62,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 94,
+        "cantidad": 33,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 95,
+        "cantidad": 47,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 101,
+        "cantidad": 30,
+        "version_concurrencia": 2
+      }
+    ],
+    "corte": [
+      {
+        "maestro": "4d577245a22d",
+        "revision": 210,
+        "corte_fuente": "2026-10-27T15:30:51.3900000",
+        "huella_fuentes": "204630df3c25698750693d09a7ccdbaf47e025a6d6793a18d68730d993e4f873",
+        "sellado": true
+      }
+    ],
+    "colores": []
+  },
+  "Motherson_L1_MVP_Pruebas": {
+    "materiales": [
+      {
+        "numero_parte": "11K 947 409",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "LUZ MALETERA",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 980,
+        "minimo": 343,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CE",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CF",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CF",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CG",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CG",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CH",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CH",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 800 375 CJ",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CONJUNTO DE CERRADURA CJ",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 20,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 919 068",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "TAPA SENSOR SOLAR",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 135,
+        "minimo": 48,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 919 225 B  RDW",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "INTERRUPTOR EMERGENCIA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 160,
+        "minimo": 112,
+        "color": null
+      },
+      {
+        "numero_parte": "17A 919 225 C  RDW",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "INTERRUPTOR EMERGENCIA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 160,
+        "minimo": 112,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 593 C",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "PANEL FRIO C",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 55,
+        "minimo": 77,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 593 D",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "PANEL FRIO D",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 55,
+        "minimo": 77,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 728 F  UYD",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "DIFUSOR CENTRAL ¨728  F UYD¨",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 26,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 819 728 F  UZA",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "DIFUSOR CENTRAL 728  F ZYA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 26,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 857 506 A  82V",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "TAPA FUSIBLES TITAN A",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 14,
+        "minimo": 25,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 857 506 A  RM5",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "TAPA FUSIBLES STORM A",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 14,
+        "minimo": 25,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 019 E  HUZ",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "BLENDE JETTA A7 SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 3,
+        "minimo": 8,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 069    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARATULA CENTRAL JETTA  SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 66,
+        "minimo": 70,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 069 A  041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARATULA CENTRAL JETTA  SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 66,
+        "minimo": 70,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 189 A  1QB",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE JETTA SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 9,
+        "minimo": 16,
+        "color": null
+      },
+      {
+        "numero_parte": "17B 858 418 C  HUZ",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": "BLENDE JETTA SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 4,
+        "minimo": 10,
+        "color": null
+      },
+      {
+        "numero_parte": "2GA 035 285 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "CAJA COMUNICACION SAS",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 24,
+        "minimo": 34,
+        "color": null
+      },
+      {
+        "numero_parte": "2Q0 953 254",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "UNIDAD DE LECTURA",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 84,
+        "minimo": 30,
+        "color": null
+      },
+      {
+        "numero_parte": "3D0 907 543 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SENSOR DE TEMPERATURA",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 312,
+        "minimo": 110,
+        "color": null
+      },
+      {
+        "numero_parte": "3Q1 959 435 F",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "KESSY F",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 45,
+        "minimo": 63,
+        "color": null
+      },
+      {
+        "numero_parte": "3WA 905 861 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELV",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 12,
+        "minimo": 34,
+        "color": null
+      },
+      {
+        "numero_parte": "510 880 505 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 53,
+        "color": null
+      },
+      {
+        "numero_parte": "510 880 506 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 53,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 819 241",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "PIEZA INTERMEDIA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 40,
+        "minimo": 112,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 819 704  B  HUZ",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARCASA DIFUSOR DERECHO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 12,
+        "minimo": 17,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 857 053    XCC",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARATULA TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 44,
+        "minimo": 108,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 857 889 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELEMENTO DEFORMACION",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 49,
+        "minimo": 35,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 857 890 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELEMENTO DEFORMACION",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 22,
+        "minimo": 39,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 065 A MEC",
+        "id_puesto": 4,
+        "id_color": null,
+        "descripcion": null,
+        "uso": null,
+        "cantidad_por_caja": 5,
+        "minimo": 14,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 335    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 56,
+        "minimo": 79,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 335 A  7IW",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 56,
+        "minimo": 59,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 415    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 100,
+        "minimo": 140,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 415 A  7IW",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 100,
+        "minimo": 105,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 416    041",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 12,
+        "minimo": 21,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 416 B  7IX",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 11,
+        "minimo": 12,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 599    6PS",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 54,
+        "minimo": 95,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 858 600    6PS",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "BLENDE TABLERO",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 80,
+        "minimo": 140,
+        "color": null
+      },
+      {
+        "numero_parte": "57N 947 156",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CONDUCTOR DE LUZ (No lleva Luz)",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 32,
+        "color": null
+      },
+      {
+        "numero_parte": "5E0 941 070",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "AYUDA DE MONTAJE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 400,
+        "minimo": 280,
+        "color": null
+      },
+      {
+        "numero_parte": "5G0 857 173",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "ELEMENTO DE AJUSTE",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 600,
+        "minimo": 210,
+        "color": null
+      },
+      {
+        "numero_parte": "5G1 857 745",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE DEFO",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 400,
+        "minimo": 140,
+        "color": null
+      },
+      {
+        "numero_parte": "5G1 971 845",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE OCU",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 90,
+        "minimo": 32,
+        "color": null
+      },
+      {
+        "numero_parte": "5NN 858 560    82V",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "CARCASA SUPERIOR",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 12,
+        "minimo": 42,
+        "color": null
+      },
+      {
+        "numero_parte": "5NN 919 605 C",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "PANTALLA 605 C",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 7,
+        "minimo": 13,
+        "color": null
+      },
+      {
+        "numero_parte": "5NN 919 605 D",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "PANTALLA 605 D",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 7,
+        "minimo": 13,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 820 573",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "TAPON CALEFACTOR",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 1300,
+        "minimo": 910,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 941 070 C",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE BCM",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 300,
+        "minimo": 210,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 953 223",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE SMLS",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 250,
+        "minimo": 175,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q0 953 223 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE SMLS A",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 100,
+        "minimo": 70,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q1 953 521 HR IGI",
+        "id_puesto": 2,
+        "id_color": null,
+        "descripcion": "MANDOS COLUMNA HR",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 8,
+        "minimo": 6,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q1 953 521 JC IGI",
+        "id_puesto": 2,
+        "id_color": null,
+        "descripcion": "MANDOS COLUMNA JC",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 8,
+        "minimo": 6,
+        "color": null
+      },
+      {
+        "numero_parte": "5Q1 971 303 D",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE KESSY",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 220,
+        "minimo": 154,
+        "color": null
+      },
+      {
+        "numero_parte": "5QA 919 294 L",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "PDC",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": 80,
+        "minimo": 56,
+        "color": null
+      },
+      {
+        "numero_parte": "5QM 723 913 A",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE CRASH A",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 30,
+        "minimo": 32,
+        "color": null
+      },
+      {
+        "numero_parte": "5TA 972 596",
+        "id_puesto": 5,
+        "id_color": null,
+        "descripcion": "SOPORTE CABLE",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 350,
+        "minimo": 245,
+        "color": null
+      },
+      {
+        "numero_parte": "5TB 880 841 F",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": null,
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 4,
+        "minimo": 13,
+        "color": null
+      },
+      {
+        "numero_parte": "5WA 907 527 A",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "SENSOR DE TEMPERATURA",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 336,
+        "minimo": 236,
+        "color": null
+      },
+      {
+        "numero_parte": "LAB-CONC-ENT",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": "Datos exclusivos de prueba",
+        "uso": null,
+        "cantidad_por_caja": 24,
+        "minimo": 15,
+        "color": null
+      },
+      {
+        "numero_parte": "LAB-CONC-SAL",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": "Datos exclusivos de prueba",
+        "uso": null,
+        "cantidad_por_caja": 24,
+        "minimo": 15,
+        "color": null
+      },
+      {
+        "numero_parte": "LAB-MAT-001",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": "Datos exclusivos de prueba",
+        "uso": null,
+        "cantidad_por_caja": 24,
+        "minimo": 15,
+        "color": null
+      },
+      {
+        "numero_parte": "LAB-PENDIENTE",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": "Datos exclusivos de prueba",
+        "uso": null,
+        "cantidad_por_caja": 24,
+        "minimo": 15,
+        "color": null
+      },
+      {
+        "numero_parte": "LAB-ROLLBACK",
+        "id_puesto": 1,
+        "id_color": null,
+        "descripcion": "Datos exclusivos de prueba",
+        "uso": null,
+        "cantidad_por_caja": 24,
+        "minimo": 15,
+        "color": null
+      },
+      {
+        "numero_parte": "TTT  035 180 L",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "RADIO JETTA A7 SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 9,
+        "color": null
+      },
+      {
+        "numero_parte": "TTT 035 180 J",
+        "id_puesto": 6,
+        "id_color": null,
+        "descripcion": "RADIO JETTA A7 SAS",
+        "uso": "EXCLUSIVO",
+        "cantidad_por_caja": 6,
+        "minimo": 13,
+        "color": null
+      }
+    ],
+    "puestos": [
+      {
+        "id_puesto": 1,
+        "nombre": "DESENGANCHE L1",
+        "tipo": null
+      },
+      {
+        "id_puesto": 2,
+        "nombre": "K.E.",
+        "tipo": null
+      },
+      {
+        "id_puesto": 3,
+        "nombre": "MONTACARGAS",
+        "tipo": null
+      },
+      {
+        "id_puesto": 4,
+        "nombre": "SG",
+        "tipo": null
+      },
+      {
+        "id_puesto": 5,
+        "nombre": "SZ01",
+        "tipo": null
+      },
+      {
+        "id_puesto": 6,
+        "nombre": "SZ02",
+        "tipo": null
+      }
+    ],
+    "colores_huerfanos": 0,
+    "partes_duplicadas": 0,
+    "huella_registros": 20369939,
+    "huella_eventos": -1296663251,
+    "inventario": [
+      {
+        "id_ubicacion": 2,
+        "cantidad": 103,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 5,
+        "cantidad": 19,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 6,
+        "cantidad": 219,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 7,
+        "cantidad": 7,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 8,
+        "cantidad": 1944,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 10,
+        "cantidad": 600,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 13,
+        "cantidad": 46,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 14,
+        "cantidad": 796,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 15,
+        "cantidad": 174,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 17,
+        "cantidad": 93,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 18,
+        "cantidad": 241,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 19,
+        "cantidad": 65,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 20,
+        "cantidad": 39,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 22,
+        "cantidad": 16,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 23,
+        "cantidad": 223,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 24,
+        "cantidad": 38,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 26,
+        "cantidad": 66,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 28,
+        "cantidad": 23,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 29,
+        "cantidad": 136,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 30,
+        "cantidad": 13,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 31,
+        "cantidad": 142,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 32,
+        "cantidad": 167,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 33,
+        "cantidad": 312,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 35,
+        "cantidad": 353,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 36,
+        "cantidad": 32,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 37,
+        "cantidad": 134,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 39,
+        "cantidad": 199,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 40,
+        "cantidad": 126,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 42,
+        "cantidad": 205,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 43,
+        "cantidad": 18,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 45,
+        "cantidad": 412,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 47,
+        "cantidad": 232,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 49,
+        "cantidad": 246,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 50,
+        "cantidad": 14,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 51,
+        "cantidad": 105,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 52,
+        "cantidad": 339,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 55,
+        "cantidad": 71,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 56,
+        "cantidad": 122,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 57,
+        "cantidad": 40,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 58,
+        "cantidad": 51,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 59,
+        "cantidad": 65,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 60,
+        "cantidad": 357,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 62,
+        "cantidad": 163,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 63,
+        "cantidad": 16,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 65,
+        "cantidad": 31,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 70,
+        "cantidad": 241,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 72,
+        "cantidad": 22,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 73,
+        "cantidad": 42,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 74,
+        "cantidad": 23,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 76,
+        "cantidad": 94,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 77,
+        "cantidad": 149,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 80,
+        "cantidad": 24,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 81,
+        "cantidad": 60,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 84,
+        "cantidad": 37,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 87,
+        "cantidad": 147,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 88,
+        "cantidad": 97,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 89,
+        "cantidad": 70,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 90,
+        "cantidad": 45,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 92,
+        "cantidad": 80,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 93,
+        "cantidad": 62,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 94,
+        "cantidad": 33,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 95,
+        "cantidad": 47,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 101,
+        "cantidad": 30,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 102,
+        "cantidad": 105,
+        "version_concurrencia": 3
+      },
+      {
+        "id_ubicacion": 103,
+        "cantidad": 22,
+        "version_concurrencia": 6
+      },
+      {
+        "id_ubicacion": 104,
+        "cantidad": 120,
+        "version_concurrencia": 2
+      },
+      {
+        "id_ubicacion": 105,
+        "cantidad": 72,
+        "version_concurrencia": 1
+      },
+      {
+        "id_ubicacion": 106,
+        "cantidad": null,
+        "version_concurrencia": 1
+      }
+    ],
+    "corte": [
+      {
+        "maestro": "4d577245a22d",
+        "revision": 210,
+        "corte_fuente": "2026-10-27T15:30:51.3900000",
+        "huella_fuentes": "204630df3c25698750693d09a7ccdbaf47e025a6d6793a18d68730d993e4f873",
+        "sellado": true
+      }
+    ],
+    "colores": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "tipo": "COMPROBACION_ESTADO_ACTUAL",
+  "estado_actual": {
+    "saldo_lab": 105,
+    "comprobantes_lab": [
+      "MVP:64",
+      "MVP:68",
+      "MVP:69"
+    ],
+    "filas_inventario": 68,
+    "huella_inventario": "f9670bcceb6c37eaee74b204dc1368088eeeb97f3c3db1342f60f3c7b7adddad",
+    "movimientos_historicos": 230901,
+    "sesion_con_permisos": true
+  },
+  "nota": "No reinicia SQL ni sustituye la evidencia del reinicio autorizado."
+}

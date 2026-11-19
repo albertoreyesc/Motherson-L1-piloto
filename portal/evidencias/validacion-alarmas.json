@@ -1,0 +1,8 @@
+{
+  "desarrollo_identico": true,
+  "esquema_y_fuentes_pruebas_identicos": true,
+  "movimientos_validos_nuevos_solo_pruebas": 2,
+  "tablas_operativas": 9,
+  "eventos_historicos_por_base": 709042,
+  "consultas_sin_escrituras": true
+}

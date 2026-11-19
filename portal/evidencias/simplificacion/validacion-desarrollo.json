@@ -1,0 +1,21 @@
+{
+  "desarrollo": {
+    "tablas": 8,
+    "registros_conservados": 64,
+    "eventos_conservados": 709042,
+    "usos_documentados": 62,
+    "cuentas": 1,
+    "acceso_admin": "APROBADO",
+    "atribucion_original": "APROBADO"
+  },
+  "pruebas": {
+    "tablas": 8,
+    "registros_conservados": 75,
+    "eventos_conservados": 709042
+  },
+  "conservacion_logica_desarrollo": true,
+  "huellas_inventario_y_fuentes_sin_cambios": true,
+  "promocion_autorizada_por_usuario": true,
+  "esquema_desarrollo_y_pruebas_equivalentes": true,
+  "atributos_operativos": 50
+}

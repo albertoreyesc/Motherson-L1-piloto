@@ -1,0 +1,9 @@
+.local/
+bin/
+obj/
+node_modules/
+__pycache__/
+*.pyc
+.vs/
+.env
+/Motherson-L1-5089-Antigravity/

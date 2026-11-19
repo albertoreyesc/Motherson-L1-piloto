@@ -1,0 +1,48 @@
+{
+  "base": "Motherson_L1_MVP_Pruebas",
+  "casos": [
+    {
+      "caso": "Cuentas individuales; administrador sin asignación ficticia",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "API rechaza material ajeno, salidas operativas y captura de consulta",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "API sin credenciales ni COLOR; 62 usos y autoría original",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "SQL: salida administrativa, entrada del puesto y reintento idempotente, con ROLLBACK",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "SQL: versión desactualizada rechazada sin pérdida de saldo",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "SQL: misma clave con otra huella rechazada",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "SQL: desactivación impide capturar sin borrar el puesto",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "SQL: operador sin asignación no puede capturar",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "Dos sesiones SQL: API rechaza inventario ocupado sin crear movimiento",
+      "resultado": "APROBADO"
+    },
+    {
+      "caso": "Saldo, comprobantes, usuarios originales y archivo conservados",
+      "resultado": "APROBADO"
+    }
+  ],
+  "registros_conservados": 75,
+  "eventos_conservados": 709042,
+  "movimientos_de_prueba": "Todos en transacciones revertidas; solo se consumen valores IDENTITY, sin reutilizarlos."
+}

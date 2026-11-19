@@ -1,0 +1,335 @@
+{
+  "documentName": "Motherson L1 MVP - 9 tablas",
+  "lastUpdatedAt": "2026-10-28T17:14:46.675Z",
+  "schemaConfig": {
+    "defaultSchemaId": "165201d2-f3bb-5d45-a88f-dc94aab24dcf",
+    "schemas": [
+      {
+        "schemaId": "165201d2-f3bb-5d45-a88f-dc94aab24dcf",
+        "schemaName": "dbo",
+        "description": ""
+      }
+    ]
+  },
+  "tableViewModels": [],
+  "columnGroupModels": [],
+  "columnModels": [],
+  "columnShareModels": [],
+  "relationViewModels": [],
+  "foregroundMemos": [],
+  "backgroundMemos": [],
+  "erdSettingModel": {
+    "displayStyle": {
+      "styleName": "Physical"
+    },
+    "displayColumn": {
+      "style": "pk_fk"
+    },
+    "exportDdlSetting": {
+      "fileName": "modelo-21",
+      "withTable": true,
+      "withIndex": true,
+      "withForeignKey": true,
+      "withSchema": true,
+      "withComment": true,
+      "commentStyle": "logical_name",
+      "commentSeparator": " : "
+    },
+    "perspectiveModels": [
+      {
+        "perspectiveId": "96f980a6-d865-5adc-9639-66cc0d2999fb",
+        "perspectiveName": "01 Estructura y materiales",
+        "description": "Relaciones externas disponibles en vista general; ver diagrama interactivo.",
+        "containIds": [
+          "0237d975-745b-5d13-b182-ce69e8207963",
+          "44d119cd-16c0-5a42-af12-90ebfbdb8aaf",
+          "51f083e2-3c5a-547b-ab8f-f74de9ad704c",
+          "7b9adaa1-7b11-57eb-8a12-147a898d7bfb",
+          "b69b60e7-2b6b-58a4-827f-534a006eed2e",
+          "df1596a4-0186-563b-b37a-0ac2d75c09be",
+          "eca4d614-f16c-59e7-a30d-d4c8a2e0597d",
+          "f7574761-8879-52c4-922c-2c05719fbac4"
+        ]
+      },
+      {
+        "perspectiveId": "b58b56fc-00c0-5f6a-9098-47d5ee86d3e0",
+        "perspectiveName": "02 Usuarios y autorizaciones",
+        "description": "Relaciones externas disponibles en vista general; ver diagrama interactivo.",
+        "containIds": [
+          "16c01b8c-a112-56f8-a0b2-ddb5cd5ff135",
+          "30f494cc-9ae9-5577-8030-a8eead6e0b20",
+          "3824cb87-b010-5b24-8a81-ddf0148502e9",
+          "52e3db77-eade-5e73-9a1e-aef95b1187a0",
+          "5a320959-2895-549a-87b3-ac2a69163b99",
+          "8667f092-a0e3-5920-9e41-580c8e66b304",
+          "99a426df-8ee8-5d5b-a7f9-f6a7e733aa7b",
+          "d805c2b0-1498-5553-9342-bb9f006e2557"
+        ]
+      },
+      {
+        "perspectiveId": "d532a946-a9fc-5382-8593-17ce05ba7fc6",
+        "perspectiveName": "03 Registros y responsables",
+        "description": "Relaciones externas disponibles en vista general; ver diagrama interactivo.",
+        "containIds": [
+          "11c2cf4c-9263-5053-8ffd-43d87b8d4a94",
+          "70bfa601-9382-5d0d-bb33-4c4a57381162",
+          "806a44e7-b6bc-5c2e-a8f2-d67fd34a4fc8",
+          "937b24ad-f7ac-5332-937b-6c81ca8ee992",
+          "d1213c21-ffca-517b-8bdb-ad905a3b5491"
+        ]
+      },
+      {
+        "perspectiveId": "a6dae5a4-3c7b-5d7c-b386-146f361b8562",
+        "perspectiveName": "04 Surtimiento y continuidad",
+        "description": "Relaciones externas disponibles en vista general; ver diagrama interactivo.",
+        "containIds": [
+          "00b12292-bdf1-5bbb-a912-1b604c939f95",
+          "5aea8568-5bb1-50c9-9a1e-65bf85e5ec5f",
+          "63426492-09c6-5e69-8ef8-706ac0d30ad2",
+          "82220c1c-7076-518c-afa1-ae60087b4b63",
+          "b31d34a1-9e31-5fc2-8ffd-d031439832ac",
+          "c48808a4-88bd-5da9-a241-e107f6992c6a"
+        ]
+      },
+      {
+        "perspectiveId": "1659fcd5-cee2-52ab-9a34-5864807aff15",
+        "perspectiveName": "05 Consumo y auditoría",
+        "description": "Relaciones externas disponibles en vista general; ver diagrama interactivo.",
+        "containIds": [
+          "49cdab75-1d05-578a-aea2-c4ca3d2a406a",
+          "c2a0d776-3b79-5b45-b9ea-56ed6d77f92a",
+          "c3801952-aa74-565e-b64c-f5a675c6c796",
+          "f16f5a21-1127-5217-85f4-69dc04b493b6",
+          "f4d46e71-ab2e-5b34-918a-cdc6a706384d",
+          "f6672840-8ead-5df3-9986-82a111615158"
+        ]
+      },
+      {
+        "perspectiveId": "e8bad39b-746f-560f-a5a4-8bf823bb630c",
+        "perspectiveName": "06 Configuración y control",
+        "description": "Relaciones externas disponibles en vista general; ver diagrama interactivo.",
+        "containIds": [
+          "80f61169-7af7-5853-8c33-fc8416b8be3a",
+          "e8e57d07-134f-5d5f-9d31-239bc2ee9b0e"
+        ]
+      }
+    ]
+  },
+  "databaseSetting": {
+    "databaseType": "ms_sqlserver",
+    "columnTypes": [
+      {
+        "id": 1000,
+        "name": "bit",
+        "description": "SQL Server",
+        "baseQuery": "bit",
+        "category": "other"
+      },
+      {
+        "id": 1001,
+        "name": "char(12)",
+        "description": "SQL Server",
+        "baseQuery": "char(12)",
+        "category": "other"
+      },
+      {
+        "id": 1002,
+        "name": "char(2)",
+        "description": "SQL Server",
+        "baseQuery": "char(2)",
+        "category": "other"
+      },
+      {
+        "id": 1003,
+        "name": "char(64)",
+        "description": "SQL Server",
+        "baseQuery": "char(64)",
+        "category": "other"
+      },
+      {
+        "id": 1004,
+        "name": "date",
+        "description": "SQL Server",
+        "baseQuery": "date",
+        "category": "other"
+      },
+      {
+        "id": 1005,
+        "name": "datetime2(6)",
+        "description": "SQL Server",
+        "baseQuery": "datetime2(6)",
+        "category": "other"
+      },
+      {
+        "id": 1006,
+        "name": "datetime2(7)",
+        "description": "SQL Server",
+        "baseQuery": "datetime2(7)",
+        "category": "other"
+      },
+      {
+        "id": 1007,
+        "name": "decimal(38,24)",
+        "description": "SQL Server",
+        "baseQuery": "decimal(38,24)",
+        "category": "other"
+      },
+      {
+        "id": 1008,
+        "name": "int",
+        "description": "SQL Server",
+        "baseQuery": "int",
+        "category": "other",
+        "withAutoIncrement": true
+      },
+      {
+        "id": 1009,
+        "name": "nvarchar(100)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(100)",
+        "category": "other"
+      },
+      {
+        "id": 1010,
+        "name": "nvarchar(120)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(120)",
+        "category": "other"
+      },
+      {
+        "id": 1011,
+        "name": "nvarchar(150)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(150)",
+        "category": "other"
+      },
+      {
+        "id": 1012,
+        "name": "nvarchar(20)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(20)",
+        "category": "other"
+      },
+      {
+        "id": 1013,
+        "name": "nvarchar(200)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(200)",
+        "category": "other"
+      },
+      {
+        "id": 1014,
+        "name": "nvarchar(2000)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(2000)",
+        "category": "other"
+      },
+      {
+        "id": 1015,
+        "name": "nvarchar(30)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(30)",
+        "category": "other"
+      },
+      {
+        "id": 1016,
+        "name": "nvarchar(300)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(300)",
+        "category": "other"
+      },
+      {
+        "id": 1017,
+        "name": "nvarchar(40)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(40)",
+        "category": "other"
+      },
+      {
+        "id": 1018,
+        "name": "nvarchar(50)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(50)",
+        "category": "other"
+      },
+      {
+        "id": 1019,
+        "name": "nvarchar(500)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(500)",
+        "category": "other"
+      },
+      {
+        "id": 1020,
+        "name": "nvarchar(64)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(64)",
+        "category": "other"
+      },
+      {
+        "id": 1021,
+        "name": "nvarchar(80)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(80)",
+        "category": "other"
+      },
+      {
+        "id": 1022,
+        "name": "nvarchar(max)",
+        "description": "SQL Server",
+        "baseQuery": "nvarchar(max)",
+        "category": "other"
+      },
+      {
+        "id": 1023,
+        "name": "rowversion",
+        "description": "SQL Server",
+        "baseQuery": "rowversion",
+        "category": "other"
+      },
+      {
+        "id": 1024,
+        "name": "time(0)",
+        "description": "SQL Server",
+        "baseQuery": "time(0)",
+        "category": "other"
+      },
+      {
+        "id": 1025,
+        "name": "uniqueidentifier",
+        "description": "SQL Server",
+        "baseQuery": "uniqueidentifier",
+        "category": "other"
+      },
+      {
+        "id": 1026,
+        "name": "varchar(16)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(16)",
+        "category": "other"
+      },
+      {
+        "id": 1027,
+        "name": "varchar(20)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(20)",
+        "category": "other"
+      },
+      {
+        "id": 1028,
+        "name": "varchar(30)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(30)",
+        "category": "other"
+      },
+      {
+        "id": 1029,
+        "name": "varchar(40)",
+        "description": "SQL Server",
+        "baseQuery": "varchar(40)",
+        "category": "other"
+      }
+    ],
+    "version": 20260504
+  }
+}

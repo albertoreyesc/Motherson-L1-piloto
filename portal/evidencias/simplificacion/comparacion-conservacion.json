@@ -1,0 +1,9 @@
+{
+  "desarrollo_sin_cambios_sql": true,
+  "pruebas_conserva_registros_eventos_inventario_y_fuentes": true,
+  "registros_pruebas": 75,
+  "registros_desarrollo": 64,
+  "eventos_por_base": 709042,
+  "tablas_pruebas": 8,
+  "tablas_desarrollo": 9
+}

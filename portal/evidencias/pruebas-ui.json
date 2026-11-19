@@ -1,0 +1,464 @@
+{
+  "config": {
+    "configFile": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-mvp-2026-11-02/portal/frontend/mvp.playwright.config.ts",
+    "rootDir": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-mvp-2026-11-02/portal/frontend/pruebas-ui",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../evidencias/pruebas-ui.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-mvp-2026-11-02/portal/evidencias/ui-temporal",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-mvp-2026-11-02/portal/frontend/pruebas-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "alarmas.spec.ts",
+      "file": "alarmas.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Alarmas compartidas en Resumen e Inventario, filtros y consulta sin escrituras",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1549,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:30.951Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e5c6eb18ae182c826723-c5416b8adb22fbacd128",
+          "file": "alarmas.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "catalogo.spec.ts",
+      "file": "catalogo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Catálogo documentado: procedencia, pendientes, nombres e Inventario; lectura sin cambios",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1217,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:34.008Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d62a31f1c5e38edb5008-f7bb3bee11776194195c",
+          "file": "catalogo.spec.ts",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "entradas-layout.spec.ts",
+      "file": "entradas-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Captura real de Desarrollo: búsqueda, confirmación y tamaños, sin enviar movimientos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:35.242Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e461fde4823be52899e-09a319feffc4ef928276",
+          "file": "entradas-layout.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "Estados aislados en navegador: materiales filtrados, sin espacio y saldo desconocido",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 810,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:36.452Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e461fde4823be52899e-b0af3d1a7decb3c54573",
+          "file": "entradas-layout.spec.ts",
+          "line": 155,
+          "column": 1
+        },
+        {
+          "title": "Respuesta incierta: misma clave y datos tras recargar; controles bloqueados",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1178,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:37.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e461fde4823be52899e-80c6d40ee02582c7841a",
+          "file": "entradas-layout.spec.ts",
+          "line": 241,
+          "column": 1
+        },
+        {
+          "title": "Conflicto de concurrencia: informa el error y vuelve a consultar, sin registro de prueba",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 544,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:38.456Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e461fde4823be52899e-a18d4c569f148c6f31b1",
+          "file": "entradas-layout.spec.ts",
+          "line": 313,
+          "column": 1
+        },
+        {
+          "title": "Cuenta de entradas conserva su permiso y consulta no obtiene controles de captura",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 669,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:39.008Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e461fde4823be52899e-12d8bc9bf08b44b83f9a",
+          "file": "entradas-layout.spec.ts",
+          "line": 336,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "movimientos-alarmas.spec.ts",
+      "file": "movimientos-alarmas.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Pruebas: captura válida actualiza el contexto de alarmas y preserva trazabilidad",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requiere activación explícita; las pruebas UI ordinarias son de lectura.",
+                  "location": {
+                    "file": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-mvp-2026-11-02/portal/frontend/pruebas-ui/movimientos-alarmas.spec.ts",
+                    "line": 6,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 123,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:39.692Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requiere activación explícita; las pruebas UI ordinarias son de lectura.",
+                      "location": {
+                        "file": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-mvp-2026-11-02/portal/frontend/pruebas-ui/movimientos-alarmas.spec.ts",
+                        "line": 6,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "2de4ed3ddc255a9b33a5-8de83edb688785fd5d69",
+          "file": "movimientos-alarmas.spec.ts",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "mvp.spec.ts",
+      "file": "mvp.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Recorrido de seis secciones, captura visual e histórico; escritorio y móvil",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7110,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "\u001b[33m401\u001b[39m http://127.0.0.1:5087/api/auth/me\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/auth/csrf\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/auth/login\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/auth/csrf\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/auth/me\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/inventario?alarmas=true\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/catalogo\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/historial?pagina=1&parte=&desde=&hasta=&origen=&ubicacion=\n"
+                    },
+                    {
+                      "text": "\u001b[33m200\u001b[39m http://127.0.0.1:5087/api/historial?pagina=1&parte=&desde=&hasta=&origen=HISTORICO_21&ubicacion=\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T03:18:39.829Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "616161ec86a02322bd37-4341abcc2a6cbb139f21",
+          "file": "mvp.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T03:18:30.454Z",
+    "duration": 16592.283,
+    "expected": 8,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

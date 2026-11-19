@@ -1,0 +1,188 @@
+{
+  "sql": {
+    "base_datos": "Motherson_L1_MVP_Demo",
+    "tablas": 8,
+    "fk": 8,
+    "esquemas_extra": 0,
+    "materiales": 68,
+    "ubicaciones": 68,
+    "piezas": 10435,
+    "atenciones": 0,
+    "fecha_stock": "2026-11-04T18:27:48.8981735"
+  },
+  "fk": [
+    {
+      "hija": "ESTANTERIA",
+      "columna": "id_estacion",
+      "padre": "ESTACION",
+      "referencia": "id_estacion",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "MATERIAL",
+      "columna": "id_color",
+      "padre": "COLOR",
+      "referencia": "id_color",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "MATERIAL",
+      "columna": "id_puesto",
+      "padre": "PUESTO_LOGISTICO",
+      "referencia": "id_puesto",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "REGISTRO",
+      "columna": "id_puesto",
+      "padre": "PUESTO_LOGISTICO",
+      "referencia": "id_puesto",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "REGISTRO",
+      "columna": "id_turno",
+      "padre": "TURNO",
+      "referencia": "id_turno",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "REGISTRO",
+      "columna": "id_ubicacion",
+      "padre": "UBICACION",
+      "referencia": "id_ubicacion",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "UBICACION",
+      "columna": "id_estanteria",
+      "padre": "ESTANTERIA",
+      "referencia": "id_estanteria",
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "hija": "UBICACION",
+      "columna": "numero_parte",
+      "padre": "MATERIAL",
+      "referencia": "numero_parte",
+      "is_disabled": false,
+      "is_not_trusted": false
+    }
+  ],
+  "filas_operativas_distintas": 0,
+  "historico": {
+    "maestro": "4d577245a22d",
+    "revision": 210,
+    "corte_fuente": "2026-10-27T15:30:51.3900000",
+    "fecha_carga": "2026-11-02T20:57:54.1944437",
+    "sellado": true,
+    "huella_fuentes": "204630df3c25698750693d09a7ccdbaf47e025a6d6793a18d68730d993e4f873",
+    "fecha_stock": "2026-11-04T18:27:48.8981735",
+    "inicio_eventos": "2025-10-25T06:00:00",
+    "eventos_maestro": 709042,
+    "movimientos_previos": 75,
+    "movimientos_consultables": 230976,
+    "fin_eventos": "2026-10-27T15:30:51.3898890"
+  },
+  "kpi_por_origen_tipo_turno": [
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "AJUSTE",
+      "turno": 1,
+      "filas": 12,
+      "piezas": 192
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "AJUSTE",
+      "turno": 3,
+      "filas": 3,
+      "piezas": 54
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "APERTURA",
+      "turno": 1,
+      "filas": 86,
+      "piezas": 16550
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "ENTRADA",
+      "turno": 1,
+      "filas": 24,
+      "piezas": 186
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "ENTRADA",
+      "turno": 2,
+      "filas": 29252,
+      "piezas": 3726383
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "ENTRADA",
+      "turno": 3,
+      "filas": 29186,
+      "piezas": 3692955
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "SALIDA",
+      "turno": 2,
+      "filas": 86333,
+      "piezas": 3725479
+    },
+    {
+      "origen": "HISTORICO_21",
+      "tipo": "SALIDA",
+      "turno": 3,
+      "filas": 86005,
+      "piezas": 3699416
+    },
+    {
+      "origen": "MVP",
+      "tipo": "APERTURA",
+      "turno": null,
+      "filas": 67,
+      "piezas": 10404
+    },
+    {
+      "origen": "MVP",
+      "tipo": "ENTRADA",
+      "turno": 3,
+      "filas": 4,
+      "piezas": 144
+    },
+    {
+      "origen": "MVP",
+      "tipo": "SALIDA",
+      "turno": 3,
+      "filas": 4,
+      "piezas": 113
+    }
+  ],
+  "api": {
+    "movimientos": 230976,
+    "exportacion_muestra": 12,
+    "primera_consulta_segundos": 0.01,
+    "segunda_consulta_segundos": 0.014,
+    "filtros": [
+      "material",
+      "fecha de México",
+      "origen",
+      "ubicación",
+      "página",
+      "turno"
+    ],
+    "permisos_y_atenciones": "validados; cuenta temporal revocada y atención de prueba retirada"
+  }
+}

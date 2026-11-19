@@ -1,0 +1,27 @@
+import {test,expect} from '@playwright/test';
+import fs from 'node:fs';import path from 'node:path';
+import type {EstadoInventario} from '../src/Alarmas';
+test.use({baseURL:'http://127.0.0.1:5088'});
+test('Pruebas: captura válida actualiza el contexto de alarmas y preserva trazabilidad',async({page})=>{
+ test.skip(process.env.MVP_PROBAR_MOVIMIENTOS!=='1','Requiere activación explícita; las pruebas UI ordinarias son de lectura.');
+ const acceso=JSON.parse(fs.readFileSync(path.resolve('../.local/acceso-inicial-Motherson_L1_MVP_Pruebas.json'),'utf8'));
+ await page.goto('/');await page.getByLabel('Usuario',{exact:true}).fill(acceso.usuario);await page.getByLabel('Contraseña',{exact:true}).fill(acceso.password);
+ const inicio=page.waitForResponse(r=>r.url().includes('/inventario?alarmas=true'));await page.getByRole('button',{name:'Iniciar sesión'}).click();const antes:EstadoInventario=await(await inicio).json();
+ const fila=antes.filas.find(r=>r.numero_parte==='LAB-CONC-SAL')!;expect(fila.cantidad_por_caja).toBe(24);expect(fila.cajas_disponibles!).toBeGreaterThan(0);
+ await page.getByRole('navigation').getByRole('button',{name:'Entradas y salidas',exact:true}).click();
+ await page.locator('.mvp-location').filter({hasText:'LAB-CONC-SAL'}).click();
+ const entrada=page.waitForResponse(r=>r.request().method()==='POST'&&r.url().endsWith('/central/entries'));
+ const actualizado=page.waitForResponse(r=>r.url().includes('/inventario?alarmas=true'));
+ await page.getByRole('button',{name:'Confirmar entrada',exact:true}).click();expect((await entrada).status()).toBe(200);
+ const trasEntrada:EstadoInventario=await(await actualizado).json();expect(trasEntrada.filas.find(r=>r.id_ubicacion===fila.id_ubicacion)?.cantidad).toBe(fila.cantidad!+24);
+ await expect(page.getByRole('status')).toContainText('confirmado');
+ await page.getByRole('navigation').getByRole('button',{name:'Resumen',exact:true}).click();await expect(page.getByTestId('corte-alarmas')).toContainText('SIMULADO');
+ await page.getByRole('navigation').getByRole('button',{name:'Entradas y salidas',exact:true}).click();await page.getByRole('button',{name:'Salida · cajas',exact:true}).click();
+ await page.locator('.mvp-location').filter({hasText:'LAB-CONC-SAL'}).click();await page.getByRole('spinbutton',{name:'Cantidad de piezas'}).fill('24');
+ const salida=page.waitForResponse(r=>r.request().method()==='POST'&&r.url().endsWith('/movimientos/salidas'));
+ const final=page.waitForResponse(r=>r.url().includes('/inventario?alarmas=true'));await page.getByRole('button',{name:'Confirmar salida',exact:true}).click();expect((await salida).status()).toBe(200);
+ const despues:EstadoInventario=await(await final).json();const ultima=despues.filas.find(r=>r.id_ubicacion===fila.id_ubicacion)!;
+ expect(ultima.cantidad).toBe(fila.cantidad);expect(ultima.version_concurrencia).toBe(fila.version_concurrencia+2);
+ expect(despues.alarmas.find(a=>a.id_ubicacion===fila.id_ubicacion)?.resultado.estado).toBe('SIN_DATOS');
+ fs.writeFileSync(path.resolve('../evidencias/pruebas-alarmas-movimientos-ui.json'),JSON.stringify({base:'Motherson_L1_MVP_Pruebas',material:'LAB-CONC-SAL',inicial:fila.cantidad,trasEntrada:fila.cantidad!+24,final:ultima.cantidad,versionInicial:fila.version_concurrencia,versionFinal:ultima.version_concurrencia,contextoActualizado:true,comprobantesConfirmados:2},null,2));
+});

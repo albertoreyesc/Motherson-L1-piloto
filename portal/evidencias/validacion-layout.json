@@ -1,0 +1,11 @@
+{
+  "desarrollo_sin_cambios": true,
+  "lecturas_sin_cambios_en_ambas_bases": true,
+  "sql_y_fuentes_originales_sin_cambios": true,
+  "movimientos_solo_en_pruebas": 2,
+  "desarrollo_registros": 64,
+  "pruebas_registros_antes": 73,
+  "pruebas_registros_despues": 75,
+  "tablas_operativas": 9,
+  "eventos_historicos_conservados": 709042
+}

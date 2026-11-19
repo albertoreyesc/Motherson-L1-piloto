@@ -1,0 +1,689 @@
+[
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/reviewed-originals/UPAEP Update 08-10-2026 (5).xlsx",
+    "sha256": "6c3cd3064b89a46d8aac0b34afc4e0978c6416ac04bf0dbe05b5256331d0c182",
+    "hojas": [
+      {
+        "hoja": "Partes",
+        "cabeceras": [
+          {
+            "fila": 2,
+            "columna": 2,
+            "texto": "PUESTO LOGÍSTICO + MATERIAL "
+          },
+          {
+            "fila": 2,
+            "columna": 3,
+            "texto": "PARTE"
+          },
+          {
+            "fila": 2,
+            "columna": 4,
+            "texto": "DESCRIPCION"
+          },
+          {
+            "fila": 2,
+            "columna": 5,
+            "texto": "ESTACION"
+          },
+          {
+            "fila": 2,
+            "columna": 6,
+            "texto": "ESTANTERIA "
+          },
+          {
+            "fila": 2,
+            "columna": 7,
+            "texto": "NIVEL"
+          },
+          {
+            "fila": 2,
+            "columna": 8,
+            "texto": "CodigoEstanteria"
+          },
+          {
+            "fila": 2,
+            "columna": 9,
+            "texto": "CAJAS X ESTANTERIA "
+          },
+          {
+            "fila": 2,
+            "columna": 10,
+            "texto": "CANTIDAD X CAJA"
+          },
+          {
+            "fila": 2,
+            "columna": 11,
+            "texto": "CARTON O RETORNABLE"
+          },
+          {
+            "fila": 3,
+            "columna": 2,
+            "texto": "SZ01"
+          },
+          {
+            "fila": 3,
+            "columna": 3,
+            "texto": "5QS 907 530 H"
+          },
+          {
+            "fila": 3,
+            "columna": 4,
+            "texto": "UNIDAD MANDO"
+          },
+          {
+            "fila": 3,
+            "columna": 5,
+            "texto": "1"
+          },
+          {
+            "fila": 3,
+            "columna": 6,
+            "texto": "1"
+          },
+          {
+            "fila": 3,
+            "columna": 7,
+            "texto": "B"
+          },
+          {
+            "fila": 3,
+            "columna": 8,
+            "texto": "1-1-B"
+          },
+          {
+            "fila": 3,
+            "columna": 9,
+            "texto": "3"
+          },
+          {
+            "fila": 3,
+            "columna": 10,
+            "texto": "120"
+          },
+          {
+            "fila": 3,
+            "columna": 11,
+            "texto": "CARTON"
+          }
+        ]
+      },
+      {
+        "hoja": "Consumo",
+        "cabeceras": [
+          {
+            "fila": 2,
+            "columna": 4,
+            "texto": "PKN o número de arnes (auto)"
+          },
+          {
+            "fila": 3,
+            "columna": 2,
+            "texto": "Material"
+          },
+          {
+            "fila": 3,
+            "columna": 3,
+            "texto": "Material del cliente"
+          },
+          {
+            "fila": 3,
+            "columna": 4,
+            "texto": "Número de llamada de cliente"
+          },
+          {
+            "fila": 3,
+            "columna": 5,
+            "texto": "Cantidad llamada JIT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/sources/originals/UPAEP Update 08-10-2026 (3) - export.xlsx",
+    "sha256": "44a80a5af0ba4ce9826df8f9f5050f6440e74029923f9a1ac9f011d76c8135c1",
+    "hojas": [
+      {
+        "hoja": "Partes",
+        "cabeceras": [
+          {
+            "fila": 2,
+            "columna": 2,
+            "texto": "PUESTO LOGÍSTICO + MATERIAL "
+          },
+          {
+            "fila": 2,
+            "columna": 3,
+            "texto": "PARTE"
+          },
+          {
+            "fila": 2,
+            "columna": 4,
+            "texto": "DESCRIPCION"
+          },
+          {
+            "fila": 2,
+            "columna": 5,
+            "texto": "ESTACION"
+          },
+          {
+            "fila": 2,
+            "columna": 6,
+            "texto": "ESTANTERIA "
+          },
+          {
+            "fila": 2,
+            "columna": 7,
+            "texto": "NIVEL"
+          },
+          {
+            "fila": 2,
+            "columna": 8,
+            "texto": "CodigoEstanteria"
+          },
+          {
+            "fila": 2,
+            "columna": 9,
+            "texto": "CAJAS X ESTANTERIA "
+          },
+          {
+            "fila": 2,
+            "columna": 10,
+            "texto": "CANTIDAD X CAJA"
+          },
+          {
+            "fila": 2,
+            "columna": 11,
+            "texto": "CARTON O RETORNABLE"
+          },
+          {
+            "fila": 3,
+            "columna": 2,
+            "texto": "SZ01"
+          },
+          {
+            "fila": 3,
+            "columna": 3,
+            "texto": "5QS 907 530 H"
+          },
+          {
+            "fila": 3,
+            "columna": 4,
+            "texto": "UNIDAD MANDO"
+          },
+          {
+            "fila": 3,
+            "columna": 5,
+            "texto": "1.0"
+          },
+          {
+            "fila": 3,
+            "columna": 6,
+            "texto": "1.0"
+          },
+          {
+            "fila": 3,
+            "columna": 7,
+            "texto": "B"
+          },
+          {
+            "fila": 3,
+            "columna": 8,
+            "texto": "#N/A"
+          },
+          {
+            "fila": 3,
+            "columna": 9,
+            "texto": "3.0"
+          },
+          {
+            "fila": 3,
+            "columna": 10,
+            "texto": "120.0"
+          },
+          {
+            "fila": 3,
+            "columna": 11,
+            "texto": "CARTON"
+          }
+        ]
+      },
+      {
+        "hoja": "Consumo",
+        "cabeceras": [
+          {
+            "fila": 2,
+            "columna": 4,
+            "texto": "PKN o número de arnes (auto)"
+          },
+          {
+            "fila": 3,
+            "columna": 2,
+            "texto": "Material"
+          },
+          {
+            "fila": 3,
+            "columna": 3,
+            "texto": "Material del cliente"
+          },
+          {
+            "fila": 3,
+            "columna": 4,
+            "texto": "Número de llamada de cliente"
+          },
+          {
+            "fila": 3,
+            "columna": 5,
+            "texto": "Cantidad llamada JIT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/salida/UPAEP_Update_08-10-2026_con_tiempos.xlsx",
+    "sha256": "e9663fe0d7c4029952eec9ae6140839d94f9766b2308f738b3663369db0c1ba0",
+    "hojas": [
+      {
+        "hoja": "Partes",
+        "cabeceras": [
+          {
+            "fila": 2,
+            "columna": 2,
+            "texto": "PUESTO LOGÍSTICO + MATERIAL "
+          },
+          {
+            "fila": 2,
+            "columna": 3,
+            "texto": "PARTE"
+          },
+          {
+            "fila": 2,
+            "columna": 4,
+            "texto": "DESCRIPCION"
+          },
+          {
+            "fila": 2,
+            "columna": 5,
+            "texto": "ESTACION"
+          },
+          {
+            "fila": 2,
+            "columna": 6,
+            "texto": "ESTANTERIA "
+          },
+          {
+            "fila": 2,
+            "columna": 7,
+            "texto": "NIVEL"
+          },
+          {
+            "fila": 2,
+            "columna": 8,
+            "texto": "CodigoEstanteria"
+          },
+          {
+            "fila": 2,
+            "columna": 9,
+            "texto": "CAJAS X ESTANTERIA "
+          },
+          {
+            "fila": 2,
+            "columna": 10,
+            "texto": "CANTIDAD X CAJA"
+          },
+          {
+            "fila": 2,
+            "columna": 11,
+            "texto": "CARTON O RETORNABLE"
+          },
+          {
+            "fila": 3,
+            "columna": 2,
+            "texto": "SZ01"
+          },
+          {
+            "fila": 3,
+            "columna": 3,
+            "texto": "5QS 907 530 H"
+          },
+          {
+            "fila": 3,
+            "columna": 4,
+            "texto": "UNIDAD MANDO"
+          },
+          {
+            "fila": 3,
+            "columna": 5,
+            "texto": "1"
+          },
+          {
+            "fila": 3,
+            "columna": 6,
+            "texto": "1"
+          },
+          {
+            "fila": 3,
+            "columna": 7,
+            "texto": "B"
+          },
+          {
+            "fila": 3,
+            "columna": 9,
+            "texto": "3"
+          },
+          {
+            "fila": 3,
+            "columna": 10,
+            "texto": "120"
+          },
+          {
+            "fila": 3,
+            "columna": 11,
+            "texto": "CARTON"
+          }
+        ]
+      },
+      {
+        "hoja": "Consumo",
+        "cabeceras": [
+          {
+            "fila": 2,
+            "columna": 4,
+            "texto": "PKN o número de arnes (auto)"
+          },
+          {
+            "fila": 3,
+            "columna": 2,
+            "texto": "Material"
+          },
+          {
+            "fila": 3,
+            "columna": 3,
+            "texto": "Material del cliente"
+          },
+          {
+            "fila": 3,
+            "columna": 4,
+            "texto": "Número de llamada de cliente"
+          },
+          {
+            "fila": 3,
+            "columna": 5,
+            "texto": "Cantidad llamada JIT"
+          },
+          {
+            "fila": 3,
+            "columna": 6,
+            "texto": "fecha_hora_inicio"
+          },
+          {
+            "fila": 3,
+            "columna": 7,
+            "texto": "fecha_hora_fin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/salida/modelo/material.csv",
+    "sha256": "ff15e39fa5ae9af7119063fb326639e4eced690329e634a2ed895711f5f069e8",
+    "filas": 174,
+    "columnas": [
+      "id_puesto",
+      "numero_parte",
+      "id_color",
+      "descripcion",
+      "uso",
+      "cantidad_por_caja",
+      "stock",
+      "minimo"
+    ],
+    "ejemplos": [
+      {
+        "id_puesto": "2",
+        "numero_parte": "1J0 971 260 E",
+        "id_color": "9",
+        "descripcion": "PROTECCION TIERRAS",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": "50",
+        "stock": "148",
+        "minimo": "15"
+      },
+      {
+        "id_puesto": "4",
+        "numero_parte": "2G7 035 871",
+        "id_color": "9",
+        "descripcion": "RADIO JOYNEXT",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": "2",
+        "stock": "17",
+        "minimo": "15"
+      },
+      {
+        "id_puesto": "3",
+        "numero_parte": "2GA 035 285",
+        "id_color": "9",
+        "descripcion": "CAJA COMUNICACION SAS",
+        "uso": "COMPARTIDO",
+        "cantidad_por_caja": "50",
+        "stock": "148",
+        "minimo": "15"
+      }
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/salida/modelo/color.csv",
+    "sha256": "0fb1d82bce2e1f6643dca3c340b50d6614065ece6c0a071800284189a1b20229",
+    "filas": 13,
+    "columnas": [
+      "id_color",
+      "nombre"
+    ],
+    "ejemplos": [
+      {
+        "id_color": "1",
+        "nombre": "041"
+      },
+      {
+        "id_color": "2",
+        "nombre": "1QB"
+      },
+      {
+        "id_color": "3",
+        "nombre": "82V"
+      }
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/salida/modelo/puesto_logistico.csv",
+    "sha256": "1a6e36cf3a5f2d019f6c39428fe4747d79fd7055339924cfadfa74078903ea62",
+    "filas": 4,
+    "columnas": [
+      "id_puesto",
+      "nombre"
+    ],
+    "ejemplos": [
+      {
+        "id_puesto": "1",
+        "nombre": "K.E."
+      },
+      {
+        "id_puesto": "2",
+        "nombre": "POR ASIGNAR"
+      },
+      {
+        "id_puesto": "3",
+        "nombre": "SZ01"
+      }
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/salida/modelo/registro.csv",
+    "sha256": "0f94b9764246a7753e1d07c49bd589afb7e2e1031b8f78c5d9d04a6a4424513f",
+    "filas": 272,
+    "columnas": [
+      "id_registro",
+      "id_ubicacion",
+      "fecha_hora_inicio",
+      "fecha_hora_fin"
+    ],
+    "ejemplos": []
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/salida/bitacora_movimientos.csv",
+    "sha256": "92ac7058a406a9be58d8a55eefa45fb5ccf39a094d35270665243589daf00e66",
+    "filas": 272,
+    "columnas": [
+      "secuencia",
+      "fecha_hora_inicio",
+      "fecha_hora",
+      "turno",
+      "tipo_movimiento",
+      "numero_parte",
+      "linea",
+      "estacion",
+      "codigo_estanteria",
+      "pkn",
+      "tablero",
+      "cantidad",
+      "cajas",
+      "piezas_por_caja",
+      "stock_antes",
+      "stock_despues",
+      "umbral",
+      "capacidad",
+      "micropausa",
+      "faltante",
+      "secuencia_disparador"
+    ]
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/simulation/fixtures/dataset.json",
+    "sha256": "306d5bc12f0f15c588c5cb013701e1358b0629baf9113a2bdc7e8726fd780f00",
+    "claves": [
+      "version",
+      "nature",
+      "sources",
+      "catalog",
+      "quarantine",
+      "history",
+      "warnings"
+    ],
+    "catalogo_columnas": [
+      "capacidadCajas",
+      "capacidadPiezas",
+      "descripcion",
+      "estacion",
+      "estanteria",
+      "factor",
+      "issues",
+      "key",
+      "linea",
+      "nivel",
+      "parte",
+      "pfepFila",
+      "puesto",
+      "ubicacion",
+      "upaepFila"
+    ],
+    "filas_catalogo": 82
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/simulation/prepare_sources.py",
+    "sha256": "bab71ef66a1722c9e757ab4ff3a2105f62ae99a17cb7f1062066a433e182f01c",
+    "rol": "Código o diccionario revisado como procedencia; no ejecutado como fuente de valores inferidos"
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/portal/simulation/logistic_catalog.py",
+    "sha256": "953c18ecad75e0cc59de884db2eeb2f474331d2f9475e6a3378e1c5f0686be8c",
+    "rol": "Código o diccionario revisado como procedencia; no ejecutado como fuente de valores inferidos"
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/documentacion/diccionario-datos.csv",
+    "sha256": "1f23a074f69301e0c976dbe589331968ca87b18bdad240340c18dece13c455d8",
+    "rol": "Código o diccionario revisado como procedencia; no ejecutado como fuente de valores inferidos"
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/cargar_datos.py",
+    "sha256": "d7b7813b35f2c14199bbe29eeeba9082431671041806cd3ea29d245eee19ecfa",
+    "rol": "Código o diccionario revisado como procedencia; no ejecutado como fuente de valores inferidos"
+  },
+  {
+    "archivo": "/Users/nihhil/Downloads/simulacion_planta/exportar_modelo.py",
+    "sha256": "ed800541b4db567cf477bec697587e45665f838bfac23aaf13cfa24846719095",
+    "rol": "Código o diccionario revisado como procedencia; no ejecutado como fuente de valores inferidos"
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/json/posiciones.jsonl.gz",
+    "sha256": "574cdac2d0edfcc14a0ad83d0825ffa92fde7b835b33914e7ed5d6d0e533d392",
+    "filas": 102,
+    "columnas": [
+      "codigo_estacion",
+      "codigo_estanteria",
+      "codigo_linea",
+      "codigo_posicion_origen",
+      "codigo_puesto",
+      "descripcion_operativa",
+      "es_operable",
+      "fecha_alta_utc",
+      "fecha_retiro_utc",
+      "id_estacion",
+      "id_estanteria",
+      "id_material",
+      "id_posicion",
+      "id_posicion_sustituta",
+      "id_puesto",
+      "id_ubicacion",
+      "nivel",
+      "numero_parte"
+    ],
+    "rol": "Exportación original preservada: no se usa para inventar atributos ausentes"
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/json/configuraciones_posicion.jsonl.gz",
+    "sha256": "662725e67f01fe35e5681b8d4db9b12d48a7ddf2de28d6be9976c7dca55022a1",
+    "filas": 103,
+    "columnas": [
+      "capacidad_cajas",
+      "capacidad_piezas",
+      "es_base",
+      "estado",
+      "fecha_alta_utc",
+      "fecha_revision_utc",
+      "id_posicion",
+      "id_version",
+      "inventario_inicial",
+      "minimo_piezas",
+      "naturaleza_posicion",
+      "piezas_por_caja"
+    ],
+    "rol": "Exportación original preservada: no se usa para inventar atributos ausentes"
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/json/responsables.jsonl.gz",
+    "sha256": "c69c0321f5d462f5ab264669cfd75c4cb47a8e2a840461d68fb7f45f535ed8c6",
+    "filas": 12,
+    "columnas": [
+      "codigo_responsable",
+      "id_puesto",
+      "id_turno",
+      "nombre_responsable"
+    ],
+    "rol": "Exportación original preservada: no se usa para inventar atributos ausentes"
+  },
+  {
+    "archivo": "/Users/nihhil/Documents/Codex/2026-10-20/referenced-chatgpt-conversation-this-is-an/outputs/motherson-l1-claro-2026-10-28/json/turnos.jsonl.gz",
+    "sha256": "6f66ac188a7ac2f079fc818086e9cbf3c35812c1238d303a779e0d71a11f5f52",
+    "filas": 3,
+    "columnas": [
+      "codigo_turno",
+      "hora_fin",
+      "hora_inicio",
+      "id_turno"
+    ],
+    "rol": "Exportación original preservada: no se usa para inventar atributos ausentes"
+  }
+]

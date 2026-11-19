@@ -1,0 +1,18 @@
+{
+  "saldos_distintos": 0,
+  "puestos_habilitados": 0,
+  "referencias_con_variante": 25,
+  "codigos": 11,
+  "fk_invalidas": 0,
+  "turnos_limite": [
+    {
+      "turno_inicio": "PFEP T1"
+    },
+    {
+      "turno_inicio": "PFEP T2"
+    },
+    {
+      "turno_inicio": null
+    }
+  ]
+}

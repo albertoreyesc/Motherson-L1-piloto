@@ -1,0 +1,10 @@
+{
+  "filtro_pfep_t1": true,
+  "filtro_pfep_t2": true,
+  "filtro_fuera_turno": true,
+  "diagrama_renderizado": true,
+  "inicio_guarda_fk": true,
+  "inicio_repetido_sin_duplicado": true,
+  "cierre_conservado": true,
+  "filas_de_prueba_retiradas": true
+}

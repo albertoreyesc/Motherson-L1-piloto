@@ -1,0 +1,32 @@
+{
+  "pruebas": {
+    "base aislada": true,
+    "administración independiente": true,
+    "cuentas temporales sin sustituir accesos": true,
+    "variantes coherentes": true,
+    "cobertura no calculable": true,
+    "archivo histórico consultable": true,
+    "login operativo y secretos ausentes": true,
+    "inventario restringido": true,
+    "catálogo restringido": true,
+    "se deniegan historial, administración y ubicación ajena; retiro de entradas": true,
+    "inicio simultáneo de una sola atención": true,
+    "fin válido y repetición estable": true,
+    "administración consulta y otro puesto queda excluido": true,
+    "captura no cambia inventario": true,
+    "rotación y revocación invalidan la sesión": true
+  },
+  "intervalo_controlado": {
+    "id_registro": 1,
+    "id_puesto": 5,
+    "puesto": "SZ01",
+    "id_ubicacion": 14,
+    "numero_parte": "11K 947 409",
+    "fecha_hora_inicio": "2026-11-04T18:35:08.6295198Z",
+    "fecha_hora_fin": "2026-11-04T18:35:08.7078950Z",
+    "duracion_ms": 78,
+    "turno_inicio": "PFEP T1",
+    "es_simulado": true
+  },
+  "intervalo_controlado_retirado": true
+}

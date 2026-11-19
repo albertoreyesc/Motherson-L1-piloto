@@ -1,0 +1,10 @@
+IF DB_NAME() NOT IN('Motherson_L1_MVP_Desarrollo','Motherson_L1_MVP_Pruebas') THROW 51000,'Base no autorizada',1;
+IF (SELECT COUNT(*) FROM sys.tables WHERE schema_id=SCHEMA_ID('dbo'))<>8 THROW 51000,'Modelo operativo no tiene ocho tablas',1;
+IF EXISTS(SELECT 1 FROM archivo.FUENTE WHERE LOWER(CONVERT(varchar(64),HASHBYTES('SHA2_256',contenido_gzip),2))<>sha256) THROW 51000,'La copia original no coincide con su SHA256',1;
+IF (SELECT COUNT(*) FROM archivo.EVENTO)<>(SELECT filas FROM archivo.FUENTE WHERE nombre='registros.jsonl.gz') THROW 51000,'No coincide el conteo original',1;
+IF (SELECT MAX(fecha_movimiento) FROM archivo.EVENTO)>(SELECT corte_fuente FROM archivo.CORTE) THROW 51000,'No coincide el corte',1;
+IF EXISTS(SELECT id_ubicacion FROM dbo.REGISTRO WHERE tipo_movimiento='APERTURA' GROUP BY id_ubicacion HAVING COUNT(*)>1) THROW 51000,'Apertura duplicada',1;
+IF EXISTS(SELECT 1 FROM dbo.UBICACION u CROSS APPLY(SELECT TOP(1) saldo_posterior FROM dbo.REGISTRO r WHERE r.id_ubicacion=u.id_ubicacion ORDER BY id_registro DESC)r WHERE r.saldo_posterior<>u.cantidad) THROW 51000,'Saldo no concilia con último comprobante',1;
+IF EXISTS(SELECT id_movimiento FROM reporting.vw_kpi_movimientos GROUP BY id_movimiento HAVING COUNT(*)>1) THROW 51000,'ID unificado duplicado',1;
+IF EXISTS(SELECT 1 FROM reporting.vw_kpi_movimientos WHERE cantidad_piezas<0) THROW 51000,'Cantidad normalizada negativa',1;
+SELECT DB_NAME() base_datos,(SELECT COUNT(*) FROM archivo.FUENTE) fuentes_integras,(SELECT COUNT(*) FROM archivo.EVENTO) eventos_preservados,(SELECT SUM(CONVERT(bigint,cantidad_movimiento)) FROM dbo.REGISTRO WHERE tipo_movimiento='APERTURA') piezas_apertura,(SELECT COUNT(*) FROM reporting.vw_kpi_consumo_diario) dias_consumo_real,CONVERT(bit,1) comprobantes_y_saldos_conciliados;

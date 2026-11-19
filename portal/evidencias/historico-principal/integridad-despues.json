@@ -1,0 +1,121 @@
+{
+  "base": "Motherson_L1_MVP_Demo",
+  "tablas": [
+    {
+      "esquema": "dbo",
+      "tabla": "COLOR",
+      "filas": 11,
+      "sha256": "6DD325E5DA5BA13BBC3911D6749975D57BAC0FA9B9F7385DB51FE5685048C9BE"
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "ESTACION",
+      "filas": 24,
+      "sha256": "63A0BC75202CCCA8CE7499C883E61AEED0FFC5255771C85213B8ED26C74DE57B"
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "ESTANTERIA",
+      "filas": 68,
+      "sha256": "3F715A389180669962BA0071EA57CC8F9B87B402D5CA8CCEE0CF88969CF16D9A"
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "MATERIAL",
+      "filas": 68,
+      "sha256": "8CA9D477DE0CBD50AD20AB3FAFC845591D75C3281A68AD6305F85F1910A58C9B"
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "PUESTO_LOGISTICO",
+      "filas": 6,
+      "sha256": "C14E9977DA207B52591EC886C1BE16E196C92AAEBC3B9DD8B93DBD19189147A3"
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "REGISTRO",
+      "filas": 0
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "TURNO",
+      "filas": 2,
+      "sha256": "3C303EDB9268F67270B265E0C16D02919E254CC1F93459F43FE1FB9000B8A839"
+    },
+    {
+      "esquema": "dbo",
+      "tabla": "UBICACION",
+      "filas": 68,
+      "sha256": "1EB9E5A5BEB29446B72F5490D75744932ECB5C4A16E4F2C728D636EB92918EF9"
+    }
+  ],
+  "integridad": {
+    "fk_activas": 8,
+    "piezas": 10435,
+    "atenciones": 0
+  },
+  "esquema_sha256": "d3b4972c56165735de8d7e03b1ef5250fbc81b5d56f855bbe5dd3191fd1bb64d",
+  "manifiesto_sha256": "9797be395007cbe52f8c81aeb311bc626bb20798c10c0d0456680ef6ddd3889e",
+  "archivos": [
+    {
+      "nombre": "actuaciones.jsonl.gz",
+      "filas": 409080,
+      "sha256": "f2acb24badf3601c511e32ba1a69acabd59e4f95b3c159abbe102c7dd299e50b"
+    },
+    {
+      "nombre": "cierres.jsonl.gz",
+      "filas": 43095,
+      "sha256": "027f68f54d8ac5ca0d205d3b2e133d25f54b71e5d47a2e22242732442cdf455e"
+    },
+    {
+      "nombre": "configuraciones_posicion.jsonl.gz",
+      "filas": 103,
+      "sha256": "662725e67f01fe35e5681b8d4db9b12d48a7ddf2de28d6be9976c7dca55022a1"
+    },
+    {
+      "nombre": "paros.jsonl.gz",
+      "filas": 5043,
+      "sha256": "df6ea4eeb876a26585fc4ece54e1ba51a2177a080789ac139658ce61eeffe6ae"
+    },
+    {
+      "nombre": "posiciones.jsonl.gz",
+      "filas": 102,
+      "sha256": "574cdac2d0edfcc14a0ad83d0825ffa92fde7b835b33914e7ed5d6d0e533d392"
+    },
+    {
+      "nombre": "registros.jsonl.gz",
+      "filas": 709042,
+      "sha256": "5f121c1dba1eb63244fb721ae69cc7cfe3888e2ba7ea51a77ab95ed16b94e8d6"
+    },
+    {
+      "nombre": "responsables.jsonl.gz",
+      "filas": 12,
+      "sha256": "c69c0321f5d462f5ab264669cfd75c4cb47a8e2a840461d68fb7f45f535ed8c6"
+    },
+    {
+      "nombre": "saldos_actuales.jsonl.gz",
+      "filas": 102,
+      "sha256": "8ce5501a0b18f8ed9a9214ce7acd283ac76b5469e907b8ef376f8cca7503e8a4"
+    },
+    {
+      "nombre": "solicitudes.jsonl.gz",
+      "filas": 58440,
+      "sha256": "5a543e5ffa516cfec084216c3a7264f5a8f42a056c635457050f154665751034"
+    },
+    {
+      "nombre": "turnos.jsonl.gz",
+      "filas": 3,
+      "sha256": "6f66ac188a7ac2f079fc818086e9cbf3c35812c1238d303a779e0d71a11f5f52"
+    },
+    {
+      "nombre": "movimientos-mvp-originales.jsonl.gz",
+      "filas": 75,
+      "sha256": "d9c071461db43c7fefb8eb52888b2f33602b05be9eab9d0ff4e5e3bdc85feb5b"
+    },
+    {
+      "nombre": "movimientos.jsonl.gz",
+      "filas": 230976,
+      "sha256": "49f391fde4d106e4fcefef99faba589e7c20e6b7b9f1babdee99a74553d277ed"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+tabla,atributo,tipo_sql,admite_null,clave_primaria,descripcion
+ESTACION,id_estacion,int,False,True,Identificador estable de la estación.
+ESTACION,id_linea,int,False,False,Línea de producción; el MVP admite únicamente L1.
+ESTACION,nombre_estacion,nvarchar(100),False,False,Código o nombre documentado de la estación.
+ESTANTERIA,id_estanteria,int,False,True,Identificador del nivel de estantería.
+ESTANTERIA,id_estacion,int,False,False,Identificador estable de la estación.
+ESTANTERIA,estanteria,nvarchar(80),False,False,Código de estantería dentro de la estación.
+ESTANTERIA,nivel,nvarchar(30),False,False,Nivel o posición documentada.
+ESTANTERIA,cajas_estanteria,int,True,False,Capacidad del nivel en cajas; no representa existencias.
+MATERIAL,numero_parte,varchar(100),False,True,Referencia completa del material; conserva sufijos y ceros.
+MATERIAL,id_puesto,int,False,False,Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.
+MATERIAL,descripcion,nvarchar(250),True,False,Descripción documental del material.
+MATERIAL,uso,nvarchar(150),True,False,Clasificación de uso del PFEP: COMPARTIDO o EXCLUSIVO; no es modelo de vehículo.
+MATERIAL,cantidad_por_caja,int,True,False,Piezas por caja del material.
+MATERIAL,minimo,int,True,False,Umbral mínimo en piezas del material; distinto de la cobertura temporal por ubicación.
+PUESTO_LOGISTICO,id_puesto,int,False,True,Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.
+PUESTO_LOGISTICO,nombre,nvarchar(120),False,False,"Código del puesto (SZ01, SZ02, SG, K.E., MONTACARGAS o DESENGANCHE L1). El nombre completo documentado se presenta por separado."
+PUESTO_LOGISTICO,tipo,nvarchar(60),True,False,Clasificación del puesto; permanece NULL cuando falta definición documental.
+REGISTRO,id_registro,int,False,True,Identificador del comprobante inmutable.
+REGISTRO,id_usuarios,int,False,False,Identificador de la cuenta individual que captura; conserva la atribución antigua.
+REGISTRO,id_ubicacion,int,False,False,Asignación estable de material a nivel de estantería.
+REGISTRO,id_turno,int,True,False,Turno PFEP del movimiento; puede ser NULL fuera de jornada.
+REGISTRO,id_puesto,int,False,False,Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.
+REGISTRO,tipo_movimiento,varchar(10),False,False,"APERTURA, ENTRADA o SALIDA."
+REGISTRO,cantidad_movimiento,int,False,False,Piezas del movimiento; el signo se interpreta según el tipo.
+REGISTRO,cantidad_cajas,int,True,False,Cajas completas ingresadas; NULL en salidas y aperturas.
+REGISTRO,cantidad_por_caja_aplicada,int,True,False,"Factor aplicado a esa entrada, conservado aunque cambie el catálogo."
+REGISTRO,saldo_anterior,int,False,False,Saldo previo a la operación.
+REGISTRO,saldo_posterior,int,False,False,Saldo tras la operación.
+REGISTRO,fecha_movimiento,datetime2(7),False,False,Instante UTC del movimiento; se presenta en hora de México.
+REGISTRO,fecha_hora_inicio,datetime2(7),False,False,Inicio UTC de procesamiento de la captura.
+REGISTRO,fecha_hora_fin,datetime2(7),False,False,Fin UTC de procesamiento de la captura.
+REGISTRO,id_operacion,uniqueidentifier,False,False,Identificador único de reintento: evita repetir el mismo movimiento.
+REGISTRO,huella_peticion,char(64),False,False,Huella SHA-256 de los datos de la petición para detectar reutilización incompatible del identificador.
+REGISTRO,origen,varchar(24),False,False,"CAPTURA_SIMULADA, APERTURA_SIMULADA, CAPTURA_REAL o APERTURA_REAL. Esta entrega registra capturas simuladas."
+TURNO,id_turno,int,False,True,Turno PFEP del movimiento; puede ser NULL fuera de jornada.
+TURNO,nombre_turno,nvarchar(40),False,False,PFEP T1 o PFEP T2.
+TURNO,hora_inicio,time(0),False,False,Inicio local del turno; inclusivo.
+TURNO,hora_fin,time(0),False,False,Fin local del turno; exclusivo.
+UBICACION,id_ubicacion,int,False,True,Asignación estable de material a nivel de estantería.
+UBICACION,numero_parte,varchar(100),False,False,Referencia completa del material; conserva sufijos y ceros.
+UBICACION,id_estanteria,int,False,False,Identificador del nivel de estantería.
+UBICACION,cantidad,int,True,False,"Saldo conocido de piezas; NULL significa apertura pendiente, no cero."
+UBICACION,version_concurrencia,int,False,False,Versión técnica que impide confirmar desde un saldo desactualizado.
+USUARIOS,id_usuarios,int,False,True,Identificador de la cuenta individual que captura; conserva la atribución antigua.
+USUARIOS,nombre_usuario,nvarchar(80),False,False,Nombre de acceso único.
+USUARIOS,nombre_visible,nvarchar(150),True,False,Nombre mostrado de la cuenta cuando está documentado.
+USUARIOS,hash_contrasena,nvarchar(500),False,False,Verificador de contraseña del mecanismo existente. Nunca contraseña en texto plano ni campo de reporting.
+USUARIOS,esta_activo,bit,False,False,"Permite revocar el acceso sin borrar cuenta, puesto ni comprobantes."
+USUARIOS,perfil,varchar(20),False,False,"Permisos del MVP: ADMINISTRADOR, ENTRADAS, MOVIMIENTOS o CONSULTA; solo ADMINISTRADOR puede registrar salidas."
+USUARIOS,id_puesto,int,True,False,Puesto logístico responsable. En USUARIOS es la asignación operativa actual; en REGISTRO es el puesto del material al capturar.

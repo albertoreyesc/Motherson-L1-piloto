@@ -1,0 +1,59 @@
+[
+  {
+    "base": "Motherson_L1_MVP_Desarrollo",
+    "materiales": 63,
+    "usos_documentados_aplicados": 62,
+    "distribucion_usos": {
+      "COMPARTIDO": 14,
+      "EXCLUSIVO": 48,
+      "PENDIENTE": 1
+    },
+    "sin_uso": [
+      "57N 858 065 A MEC"
+    ],
+    "colores": 0,
+    "materiales_sin_color": 63,
+    "puestos_sin_tipo": 6,
+    "claves_foraneas": {
+      "total": 9,
+      "deshabilitadas_o_no_confiables": 0,
+      "colores_duplicados": 0
+    },
+    "checkconstraints": "Sin infracciones",
+    "tablas_operativas": 9,
+    "movimientos_mvp_conservados": 64,
+    "eventos_originales_conservados": 709042,
+    "invariantes": "Esquema, relaciones, módulos SQL, fuentes archivadas, saldos y movimientos sin cambios"
+  },
+  {
+    "base": "Motherson_L1_MVP_Pruebas",
+    "materiales": 68,
+    "usos_documentados_aplicados": 62,
+    "distribucion_usos": {
+      "COMPARTIDO": 14,
+      "EXCLUSIVO": 48,
+      "PENDIENTE": 6
+    },
+    "sin_uso": [
+      "57N 858 065 A MEC",
+      "LAB-CONC-ENT",
+      "LAB-CONC-SAL",
+      "LAB-MAT-001",
+      "LAB-PENDIENTE",
+      "LAB-ROLLBACK"
+    ],
+    "colores": 0,
+    "materiales_sin_color": 68,
+    "puestos_sin_tipo": 6,
+    "claves_foraneas": {
+      "total": 9,
+      "deshabilitadas_o_no_confiables": 0,
+      "colores_duplicados": 0
+    },
+    "checkconstraints": "Sin infracciones",
+    "tablas_operativas": 9,
+    "movimientos_mvp_conservados": 75,
+    "eventos_originales_conservados": 709042,
+    "invariantes": "Esquema, relaciones, módulos SQL, fuentes archivadas, saldos y movimientos sin cambios"
+  }
+]

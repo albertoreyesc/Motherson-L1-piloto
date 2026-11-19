@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./pruebas-ui',workers:1,fullyParallel:false,timeout:60000,use:{baseURL:'http://127.0.0.1:5087',viewport:{width:1440,height:960},launchOptions:{executablePath:process.env.MVP_BROWSER??'/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'}},reporter:[['list'],['json',{outputFile:'../evidencias/pruebas-ui.json'}]],outputDir:'../evidencias/ui-temporal'});

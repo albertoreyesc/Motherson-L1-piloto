@@ -1,0 +1,254 @@
+{
+  "maestro": "4d577245a22d",
+  "revision": 210,
+  "inicio": "2025-10-25T06:00:00",
+  "corte": "2026-10-27T15:30:51.389889",
+  "eventos": 709042,
+  "ids_duplicados": 0,
+  "versiones_duplicadas": 0,
+  "referencias_inexistentes": 0,
+  "saldos_discrepantes": [],
+  "tipos": {
+    "CIERRE_ORDEN": 58428,
+    "LIBERACION_RESERVA": 58422,
+    "ENTRADA_CONFIRMADA": 58462,
+    "ACEPTACION": 58423,
+    "TRASLADO": 58423,
+    "CONSUMO": 172537,
+    "RESERVA_CAPACIDAD": 58428,
+    "SOLICITUD": 58430,
+    "ALERTA": 58426,
+    "ESPERA_ESPACIO_CAJA_COMPLETA": 9908,
+    "RECUPERACION": 5033,
+    "PARO_FIN": 5038,
+    "PARO_INICIO": 5038,
+    "CAMBIO_TURNO": 506,
+    "CIERRE_TURNO": 43010,
+    "PRUEBA_AGOTAMIENTO": 169,
+    "PRUEBA_CRITICO": 169,
+    "INVENTARIO_INICIAL": 86,
+    "RECHAZO_SOBRECAPACIDAD": 91,
+    "AJUSTE_AUDITADO": 15
+  },
+  "clases_kpi": {
+    "EVENTO_NO_MOVIMIENTO": 478141,
+    "ENTRADA": 58462,
+    "SALIDA": 172338,
+    "APERTURA": 86,
+    "AJUSTE": 15
+  },
+  "ubicaciones_apertura": 63,
+  "piezas_apertura": 10116,
+  "incidencias": [
+    {
+      "id_posicion": 1,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 3,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 4,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 9,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 11,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 12,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 16,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 21,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 25,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 27,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 34,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 38,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 41,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 44,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 46,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 48,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 53,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 54,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 61,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 64,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 66,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 67,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 68,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 69,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 71,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 75,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 78,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 79,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 82,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 83,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 85,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 86,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 91,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 96,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 97,
+      "regla": "UBICACION_LOGICA_SIMULADA_NO_VALIDADA"
+    },
+    {
+      "id_posicion": 98,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 99,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 100,
+      "regla": "POSICION_NO_OPERABLE"
+    },
+    {
+      "id_posicion": 102,
+      "regla": "POSICION_NO_OPERABLE"
+    }
+  ],
+  "huella_fuentes": "204630df3c25698750693d09a7ccdbaf47e025a6d6793a18d68730d993e4f873",
+  "fuentes": [
+    {
+      "nombre": "actuaciones.jsonl.gz",
+      "sha256": "f2acb24badf3601c511e32ba1a69acabd59e4f95b3c159abbe102c7dd299e50b",
+      "filas": 409080
+    },
+    {
+      "nombre": "cierres.jsonl.gz",
+      "sha256": "027f68f54d8ac5ca0d205d3b2e133d25f54b71e5d47a2e22242732442cdf455e",
+      "filas": 43095
+    },
+    {
+      "nombre": "configuraciones_posicion.jsonl.gz",
+      "sha256": "662725e67f01fe35e5681b8d4db9b12d48a7ddf2de28d6be9976c7dca55022a1",
+      "filas": 103
+    },
+    {
+      "nombre": "paros.jsonl.gz",
+      "sha256": "df6ea4eeb876a26585fc4ece54e1ba51a2177a080789ac139658ce61eeffe6ae",
+      "filas": 5043
+    },
+    {
+      "nombre": "posiciones.jsonl.gz",
+      "sha256": "574cdac2d0edfcc14a0ad83d0825ffa92fde7b835b33914e7ed5d6d0e533d392",
+      "filas": 102
+    },
+    {
+      "nombre": "registros.jsonl.gz",
+      "sha256": "5f121c1dba1eb63244fb721ae69cc7cfe3888e2ba7ea51a77ab95ed16b94e8d6",
+      "filas": 709042
+    },
+    {
+      "nombre": "responsables.jsonl.gz",
+      "sha256": "c69c0321f5d462f5ab264669cfd75c4cb47a8e2a840461d68fb7f45f535ed8c6",
+      "filas": 12
+    },
+    {
+      "nombre": "saldos_actuales.jsonl.gz",
+      "sha256": "8ce5501a0b18f8ed9a9214ce7acd283ac76b5469e907b8ef376f8cca7503e8a4",
+      "filas": 102
+    },
+    {
+      "nombre": "solicitudes.jsonl.gz",
+      "sha256": "5a543e5ffa516cfec084216c3a7264f5a8f42a056c635457050f154665751034",
+      "filas": 58440
+    },
+    {
+      "nombre": "turnos.jsonl.gz",
+      "sha256": "6f66ac188a7ac2f079fc818086e9cbf3c35812c1238d303a779e0d71a11f5f52",
+      "filas": 3
+    }
+  ],
+  "nota": "Fechas originales de fecha_evento_utc conservadas sin desplazar; no son mediciones reales. Nombres/IDs del catálogo inmutable del esquema 21, sin cruce con catálogos actuales del MVP."
+}

@@ -1,0 +1,436 @@
+{
+  "columnas": [
+    {
+      "tabla": "COLOR",
+      "columna": "id_color",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "COLOR",
+      "columna": "nombre",
+      "tipo": "varchar",
+      "max_length": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "ESTACION",
+      "columna": "id_estacion",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "ESTACION",
+      "columna": "id_linea",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "ESTACION",
+      "columna": "nombre_estacion",
+      "tipo": "nvarchar",
+      "max_length": 200,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "ESTANTERIA",
+      "columna": "id_estanteria",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "ESTANTERIA",
+      "columna": "id_estacion",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "ESTANTERIA",
+      "columna": "estanteria",
+      "tipo": "nvarchar",
+      "max_length": 160,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "ESTANTERIA",
+      "columna": "nivel",
+      "tipo": "nvarchar",
+      "max_length": 60,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "ESTANTERIA",
+      "columna": "cajas_estanteria",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "numero_parte",
+      "tipo": "varchar",
+      "max_length": 100,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": true
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "id_puesto",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "descripcion",
+      "tipo": "nvarchar",
+      "max_length": 500,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "uso",
+      "tipo": "nvarchar",
+      "max_length": 300,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "cantidad_por_caja",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "minimo",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "id_color",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "MATERIAL",
+      "columna": "stock",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "PUESTO_LOGISTICO",
+      "columna": "id_puesto",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "PUESTO_LOGISTICO",
+      "columna": "nombre",
+      "tipo": "nvarchar",
+      "max_length": 240,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "PUESTO_LOGISTICO",
+      "columna": "usuario",
+      "tipo": "nvarchar",
+      "max_length": 160,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "PUESTO_LOGISTICO",
+      "columna": "password",
+      "tipo": "nvarchar",
+      "max_length": 1000,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "REGISTRO",
+      "columna": "id_registro",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "REGISTRO",
+      "columna": "id_puesto",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "REGISTRO",
+      "columna": "id_ubicacion",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "REGISTRO",
+      "columna": "fecha_hora_inicio",
+      "tipo": "datetime2",
+      "max_length": 8,
+      "scale": 7,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "REGISTRO",
+      "columna": "fecha_hora_fin",
+      "tipo": "datetime2",
+      "max_length": 8,
+      "scale": 7,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "REGISTRO",
+      "columna": "id_turno",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "TURNO",
+      "columna": "id_turno",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "TURNO",
+      "columna": "nombre_turno",
+      "tipo": "nvarchar",
+      "max_length": 80,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "TURNO",
+      "columna": "hora_inicio",
+      "tipo": "time",
+      "max_length": 3,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "TURNO",
+      "columna": "hora_fin",
+      "tipo": "time",
+      "max_length": 3,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "UBICACION",
+      "columna": "id_ubicacion",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "es_pk": true
+    },
+    {
+      "tabla": "UBICACION",
+      "columna": "numero_parte",
+      "tipo": "varchar",
+      "max_length": 100,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    },
+    {
+      "tabla": "UBICACION",
+      "columna": "id_estanteria",
+      "tipo": "int",
+      "max_length": 4,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "es_pk": false
+    }
+  ],
+  "relaciones": [
+    {
+      "nombre": "FK__ESTANTERI__id_es__3C69FB99",
+      "hija": "ESTANTERIA",
+      "padre": "ESTACION",
+      "columna_hija": "id_estacion",
+      "columna_padre": "id_estacion",
+      "is_nullable": false,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK__MATERIAL__id_col__2CF2ADDF",
+      "hija": "MATERIAL",
+      "padre": "COLOR",
+      "columna_hija": "id_color",
+      "columna_padre": "id_color",
+      "is_nullable": true,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK__MATERIAL__id_pue__45F365D3",
+      "hija": "MATERIAL",
+      "padre": "PUESTO_LOGISTICO",
+      "columna_hija": "id_puesto",
+      "columna_padre": "id_puesto",
+      "is_nullable": false,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK__REGISTRO__id_pue__30C33EC3",
+      "hija": "REGISTRO",
+      "padre": "PUESTO_LOGISTICO",
+      "columna_hija": "id_puesto",
+      "columna_padre": "id_puesto",
+      "is_nullable": false,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK__REGISTRO__id_ubi__31B762FC",
+      "hija": "REGISTRO",
+      "padre": "UBICACION",
+      "columna_hija": "id_ubicacion",
+      "columna_padre": "id_ubicacion",
+      "is_nullable": false,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK__UBICACION__id_es__4D94879B",
+      "hija": "UBICACION",
+      "padre": "ESTANTERIA",
+      "columna_hija": "id_estanteria",
+      "columna_padre": "id_estanteria",
+      "is_nullable": false,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK__UBICACION__numer__4CA06362",
+      "hija": "UBICACION",
+      "padre": "MATERIAL",
+      "columna_hija": "numero_parte",
+      "columna_padre": "numero_parte",
+      "is_nullable": false,
+      "is_disabled": false,
+      "is_not_trusted": false
+    },
+    {
+      "nombre": "FK_REGISTRO_TURNO",
+      "hija": "REGISTRO",
+      "padre": "TURNO",
+      "columna_hija": "id_turno",
+      "columna_padre": "id_turno",
+      "is_nullable": true,
+      "is_disabled": false,
+      "is_not_trusted": false
+    }
+  ]
+}
