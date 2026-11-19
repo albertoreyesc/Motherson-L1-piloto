@@ -1,3 +1,7 @@
+> Referencia histórica del entorno anterior. Para el destino propio Motherson_L1,
+> usar [INTEGRACION_AZURE_PROPIA.md](INTEGRACION_AZURE_PROPIA.md).
+> Las afirmaciones de instalación anteriores no acreditan el estado de tu Azure.
+
 # Portal conectado a la base compartida de Azure
 
 10/11/2026. El portal puede guardar en la base de Azure del Equipo 2 (`mothersonbdd.database.windows.net`, base `db`) para que su Power BI muestre lo capturado. El arranque local con `Motherson_L1_MVP_Demo` no cambia.

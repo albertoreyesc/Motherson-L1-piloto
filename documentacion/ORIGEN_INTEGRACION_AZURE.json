@@ -1,0 +1,13 @@
+{
+  "origen_portal": "Motherson-L1-main (2).zip",
+  "sha256_portal": "d15968a5e1a558094a1b53785fe43da9f9d62795e727b22b049df751d02b357b",
+  "origen_entrega": "Entrega.zip",
+  "sha256_entrega": "98364328be6928a1df7c33ace10298704787e4fcf7dcf2b6620a225cd80a5c8f",
+  "destino": {
+    "servidor": "motherson-l1-equipo.database.windows.net",
+    "base": "Motherson_L1"
+  },
+  "datos": "SIMULADOS; carga no ejecutada",
+  "powerbi": "Sin espacio propio; PBIX original sin publicar; parámetros del TMDL adaptados",
+  "sql_ejecutado": false
+}

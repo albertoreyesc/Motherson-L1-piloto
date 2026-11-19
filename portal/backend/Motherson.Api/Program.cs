@@ -14,6 +14,8 @@ if(args.Contains("--integridad")){await Migration.Integrity();return;}
 if(args.Contains("--sembrar-pruebas")){await Migration.SeedTests();return;}
 if(args.Contains("--probar-permisos")){await Migration.TestPermissions();return;}
 var builder=WebApplication.CreateBuilder(args);
+if(args.Contains("--diagnostico-azure")){Environment.ExitCode=await AzurePreflight.Run(builder.Configuration,args.Contains("--solo-configuracion"));return;}
+if(!string.IsNullOrWhiteSpace(builder.Configuration["MVP_AZURE_SERVER"])) AzurePreflight.Validate(builder.Configuration);
 var database=new SqlConnectionStringBuilder(builder.Configuration.GetConnectionString("Sql")??throw new InvalidOperationException("Falta conexión SQL del MVP.")).InitialCatalog;
 if(!Store.BaseAutorizada(database,builder.Configuration))throw new InvalidOperationException("Base MVP no autorizada.");
 var cookiePrefix="Motherson.L1.MVP.AccesoPuestoV1."+database;

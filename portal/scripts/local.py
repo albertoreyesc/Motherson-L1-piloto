@@ -20,7 +20,7 @@ def run_compartida(args):
     if not base or 'ESCRIBE_AQUI' in cadena:raise SystemExit('Revisa la cadena de conexión: falta la base o la contraseña.')
     admin=ROOT/'.local'/'admin-puestos-Motherson_L1_MVP_Demo.json'
     if not admin.exists():raise SystemExit('Falta la configuración privada de admin.local (admin-puestos-Motherson_L1_MVP_Demo.json).')
-    env=os.environ.copy();env.update(MVP_ROOT=str(ROOT),MVP_DATABASE=base.group(1).strip(),MVP_BASE_COMPARTIDA=base.group(1).strip(),ConnectionStrings__Sql=cadena,ASPNETCORE_URLS='http://127.0.0.1:'+str(args.puerto),ASPNETCORE_ENVIRONMENT='Development',MVP_ADMIN_PUESTOS_HASH=json.loads(admin.read_text(encoding='utf-8'))['hash'])
+    env=os.environ.copy();env.update(MVP_ROOT=str(ROOT),MVP_DATABASE=base.group(1).strip(),MVP_BASE_COMPARTIDA=base.group(1).strip(),MVP_AZURE_SERVER="motherson-l1-equipo.database.windows.net",ConnectionStrings__Sql=cadena,ASPNETCORE_URLS='http://127.0.0.1:'+str(args.puerto),ASPNETCORE_ENVIRONMENT='Development',MVP_ADMIN_PUESTOS_HASH=json.loads(admin.read_text(encoding='utf-8'))['hash'])
     return subprocess.call(['dotnet','run','--no-build','--project',str(ROOT/'backend/Motherson.Api'),'--no-launch-profile'],cwd=ROOT,env=env)
 def run(args):
     if args.compartida:return run_compartida(args)

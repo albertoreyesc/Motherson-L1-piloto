@@ -7,3 +7,11 @@ __pycache__/
 .vs/
 .env
 /Motherson-L1-5089-Antigravity/
+
+.env.*
+!.env.example
+*.bak
+*.log
+*.tsbuildinfo
+.venv/
+portal/db/azure/privado/

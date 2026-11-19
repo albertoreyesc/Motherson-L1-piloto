@@ -1,3 +1,12 @@
+# Integración con Azure propio · Motherson L1
+
+Trabajo de integración iniciado el 18/11/2026. Destino: `motherson-l1-equipo.database.windows.net` / `Motherson_L1`.
+
+**Instalación y carga todavía no ejecutadas.** Consulta [el estado y la guía vigente](documentacion/INTEGRACION_AZURE_PROPIA.md).
+El diagnóstico y los scripts de instalación están separados de los scripts históricos de desarrollo.
+
+---
+
 # Motherson L1 · Demo 5089
 
 **Versión vigente, 05/11/2026:** base `Motherson_L1_MVP_Demo`, ocho tablas y ocho claves foráneas en `dbo`. Entradas y salidas conservan sus hechos en una continuación privada JSONL y calculan los saldos en el backend, sin actualizar SQL. Las alarmas se consultan en Resumen e Inventario; `REGISTRO` conserva exclusivamente las atenciones.
