@@ -1,3 +1,16 @@
+# Documentación del proyecto
+
+Para la ampliación de cuatro líneas del 22/11/2026 consulta:
+
+- [Manual de usuario y administración](administracion-v2/MANUAL.md).
+- [Pruebas y alcance de la validación](administracion-v2/PRUEBAS.md).
+- [Actualización y recuperación](administracion-v2/ACTUALIZACION_Y_RECUPERACION.md).
+- [Mapa del repositorio y colaboración](../CONTRIBUTING.md).
+
+## Antecedentes
+
+Las guías siguientes conservan su contexto histórico y no deben usarse como instrucciones de reinstalación del piloto publicado.
+
 # Guía de uso y preparación — MVP L1
 
 **05/11/2026 · Portal 5089:** consultar [Histórico principal, responsables y cobertura](HISTORICO_PRINCIPAL.md) para la presentación vigente del maestro anual, filtros de material/responsable/turno, explicación de atenciones y cortes de semaforización verificados. Los apartados antiguos siguientes se conservan como antecedentes.

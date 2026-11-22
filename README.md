@@ -1,3 +1,19 @@
+# Smart Material Replenishment · Motherson
+
+Portal del piloto: **https://motherson-l1-piloto.onrender.com/**.
+
+Ampliación de administración de cuatro líneas, 22/11/2026: [manual](documentacion/administracion-v2/MANUAL.md), [pruebas](documentacion/administracion-v2/PRUEBAS.md) y [migración y recuperación](documentacion/administracion-v2/ACTUALIZACION_Y_RECUPERACION.md). El estado de publicación se registra en la carpeta de esa versión.
+
+Para ubicar el código, preparar el entorno y colaborar mediante ramas, consulta **[CONTRIBUTING.md](CONTRIBUTING.md)**. El repositorio del piloto es privado; cada compañero requiere acceso con su propia cuenta GitHub.
+
+La configuración de Render está en `despliegue/render/`; las migraciones nuevas están en `portal/db/administracion/`. No ejecutar inicializadores históricos para actualizar una base con movimientos existentes.
+
+---
+
+## Antecedentes del proyecto
+
+Las notas que siguen corresponden a distintas fechas, bases y entornos. Sus cantidades y estados de instalación no sustituyen la documentación de la versión vigente.
+
 > **Piloto gratuito publicado (19/11/2026):** https://motherson-l1-piloto.onrender.com/ . Solo cuentas personales y datos simulados. Alojamiento Render Free con SQL Azure piloto separado. El informe original de Power BI ya se muestra con sesión Microsoft individual; licencias de participantes y conexión del informe a la base piloto siguen pendientes. Consulta [acceso de planta](documentacion/POWERBI_ACCESO_PLANTA.md). Guía vigente: [despliegue/render/README.md](despliegue/render/README.md); acceso de participantes: [PARTICIPANTES.md](despliegue/render/PARTICIPANTES.md). Las notas anteriores de App Service F1 describen una ruta bloqueada por cuota, no el alojamiento actual.
 
 # Preparación del piloto de planta — 19/11/2026
