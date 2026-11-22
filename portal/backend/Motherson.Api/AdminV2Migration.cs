@@ -27,12 +27,12 @@ public static class AdminV2Migration
   var materiales=new Dictionary<string,string>(StringComparer.Ordinal);
   foreach(var m in await c.QueryAsync("SELECT m.*,c.nombre variante FROM dbo.MATERIAL m LEFT JOIN dbo.COLOR c ON c.id_color=m.id_color",transaction:tx)){
    var id=Guid.NewGuid().ToString();materiales.Add((string)m.numero_parte,id);
-   Add("material",id,new(){["numeroParte"]=(string)m.numero_parte,["descripcion"]=(string?)m.descripcion??"",["uso"]=(string?)m.uso??"",["variante"]=(string?)m.variante??"",["revision"]="",["modelo"]="",["puesto"]=((int)m.id_puesto).ToString(),["empaque"]=(int)m.cantidad_por_caja,["minimo"]=(int)m.minimo,["activo"]=true});
+   Add("material",id,new(){["numeroParte"]=(string)m.numero_parte,["numeroParteLegado"]=(string)m.numero_parte,["descripcion"]=(string?)m.descripcion??"",["uso"]=(string?)m.uso??"",["variante"]=(string?)m.variante??"",["revision"]="",["modelo"]="",["puesto"]=((int)m.id_puesto).ToString(),["empaque"]=(int)m.cantidad_por_caja,["minimo"]=(int)m.minimo,["activo"]=true});
   }
   long total=0;
   foreach(var u in await c.QueryAsync("SELECT * FROM dbo.UBICACION",transaction:tx)){total+=(int)u.cantidad;Add("ubicacion",((int)u.id_ubicacion).ToString(),new(){["material"]=materiales[(string)u.numero_parte],["estanteria"]=((int)u.id_estanteria).ToString(),["cantidad"]=(int)u.cantidad,["apertura"]=DateTime.SpecifyKind(now,DateTimeKind.Utc).ToString("O")});}
   var stock=await c.ExecuteScalarAsync<long>("SELECT COALESCE(SUM(CONVERT(bigint,stock)),0) FROM dbo.MATERIAL",transaction:tx);if(stock!=total)throw new InvalidOperationException("Saldo por ubicación no concilia con material. No se activó.");
-  foreach(var a in await c.QueryAsync("SELECT * FROM dbo.vw_kpi_atenciones",transaction:tx)){
+  foreach(var a in await c.QueryAsync("SELECT * FROM dbo.vw_kpi_atenciones WHERE fecha_hora_fin IS NULL",transaction:tx)){
    var id="legado-"+(int)a.id_registro;Add("atencion",id,new(){["material"]=materiales[(string)a.numero_parte],["ubicacion"]=((int)a.id_ubicacion).ToString(),["puesto"]=((int)a.id_puesto).ToString(),["responsable"]=(string?)a.puesto??"",["usuario"]=0,["inicio"]=DateTime.SpecifyKind((DateTime)a.fecha_hora_inicio,DateTimeKind.Utc).ToString("O"),["fin"]=a.fecha_hora_fin is null?null:DateTime.SpecifyKind((DateTime)a.fecha_hora_fin,DateTimeKind.Utc).ToString("O"),["turno"]=AdminV2.Turno((DateTime)a.fecha_hora_inicio),["origen"]="REGISTRO_ORIGINAL"});
   }
   if(await c.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM dbo.MATERIAL m OUTER APPLY(SELECT SUM(CONVERT(bigint,cantidad)) cantidad FROM dbo.UBICACION u WHERE u.numero_parte=m.numero_parte) u WHERE CONVERT(bigint,m.stock)<>COALESCE(u.cantidad,0)",transaction:tx)>0)throw new InvalidOperationException("No concilia el saldo por material. No se activó.");

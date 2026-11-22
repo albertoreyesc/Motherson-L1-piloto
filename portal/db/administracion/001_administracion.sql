@@ -128,12 +128,19 @@ JOIN mes2.ENTIDAD r ON r.linea=u.linea AND r.tipo='estanteria' AND r.id=JSON_VAL
 WHERE u.tipo='ubicacion';
 GO
 CREATE OR ALTER VIEW mes2.vw_atenciones_bi AS
-SELECT a.linea,a.id id_atencion,JSON_VALUE(a.datos,'$.material') id_material,
+SELECT a.linea,a.id id_atencion,JSON_VALUE(a.datos,'$.material') COLLATE Latin1_General_100_BIN2 id_material,
  JSON_VALUE(a.datos,'$.ubicacion') id_ubicacion,JSON_VALUE(a.datos,'$.responsable') responsable,
  TRY_CONVERT(datetimeoffset,JSON_VALUE(a.datos,'$.inicio')) inicio_utc,
  TRY_CONVERT(datetimeoffset,JSON_VALUE(a.datos,'$.fin')) fin_utc,
  TRY_CONVERT(int,JSON_VALUE(a.datos,'$.turno')) turno_inicio
-FROM mes2.ENTIDAD a WHERE a.tipo='atencion';
+FROM mes2.ENTIDAD a WHERE a.tipo='atencion'
+UNION ALL
+SELECT 1,N'legado-'+CONVERT(nvarchar(80),r.id_registro),m.id,CONVERT(nvarchar(100),r.id_ubicacion),r.puesto,
+ TODATETIMEOFFSET(r.fecha_hora_inicio,'+00:00'),TODATETIMEOFFSET(r.fecha_hora_fin,'+00:00'),
+ CASE WHEN DATEPART(hour,r.fecha_hora_inicio_local)>=6 AND DATEPART(hour,r.fecha_hora_inicio_local)<15 THEN 1 ELSE 2 END
+FROM dbo.vw_kpi_atenciones r JOIN mes2.ENTIDAD m ON m.linea=1 AND m.tipo='material'
+ AND JSON_VALUE(m.datos,'$.numeroParteLegado') COLLATE Latin1_General_100_BIN2=r.numero_parte COLLATE Latin1_General_100_BIN2
+WHERE r.fecha_hora_fin IS NOT NULL;
 GO
 IF DATABASE_PRINCIPAL_ID('mes_lectura') IS NOT NULL
 BEGIN

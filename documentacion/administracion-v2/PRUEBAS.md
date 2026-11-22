@@ -5,14 +5,14 @@ Fecha: 22/11/2026. Base SQL de pruebas nueva y aislada, con datos controlados. N
 | Grupo | Resultado |
 | --- | --- |
 | Frontend, importación, CSV y Excel de KPIs | 51 pruebas aprobadas, incluidas las regresiones existentes |
-| Integración SQL Server 2022 | 35 comprobaciones aprobadas |
+| Integración SQL Server 2022 | 39 comprobaciones aprobadas |
 | Motor de cobertura existente | 19 casos aprobados |
 | API HTTP con sesión y protección CSRF | 9 comprobaciones aprobadas |
 | Compilación frontend | Correcta; advertencia de tamaño del paquete ExcelJS, cargado bajo demanda |
 | Compilación backend Release | Correcta, cero advertencias y cero errores |
 | Navegador | Importación confirmada de principio a fin; panel actual único; KPIs con atención persistida; línea vacía y selección de línea |
 
-Total: **114 comprobaciones automatizadas**, además de las verificaciones del navegador. Las pruebas no representan actividad real de planta.
+Total: **118 comprobaciones automatizadas**, además de las verificaciones del navegador. Las pruebas no representan actividad real de planta.
 
 ## Casos relevantes
 

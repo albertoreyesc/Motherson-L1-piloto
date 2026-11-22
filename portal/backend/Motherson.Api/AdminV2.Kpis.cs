@@ -1,3 +1,4 @@
+using Dapper;
 using System.Globalization;
 using System.Text.Json.Nodes;
 namespace Motherson;
@@ -16,7 +17,17 @@ public sealed partial class AdminV2
   var ms=e.Todos("material").Where(m=>(e.Puesto is null||S(m,"puesto")==e.Puesto)&&(parte==""||S(m,"id")==parte)).ToArray();var ids=ms.Select(m=>S(m,"id")).ToHashSet();
   var us=e.Todos("ubicacion").Where(u=>ids.Contains(S(u,"material"))&&(estacion==""||S(e.Obtener("estanteria",S(u,"estanteria")),"estacion")==estacion)).ToArray();var uids=us.Select(u=>S(u,"id")).ToHashSet();
   var materiales=ms.Select(m=>{var sitios=us.Where(u=>S(u,"material")==S(m,"id")).ToArray();var saldo=sitios.Sum(u=>(long)N(u,"cantidad"));var minimo=N(m,"minimo");var estado=sitios.Length==0?"SIN_DATOS":saldo==0?"AGOTADO":saldo<=minimo?"CRITICO":saldo<=1.2m*minimo?"ADVERTENCIA":"NORMAL";return new{id=S(m,"id"),numeroParte=S(m,"numeroParte"),activo=B(m,"activo",true),saldo=sitios.Length==0?(long?)null:saldo,minimo,estado,ubicaciones=sitios.Length};}).ToArray();
-  var todas=e.Todos("atencion").Where(a=>uids.Contains(S(a,"ubicacion"))&&(turno==""||N(a,"turno").ToString()==turno)).ToArray();
+  var todas=e.Todos("atencion").Where(a=>uids.Contains(S(a,"ubicacion"))&&(turno==""||N(a,"turno").ToString()==turno)).ToList();
+  // El legado cerrado permanece en sus tablas y se consulta por periodo, no en cada apertura del portal.
+  if(linea==1){
+   var porLegado=ms.Where(m=>S(m,"numeroParteLegado")!="").ToDictionary(m=>S(m,"numeroParteLegado"),m=>S(m,"id"),StringComparer.Ordinal);
+   if(porLegado.Count>0){await using var legacySql=await store.Open();
+    var rows=await legacySql.QueryAsync("SELECT id_registro,numero_parte,id_ubicacion,id_puesto,puesto,fecha_hora_inicio,fecha_hora_fin FROM dbo.vw_kpi_atenciones WHERE fecha_hora_fin IS NOT NULL AND fecha_hora_inicio<=@corte AND fecha_hora_inicio<@hasta AND fecha_hora_fin>=@desde AND numero_parte IN @partes",new{corte,hasta,desde,partes=porLegado.Keys.ToArray()});
+    foreach(var row in rows){var idUbicacion=((int)row.id_ubicacion).ToString();var inicio=DateTime.SpecifyKind((DateTime)row.fecha_hora_inicio,DateTimeKind.Utc);var turnoLegado=Turno(inicio);if(!uids.Contains(idUbicacion)||(turno!=""&&turnoLegado.ToString()!=turno))continue;
+     todas.Add(new JsonObject{["id"]="legado-"+(int)row.id_registro,["material"]=porLegado[(string)row.numero_parte],["ubicacion"]=idUbicacion,["puesto"]=((int)row.id_puesto).ToString(),["responsable"]=(string)row.puesto,["usuario"]=0,["inicio"]=inicio.ToString("O"),["fin"]=DateTime.SpecifyKind((DateTime)row.fecha_hora_fin,DateTimeKind.Utc).ToString("O"),["turno"]=turnoLegado,["origen"]="REGISTRO_ORIGINAL"});
+    }
+   }
+  }
   var ops=todas.Where(a=>ParseDate(S(a,"inicio"))<hasta&&(ParseDate(S(a,"inicio"))>=desde||S(a,"fin")==""||ParseDate(S(a,"fin"))>=desde)).ToArray();
   var iniciadas=ops.Where(a=>ParseDate(S(a,"inicio"))>=desde&&ParseDate(S(a,"inicio"))<hasta&&ParseDate(S(a,"inicio"))<=corte).ToArray();
   var completadas=ops.Where(a=>S(a,"fin")!=""&&ParseDate(S(a,"fin"))>=desde&&ParseDate(S(a,"fin"))<hasta&&ParseDate(S(a,"fin"))<=corte).ToArray();
