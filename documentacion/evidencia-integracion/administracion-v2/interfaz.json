@@ -1,0 +1,31 @@
+{
+  "alcance": "Prueba local con datos controlados y sesión real; anchos CSS medidos en navegador integrado",
+  "pc": {
+    "alarmasVisibles": 1,
+    "alto": 1000,
+    "ancho": 1439,
+    "documento": 1439
+  },
+  "telefono": {
+    "alto": 844,
+    "ancho": 398,
+    "documento": 398,
+    "seccion": 350.0207214355469
+  },
+  "tableta": {
+    "alto": 1025,
+    "ancho": 768,
+    "documento": 768
+  },
+  "comprobaciones": [
+    "Un panel principal de alarmas visible",
+    "Histórico cerrado y diferenciado",
+    "Línea vacía sin copiar catálogo",
+    "CSV con título y encabezado alternativo reconocido en fila 2",
+    "Alta autorizada 000900-CE con variante, revisión y modelo separados",
+    "Importación confirmada con UUID y resultado descargable",
+    "Hoja 2 muestra una atención persistida completada y promedio N/D",
+    "Sin desbordamiento horizontal del documento en los tres tamaños"
+  ],
+  "pendiente": "Verificación física en dispositivos de la planta y sus navegadores."
+}

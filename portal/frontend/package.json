@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc -b && vite build",
-    "test": "vitest run src/mvp.test.ts src/kpis.test.ts",
+    "test": "vitest run src/mvp.test.ts src/kpis.test.ts src/adminV2.test.ts",
     "test:ui": "playwright test --config mvp.playwright.config.ts"
   },
   "dependencies": {

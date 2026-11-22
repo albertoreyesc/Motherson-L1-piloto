@@ -1,0 +1,17 @@
+{
+  "resultado": "APROBADO",
+  "pruebas": 51,
+  "archivos": [
+    "src/mvp.test.ts",
+    "src/kpis.test.ts",
+    "src/adminV2.test.ts"
+  ],
+  "incluye": [
+    "Mapeo de encabezados y fila",
+    "Identidad exacta y ceros",
+    "Variantes autorizadas",
+    "CSV estructurado y comillas inválidas",
+    "Lectura del Excel exportado con ambas hojas"
+  ],
+  "alcance": "Pruebas locales con datos controlados"
+}

@@ -1,0 +1,7 @@
+{
+  "frontend": "APROBADO",
+  "backendRelease": "APROBADO",
+  "backendAdvertencias": 0,
+  "backendErrores": 0,
+  "nota": "Vite advierte tamaño del paquete ExcelJS, importado bajo demanda."
+}

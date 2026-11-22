@@ -1,0 +1,14 @@
+{
+  "alcance": "HTTP local, autenticaci\u00f3n real, CSRF y SQL",
+  "checks": [
+    "API autenticada enumera cuatro l\u00edneas",
+    "API rechaza lectura entre l\u00edneas por identificador manipulado",
+    "Tras reinicio del proceso persisten material, foto y saldo",
+    "POST sin CSRF rechazado",
+    "Lector no puede invocar escritura directa",
+    "Servidor informa hoja, fila y campo inv\u00e1lido",
+    "Vista previa no cambia datos",
+    "Cliente anterior recibe aviso y no escribe en flujo viejo",
+    "Power BI fijo no aparece como otra l\u00ednea"
+  ]
+}

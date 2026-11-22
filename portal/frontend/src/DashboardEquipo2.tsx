@@ -4,9 +4,9 @@ import {ExternalLink,RefreshCw} from 'lucide-react';
 import {api} from './api';
 type Dashboard={configurado:boolean;url:string|null;modo:'privado'|'sesion_microsoft';motivo?:string|null;avisoDatos?:string|null};
 type Acceso={reportId:string;embedUrl:string;accessToken:string;expiration:string};
-export function DashboardEquipo2(){
+export function DashboardEquipo2({estadoPath='/dashboard-equipo2',tokenPath='/dashboard/embed-token'}:{estadoPath?:string;tokenPath?:string}={}){
  const [datos,setDatos]=useState<Dashboard|null>(null),[error,setError]=useState(''),[recarga,setRecarga]=useState(0);const container=useRef<HTMLDivElement>(null);
- useEffect(()=>{let active=true;api<Dashboard>('/dashboard-equipo2').then(d=>{if(active){setDatos(d);setError('')}}).catch(e=>{if(active)setError(e.message)});return()=>{active=false}},[recarga]);
+ useEffect(()=>{let active=true;api<Dashboard>(estadoPath).then(d=>{if(active){setDatos(d);setError('')}}).catch(e=>{if(active)setError(e.message)});return()=>{active=false}},[recarga,estadoPath]);
  useEffect(()=>{
   if(!datos?.configurado||datos.modo!=='privado'||!container.current)return;
   const node=container.current;let active=true;let timer:ReturnType<typeof setTimeout>|undefined;let cleanup=()=>{};
@@ -14,15 +14,15 @@ export function DashboardEquipo2(){
    try{
     const pbi=await import('powerbi-client');if(!active)return;const client=new pbi.service.Service(pbi.factories.hpmFactory,pbi.factories.wpmpFactory,pbi.factories.routerFactory);
     cleanup=()=>client.reset(node);
-    const acceso=await api<Acceso>('/dashboard/embed-token',{});if(!active)return;
+    const acceso=await api<Acceso>(tokenPath,{});if(!active)return;
     const report=client.embed(node,{type:'report',id:acceso.reportId,embedUrl:acceso.embedUrl,accessToken:acceso.accessToken,tokenType:pbi.models.TokenType.Embed,permissions:pbi.models.Permissions.Read,viewMode:pbi.models.ViewMode.View}) as import('powerbi-client').Report;
     report.on('error',()=>{if(active){if(timer)clearTimeout(timer);setError('No se pudo mostrar el informe. Revisa el acceso y vuelve a intentar.')}});
-    const programar=(expiration:string)=>{timer=setTimeout(async()=>{try{const nuevo=await api<Acceso>('/dashboard/embed-token',{});if(!active)return;await report.setAccessToken(nuevo.accessToken);programar(nuevo.expiration)}catch{if(active)setError('No se pudo renovar el acceso. Inicia sesión nuevamente o vuelve a intentar.')}},Math.max(10000,Date.parse(expiration)-Date.now()-120000))};
+    const programar=(expiration:string)=>{timer=setTimeout(async()=>{try{const nuevo=await api<Acceso>(tokenPath,{});if(!active)return;await report.setAccessToken(nuevo.accessToken);programar(nuevo.expiration)}catch{if(active)setError('No se pudo renovar el acceso. Inicia sesión nuevamente o vuelve a intentar.')}},Math.max(10000,Date.parse(expiration)-Date.now()-120000))};
     programar(acceso.expiration);
    }catch(e){if(active)setError((e as Error).message)}
   }
   void iniciar();return()=>{active=false;if(timer)clearTimeout(timer);cleanup()};
- },[datos,recarga]);
+ },[datos,recarga,tokenPath]);
  const reintentar=()=>{setError('');setRecarga(n=>n+1)};
  if(error)return <section className="panel"><p className="error" role="alert">{error}</p><button onClick={reintentar}>Volver a intentar</button></section>;
  if(!datos)return <p>Consultando dashboard…</p>;
