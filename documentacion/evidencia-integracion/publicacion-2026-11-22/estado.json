@@ -1,0 +1,16 @@
+{
+  "commit": "77516493cb3abd7d6dca45ff41d83c6c3de12de0",
+  "render": "Deploy succeeded | Live",
+  "deploy": "dep-dc1l7qrbc2fs73egi3n0",
+  "https": "https://motherson-l1-piloto.onrender.com/",
+  "verificaciones": [
+    "Health HTTPS 200",
+    "API anónima 401",
+    "Cuenta de planta autenticada",
+    "Catálogo anterior accesible"
+  ],
+  "administracionV2Activa": false,
+  "migracionesAplicadas": false,
+  "bloqueoAdministrativo": "AADSTS530035; SQL directo 40615",
+  "datosPublicadosModificados": false
+}
