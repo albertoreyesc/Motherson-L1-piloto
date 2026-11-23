@@ -1,0 +1,337 @@
+table UBICACION
+	lineageTag: 7961f65d-278e-475a-a258-3143fcb33178
+
+	measure 'Margen Advertencia' = 0.20
+		formatString: 0%
+		displayFolder: Parámetros
+		lineageTag: 5a3b7f99-9104-4f95-9059-dbcd5d6462c0
+
+	measure 'Piezas Restantes' = SUM ( UBICACION[cantidad] )
+		formatString: #,0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 096ccb8b-462f-469e-8caf-3cbf909ecc54
+
+	measure 'Capacidad Piezas' = SUM ( UBICACION[Capacidad (pzas)] )
+		formatString: #,0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 9d57c36e-e070-4934-b158-a1f95d1eeffe
+
+	measure 'Minimo Piezas' = SUM ( UBICACION[Minimo (pzas)] )
+		formatString: #,0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: b1149e82-4f22-42c5-badb-224031c4715e
+
+	measure '% Restante' = DIVIDE ( [Piezas Restantes], [Capacidad Piezas] )
+		formatString: 0%
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 78816200-ef5d-4adb-9abf-05b20abff384
+
+	measure '% Restante Barra' = [% Restante]
+		formatString: 0%
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 95f6b9d7-4a06-4227-9164-a9edbeb0e886
+
+	measure 'Materiales Monitoreados' = COUNTROWS ( UBICACION ) + 0
+		formatString: #,0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: a16c8810-bfbd-4e0e-b8ec-c3a5adcb4f8d
+
+	measure 'Cobertura Minutos' = MIN ( UBICACION[Cobertura (min)] )
+		formatString: 0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 17f36e66-6183-40bc-99f3-a852ad4508d4
+
+	measure Nivel =
+			VAR _p = [Piezas Restantes]
+			VAR _m = [Minimo Piezas]
+			RETURN
+				IF (
+					ISBLANK ( _p ) || ISBLANK ( _m ),
+					BLANK (),
+					SWITCH (
+						TRUE (),
+						_p = 0, "Agotado",
+						_p <= _m, "Crítico",
+						_p <= _m * ( 1 + [Margen Advertencia] ), "Advertencia",
+						"Normal"
+					)
+				)
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 80e674ea-8117-4165-8bc4-8378b277fe3a
+
+	measure 'Color Nivel' = SWITCH ( [Nivel], "Agotado", "#8F1D25", "Crítico", "#D92227", "Advertencia", "#EACD11", "Normal", "#8AB490" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 157e584b-88f2-4d2e-9217-5d000bddf389
+
+	measure 'Fondo Nivel' = SWITCH ( [Nivel], "Agotado", "#8F1D25", "Crítico", "#FDE2E3", "Advertencia", "#FFF6C6", "Normal", "#E3F0E5" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 1f6f7e3a-e4f3-4b83-8999-84fc3d1d6152
+
+	measure 'Texto Nivel' = SWITCH ( [Nivel], "Agotado", "#FFFFFF", "Crítico", "#8F1D25", "Advertencia", "#6B5A08", "Normal", "#3C5D40" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 4519d825-61d1-468b-9a5f-1657231acf93
+
+	measure 'Piezas En Linea' = [Piezas Restantes]
+		formatString: #,0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 7d778bd5-594e-47e4-b981-5f5a98e73635
+
+	measure 'Piezas En Linea Nota' = "En " & FORMAT ( [Materiales Monitoreados], "#,0" ) & " materiales monitoreados"
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 0c5791d4-0a1b-4680-a66c-a3327559bf87
+
+	measure 'Materiales Nivel Critico' = COUNTROWS ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Nivel] IN { "Crítico", "Agotado" } ) ) + 0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 5e6848f4-ae31-4475-aef7-f0a06afad9c3
+
+	measure 'Materiales Nivel Bajo' = COUNTROWS ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Nivel] = "Advertencia" ) ) + 0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: e14adba3-e700-4a90-9ef4-445331a166ad
+
+	measure 'Materiales Nivel Normal' = COUNTROWS ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Nivel] = "Normal" ) ) + 0
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 9a89d64a-fecf-4321-b234-146a127ae658
+
+	measure 'Materiales En Riesgo' = [Materiales Nivel Critico] + [Materiales Nivel Bajo]
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 56d404a5-8310-4842-8b97-a0fda12de8d0
+
+	measure 'Critico Nota' = "En su mínimo o por debajo · " & [Materiales Nivel Bajo] & " en advertencia"
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 266e6563-5c6c-446e-bf49-898f2d75b297
+
+	measure 'Cobertura Promedio Turno' = [% Restante]
+		formatString: 0%
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: fb4a720b-25b0-4692-87be-31b30921eace
+
+	measure 'Proximo Faltante Minutos' =
+			MINX (
+				FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Piezas Restantes] > 0 ),
+				[Cobertura Minutos]
+			)
+		formatString: 0 \m\i\n
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 7c792c95-5c96-444c-b80f-0d73429530bf
+
+	measure 'Proximo Faltante Detalle' =
+			VAR _tabla =
+				ADDCOLUMNS (
+					FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Piezas Restantes] > 0 && NOT ISBLANK ( [Cobertura Minutos] ) ),
+					"@min", [Cobertura Minutos]
+				)
+			VAR _id = MAXX ( TOPN ( 1, _tabla, [@min], ASC ), UBICACION[id_ubicacion] )
+			RETURN
+				IF (
+					NOT ISBLANK ( _id ),
+					LOOKUPVALUE ( UBICACION[Descripcion], UBICACION[id_ubicacion], _id ) & " "
+						& LOOKUPVALUE ( UBICACION[numero_parte], UBICACION[id_ubicacion], _id ) & " · "
+						& LOOKUPVALUE ( UBICACION[nombre_estacion], UBICACION[id_ubicacion], _id )
+				)
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 4361006e-f0f4-440c-9d03-cb1c17f19361
+
+	measure 'Ultima Actualizacion Linea' =
+			SELECTEDVALUE ( ESTACION[Linea], "Todas las líneas" ) & " · Última actualización "
+				& FORMAT ( [Momento Corte], "dd/mm/yyyy hh:nn" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 3851f7da-aa51-4fff-9146-8cb42f92552f
+
+	measure 'Cobertura Texto' =
+			VAR _m = [Cobertura Minutos]
+			RETURN IF ( ISBLANK ( _m ), BLANK (), FORMAT ( _m, "0" ) & " min" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 913ba3d5-4129-43cd-9eb6-cea75b08b59e
+
+	measure 'Restante Texto' = FORMAT ( [Piezas Restantes], "#,0" ) & " / " & FORMAT ( [Capacidad Piezas], "#,0" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 14f49a7a-ee09-4961-b77a-8d8f583e42c4
+
+	measure 'Proxima A Agotarse' = IF ( NOT ISBLANK ( [Cobertura Minutos] ) && [Cobertura Minutos] <= 60, 1, 0 )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: ce7d3558-89b1-4aa4-9336-f99f8f699c64
+
+	measure 'Subtitulo En Riesgo' = [Materiales En Riesgo] & " de " & [Materiales Monitoreados] & " en riesgo"
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 96d6f309-21da-47cd-9e6b-387cb9257e56
+
+	measure 'Pct En Riesgo' = DIVIDE ( [Materiales En Riesgo], [Materiales Monitoreados] )
+		formatString: 0%
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: a171327f-c943-4617-81d0-c139b54e1591
+
+	measure 'Riesgo Texto' = [Materiales En Riesgo] & " en riesgo · " & FORMAT ( [Pct En Riesgo], "0%" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: a69fa194-dad3-427c-bf4c-062fab352c51
+
+	measure 'Puesto Detalle' = FORMAT ( [Materiales Monitoreados], "#,0" ) & " materiales · " & FORMAT ( [Piezas Restantes], "#,0" ) & " pz"
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 94d380c7-9dd6-47be-b0f6-d4461295cfd1
+
+	measure 'Color Detalle' = SELECTEDVALUE ( UBICACION[Color] ) & " · " & [Materiales Monitoreados] & " materiales"
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: abde4fd9-d53b-41e9-95eb-68ca78ffe99d
+
+	measure 'Color Riesgo' = IF ( [Materiales Nivel Critico] > 0, "#D92227", "#6B6B6B" )
+		displayFolder: Hoja 1 · Material restante
+		lineageTag: 5766aa64-52f0-437a-8f09-6c2f852ee2f6
+
+	measure 'Existencia Piezas' = SUM ( UBICACION[cantidad] )
+		formatString: #,0
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 1d537aa4-a45b-43d9-95cc-9647c8c8b79d
+
+	measure 'Cajas Equivalentes' = SUMX ( UBICACION, DIVIDE ( UBICACION[cantidad], RELATED ( MATERIAL[cantidad_por_caja] ) ) )
+		formatString: #,0
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 6c025fe0-0c58-4dcd-987a-8ea090137007
+
+	measure 'Cajas Equivalentes Nota' = "Existencia / piezas por caja, por posición"
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 20de4bb4-e37b-4b88-bd6f-67347142ae58
+
+	measure 'Cajas Estimadas' = SUMX ( UBICACION, ROUNDUP ( DIVIDE ( UBICACION[cantidad], RELATED ( MATERIAL[cantidad_por_caja] ) ), 0 ) )
+		formatString: #,0
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 35261f8f-02d9-426a-a75a-5e19d124fd4f
+
+	measure 'Capacidad Cajas' = SUMX ( UBICACION, RELATED ( ESTANTERIA[cajas_estanteria] ) )
+		formatString: #,0
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 0854e6b4-22e0-4ca6-b636-b68b8e9f03d7
+
+	measure '% Ocupacion' = DIVIDE ( [Cajas Estimadas], [Capacidad Cajas] )
+		formatString: 0%
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: ca437414-0765-4cb1-903a-d9482d37de72
+
+	measure 'Color Ocupacion' =
+			VAR _p = [% Ocupacion]
+			RETURN SWITCH ( TRUE (), ISBLANK ( _p ), BLANK (), _p >= 0.85, "#D92227", _p >= 0.60, "#EACD11", "#8AB490" )
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: e61d931a-95b5-4b77-b07a-70cae1592089
+
+	measure 'Ocupacion Nota' =
+			VAR _r = FILTER ( ADDCOLUMNS ( VALUES ( ESTANTERIA[Rack] ), "@p", [% Ocupacion] ), NOT ISBLANK ( [@p] ) )
+			RETURN
+				FORMAT ( COUNTROWS ( FILTER ( _r, [@p] >= 0.85 ) ) + 0, "0" ) & " estanterías ≥ 85 % · "
+					& FORMAT ( COUNTROWS ( FILTER ( _r, [@p] >= 0.6 && [@p] < 0.85 ) ) + 0, "0" ) & " entre 60 y 85 % · "
+					& FORMAT ( COUNTROWS ( FILTER ( _r, [@p] < 0.6 ) ) + 0, "0" ) & " debajo de 60 %"
+		displayFolder: Hoja 2 · Desempeño semanal
+		lineageTag: 66b8e395-07e6-4c3a-a001-2e48d8c80316
+
+	column id_ubicacion
+		dataType: string
+		lineageTag: b3df4a82-610d-4fd8-9a80-09c875cf79f3
+		summarizeBy: none
+		sourceColumn: id_ubicacion
+
+	column numero_parte
+		dataType: string
+		lineageTag: bb3a3811-6205-450c-8ae9-82ebc8eb2465
+		summarizeBy: none
+		sourceColumn: numero_parte
+
+	column id_estanteria
+		dataType: string
+		lineageTag: bf124423-8334-4abf-8d7a-ea2fd91832fd
+		summarizeBy: none
+		sourceColumn: id_estanteria
+
+	column cantidad
+		dataType: int64
+		formatString: #,0
+		lineageTag: da2119cb-33b3-4089-bbfe-7b20b9461998
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+	column Descripcion = RELATED ( MATERIAL[Descripcion Mostrar] )
+		dataType: string
+		lineageTag: 45f52242-2c8f-46f1-94b4-572a8e967ce6
+		summarizeBy: none
+
+	column Pieza = UBICACION[Descripcion] & UNICHAR ( 10 ) & UBICACION[numero_parte]
+		dataType: string
+		lineageTag: 58db8b56-2aa1-4682-ae48-88472b2269e1
+		summarizeBy: none
+
+	column nombre_estacion = RELATED ( ESTACION[nombre_estacion] )
+		dataType: string
+		lineageTag: 19547f6b-fcbc-4e52-b172-78c3d71a40e1
+		summarizeBy: none
+
+	column Estacion = RELATED ( ESTACION[Estacion] )
+		dataType: string
+		lineageTag: 16f5667b-5324-46e1-a3d6-e409ee8879b4
+		summarizeBy: none
+
+	column Estanteria = RELATED ( ESTANTERIA[estanteria] )
+		dataType: string
+		lineageTag: 5a828141-7638-49fb-8298-2f010188f2dc
+		summarizeBy: none
+
+	column 'Nivel Estante' =
+			VAR _n = RELATED ( ESTANTERIA[nivel] )
+			RETURN IF ( ISBLANK ( _n ) || TRIM ( _n ) = "", "s/n", _n )
+		dataType: string
+		lineageTag: 55f517c3-8cf7-4108-bade-5254bb367003
+		summarizeBy: none
+
+	column Color =
+			VAR _c = RELATED ( COLOR[nombre] )
+			RETURN IF ( ISBLANK ( _c ), "Sin color", _c )
+		dataType: string
+		lineageTag: 620e049e-7e2d-49d6-9bf0-715523f924ea
+		summarizeBy: none
+
+	column Puesto = VAR _t = LOOKUPVALUE ( PUESTO_LOGISTICO[Nombre], PUESTO_LOGISTICO[id_puesto], RELATED ( MATERIAL[id_puesto] ) ) RETURN IF ( ISBLANK ( _t ), "Sin puesto", _t )
+		dataType: string
+		lineageTag: b83067f2-b33f-49a7-9076-073f5296b2cc
+		summarizeBy: none
+
+	column 'Capacidad (pzas)' = RELATED ( ESTANTERIA[cajas_estanteria] ) * RELATED ( MATERIAL[cantidad_por_caja] )
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3742d3e0-aeca-497a-876d-01e611592f4e
+		summarizeBy: sum
+
+	column 'Minimo (pzas)' = RELATED ( MATERIAL[minimo] )
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1684b45b-da87-4d9a-b9b8-3512bb3705bb
+		summarizeBy: sum
+
+	column 'Ritmo (pzas/min)' =
+			VAR _corte = MAX ( REGISTRO[fecha_hora_fin] )
+			VAR _desde = _corte - 28
+			VAR _ventana = FILTER ( REGISTRO, REGISTRO[fecha_hora_inicio] > _desde && REGISTRO[fecha_hora_inicio] <= _corte )
+			VAR _dias = COUNTROWS ( DISTINCT ( SELECTCOLUMNS ( _ventana, "@dia", INT ( REGISTRO[fecha_hora_inicio] ) ) ) )
+			VAR _minutosDia = SUMX ( TURNO, TURNO[Minutos Turno] )
+			VAR _surtidos = COUNTROWS ( FILTER ( _ventana, REGISTRO[id_ubicacion] = UBICACION[id_ubicacion] ) )
+			VAR _lote = MAX ( UBICACION[Capacidad (pzas)] - UBICACION[Minimo (pzas)], RELATED ( MATERIAL[cantidad_por_caja] ) )
+			RETURN DIVIDE ( _surtidos * _lote, _dias * _minutosDia )
+		dataType: double
+		formatString: 0.000
+		lineageTag: 5441d911-8560-4242-85c8-ef07cffc6ac1
+		summarizeBy: none
+
+	column 'Cobertura (min)' = BLANK()
+		dataType: double
+		formatString: 0
+		lineageTag: ab652da5-1084-4ed8-8054-d62cb86d2f54
+		summarizeBy: none
+
+	partition UBICACION = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_UBICACION"]}[Data]
+				in
+					Datos
+
+	column clave_material
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: clave_material

@@ -22,3 +22,12 @@ describe('CSV estructurado',()=>{
 describe('Exportación KPIs' ,()=>{
  it('ambas hojas coinciden con la consulta, ceros y N/D',async()=>{const datos={contexto:{linea:2,corte:'2026-11-22T18:00:00Z',desde:'2026-11-20',hasta:'2026-11-22',estacion:'',material:'',turno:''},estadoActual:{inventario:10,cajasEquivalentes:1,agotados:0,criticos:0,advertencia:0,sinDatos:0,ubicaciones:1,materiales:[{id:'m1',numeroParte:'000123-CE',saldo:10,minimo:5,estado:'NORMAL',activo:true,ubicaciones:1}]},actividad:{completados:1,enCurso:0,repetidos:0,incompletos:0,intervaloPromedioHoras:null,intervalosEvaluados:0,porDia:[{dia:'2026-11-22',cantidad:1}],repeticiones:[],operaciones:[{id:'a1',material:'m1',ubicacion:'u1',responsable:'Prueba',inicio:'2026-11-22T17:00:00Z',fin:'2026-11-22T17:02:00Z',turno:1}],nota:'Datos controlados'}} as unknown as KpisAdmin;const b=await libroAdminV2(datos,[material]);const buffer=await b.xlsx.writeBuffer();const {default:ExcelJS}=await import('exceljs');const reloaded=new ExcelJS.Workbook();await reloaded.xlsx.load(buffer);expect(reloaded.worksheets.map(s=>s.name)).toEqual(['Hoja 1 - Estado actual','Hoja 2 - Actividad logística']);expect(reloaded.worksheets[0].getCell('B5').value).toBe(10);expect(reloaded.worksheets[1].getCell('B5').value).toBe(1);expect(reloaded.worksheets[1].getCell('B9').value).toBe('N/D');expect(JSON.stringify(reloaded.worksheets[0].getSheetValues())).toContain('000123-CE')});
 });
+
+import {preverMovimiento} from './movimientoV2';
+describe('Captura por bloques: saldo y capacidad',()=>{
+ const u={id:'u1',material:'m1',estanteria:'r1',cantidad:15,libres:2,apertura:'2026-11-22T00:00:00Z'};
+ it('retira remanente de caja abierta sin saldo negativo',()=>expect(preverMovimiento(material,u,'SALIDA',2)).toEqual({piezas:15,saldo:0}));
+ it('respeta capacidad y limita salidas a las cajas existentes',()=>{expect(preverMovimiento(material,u,'ENTRADA',3).error).toContain('espacio');expect(preverMovimiento(material,u,'SALIDA',3).error).toContain('suficientes')});
+ it('material inhabilitado permite retiro y rechaza entrada',()=>{expect(preverMovimiento({...material,activo:false},u,'ENTRADA',1).error).toContain('inhabilitado');expect(preverMovimiento({...material,activo:false},u,'SALIDA',1)).toEqual({piezas:10,saldo:5})});
+ it.each([0,-1,1.5,NaN,Infinity,1000001])('rechaza cantidad inválida %s',c=>expect(preverMovimiento(material,u,'ENTRADA',c).error).toBeTruthy());
+});

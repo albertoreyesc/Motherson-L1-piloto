@@ -69,7 +69,7 @@ public sealed partial class AdminV2(Store store)
    var apertura=e.Apertura;if(DateTime.TryParse(S(u,"apertura"),null,DateTimeStyles.RoundtripKind,out var ua))apertura=ua;
    var r=MotorCobertura.Evaluar(N(u,"cantidad"),1,S(m,"numeroParte"),corte,ventana,apertura,cs,"V2");
    if(r.Minutos is decimal minutes&&r.Estado!="AGOTADO"&&cal is not null){var status=CalendarioV2.Clasificar(minutes,cal);r=r with{Estado=status,Prioridad=status=="NORMAL"?"NORMAL":status=="ADVERTENCIA"?"MEDIA":"ALTA / CRÍTICA"};}
-   return (object)new{ubicacion=id,material=S(m,"id"),resultado=r};
+   return (object)new{ubicacion=id,material=S(m,"id"),resultado=r,referencia=new{corte,ventana.Intervalos,minutosLaborables=ventana.Minutos,fuente=cal is null?null:S(cal,"fuente"),simulado=cal is not null&&B(cal,"simulado"),ultimoMinutoLaborable=ventana.Intervalos.LastOrDefault()?.Fin}};
   }).ToArray();
  }
  public async Task<JsonElement> Ejecutar(Cuenta actor,int linea,string tipo,JsonObject input,Guid key)
@@ -115,6 +115,8 @@ public sealed partial class AdminV2(Store store)
     var piezas=entrada?checked((long)cajas*empaque):Math.Min((long)cajas*empaque,saldo);var nuevo=saldo+(entrada?piezas:-piezas);Exigir(piezas>0&&nuevo>=0&&nuevo<=int.MaxValue,"Cantidad fuera de rango.");
     u["cantidad"]=(int)nuevo;var rack=e.Obtener("estanteria",S(u,"estanteria"));Exigir(Ocupacion(e,S(rack,"id"))<=N(rack,"capacidad"),"La estantería no tiene espacio.",409);
     resultado["ubicacion"]=S(u,"id");resultado["material"]=S(m,"id");resultado["numeroParte"]=S(m,"numeroParte");resultado["piezas"]=(int)piezas;resultado["saldoAnterior"]=saldo;resultado["saldoPosterior"]=(int)nuevo;resultado["consumo"]=B(input,"consumo");
+    var atencion=Texto(input,"atencion",100);if(atencion.Length>0){var a=e.Obtener("atencion",atencion);Exigir(S(a,"ubicacion")==S(u,"id")&&S(a,"fin")==""&&(e.Rol=="ADMIN"||N(a,"usuario")==actor.Id),"La atención debe estar abierta en esta ubicación y pertenecer a tu cuenta.",409);resultado["atencion"]=atencion;}
+
     break;
    }
    case "ATENCION_INICIAR":

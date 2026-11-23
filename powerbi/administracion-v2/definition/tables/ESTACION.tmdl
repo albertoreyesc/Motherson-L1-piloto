@@ -1,0 +1,40 @@
+table ESTACION
+	lineageTag: 976ee592-5ca7-4fa5-ba20-c50f11c1cb3a
+
+	column id_estacion
+		dataType: string
+		lineageTag: 797e21c6-275a-456c-8dbd-32b7ea873754
+		summarizeBy: none
+		sourceColumn: id_estacion
+
+	column id_linea
+		dataType: int64
+		formatString: 0
+		lineageTag: 70c5b932-6f7f-49e2-9467-1855158e7ab6
+		summarizeBy: none
+		sourceColumn: id_linea
+
+	column nombre_estacion
+		dataType: string
+		lineageTag: 627ed9f1-4011-4ec9-af70-cfd3f20498ce
+		summarizeBy: none
+		sourceColumn: nombre_estacion
+
+	column Linea = "Línea " & ESTACION[id_linea]
+		dataType: string
+		lineageTag: 8640b33b-2695-483d-bebb-f939f36cf2da
+		summarizeBy: none
+
+	column Estacion = "L" & ESTACION[id_linea] & " · " & ESTACION[nombre_estacion]
+		dataType: string
+		lineageTag: 6136513e-0808-4b1a-a91a-709f94c0fe30
+		summarizeBy: none
+
+	partition ESTACION = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_ESTACION"]}[Data]
+				in
+					Datos

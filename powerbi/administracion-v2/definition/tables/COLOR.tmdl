@@ -1,0 +1,23 @@
+table COLOR
+	lineageTag: 0e66d3aa-753c-4360-b7a8-d290d1e60e97
+
+	column id_color
+		dataType: string
+		lineageTag: f093860e-482c-4a9d-8762-1081693cc2b9
+		summarizeBy: none
+		sourceColumn: id_color
+
+	column nombre
+		dataType: string
+		lineageTag: 74553d49-4a75-43e1-b82e-32d782cd9edc
+		summarizeBy: none
+		sourceColumn: nombre
+
+	partition COLOR = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_COLOR"]}[Data]
+				in
+					Datos

@@ -1,0 +1,47 @@
+table ESTANTERIA
+	lineageTag: c2a5825c-056c-478a-adfd-f0ae10348bdc
+
+	column id_estanteria
+		dataType: string
+		lineageTag: 7773b616-35ba-47d5-afcf-31c1c0e0cfa8
+		summarizeBy: none
+		sourceColumn: id_estanteria
+
+	column id_estacion
+		dataType: string
+		lineageTag: c61f6990-8206-42e7-911d-1b0247093f23
+		summarizeBy: none
+		sourceColumn: id_estacion
+
+	column estanteria
+		dataType: string
+		lineageTag: 18996fed-812a-4b4e-9a40-2933d78bd03e
+		summarizeBy: none
+		sourceColumn: estanteria
+
+	column nivel
+		dataType: string
+		lineageTag: 0b8ecd00-d5bb-4960-bab2-5936f5b6ecef
+		summarizeBy: none
+		sourceColumn: nivel
+
+	column cajas_estanteria
+		dataType: int64
+		formatString: #,0
+		lineageTag: 421c5396-ab6e-4201-9e40-e84ab187926f
+		summarizeBy: sum
+		sourceColumn: cajas_estanteria
+
+	column Rack = RELATED ( ESTACION[Estacion] ) & " · Est. " & ESTANTERIA[estanteria]
+		dataType: string
+		lineageTag: c6341365-2de8-4617-b2b1-124cb6da6159
+		summarizeBy: none
+
+	partition ESTANTERIA = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_ESTANTERIA"]}[Data]
+				in
+					Datos

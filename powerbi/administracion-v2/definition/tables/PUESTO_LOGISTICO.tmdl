@@ -1,0 +1,34 @@
+table PUESTO_LOGISTICO
+	lineageTag: 2682170d-26ef-48b9-8353-a4fc350f9d38
+
+	column id_puesto
+		dataType: string
+		lineageTag: f07e46ed-e22d-4757-a142-5de3457a4646
+		summarizeBy: none
+		sourceColumn: id_puesto
+
+	column Nombre
+		dataType: string
+		lineageTag: a3eb2168-e5ea-4fcd-9873-7aca15144409
+		summarizeBy: none
+		sourceColumn: Nombre
+
+	column Tipo
+		dataType: string
+		lineageTag: 3001bd34-707d-4235-b124-964b68f093f0
+		summarizeBy: none
+		sourceColumn: Tipo
+
+	column Personal = IF ( ISBLANK ( PUESTO_LOGISTICO[Tipo] ) || PUESTO_LOGISTICO[Tipo] = "", PUESTO_LOGISTICO[Nombre], PUESTO_LOGISTICO[Nombre] & " (" & PUESTO_LOGISTICO[Tipo] & ")" )
+		dataType: string
+		lineageTag: 9bb67a34-b878-4df8-84db-11814b0235c0
+		summarizeBy: none
+
+	partition PUESTO_LOGISTICO = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_PUESTO_LOGISTICO"]}[Data]
+				in
+					Datos

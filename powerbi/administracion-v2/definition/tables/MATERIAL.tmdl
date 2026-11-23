@@ -1,0 +1,118 @@
+table MATERIAL
+	lineageTag: bc226ba1-fe31-4088-8168-af58d5ffe5bf
+
+	measure 'Materiales Evaluados' = DISTINCTCOUNT ( UBICACION[numero_parte] ) + 0
+		formatString: #,0
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: c57fbd54-bca4-4ca0-82e4-9e8d4196c9bf
+
+	measure 'Materiales Por Estado' = DISTINCTCOUNT ( UBICACION[numero_parte] )
+		formatString: #,0
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 71f1742e-3230-47af-b732-4be34e8b567f
+
+	measure 'Disponibilidad Nota' = FORMAT ( [Materiales Evaluados], "#,0" ) & " materiales evaluados · existencia de planta vs. mínimo"
+		displayFolder: Hoja 3 · Capacidad
+		lineageTag: 64a39c17-ed57-49c2-8781-2f7c7e63cc81
+
+	column numero_parte
+		dataType: string
+		lineageTag: 8df6ecaf-e20e-4627-b39a-729add25c810
+		summarizeBy: none
+		sourceColumn: numero_parte
+
+	column id_puesto
+		dataType: string
+		lineageTag: 7c8eb303-8798-4bf5-a763-03881c35fbd5
+		summarizeBy: none
+		sourceColumn: id_puesto
+
+	column id_color
+		dataType: string
+		lineageTag: 2e1cc586-6f6a-4aa8-871a-3a5ad2d9c1f1
+		summarizeBy: none
+		sourceColumn: id_color
+
+	column descripcion
+		dataType: string
+		lineageTag: 248497de-d0d5-46f1-8027-37667c0e8a8b
+		summarizeBy: none
+		sourceColumn: descripcion
+
+	column uso
+		dataType: string
+		lineageTag: 598665e5-10fe-448b-8a37-22e2678f0d2b
+		summarizeBy: none
+		sourceColumn: uso
+
+	column cantidad_por_caja
+		dataType: int64
+		formatString: #,0
+		lineageTag: ab9bddbd-fc06-4446-86d6-50ec3ee07720
+		summarizeBy: none
+		sourceColumn: cantidad_por_caja
+
+	column stock
+		dataType: int64
+		formatString: #,0
+		lineageTag: bf47727d-a86f-413c-b96d-cf2d4dd496dc
+		summarizeBy: none
+		sourceColumn: stock
+
+	column minimo
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5d49eca4-b9e5-46ee-b20f-8814e18d9996
+		summarizeBy: none
+		sourceColumn: minimo
+
+	column 'Descripcion Mostrar' =
+			VAR _d = IF ( ISBLANK ( MATERIAL[descripcion] ) || MATERIAL[descripcion] = "", "Sin descripción documental", MATERIAL[descripcion] )
+			RETURN UPPER ( LEFT ( _d, 1 ) ) & LOWER ( MID ( _d, 2, 300 ) )
+		dataType: string
+		lineageTag: 122074e5-7b44-4ef5-8edc-8744ba42ab7f
+		summarizeBy: none
+
+	column 'Tipo de uso' =
+			IF (
+				ISBLANK ( MATERIAL[uso] ) || MATERIAL[uso] = "",
+				"Sin dato",
+				UPPER ( LEFT ( MATERIAL[uso], 1 ) ) & LOWER ( MID ( MATERIAL[uso], 2, 100 ) )
+			)
+		dataType: string
+		lineageTag: 16f41570-a69c-4a60-9bbe-64a490713e37
+		summarizeBy: none
+
+	column 'Existencia (pzas)' = SUMX ( FILTER ( UBICACION, UBICACION[clave_material] = MATERIAL[clave_material] ), UBICACION[cantidad] ) + 0
+		dataType: int64
+		formatString: #,0
+		lineageTag: 7983f648-5de3-416d-a279-665f77df3d42
+		summarizeBy: sum
+
+	column Estado =
+			VAR _e = MATERIAL[Existencia (pzas)]
+			VAR _m = MATERIAL[minimo]
+			RETURN
+				IF (
+					_m <= 0,
+					BLANK (),
+					SWITCH ( TRUE (), _e = 0, "Agotado", _e <= _m, "Crítico", _e <= _m * 1.2, "Advertencia", "Normal" )
+				)
+		dataType: string
+		lineageTag: 957881ed-d7b7-4a87-9018-f177d5139d15
+		summarizeBy: none
+
+	partition MATERIAL = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_MATERIAL"]}[Data]
+				in
+					Datos
+
+	column clave_material
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: clave_material

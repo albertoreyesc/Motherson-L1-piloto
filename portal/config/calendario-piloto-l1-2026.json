@@ -1,0 +1,31 @@
+{
+  "desde": "2026-11-22",
+  "hasta": "2026-12-31",
+  "dias": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "turnos": [
+    {
+      "inicio": "06:00",
+      "fin": "15:00",
+      "descansos": []
+    },
+    {
+      "inicio": "15:00",
+      "fin": "23:30",
+      "descansos": []
+    }
+  ],
+  "excepciones": {
+    "2026-12-25": false
+  },
+  "normal": 60,
+  "advertencia": 30,
+  "critico": 15,
+  "simulado": true,
+  "fuente": "Referencia simulada Puebla autorizada por usuario 22/11/2026. L-V; turnos del histórico; art.74 LFT. Descansos internos y operación real por validar."
+}

@@ -1,0 +1,33 @@
+relationship REGISTRO_UBICACION
+	fromColumn: REGISTRO.id_ubicacion
+	toColumn: UBICACION.id_ubicacion
+
+relationship REGISTRO_PUESTO
+	fromColumn: REGISTRO.id_puesto
+	toColumn: PUESTO_LOGISTICO.id_puesto
+
+relationship REGISTRO_TURNO
+	fromColumn: REGISTRO.id_turno
+	toColumn: TURNO.id_turno
+
+relationship UBICACION_MATERIAL
+	fromColumn: UBICACION.clave_material
+	toColumn: MATERIAL.clave_material
+
+relationship UBICACION_ESTANTERIA
+	fromColumn: UBICACION.id_estanteria
+	toColumn: ESTANTERIA.id_estanteria
+
+relationship ESTANTERIA_ESTACION
+	fromColumn: ESTANTERIA.id_estacion
+	toColumn: ESTACION.id_estacion
+
+relationship MATERIAL_COLOR
+	fromColumn: MATERIAL.id_color
+	toColumn: COLOR.id_color
+
+relationship MATERIAL_PUESTO
+	isActive: false
+	fromColumn: MATERIAL.id_puesto
+	toColumn: PUESTO_LOGISTICO.id_puesto
+

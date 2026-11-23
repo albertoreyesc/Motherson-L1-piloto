@@ -1,0 +1,48 @@
+table TURNO
+	lineageTag: 2435aab6-42c7-4e72-aaec-40fa6a102387
+
+	column id_turno
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dfd0c31-35bf-43dd-b44e-7b615b8b7f09
+		summarizeBy: none
+		sourceColumn: id_turno
+
+	column nombre_turno
+		dataType: string
+		lineageTag: e4fbf6a3-e880-41ce-9feb-4166eb769338
+		summarizeBy: none
+		sourceColumn: nombre_turno
+
+	column hora_inicio
+		dataType: dateTime
+		formatString: hh:nn
+		lineageTag: 3e14c767-910e-4c85-8028-fc4a7cbfef22
+		summarizeBy: none
+		sourceColumn: hora_inicio
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column hora_fin
+		dataType: dateTime
+		formatString: hh:nn
+		lineageTag: 989e8047-5183-40e6-b6f2-de2758df30b3
+		summarizeBy: none
+		sourceColumn: hora_fin
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Minutos Turno' = ROUND ( ( TURNO[hora_fin] - TURNO[hora_inicio] ) * 1440, 0 )
+		dataType: double
+		formatString: 0
+		lineageTag: 4390fad0-38c6-4d15-b791-6120d5624a40
+		summarizeBy: sum
+
+	partition TURNO = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_TURNO"]}[Data]
+				in
+					Datos

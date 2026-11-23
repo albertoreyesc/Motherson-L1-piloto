@@ -39,6 +39,20 @@
     "No se ofrece un corte hist\u00F3rico futuro",
     "Corte hist\u00F3rico conserva saldo previo y no altera actual",
     "Calendario validado y persistido por l\u00EDnea",
+    "Per\u00EDodo disponible conserva todo el legado sin duplicaci\u00F3n",
+    "L\u00EDnea vac\u00EDa no inventa per\u00EDodo hist\u00F3rico",
+    "Per\u00EDodo disponible respeta permisos entre l\u00EDneas",
+    "Descanso nocturno se excluye de la ventana de consumo",
+    "\u00DAltimo turno nocturno sigue v\u00E1lido despu\u00E9s de medianoche al terminar vigencia",
+    "Descanso fuera del turno rechazado",
+    "Movimiento conserva referencia a atenci\u00F3n abierta sin crear otra",
+    "No se relaciona movimiento con una atenci\u00F3n finalizada",
+    "Saldo agotado y detalle de ventana coherentes en API compartida por Resumen e Inventario",
+    "Fuente BI de inventario concilia saldos v2 de las cuatro l\u00EDneas",
+    "Fuente BI incluye legado y nuevas atenciones sin duplicaci\u00F3n",
+    "Fuentes BI conservan relaciones por identificadores compuestos estables",
+    "Cobertura API: 60 piezas de saldo y dos consumos de 30 pz en 60 min dan 60 minutos normales",
+    "Cobertura API no mezcla consumos de otra ubicaci\u00F3n del mismo material",
     "Cuenta revocada no lee con sesi\u00F3n anterior"
   ]
 }

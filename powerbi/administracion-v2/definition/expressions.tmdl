@@ -1,0 +1,24 @@
+expression RutaCSV = "sin_uso" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 17f1d3f3-78de-4e7b-b78e-1cbbfcd190f3
+
+expression RutaEquipo2 = "sin_uso" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 9ed79d57-d5e5-46fd-914a-f95e9f0cb38f
+
+expression LeerJSONL = (archivo as text, optional filtroLinea as nullable function) as table => #table({}, {})
+	lineageTag: 8691e7e7-bc80-480d-8521-bbd5209da259
+
+expression UtcALocal = (t as nullable text) as nullable datetime => null
+	lineageTag: bb417c99-f989-4092-8774-0a0b823cae50
+
+expression Eq2_Posiciones = () as table => #table({}, {})
+	lineageTag: f4ecdd26-69c9-4298-b17c-c63d4504b814
+
+expression Eq2_Descripciones = () as table => #table({}, {})
+	lineageTag: ee244333-971a-4552-8476-2330083fdaa7
+
+expression ServidorSQL = "motherson-piloto-l1-20261119.database.windows.net" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text"]
+	lineageTag: 87d79abc-4105-46d1-9c90-02c01ce1bd43
+
+expression BaseSQL = "Motherson_L1" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text"]
+	lineageTag: 6cbad0c0-f938-430e-bac6-64bc766016c5
+

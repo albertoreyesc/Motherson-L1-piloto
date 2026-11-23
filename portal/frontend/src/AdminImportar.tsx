@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {api} from './api';
 import {leerCsvV2,camposV2,titulosV2,sugerirColumnas,planV2,type CampoV2,type CeldaV2} from './importacionV2';
 import type {EstadoAdmin} from './adminTypes';
-export function descargarV2(blob:Blob,nombre:string){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=nombre;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+export function descargarV2(blob:Blob,nombre:string){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=nombre;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),30000)}
 export function AdminImportar({estado,run,onDirty}:{estado:EstadoAdmin;run:(t:string,b:Record<string,unknown>)=>Promise<unknown>;onDirty:(v:boolean)=>void}){
  const [sheets,setSheets]=useState<{name:string;rows:CeldaV2[][]}[]>([]),[sheet,setSheet]=useState(0),[head,setHead]=useState(0),[map,setMap]=useState<Partial<Record<CampoV2,number>>>({}),[altas,setAltas]=useState(false),[nuevos,setNuevos]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[result,setResult]=useState<unknown>(null);
  const rows=sheets[sheet]?.rows??[];let plan:ReturnType<typeof planV2>=[];let planError='';try{if(rows.length)plan=planV2(rows,head,map,estado.materiales,estado.puestos)}catch(e){planError=(e as Error).message}

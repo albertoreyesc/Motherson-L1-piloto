@@ -4,6 +4,15 @@ using System.Text.Json.Nodes;
 namespace Motherson;
 public sealed partial class AdminV2
 {
+ public async Task<object> ActividadDisponible(Cuenta actor,int linea)
+ {
+  var e=await Leer(actor,linea);var ms=e.Todos("material").Where(m=>e.Puesto is null||S(m,"puesto")==e.Puesto).ToArray();var ids=ms.Select(m=>S(m,"id")).ToHashSet();var us=e.Todos("ubicacion").Where(u=>ids.Contains(S(u,"material"))).Select(u=>int.TryParse(S(u,"id"),out var id)?id:-1).Where(id=>id>=0).ToArray();
+  var fechas=new List<DateTime>();var atenciones=e.Todos("atencion").Where(a=>ids.Contains(S(a,"material"))).ToArray();
+  foreach(var a in atenciones){fechas.Add(ParseDate(S(a,"inicio")));if(S(a,"fin")!="")fechas.Add(ParseDate(S(a,"fin")));}
+  long legado=0;var partes=ms.Select(m=>S(m,"numeroParteLegado")).Where(p=>p!="").ToArray();
+  if(linea==1&&partes.Length>0&&us.Length>0){await using var sql=await store.Open();var r=await sql.QuerySingleAsync("SELECT COUNT_BIG(*) cantidad,MIN(fecha_hora_inicio) inicio,MAX(fecha_hora_fin) fin FROM dbo.vw_kpi_atenciones WHERE fecha_hora_fin IS NOT NULL AND numero_parte IN @partes AND id_ubicacion IN @us",new{partes,us});legado=(long)r.cantidad;if(r.inicio is DateTime start)fechas.Add(DateTime.SpecifyKind(start,DateTimeKind.Utc));if(r.fin is DateTime end)fechas.Add(DateTime.SpecifyKind(end,DateTimeKind.Utc));}
+  return new{linea,total=legado+atenciones.Length,legado,nuevas=atenciones.Length,desde=fechas.Count>0?KpisMotor.Dia(fechas.Min()):null,hasta=fechas.Count>0?KpisMotor.Dia(fechas.Max()):null,zona="America/Mexico_City"};
+ }
  static DateTime ParseDate(string text)=>DateTime.Parse(text,null,DateTimeStyles.RoundtripKind);
  public async Task<object> Kpis(Cuenta actor,int linea,IQueryCollection q)
  {

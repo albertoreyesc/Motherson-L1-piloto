@@ -1,0 +1,26 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-MX
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode","WebModelingEdit","TMDLView_Desktop","DaxQueryView_Desktop"]
+
+annotation PBI_QueryOrder = ["RutaCSV","RutaEquipo2","LeerJSONL","UtcALocal","Eq2_Posiciones","Eq2_Descripciones","ESTACION","COLOR","PUESTO_LOGISTICO","TURNO","ESTANTERIA","MATERIAL","UBICACION","REGISTRO","ServidorSQL","BaseSQL"]
+
+ref table ESTACION
+ref table COLOR
+ref table PUESTO_LOGISTICO
+ref table TURNO
+ref table ESTANTERIA
+ref table MATERIAL
+ref table UBICACION
+ref table REGISTRO
+
+ref cultureInfo es-ES
+

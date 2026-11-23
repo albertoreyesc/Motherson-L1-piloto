@@ -1,0 +1,675 @@
+table REGISTRO
+	lineageTag: 254a8c43-7f07-44d1-bd1f-4eb712eb6773
+
+	measure 'Momento Corte' = CALCULATE ( MAX ( MAX ( REGISTRO[fecha_hora_fin] ), MAX ( REGISTRO[fecha_hora_inicio] ) ), REMOVEFILTERS () )
+		formatString: dd/mm/yyyy hh:nn
+		displayFolder: Parámetros
+		lineageTag: c068c3af-f026-423b-8791-24174888ec03
+
+	measure 'Semana Seleccionada' =
+			IF (
+				HASONEFILTER ( REGISTRO[Periodo] ),
+				VAR _p = MAXX ( FILTERS ( REGISTRO[Periodo] ), REGISTRO[Periodo] )
+				RETURN CALCULATE ( MAX ( REGISTRO[Semana Indice] ), REMOVEFILTERS ( REGISTRO ), REGISTRO[Periodo] = _p )
+			)
+		formatString: 0
+		displayFolder: Parámetros
+		lineageTag: 652a3bef-a7ff-41a5-aa7e-3567eff87939
+
+	measure 'Umbral Horas Medio' = 8
+		formatString: 0
+		displayFolder: Parámetros
+		lineageTag: 4cbce47b-f7f4-4a0d-8837-548118f12de6
+
+	measure 'Umbral Horas Alto' = 24
+		formatString: 0
+		displayFolder: Parámetros
+		lineageTag: 7f298b40-6720-4bc1-9f9f-1af2eae113b9
+
+	measure 'Umbral Repeticion Media' = 4
+		formatString: 0
+		displayFolder: Parámetros
+		lineageTag: c082f33f-fb79-4f73-be99-27a954adf193
+
+	measure 'Umbral Repeticion Alta' = 10
+		formatString: 0
+		displayFolder: Parámetros
+		lineageTag: 543b9650-e753-483f-9d74-36b2b6b01fc1
+
+	measure 'Tiempo Objetivo Min' = 4.5
+		formatString: 0.0
+		displayFolder: Parámetros
+		lineageTag: 47dee5f0-b40b-4892-959a-445ecb2fe051
+
+	measure 'Periodo Texto' =
+			VAR _w = [Semana Seleccionada]
+			VAR _c = [Momento Corte]
+			VAR _corte = DATE ( YEAR ( _c ), MONTH ( _c ), DAY ( _c ) )
+			VAR _ini = IF ( ISBLANK ( _w ), CALCULATE ( MIN ( REGISTRO[Fecha] ), REMOVEFILTERS ( REGISTRO ) ), DATE ( 2000, 1, 3 ) + 7 * _w )
+			VAR _fin = IF ( ISBLANK ( _w ) || _ini + 6 > _corte, _corte, _ini + 6 )
+			VAR _p = IF ( NOT ISBLANK ( _w ), MAXX ( FILTERS ( REGISTRO[Periodo] ), REGISTRO[Periodo] ) )
+			RETURN
+				"Reabastecimientos, cumplimiento del tiempo objetivo y capacidad · "
+					& IF ( ISBLANK ( _p ), "Periodo: ", LEFT ( _p, SEARCH ( " ·", _p ) - 1 ) & ": " )
+					& FORMAT ( _ini, "dd/mm/yyyy" ) & " – " & FORMAT ( _fin, "dd/mm/yyyy" )
+		displayFolder: Hoja 2 · Desempeño semanal
+		lineageTag: 20d16643-c741-4544-bd96-7b9dcc0b7f54
+
+	measure Reabastecimientos = COUNTROWS ( REGISTRO )
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 13af083b-149e-40bd-82bc-b846b72a42a5
+
+	measure 'Reabast Completados' = CALCULATE ( COUNTROWS ( REGISTRO ), REGISTRO[Completado] = 1 ) + 0
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: d2216868-47f2-488c-a6e2-69e86f95cb90
+
+	measure 'Completados Dia' = CALCULATE ( COUNTROWS ( REGISTRO ), REGISTRO[Completado] = 1 )
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: ce4cfb0b-7ab7-42b8-a08b-e8b8db31e563
+
+	measure 'Completados Anterior' =
+			VAR _w = [Semana Seleccionada]
+			RETURN
+				IF (
+					NOT ISBLANK ( _w ),
+					CALCULATE (
+						[Reabast Completados],
+						REMOVEFILTERS ( REGISTRO[Periodo], REGISTRO[Semana Indice], REGISTRO[Fecha], REGISTRO[Dia Corto] ),
+						REGISTRO[Semana Indice] = _w - 1
+					)
+				)
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 59600d8e-62d9-4be2-8fb7-fd50b9f16cec
+
+	measure 'Completados Var Texto' =
+			VAR _a = [Completados Anterior]
+			VAR _v = IF ( _a > 0, DIVIDE ( [Reabast Completados] - _a, _a ) )
+			RETURN
+				IF (
+					ISBLANK ( _v ),
+					"Selecciona una semana para comparar con la anterior",
+					IF ( _v >= 0, "▲ +", "▼ −" ) & FORMAT ( ABS ( _v ), "0.0%" ) & " vs. semana anterior"
+				)
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: e787f542-c04d-4fc1-9288-027a76e5cee2
+
+	measure 'Reabast En Curso' =
+			CALCULATE (
+				COUNTROWS ( REGISTRO ),
+				REMOVEFILTERS ( REGISTRO[Periodo], REGISTRO[Semana Indice], REGISTRO[Fecha], REGISTRO[Dia Corto] ),
+				ISBLANK ( REGISTRO[fecha_hora_fin] )
+			) + 0
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 807e0cf1-03c6-49a1-9891-9bfcf280773e
+
+	measure 'En Curso Nota' = "Al corte " & FORMAT ( [Momento Corte], "dd/mm hh:nn" ) & " · " & FORMAT ( [Registros Incompletos], "#,0" ) & " incompletos"
+		displayFolder: Hoja 2 · Desempeño semanal
+		lineageTag: 24d279e9-2adb-49c1-8789-3cb7486dd87f
+
+	measure 'Reabast Repetidos' =
+			SUMX (
+				SUMMARIZE ( REGISTRO, REGISTRO[Fecha], REGISTRO[Serie] ),
+				VAR _c = CALCULATE ( COUNTROWS ( REGISTRO ) )
+				RETURN MAX ( _c - 1, 0 )
+			)
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: b17ee22e-310f-4d1f-a9b4-74058aa7f96d
+
+	measure 'Repetidos Total' = [Reabast Repetidos] + 0
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 5e71c402-2481-41ab-bf4c-e126dcb06b44
+
+	measure 'Repetidos Nota' = FORMAT ( DIVIDE ( [Reabast Repetidos], [Reabastecimientos] ) + 0, "0.0%" ) & " del total"
+		displayFolder: Hoja 2 · Desempeño semanal
+		lineageTag: 6914fa86-7c87-4c86-a0f8-b3c880aad919
+
+	measure 'Registros Incompletos' =
+			CALCULATE (
+				COUNTROWS ( REGISTRO ),
+				FILTER ( REGISTRO, ISBLANK ( REGISTRO[id_puesto] ) || ISBLANK ( REGISTRO[id_ubicacion] ) )
+			) + 0
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: ab2c9e57-8578-4b1f-98dd-75fb75af746a
+
+	measure 'Incompletos Nota' = FORMAT ( DIVIDE ( [Registros Incompletos], [Reabastecimientos] ) + 0, "0.0%" ) & " del total · sin personal o sin ubicación"
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: ef4676f2-7885-43c9-9c74-4420686fda16
+
+	measure 'Top 5 Personal' =
+			VAR _r = [Reabastecimientos]
+			RETURN
+				IF ( NOT ISBLANK ( _r ) && RANKX ( ALLSELECTED ( PUESTO_LOGISTICO[Personal] ), [Reabastecimientos], , DESC ) <= 5, _r )
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: b7535347-c6bf-44cf-bc93-54e94fb43d73
+
+	measure 'Top 5 Materiales' =
+			VAR _r = [Reabastecimientos]
+			RETURN
+				IF ( NOT ISBLANK ( _r ) && RANKX ( ALLSELECTED ( MATERIAL[numero_parte] ), [Reabastecimientos], , DESC ) <= 5, _r )
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: cb073d09-1926-4ec0-b0cf-f9f72ef213e2
+
+	measure 'Intervalo Promedio' = AVERAGE ( REGISTRO[intervalo_h] )
+		formatString: 0.0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 8861e9ab-6fd5-46af-96fd-c91b3e0cc42e
+
+	measure 'Intervalo Texto' = IF ( ISBLANK ( [Intervalo Promedio] ), "—", FORMAT ( [Intervalo Promedio], "0.0" ) & " h" )
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: f4f44786-1ef9-4212-b662-5a4c55993f22
+
+	measure 'Intervalo Anterior' =
+			VAR _w = [Semana Seleccionada]
+			RETURN
+				IF (
+					NOT ISBLANK ( _w ),
+					CALCULATE (
+						[Intervalo Promedio],
+						REMOVEFILTERS ( REGISTRO[Periodo], REGISTRO[Semana Indice], REGISTRO[Fecha], REGISTRO[Dia Corto] ),
+						REGISTRO[Semana Indice] = _w - 1
+					)
+				)
+		formatString: 0.0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 3395c346-576c-4111-a1b9-7226cc871291
+
+	measure 'Intervalo Var Texto' =
+			VAR _a = [Intervalo Anterior]
+			VAR _v = IF ( _a > 0, DIVIDE ( [Intervalo Promedio] - _a, _a ) )
+			RETURN
+				IF (
+					ISBLANK ( _v ),
+					"Selecciona una semana para comparar con la anterior",
+					IF ( _v >= 0, "▲ +", "▼ −" ) & FORMAT ( ABS ( _v ), "0.0%" ) & " vs. semana anterior"
+				)
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: c66f28aa-97a0-4e22-b52a-64a0831f2157
+
+	measure 'Referencia Periodo' =
+			VAR _w = [Semana Seleccionada]
+			VAR _c = [Momento Corte]
+			VAR _f = DATE ( 2000, 1, 3 ) + 7 * ( _w + 1 )
+			RETURN IF ( ISBLANK ( _w ) || _f > _c, _c, _f )
+		formatString: dd/mm/yyyy hh:nn
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 4f21c80b-e158-45af-b265-eecd7079a7bc
+
+	measure 'Ultimo Reabasto' =
+			VAR _ref = [Referencia Periodo]
+			RETURN
+				CALCULATE (
+					MAX ( REGISTRO[fecha_hora_fin] ),
+					REMOVEFILTERS ( REGISTRO[Periodo], REGISTRO[Semana Indice], REGISTRO[Fecha], REGISTRO[Dia Corto] ),
+					REGISTRO[Completado] = 1,
+					REGISTRO[fecha_hora_fin] <= _ref
+				)
+		formatString: dd/mm hh:nn
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: a58f5b42-c10e-46b4-9bd7-a282205fb1d1
+
+	measure 'Horas Desde Ultimo' =
+			VAR _u = [Ultimo Reabasto]
+			RETURN IF ( NOT ISBLANK ( _u ), ( [Referencia Periodo] - _u ) * 24 )
+		formatString: 0.0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: a3ba80bd-f468-4f52-a5c1-e2381cbb390e
+
+	measure 'Fondo Horas' =
+			VAR _h = [Horas Desde Ultimo]
+			RETURN SWITCH ( TRUE (), ISBLANK ( _h ), BLANK (), _h >= [Umbral Horas Alto], "#FDE2E3", _h >= [Umbral Horas Medio], "#FFF6C6", "#FFFFFF" )
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 307de1df-1b2d-432b-81d6-8811e1a5357e
+
+	measure 'Texto Horas' = IF ( [Horas Desde Ultimo] >= [Umbral Horas Alto], "#8F1D25", "#101010" )
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 86967ca2-14b2-4151-b8bc-3951c50afe04
+
+	measure 'Repetidos Tabla' =
+			VAR _r = [Reabast Repetidos]
+			RETURN IF ( _r > 0, _r )
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 90a2f189-3eb3-437b-95fb-8e100e369b96
+
+	measure 'Max Reabast Dia' =
+			IF (
+				NOT ISBLANK ( [Repetidos Tabla] ),
+				MAXX ( VALUES ( REGISTRO[Fecha] ), CALCULATE ( COUNTROWS ( REGISTRO ) ) )
+			)
+		formatString: #,0
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 651bd26a-8483-4895-bbfd-1877cf47f891
+
+	measure 'Fondo Max Dia' =
+			VAR _m = [Max Reabast Dia]
+			RETURN SWITCH ( TRUE (), ISBLANK ( _m ), BLANK (), _m >= [Umbral Repeticion Alta], "#FDE2E3", _m >= [Umbral Repeticion Media], "#FFF6C6", "#FFFFFF" )
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: 4ccf6ae4-eda6-40f7-8a36-195c07365d4e
+
+	measure 'Texto Max Dia' = IF ( [Max Reabast Dia] >= [Umbral Repeticion Alta], "#8F1D25", "#101010" )
+		displayFolder: Hoja 2 · Actividad logística
+		lineageTag: f9acbf99-ed6c-4bc7-824d-2b475178a0b9
+
+	measure 'Subtitulo Estado Actual' =
+			"Eficiencia de los reabastecimientos y capacidad del flow rack · corte "
+				& FORMAT ( [Momento Corte], "dd/mm/yyyy hh:nn" )
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: 9de5ef5b-06f5-4fd1-8f2d-cc42b67c941b
+
+	measure 'Tiempo Promedio Reabast' = AVERAGE ( REGISTRO[Minutos] )
+		formatString: 0.0 \m\i\n
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: 69603c73-e056-4a17-baa7-88e6ce322f47
+
+	measure 'Tiempo P90 Reabast' =
+			IF (
+				[Reabast Completados] > 0,
+				PERCENTILEX.INC ( FILTER ( REGISTRO, REGISTRO[Completado] = 1 ), REGISTRO[Minutos], 0.9 )
+			)
+		formatString: 0.0 \m\i\n
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: 700c94b8-d064-46fb-8e06-e985e054dc90
+
+	measure 'Reabast Fuera Objetivo' =
+			VAR _objetivo = [Tiempo Objetivo Min]
+			RETURN CALCULATE ( COUNTROWS ( REGISTRO ), REGISTRO[Minutos] > _objetivo ) + 0
+		formatString: #,0
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: 9baa9cf3-9079-4417-9a15-3386db1e1b44
+
+	measure '% Fuera Objetivo' = DIVIDE ( [Reabast Fuera Objetivo], [Reabast Completados] ) + 0
+		formatString: 0.0%
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: d9a85ba6-fe27-4373-802c-27de03dd92f9
+
+	measure 'Tiempo Promedio Nota' = FORMAT ( [Reabast Completados], "#,0" ) & " reabastecimientos completados · de inicio a fin"
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: b87c7079-40fc-4df1-8af9-6119931659aa
+
+	measure 'Tiempo P90 Nota' = "9 de cada 10 terminan antes · promedio " & FORMAT ( [Tiempo Promedio Reabast], "0.0" ) & " min"
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: 79cd4a50-40b7-402b-b9ba-d4ad1b839082
+
+	measure 'Fuera Objetivo Nota' = FORMAT ( [Reabast Fuera Objetivo], "#,0" ) & " de más de " & FORMAT ( [Tiempo Objetivo Min], "0.0" ) & " min"
+		displayFolder: Hoja 2 · Desempeño semanal
+		lineageTag: 1137b363-8de7-420d-bac3-6828e92c1875
+
+	measure 'Tiempo Acumulado Horas' = SUM ( REGISTRO[Minutos] ) / 60
+		formatString: 0.0 \h
+		displayFolder: Hoja 3 · Rendimiento logístico
+		lineageTag: 4db0d264-1fec-4650-b93d-d349f3cf2f89
+
+	measure 'Minimo Surtidos Ranking' = 10
+		formatString: 0
+		displayFolder: Parámetros
+		lineageTag: 136b3566-02bc-4371-875a-12dbbbd203c3
+
+	measure 'Umbral Semana Atipica' = 0.20
+		formatString: 0%
+		displayFolder: Parámetros
+		lineageTag: a61f2ba1-b4b4-401e-a34f-968f0c58cf4c
+
+	measure 'Tiempo Promedio P90 Nota' = "P90: " & FORMAT ( [Tiempo P90 Reabast], "0.0" ) & " min"
+		displayFolder: Hoja 2 · Desempeño semanal
+		lineageTag: 75e54b2c-1869-4f95-81fd-c317f237b5a2
+
+	measure 'Periodo Filtro Texto' =
+			VAR _i = MIN ( REGISTRO[Fecha] )
+			VAR _f = MAX ( REGISTRO[Fecha] )
+			RETURN IF ( ISBLANK ( _i ), "sin datos", FORMAT ( _i, "dd/mm/yy" ) & " – " & FORMAT ( _f, "dd/mm/yy" ) )
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: e53e87db-98f8-46a3-8f0b-139e551b8f64
+
+	measure 'Diagnostico Subtitulo' = "Tendencias, rankings y propuesta de balanceo · periodo " & [Periodo Filtro Texto] & " · " & FORMAT ( [Reabast Completados], "#,0" ) & " surtidos completados"
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 07b4f7d3-4b30-4b01-81b3-d1c868bc284b
+
+	measure 'Horas Disponibles' =
+			VAR _dias = CALCULATE ( DISTINCTCOUNT ( REGISTRO[Fecha] ), ALLEXCEPT ( REGISTRO, REGISTRO[Fecha], REGISTRO[Periodo], REGISTRO[Semana Indice], REGISTRO[Semana Corta], REGISTRO[Dia Corto] ) )
+			VAR _minutos = SUMX ( ALL ( TURNO ), TURNO[Minutos Turno] )
+			VAR _puestos = COUNTROWS ( VALUES ( PUESTO_LOGISTICO[id_puesto] ) )
+			RETURN _dias * _minutos / 60 * _puestos
+		formatString: #,0 \h
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 2f646cb3-ca5e-4a1f-a581-9f05dc439c29
+
+	measure '% Ocupacion Puesto' = DIVIDE ( [Tiempo Acumulado Horas], [Horas Disponibles] )
+		formatString: 0%
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: c43a92ee-d6d2-486e-88cf-5eab794fd6e3
+
+	measure 'Ordenes Por Hora' = DIVIDE ( [Reabast Completados], [Horas Disponibles] )
+		formatString: 0.0
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: a8844647-6d23-4801-a7d5-f57c6db3e9b6
+
+	measure 'Color Ocupacion Puesto' =
+			VAR _p = [% Ocupacion Puesto]
+			RETURN SWITCH ( TRUE (), ISBLANK ( _p ), BLANK (), _p >= 0.30, "#D92227", _p < 0.05, "#EACD11", "#9A9A9A" )
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 89377345-6de9-47ce-a588-7d9d6a1dd1cc
+
+	measure 'Tiempo Material Elegible' = IF ( [Reabast Completados] >= [Minimo Surtidos Ranking], [Tiempo Promedio Reabast] )
+		formatString: 0.0 \m\i\n
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 61d4b020-9dad-45f5-bd9a-36268e06f98c
+
+	measure 'Rank Lento Tiempo' =
+			VAR _t = [Tiempo Material Elegible]
+			RETURN
+				IF (
+					NOT ISBLANK ( _t ) && ISINSCOPE ( MATERIAL[numero_parte] ),
+					VAR _r = RANKX ( FILTER ( ALLSELECTED ( MATERIAL ), NOT ISBLANK ( [Tiempo Material Elegible] ) ), [Tiempo Material Elegible], _t, DESC )
+					RETURN IF ( _r <= 5, _t )
+				)
+		formatString: 0.0 \m\i\n
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: ffb1026d-9e97-4ca9-8d5b-a24fbdc930a5
+
+	measure 'Rank Lento Surtidos' = IF ( NOT ISBLANK ( [Rank Lento Tiempo] ), [Reabast Completados] )
+		formatString: #,0
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 05d16ac4-a040-4f29-92e7-f86b797e6539
+
+	measure 'Rank Rapido Tiempo' =
+			VAR _t = [Tiempo Material Elegible]
+			RETURN
+				IF (
+					NOT ISBLANK ( _t ) && ISINSCOPE ( MATERIAL[numero_parte] ),
+					VAR _r = RANKX ( FILTER ( ALLSELECTED ( MATERIAL ), NOT ISBLANK ( [Tiempo Material Elegible] ) ), [Tiempo Material Elegible], _t, ASC )
+					RETURN IF ( _r <= 5, _t )
+				)
+		formatString: 0.0 \m\i\n
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 7fb72300-6c77-4368-86dc-f89774d137b1
+
+	measure 'Rank Rapido Surtidos' = IF ( NOT ISBLANK ( [Rank Rapido Tiempo] ), [Reabast Completados] )
+		formatString: #,0
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 154e3f54-8e18-447a-b3c8-b1519fd9775c
+
+	measure 'Turnos Nota' =
+			VAR _tab = FILTER ( ADDCOLUMNS ( VALUES ( TURNO[nombre_turno] ), "@n", [Reabast Completados] ), [@n] > 0 )
+			VAR _max = MAXX ( _tab, [@n] )
+			VAR _min = MINX ( _tab, [@n] )
+			VAR _dif = DIVIDE ( _max - _min, _min )
+			VAR _top = MAXX ( TOPN ( 1, _tab, [@n], DESC ), TURNO[nombre_turno] )
+			RETURN
+				IF (
+					COUNTROWS ( _tab ) < 2,
+					"Selecciona los dos turnos para compararlos.",
+					IF (
+						_dif < 0.10,
+						"Carga equilibrada: los turnos difieren " & FORMAT ( _dif, "0%" ) & " en surtidos.",
+						_top & " atiende " & FORMAT ( _dif, "0%" ) & " más surtidos que el otro turno; revisar la asignación de rutas."
+					)
+				)
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 46c98ac2-11a4-4af8-83b4-191f8f6f8f78
+
+	measure 'Balanceo Nota' =
+			VAR _tab = FILTER ( ADDCOLUMNS ( VALUES ( PUESTO_LOGISTICO[Nombre] ), "@o", [% Ocupacion Puesto] ), NOT ISBLANK ( [@o] ) )
+			VAR _alto = MAXX ( TOPN ( 1, _tab, [@o], DESC ), PUESTO_LOGISTICO[Nombre] )
+			VAR _bajo = MAXX ( TOPN ( 1, _tab, [@o], ASC ), PUESTO_LOGISTICO[Nombre] )
+			RETURN IF ( COUNTROWS ( _tab ) >= 2, "Balanceo: " & _alto & " ocupa " & FORMAT ( MAXX ( _tab, [@o] ), "0%" ) & " y " & _bajo & " solo " & FORMAT ( MINX ( _tab, [@o] ), "0%" ) & "." )
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 864858ed-d2c7-42ba-a49c-102c804e2485
+
+	measure 'Balanceo Nota 2' = IF ( NOT ISBLANK ( [Balanceo Nota] ), "Repartiendo materiales, todos quedarían cerca de " & FORMAT ( [% Ocupacion Puesto], "0%" ) & " de ocupación." )
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: da405c6a-c57a-48dd-a9f0-67d0ff9a6c62
+
+	measure 'Rec 1 Balanceo' =
+			VAR _per = " · Periodo: " & [Periodo Filtro Texto]
+			VAR _tot = [Reabast Completados]
+			VAR _tab = ADDCOLUMNS ( VALUES ( PUESTO_LOGISTICO[Nombre] ), "@n", [Reabast Completados], "@o", [% Ocupacion Puesto] )
+			VAR _top = TOPN ( 1, FILTER ( _tab, [@n] > 0 ), [@n], DESC )
+			VAR _nom = MAXX ( _top, PUESTO_LOGISTICO[Nombre] )
+			VAR _n = MAXX ( _top, [@n] )
+			VAR _o = MAXX ( _top, [@o] )
+			VAR _bajos = FILTER ( _tab, NOT ISBLANK ( [@o] ) && [@o] < 0.10 )
+			VAR _lista = CONCATENATEX ( _bajos, PUESTO_LOGISTICO[Nombre], ", ", [@o], ASC )
+			RETURN
+				IF (
+					_tot > 0,
+					"1 · Balanceo de carga. " & _nom & " concentra el " & FORMAT ( DIVIDE ( _n, _tot ), "0%" ) & " de los surtidos (" & FORMAT ( _n, "#,0" ) & " de "
+						& FORMAT ( _tot, "#,0" ) & ") y " & FORMAT ( _o, "0%" ) & " de ocupación"
+						& IF ( COUNTROWS ( _bajos ) > 0, "; " & _lista & " quedan debajo de 10 % cada uno", "" )
+						& ". → Evaluar pasar materiales de " & _nom & " a los puestos con menor carga." & _per
+				)
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 80abe02a-a8ba-440f-a751-65f0b9d30961
+
+	measure 'Rec 2 Material Lento' =
+			VAR _per = " · Periodo: " & [Periodo Filtro Texto]
+			VAR _tab = FILTER ( ADDCOLUMNS ( VALUES ( MATERIAL[numero_parte] ), "@t", [Tiempo Material Elegible] ), NOT ISBLANK ( [@t] ) )
+			VAR _top = TOPN ( 1, _tab, [@t], DESC )
+			VAR _np = MAXX ( _top, MATERIAL[numero_parte] )
+			VAR _tm = MAXX ( _top, [@t] )
+			VAR _prom = [Tiempo Promedio Reabast]
+			VAR _desc = LOOKUPVALUE ( MATERIAL[Descripcion Mostrar], MATERIAL[numero_parte], _np )
+			VAR _rep = CALCULATE ( [Reabast Repetidos], MATERIAL[numero_parte] = _np )
+			RETURN
+				IF (
+					ISBLANK ( _np ),
+					"2 · Material lento. Ningún material tiene al menos " & [Minimo Surtidos Ranking] & " surtidos completados en el periodo." & _per,
+					"2 · Material lento. " & _desc & " " & _np & " tarda " & FORMAT ( _tm, "0.0" ) & " min en promedio (" & FORMAT ( DIVIDE ( _tm, _prom ), "0.0" )
+						& "× el promedio de " & FORMAT ( _prom, "0.0" ) & " min)"
+						& IF ( _rep > 0, " y tuvo " & FORMAT ( _rep, "#,0" ) & " surtidos repetidos en el mismo día", "" )
+						& ". → Revisar su ruta y la capacidad de su estantería." & _per
+				)
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: a845fe5e-1bd9-495a-80a9-789860b7c78d
+
+	measure 'Rec 3 Semana Atipica' =
+			VAR _per = " · Periodo: " & [Periodo Filtro Texto]
+			VAR _tab =
+				ADDCOLUMNS (
+					VALUES ( REGISTRO[Semana Indice] ),
+					"@t", [Tiempo Promedio Reabast],
+					"@prev",
+						VAR _w = REGISTRO[Semana Indice]
+						RETURN
+							CALCULATE (
+								[Tiempo Promedio Reabast],
+								REMOVEFILTERS ( REGISTRO[Fecha], REGISTRO[Periodo], REGISTRO[Semana Indice], REGISTRO[Semana Corta], REGISTRO[Dia Corto] ),
+								REGISTRO[Semana Indice] = _w - 1
+							)
+				)
+			VAR _x = ADDCOLUMNS ( FILTER ( _tab, [@prev] > 0 && NOT ISBLANK ( [@t] ) ), "@d", DIVIDE ( [@t] - [@prev], [@prev] ) )
+			VAR _top = TOPN ( 1, _x, [@d], DESC )
+			VAR _w = MAXX ( _top, REGISTRO[Semana Indice] )
+			VAR _d = MAXX ( _top, [@d] )
+			VAR _t = MAXX ( _top, [@t] )
+			VAR _p = MAXX ( _top, [@prev] )
+			VAR _lbl = CALCULATE ( MAX ( REGISTRO[Semana Corta] ), REMOVEFILTERS ( REGISTRO ), REGISTRO[Semana Indice] = _w )
+			RETURN
+				IF (
+					NOT ISBLANK ( _w ),
+					IF (
+						_d >= [Umbral Semana Atipica],
+						"3 · Semana atípica. En " & _lbl & " el tiempo promedio subió a " & FORMAT ( _t, "0.0" ) & " min, " & FORMAT ( _d, "+0%;-0%" )
+							& " contra la semana anterior (" & FORMAT ( _p, "0.0" ) & " min). → Revisar qué cambió esa semana (personal, ruta o material).",
+						"3 · Tiempo estable. Ninguna semana subió más de " & FORMAT ( [Umbral Semana Atipica], "0%" ) & " contra la anterior; el mayor cambio fue "
+							& FORMAT ( _d, "+0%;-0%" ) & " en " & _lbl & ". → Mantener la operación actual."
+					) & _per
+				)
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 2e782df1-a3c0-4f85-a1ac-ab61a980cfac
+
+	measure 'Rec 4 Riesgo' =
+			VAR _n = [Materiales Nivel Critico]
+			RETURN
+				IF (
+					_n = 0,
+					"4 · Riesgo actual. Ningún material está en o por debajo de su mínimo. → Sin acción urgente.",
+					"4 · Riesgo actual. " & _n & " materiales están en o por debajo de su mínimo; el de menor cobertura es " & [Proximo Faltante Detalle] & ", con "
+						& FORMAT ( [Proximo Faltante Minutos], "0" ) & " min estimados. → Priorizar su surtido."
+				) & " · Corte: " & FORMAT ( [Momento Corte], "dd/mm/yyyy hh:nn" )
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 764b082d-6863-4be9-97c1-6f545642bb2a
+
+	measure 'Rec 5 Horas Pico' =
+			VAR _per = " · Periodo: " & [Periodo Filtro Texto]
+			VAR _tab = FILTER ( ADDCOLUMNS ( VALUES ( REGISTRO[Hora] ), "@n", [Reabastecimientos] ), [@n] > 0 )
+			VAR _nmax = MAXX ( _tab, [@n] )
+			VAR _nmin = MINX ( _tab, [@n] )
+			VAR _picos = FILTER ( _tab, [@n] = _nmax )
+			VAR _hmax = CONCATENATEX ( _picos, FORMAT ( REGISTRO[Hora], "00" ) & ":00", " y ", REGISTRO[Hora], ASC )
+			VAR _hmin = MINX ( FILTER ( _tab, [@n] = _nmin ), REGISTRO[Hora] )
+			RETURN
+				IF (
+					NOT ISBLANK ( _nmax ),
+					"5 · Horas pico. A las " & _hmax & " se inician " & FORMAT ( _nmax, "#,0" ) & " surtidos" & IF ( COUNTROWS ( _picos ) > 1, " en cada hora", "" )
+						& ", " & FORMAT ( DIVIDE ( _nmax, _nmin ), "0.0" ) & "× más que a las " & FORMAT ( _hmin, "00" ) & ":00 (" & FORMAT ( _nmin, "#,0" )
+						& "). → Asegurar personal completo en esas horas y no programar descansos ahí." & _per
+				)
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 71289345-05cc-4484-a7f2-8b6c3c600a7a
+
+	measure 'Rec 6 Turnos' =
+			VAR _per = " · Periodo: " & [Periodo Filtro Texto]
+			VAR _tab = FILTER ( ADDCOLUMNS ( VALUES ( TURNO[nombre_turno] ), "@n", [Reabast Completados], "@t", [Tiempo Promedio Reabast] ), [@n] > 0 )
+			VAR _max = MAXX ( _tab, [@n] )
+			VAR _min = MINX ( _tab, [@n] )
+			VAR _dif = DIVIDE ( _max - _min, _min )
+			VAR _top = MAXX ( TOPN ( 1, _tab, [@n], DESC ), TURNO[nombre_turno] )
+			VAR _lista = CONCATENATEX ( _tab, TURNO[nombre_turno] & " atendió " & FORMAT ( [@n], "#,0" ) & " surtidos (" & FORMAT ( [@t], "0.0" ) & " min)", " y ", TURNO[nombre_turno], ASC )
+			RETURN
+				IF (
+					COUNTROWS ( _tab ) >= 2,
+					IF (
+						_dif < 0.10,
+						"6 · Turnos equilibrados. " & _lista & "; la diferencia es de " & FORMAT ( _dif, "0%" ) & ". → Mantener la asignación actual entre turnos.",
+						"6 · Turnos desbalanceados. " & _lista & "; " & _top & " atiende " & FORMAT ( _dif, "0%" ) & " más. → Revisar la asignación de rutas entre turnos."
+					) & _per
+				)
+		displayFolder: Hoja 3 · Diagnóstico
+		lineageTag: 12a847ee-adb1-4537-8884-79bd74049abb
+
+	column id_registro
+		dataType: string
+		lineageTag: e9c16396-358e-435b-afe1-c861ec330d60
+		summarizeBy: none
+		sourceColumn: id_registro
+
+	column id_puesto
+		dataType: string
+		lineageTag: 39897748-f2fa-4787-ab70-6b710e17966f
+		summarizeBy: none
+		sourceColumn: id_puesto
+
+	column id_ubicacion
+		dataType: string
+		lineageTag: ae01b766-463e-457c-84e2-b5203f694210
+		summarizeBy: none
+		sourceColumn: id_ubicacion
+
+	column id_turno
+		dataType: int64
+		formatString: 0
+		lineageTag: 25534db9-0057-40d2-8ddb-7f5e24beea75
+		summarizeBy: none
+		sourceColumn: id_turno
+
+	column fecha_hora_inicio
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn:ss
+		lineageTag: bc43bbf1-5435-4bdb-82d9-192b5c2b9d89
+		summarizeBy: none
+		sourceColumn: fecha_hora_inicio
+
+	column fecha_hora_fin
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn:ss
+		lineageTag: 674431df-58c0-4ebb-8723-76727a9d4de4
+		summarizeBy: none
+		sourceColumn: fecha_hora_fin
+
+	column Fecha = DATE ( YEAR ( REGISTRO[fecha_hora_inicio] ), MONTH ( REGISTRO[fecha_hora_inicio] ), DAY ( REGISTRO[fecha_hora_inicio] ) )
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: fc1a75e8-a860-4e73-b69e-d43714612942
+		summarizeBy: none
+
+	column 'Semana Indice' = INT ( ( REGISTRO[Fecha] - DATE ( 2000, 1, 3 ) ) / 7 )
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b690734-28e7-4ce7-8b93-1d4b12cbf171
+		summarizeBy: none
+
+	column Periodo =
+			VAR _ini = REGISTRO[Fecha] - WEEKDAY ( REGISTRO[Fecha], 2 ) + 1
+			VAR _fin = _ini + 5
+			RETURN
+				"S" & FORMAT ( WEEKNUM ( REGISTRO[Fecha], 21 ), "00" ) & " " & YEAR ( _ini + 3 ) & " · "
+					& FORMAT ( DAY ( _ini ), "00" ) & "/" & FORMAT ( MONTH ( _ini ), "00" ) & " – "
+					& FORMAT ( DAY ( _fin ), "00" ) & "/" & FORMAT ( MONTH ( _fin ), "00" )
+		dataType: string
+		lineageTag: bcd13835-3172-4b1e-81c9-b2f05596d6b2
+		summarizeBy: none
+		sortByColumn: 'Semana Indice'
+
+	column 'Dia Corto' =
+			FORMAT ( DAY ( REGISTRO[Fecha] ), "00" ) & " "
+				& SWITCH ( MONTH ( REGISTRO[Fecha] ), 1, "ene", 2, "feb", 3, "mar", 4, "abr", 5, "may", 6, "jun", 7, "jul", 8, "ago", 9, "sep", 10, "oct", 11, "nov", 12, "dic" )
+				& " " & RIGHT ( YEAR ( REGISTRO[Fecha] ), 2 )
+		dataType: string
+		lineageTag: 69e4a06f-8095-4299-8dea-669cb4bd9eb1
+		summarizeBy: none
+		sortByColumn: Fecha
+
+	column Completado = IF ( NOT ISBLANK ( REGISTRO[fecha_hora_fin] ) && REGISTRO[fecha_hora_fin] >= REGISTRO[fecha_hora_inicio], 1, 0 )
+		dataType: int64
+		formatString: 0
+		lineageTag: f30616ab-ba8f-4c2d-9de0-c64ab6870085
+		summarizeBy: sum
+
+	column Minutos = IF ( REGISTRO[Completado] = 1, DATEDIFF ( REGISTRO[fecha_hora_inicio], REGISTRO[fecha_hora_fin], SECOND ) / 60 )
+		dataType: double
+		formatString: 0.0
+		lineageTag: 092b14b2-9713-40a1-9eea-67f0a0329a5e
+		summarizeBy: none
+
+	column Serie = RELATED ( UBICACION[numero_parte] ) & "|" & RELATED ( ESTANTERIA[id_estacion] )
+		dataType: string
+		lineageTag: 12c4525f-3d86-4493-984b-77b5338f70d4
+		summarizeBy: none
+
+	column intervalo_h
+		dataType: double
+		formatString: 0.00
+		lineageTag: 2009642a-954a-42b9-a291-e8ed446c0dfc
+		summarizeBy: none
+		sourceColumn: intervalo_h
+
+	column 'Semana Corta' = VAR _ini = REGISTRO[Fecha] - WEEKDAY ( REGISTRO[Fecha], 2 ) + 1 RETURN "S" & FORMAT ( WEEKNUM ( REGISTRO[Fecha], 21 ), "00" ) & " " & RIGHT ( YEAR ( _ini + 3 ), 2 )
+		dataType: string
+		lineageTag: 9859c3fa-68d1-4d23-9b8b-e96caf1130f8
+		summarizeBy: none
+		sortByColumn: 'Semana Indice'
+
+	column Hora = HOUR ( REGISTRO[fecha_hora_inicio] )
+		dataType: int64
+		formatString: 00
+		lineageTag: 593dd925-1972-496a-8b83-3153009e1b87
+		summarizeBy: none
+
+	partition REGISTRO = m
+		mode: import
+		source =
+				let
+					Origen = Sql.Database(ServidorSQL, BaseSQL),
+					Datos = Origen{[Schema = "mes2", Item = "bi_REGISTRO"]}[Data]
+				in
+					Datos

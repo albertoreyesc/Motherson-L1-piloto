@@ -1,3 +1,5 @@
+Las pruebas posteriores de captura por bloques y cobertura están en [el cierre de mejoras](CIERRE_CAPTURA_Y_COBERTURA_2026-11-22.md). Los resultados de esta página describen la primera ampliación del mismo día.
+
 # Validación local
 
 Fecha: 22/11/2026. Base SQL de pruebas nueva y aislada, con datos controlados. No se ejecutaron migraciones ni pruebas de escritura en Azure o Render.

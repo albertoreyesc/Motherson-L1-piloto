@@ -1,3 +1,9 @@
+# Estado vigente · 22/11/2026
+
+El informe original está publicado y conserva sus diseños. La preparación para operaciones v2 y el bloqueo concreto de conexión están en [administracion-v2/README.md](administracion-v2/README.md). Las notas siguientes corresponden a la preparación histórica; no describen el estado actual de publicación.
+
+---
+
 # Dashboard para el entorno propio
 
 - `Motherson.pbix`: copia original de Entrega.zip. No publicado ni reconfigurado internamente.
