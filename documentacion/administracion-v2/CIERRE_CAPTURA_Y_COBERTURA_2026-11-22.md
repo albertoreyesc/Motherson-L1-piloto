@@ -15,12 +15,13 @@ Calendario simulado de Línea 1: 22/11/2026–31/12/2026, lunes a viernes, turno
 
 Su activación conservó 85 materiales y 10,464 piezas. El primer corte mostró VENTANA_INCOMPLETA: el calendario empieza el domingo y aún no existe una ventana laboral completa dentro de la vigencia. Después se requieren dos consumos positivos por ubicación; no se generaron consumos ficticios en el piloto.
 
-Se instalaron las vistas aditivas `002_fuentes_powerbi.sql` en la base piloto, con conciliación de 10,464 piezas y 58,422 atenciones. La regla temporal de mantenimiento se retiró; quedan las dos reglas existentes de Render. La base original del equipo no se modificó.
+Se instalaron las vistas aditivas `002_fuentes_powerbi.sql` en la base piloto, con conciliación de 10,464 piezas y 58,422 atenciones. La regla temporal de mantenimiento se retiró; se conservan las dos reglas existentes de Render y se agregaron exclusivamente las dos direcciones de Power BI observadas (158.23.200.149 y 158.23.200.135). La base original del equipo no se modificó.
 
 ## Pruebas
 
 - Frontend: 60 pruebas, con previsión de cajas incompletas, capacidad, cantidades inválidas, inhabilitación y exportación Excel.
 - SQL local aislado: 53 comprobaciones, incluidas apertura e idempotencia, concurrencia, permisos, relaciones de las fuentes BI, calendario con descansos, legado, nuevas atenciones y cobertura API por ubicación.
+- Motor de cobertura: 19 casos aprobados (fronteras, calendario, ventana y separación de consumos).
 - HTTP local: 9 comprobaciones de autenticación, permisos, persistencia y CSRF.
 - API local → exportador real → archivo XLSX → lectura: dos hojas; inventario y completados coinciden. El archivo de evidencia contiene exclusivamente datos controlados de prueba.
 - TMDL: validación con Microsoft.AnalysisServices 19.114.12: 8 tablas, 8 relaciones y 110 medidas. La validación de estructura no ejecuta DAX ni acredita un refresco del servicio.
@@ -33,6 +34,10 @@ Evidencias: [carpeta de capturas y Excel de prueba](../evidencia-integracion/cap
 
 El modelo publicado se recuperó mediante Fabric para preparar una versión compatible con las fuentes v2. El candidato conserva nombres, 8 relaciones y 110 medidas, incorpora claves por línea y convierte fechas a Ciudad de México. La cobertura del candidato queda en blanco hasta incorporar un cálculo equivalente al portal; no se usa el ritmo de atenciones como consumo de piezas.
 
-El informe publicado aún consulta la base original y tiene la actualización programada desactivada. La cuenta de aplicación recibió 401 al consultar la conexión SQL administrada; se solicitó sesión del propietario. No se reemplazó el modelo en uso con una conexión no validada. Pasos y archivos: [modelo candidato](../../powerbi/administracion-v2/README.md).
+El informe conserva sus tres diseños y su identificador; está vinculado al modelo v2 del piloto. Refresco real completado el 22/11/2026 a las 21:03:31, Ciudad de México. DAX concilió 10,464 piezas, 58,422 atenciones y 9,254 completados del 03/02 al 31/03/2026. Se verificaron el corte del modelo y el aviso explícito de cobertura Sin estimación en BI. La cobertura por consumos/calendario funciona en el portal; integrarla al modelo BI queda pendiente.
+
+Actualización programada guardada y comprobada por API: lunes a viernes, 06:00, 15:00 y 23:30 de Ciudad de México. La cuenta propietaria y Administración de planta mantienen sus permisos; el modelo anterior sigue disponible para recuperación. Detalles: [modelo publicado](../../powerbi/administracion-v2/README.md).
+
+La consulta publicada de Hoja 2 también recuperó las 58,422 atenciones al seleccionar el período histórico completo. El rango de la semana actual permanece en cero porque no hay nuevas atenciones persistidas; no se escribieron operaciones ficticias para llenarlo.
 
 Invitación enviada a `lita1-coder` (Alejandro Lita), permiso write. Alejandro debe aceptarla con su cuenta GitHub. No se compartieron credenciales ni se hizo público el repositorio.

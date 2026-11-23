@@ -1,7 +1,7 @@
 table REGISTRO
 	lineageTag: 254a8c43-7f07-44d1-bd1f-4eb712eb6773
 
-	measure 'Momento Corte' = CALCULATE ( MAX ( MAX ( REGISTRO[fecha_hora_fin] ), MAX ( REGISTRO[fecha_hora_inicio] ) ), REMOVEFILTERS () )
+	measure 'Momento Corte' = CALCULATE ( MAX ( UBICACION[corte_modelo] ), REMOVEFILTERS () )
 		formatString: dd/mm/yyyy hh:nn
 		displayFolder: Parámetros
 		lineageTag: c068c3af-f026-423b-8791-24174888ec03
@@ -512,10 +512,9 @@ table REGISTRO
 			RETURN
 				IF (
 					_n = 0,
-					"4 · Riesgo actual. Ningún material está en o por debajo de su mínimo. → Sin acción urgente.",
-					"4 · Riesgo actual. " & _n & " materiales están en o por debajo de su mínimo; el de menor cobertura es " & [Proximo Faltante Detalle] & ", con "
-						& FORMAT ( [Proximo Faltante Minutos], "0" ) & " min estimados. → Priorizar su surtido."
-				) & " · Corte: " & FORMAT ( [Momento Corte], "dd/mm/yyyy hh:nn" )
+					"4 · Mínimos. Ningún material está en o por debajo de su mínimo.",
+					"4 · Mínimos. " & _n & " materiales están en o por debajo de su mínimo. → Revisar su surtido."
+				) & " Cobertura temporal: consultar el detalle por ubicación en el portal; sin estimación en este informe. · Actualización: " & FORMAT ( [Momento Corte], "dd/mm/yyyy hh:nn" )
 		displayFolder: Hoja 3 · Diagnóstico
 		lineageTag: 764b082d-6863-4be9-97c1-6f545642bb2a
 

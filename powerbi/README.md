@@ -1,6 +1,6 @@
 # Estado vigente · 22/11/2026
 
-El informe original está publicado y conserva sus diseños. La preparación para operaciones v2 y el bloqueo concreto de conexión están en [administracion-v2/README.md](administracion-v2/README.md). Las notas siguientes corresponden a la preparación histórica; no describen el estado actual de publicación.
+El informe original está publicado y conserva sus diseños. La publicación y conciliación de las operaciones v2 están en [administracion-v2/README.md](administracion-v2/README.md). Las notas siguientes corresponden a la preparación histórica; no describen el estado actual de publicación.
 
 ---
 
@@ -34,4 +34,4 @@ ni al TMDL; definir la red permitida según el despliegue, sin abrir firewall aq
 Referencias oficiales: [usuarios contenidos Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql),
 [actualización programada Power BI](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh).
 
-El flujo privado de Dashboard y sus requisitos están documentados en [publicación propia](../documentacion/POWERBI_PUBLICACION_PROPIA.md). La carga histórica ya está archivada y conciliada en Azure; la publicación y una actualización real del PBIX siguen pendientes.
+El flujo privado de Dashboard y sus requisitos están documentados en [publicación propia](../documentacion/POWERBI_PUBLICACION_PROPIA.md). La carga histórica ya está archivada y conciliada en Azure; el estado vigente de publicación se documenta en administracion-v2/README.md.

@@ -139,7 +139,7 @@ table UBICACION
 
 	measure 'Cobertura Texto' =
 			VAR _m = [Cobertura Minutos]
-			RETURN IF ( ISBLANK ( _m ), BLANK (), FORMAT ( _m, "0" ) & " min" )
+			RETURN IF ( ISBLANK ( _m ), "Sin estimación", FORMAT ( _m, "0" ) & " min" )
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 913ba3d5-4129-43cd-9eb6-cea75b08b59e
 
@@ -326,7 +326,8 @@ table UBICACION
 		source =
 				let
 					Origen = Sql.Database(ServidorSQL, BaseSQL),
-					Datos = Origen{[Schema = "mes2", Item = "bi_UBICACION"]}[Data]
+					DatosSQL = Origen{[Schema = "mes2", Item = "bi_UBICACION"]}[Data],
+					Datos = Table.AddColumn(DatosSQL, "corte_modelo", each DateTimeZone.RemoveZone(DateTimeZone.SwitchZone(DateTimeZone.FixedUtcNow(), -6)), type datetime)
 				in
 					Datos
 
@@ -335,3 +336,9 @@ table UBICACION
 		isHidden
 		summarizeBy: none
 		sourceColumn: clave_material
+
+	column corte_modelo
+		dataType: dateTime
+		isHidden
+		summarizeBy: none
+		sourceColumn: corte_modelo
