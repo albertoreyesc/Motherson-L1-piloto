@@ -1,16 +1,46 @@
 {
-  "commit": "77516493cb3abd7d6dca45ff41d83c6c3de12de0",
-  "render": "Deploy succeeded | Live",
-  "deploy": "dep-dc1l7qrbc2fs73egi3n0",
-  "https": "https://motherson-l1-piloto.onrender.com/",
-  "verificaciones": [
-    "Health HTTPS 200",
-    "API anónima 401",
-    "Cuenta de planta autenticada",
-    "Catálogo anterior accesible"
+  "https": "https://motherson-l1-piloto.onrender.com",
+  "administracionV2Activa": true,
+  "lineas": [
+    {
+      "linea": 1,
+      "piezas": 10464,
+      "materiales": 85,
+      "completadosHistoricos": 9254
+    },
+    {
+      "linea": 2,
+      "piezas": 0,
+      "materiales": 0,
+      "completadosHistoricos": 0
+    },
+    {
+      "linea": 3,
+      "piezas": 0,
+      "materiales": 0,
+      "completadosHistoricos": 0
+    },
+    {
+      "linea": 4,
+      "piezas": 0,
+      "materiales": 0,
+      "completadosHistoricos": 0
+    }
   ],
-  "administracionV2Activa": false,
-  "migracionesAplicadas": false,
-  "bloqueoAdministrativo": "AADSTS530035; SQL directo 40615",
-  "datosPublicadosModificados": false
+  "proteccionCsrf": true,
+  "commit": "15ed03e3e8aaf84c8e2889f881b3b57d771da844",
+  "deploy": "dep-dc1ptb1ksfps739j65cg",
+  "migracionesAplicadas": true,
+  "firewallTemporalRetirado": true,
+  "reglasPermanentes": [
+    "RenderOhio50",
+    "RenderOhio58"
+  ],
+  "historicoConservado": {
+    "operaciones": 24,
+    "atenciones": 58422,
+    "imagenes": 2,
+    "ubicaciones": 85
+  },
+  "verificadoUTC": "2026-11-23T02:05:13.589581+00:00"
 }
