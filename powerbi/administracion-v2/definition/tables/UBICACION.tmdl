@@ -106,28 +106,12 @@ table UBICACION
 		lineageTag: fb4a720b-25b0-4692-87be-31b30921eace
 
 	measure 'Proximo Faltante Minutos' =
-			MINX (
-				FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Piezas Restantes] > 0 ),
-				[Cobertura Minutos]
-			)
-		formatString: 0 \m\i\n
+			VAR _min = MINX ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Piezas Restantes] > 0 ), [Cobertura Minutos] )
+			RETURN IF ( ISBLANK ( _min ), "Sin estimación", FORMAT ( _min, "0" ) & " min" )
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 7c792c95-5c96-444c-b80f-0d73429530bf
 
-	measure 'Proximo Faltante Detalle' =
-			VAR _tabla =
-				ADDCOLUMNS (
-					FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Piezas Restantes] > 0 && NOT ISBLANK ( [Cobertura Minutos] ) ),
-					"@min", [Cobertura Minutos]
-				)
-			VAR _id = MAXX ( TOPN ( 1, _tabla, [@min], ASC ), UBICACION[id_ubicacion] )
-			RETURN
-				IF (
-					NOT ISBLANK ( _id ),
-					LOOKUPVALUE ( UBICACION[Descripcion], UBICACION[id_ubicacion], _id ) & " "
-						& LOOKUPVALUE ( UBICACION[numero_parte], UBICACION[id_ubicacion], _id ) & " · "
-						& LOOKUPVALUE ( UBICACION[nombre_estacion], UBICACION[id_ubicacion], _id )
-				)
+	measure 'Proximo Faltante Detalle' = "Ver cálculo por ubicación en Inventario del portal"
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 4361006e-f0f4-440c-9d03-cb1c17f19361
 

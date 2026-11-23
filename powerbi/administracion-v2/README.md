@@ -2,7 +2,7 @@
 
 Preparado desde la definición **real del modelo publicado**, recuperada por Fabric el 22/11/2026, no desde un PBIX supuesto. Conserva las 8 tablas, 8 relaciones y 110 medidas existentes. No se cambió el diseño de las tres páginas del informe.
 
-Estado: **publicado, actualizado y conciliado**. El informe Motherson conserva su identificador y sus tres diseños; ahora utiliza el modelo `Motherson piloto v2` y exclusivamente las vistas de la base piloto. Último refresco comprobado: 22/11/2026 21:03:31 Ciudad de México (23/11/2026 03:03:31 UTC). Datos conciliados con DAX: 10,464 piezas, 58,422 atenciones y 9,254 completados del 03/02/2026 al 31/03/2026.
+Estado: **publicado, actualizado y conciliado**. El informe Motherson conserva su identificador y sus tres diseños; ahora utiliza el modelo `Motherson piloto v2` y exclusivamente las vistas de la base piloto. Último refresco comprobado: 22/11/2026 21:05:49 Ciudad de México (23/11/2026 03:05:49 UTC). Datos conciliados con DAX: 10,464 piezas, 58,422 atenciones y 9,254 completados del 03/02/2026 al 31/03/2026.
 
 Actualización programada verificada por API: lunes a viernes, 06:00, 15:00 y 23:30, zona `Central Standard Time (Mexico)`. La cuenta propietaria es Power BI Motherson. El lector SQL dedicado solo dispone de SELECT en las ocho vistas BI; su secreto permanece fuera del repositorio. Los permisos de lectura existentes de Administración de planta se conservan.
 

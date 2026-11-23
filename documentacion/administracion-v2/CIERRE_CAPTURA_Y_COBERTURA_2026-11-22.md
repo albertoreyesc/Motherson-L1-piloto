@@ -34,7 +34,7 @@ Evidencias: [carpeta de capturas y Excel de prueba](../evidencia-integracion/cap
 
 El modelo publicado se recuperó mediante Fabric para preparar una versión compatible con las fuentes v2. El candidato conserva nombres, 8 relaciones y 110 medidas, incorpora claves por línea y convierte fechas a Ciudad de México. La cobertura del candidato queda en blanco hasta incorporar un cálculo equivalente al portal; no se usa el ritmo de atenciones como consumo de piezas.
 
-El informe conserva sus tres diseños y su identificador; está vinculado al modelo v2 del piloto. Refresco real completado el 22/11/2026 a las 21:03:31, Ciudad de México. DAX concilió 10,464 piezas, 58,422 atenciones y 9,254 completados del 03/02 al 31/03/2026. Se verificaron el corte del modelo y el aviso explícito de cobertura Sin estimación en BI. La cobertura por consumos/calendario funciona en el portal; integrarla al modelo BI queda pendiente.
+El informe conserva sus tres diseños y su identificador; está vinculado al modelo v2 del piloto. Refresco real completado el 22/11/2026 a las 21:05:49, Ciudad de México. DAX concilió 10,464 piezas, 58,422 atenciones y 9,254 completados del 03/02 al 31/03/2026. Se verificaron el corte del modelo y el aviso explícito de cobertura Sin estimación en BI. La cobertura por consumos/calendario funciona en el portal; integrarla al modelo BI queda pendiente.
 
 Actualización programada guardada y comprobada por API: lunes a viernes, 06:00, 15:00 y 23:30 de Ciudad de México. La cuenta propietaria y Administración de planta mantienen sus permisos; el modelo anterior sigue disponible para recuperación. Detalles: [modelo publicado](../../powerbi/administracion-v2/README.md).
 
