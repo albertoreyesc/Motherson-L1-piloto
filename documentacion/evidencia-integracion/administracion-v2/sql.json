@@ -71,6 +71,10 @@
     "Fila inv\u00E1lida rechaza lote con puestos nuevos",
     "Lote inv\u00E1lido no deja puestos ni materiales parciales",
     "Preparar cat\u00E1logo de otra l\u00EDnea conserva el saldo de L\u00EDnea 1",
+    "Hoja 3 conserva completados y agrupa el mismo alcance autorizado",
+    "Diagn\u00F3stico calcula duraci\u00F3n y P90 con tiempos persistidos",
+    "Diagn\u00F3stico: duraciones 2 y 6 min producen promedio 4, P90 5.6 y 50% fuera de objetivo",
+    "Diagn\u00F3stico sin actividad devuelve N/D, no inventa promedios",
     "Cuenta revocada no lee con sesi\u00F3n anterior"
   ]
 }

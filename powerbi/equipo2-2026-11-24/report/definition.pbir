@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
+  "version": "4.0",
+  "datasetReference": {
+    "byConnection": {
+      "connectionString": "Data Source=\"powerbi://api.powerbi.com/v1.0/myorg/Motherson L1\";initial catalog=\"Motherson piloto v2\";integrated security=ClaimsToken;semanticmodelid=bb20ed94-f540-4005-b88e-3e9745e0bede"
+    }
+  }
+}

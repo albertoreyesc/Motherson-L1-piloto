@@ -4,7 +4,7 @@ Portal del piloto: **https://motherson-l1-piloto.onrender.com/**.
 
 Ampliación de administración de cuatro líneas, 22/11/2026: [manual](documentacion/administracion-v2/MANUAL.md), [pruebas](documentacion/administracion-v2/PRUEBAS.md) y [migración y recuperación](documentacion/administracion-v2/ACTUALIZACION_Y_RECUPERACION.md). [Estado de publicación y activación](documentacion/administracion-v2/PUBLICACION_2026-11-22.md): migraciones SQL aplicadas y administración de cuatro líneas activa en Render.
 
-Captura por bloques, período disponible de Hoja 2, calendario de referencia y fuentes Power BI: [cierre de mejoras](documentacion/administracion-v2/CIERRE_CAPTURA_Y_COBERTURA_2026-11-22.md). El modelo Power BI candidato permanece pendiente de validar su conexión y actualización en el servicio.
+Captura por bloques, período disponible de Hoja 2, calendario de referencia y fuentes Power BI: [cierre de mejoras](documentacion/administracion-v2/CIERRE_CAPTURA_Y_COBERTURA_2026-11-22.md). El modelo Power BI está actualizado y conciliado con las operaciones del portal.
 
 Entrega a Motherson: [arquitectura y herramientas](documentacion/ARQUITECTURA_Y_HERRAMIENTAS.md) y [guía para correr el sistema de forma local](documentacion/GUIA_INSTALACION_LOCAL.md).
 
@@ -115,3 +115,5 @@ Se verificaron el caso 72→120→105, concurrencia, reversión de fallos, permi
 ## Alarmas calculadas incorporadas
 
 Resumen e Inventario incluyen alarmas informativas y cobertura temporal, sin una pestaña nueva ni cambios de esquema SQL. Las reglas y el calendario están en [ALARMAS_Y_COBERTURA.md](documentacion/ALARMAS_Y_COBERTURA.md); la evidencia está en [RESULTADOS_ALARMAS.md](documentacion/RESULTADOS_ALARMAS.md). El calendario publicado termina el 24/10/2026: el inventario actual conserva «Sin estimación» donde falta calendario vigente, mientras los mínimos se comparan por material.
+
+Integración vigente del equipo 2 (24/11/2026): [tres hojas de KPIs, catálogo compartido y Dashboard](documentacion/INTEGRACION_EQUIPO2_2026-11-24.md).
