@@ -78,7 +78,6 @@
 @media(max-width:760px){.quitar-turno{grid-row:auto;grid-column:1/-1}}
 .menu-acciones>div{position:absolute;margin-top:0;box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .menu-acciones[open]{flex-basis:auto;display:block}
-.table-wrap:has(.menu-acciones[open]){overflow:visible}
 .tabla-materiales td:nth-child(5){min-width:120px}
 /* Selector de línea con el mismo ancho en todas las secciones (antes dependía del largo del título). */
 
@@ -403,3 +402,6 @@
 .vista-semana .semana-grid{margin-bottom:0}
 .config-horario form>button{min-width:220px;min-height:52px}
 .admin-v2 .chip-dia{flex:1 1 84px;min-width:0;padding:8px 6px}
+
+/* Menú "⋯": flotante con posición fija (la tabla no cambia de ancho ni de márgenes al abrirlo). */
+.admin-v2 .menu-acciones>div{position:fixed;top:var(--menu-top,auto);right:var(--menu-right,auto);z-index:40}
