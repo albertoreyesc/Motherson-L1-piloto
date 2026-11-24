@@ -159,3 +159,4 @@
 
 .captura-contador input[type=number]{-moz-appearance:textfield;appearance:textfield;text-align:center}.captura-contador input[type=number]::-webkit-inner-spin-button,.captura-contador input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .paso-guia{margin:0;padding:10px 12px;border-left:4px solid #9a9a9a;background:var(--surface);color:var(--black);font-size:13px;line-height:1.5}
+@media(min-width:761px){.admin-v2 header{flex-wrap:nowrap}.admin-v2 header>div:first-child{flex:1 1 auto}}
