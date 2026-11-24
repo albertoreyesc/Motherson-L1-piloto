@@ -52,7 +52,7 @@ public sealed partial class AdminV2(Store store)
  {
   Exigir(!corte.HasValue||corte.Value<=DateTime.UtcNow,"El corte no puede estar en el futuro.");var e=await Leer(actor,linea,corte);var ms=e.Todos("material").Where(m=>e.Puesto is null||S(m,"puesto")==e.Puesto).ToArray();var ids=ms.Select(m=>S(m,"id")).ToHashSet();
   var us=e.Todos("ubicacion").Where(u=>ids.Contains(S(u,"material"))).Select(u=>{var r=Copia(u);var rack=e.Obtener("estanteria",S(u,"estanteria"));r["libres"]=Math.Max(0,N(rack,"capacidad")-Ocupacion(e,S(rack,"id")));return r;}).ToArray();
-  var alarms=await Alarmas(actor,e,corte??e.Ahora,us);
+  var alarms=await Alarmas(actor,e,corte??e.Ahora,us.Where(Activa).ToArray());
   await using var imageSql=await store.Open();var images=(await imageSql.QueryAsync("SELECT material,version FROM mes2.IMAGEN WHERE linea=@linea",new{linea})).Where(x=>ids.Contains((string)x.material)).ToDictionary(x=>(string)x.material,x=>(int)x.version);
   return new{linea,version=e.Version,corte=corte??e.Ahora,apertura=e.Apertura,rol=e.Rol,puesto=e.Puesto,materiales=ms,ubicaciones=us,
    puestos=e.Todos("puesto").Where(p=>e.Puesto is null||S(p,"id")==e.Puesto),estaciones=e.Todos("estacion"),estanterias=e.Todos("estanteria"),
@@ -94,6 +94,8 @@ public sealed partial class AdminV2(Store store)
      e.Datos.Remove("material:"+S(m,"id"));
     }break;
    }
+   case "MATERIAL_DUPLICAR":DuplicarMaterial(e,input,resultado);break;
+   case "UBICACION_ESTADO":EstadoUbicacion(e,input,resultado);break;
    case "PUESTO":case "ESTACION":case "ESTANTERIA":case "UBICACION":
    {
     Admin(e);var id=Texto(input,"id",100);var kind=tipo.ToLowerInvariant();JsonObject o=id.Length>0?e.Obtener(kind,id):new(){["id"]=Nuevo()};
@@ -105,13 +107,15 @@ public sealed partial class AdminV2(Store store)
     }
     if(tipo=="UBICACION"){
      Exigir(id.Length==0,"Una ubicación existente no puede reasignarse; conserva su historial.",409);var m=e.Obtener("material",Texto(input,"material",100,true));Exigir(B(m,"activo",true),"El material está inhabilitado.",409);e.Obtener("estanteria",Texto(input,"estanteria",100,true));
-     Exigir(!e.Todos(kind).Any(x=>S(x,"material")==S(input,"material")&&S(x,"estanteria")==S(input,"estanteria")),"Asignación ya existente.",409);o["material"]=S(input,"material");o["estanteria"]=S(input,"estanteria");o["cantidad"]=0;o["apertura"]=e.Ahora.ToString("O");
+     var previa=e.Todos(kind).FirstOrDefault(x=>S(x,"material")==S(input,"material")&&S(x,"estanteria")==S(input,"estanteria"));
+     Exigir(previa is null||Activa(previa),"Esa asignación existe desactivada: reactívala en lugar de crear otra.",409);Exigir(previa is null,"Asignación ya existente.",409);
+     o["material"]=S(input,"material");o["estanteria"]=S(input,"estanteria");o["cantidad"]=0;o["apertura"]=e.Ahora.ToString("O");o["activa"]=true;
     }e.Poner(kind,o);resultado["id"]=S(o,"id");break;
    }
    case "ENTRADA":case "SALIDA":
    {
     var u=e.Obtener("ubicacion",Texto(input,"ubicacion",100,true));var m=MaterialUbicacion(e,u);Puesto(e,m);var cajas=Entero(input,"cajas",1,1000000);var saldo=N(u,"cantidad");var empaque=N(m,"empaque");var entrada=tipo=="ENTRADA";
-    Exigir(!entrada||B(m,"activo",true),"El material está inhabilitado: solo se permite retirar su remanente.",409);Exigir(!entrada||!B(input,"consumo"),"Una entrada no es consumo.");Exigir(entrada||cajas<=(saldo+(long)empaque-1)/empaque,"No hay suficientes cajas.",409);
+    Exigir(!entrada||B(m,"activo",true),"El material está inhabilitado: solo se permite retirar su remanente.",409);Exigir(!entrada||Activa(u),"La ubicación está desactivada: no admite entradas.",409);Exigir(!entrada||!B(input,"consumo"),"Una entrada no es consumo.");Exigir(entrada||cajas<=(saldo+(long)empaque-1)/empaque,"No hay suficientes cajas.",409);
     var piezas=entrada?checked((long)cajas*empaque):Math.Min((long)cajas*empaque,saldo);var nuevo=saldo+(entrada?piezas:-piezas);Exigir(piezas>0&&nuevo>=0&&nuevo<=int.MaxValue,"Cantidad fuera de rango.");
     u["cantidad"]=(int)nuevo;var rack=e.Obtener("estanteria",S(u,"estanteria"));Exigir(Ocupacion(e,S(rack,"id"))<=N(rack,"capacidad"),"La estantería no tiene espacio.",409);
     resultado["ubicacion"]=S(u,"id");resultado["material"]=S(m,"id");resultado["numeroParte"]=S(m,"numeroParte");resultado["piezas"]=(int)piezas;resultado["saldoAnterior"]=saldo;resultado["saldoPosterior"]=(int)nuevo;resultado["consumo"]=B(input,"consumo");
@@ -121,7 +125,7 @@ public sealed partial class AdminV2(Store store)
    }
    case "ATENCION_INICIAR":
    {
-    var u=e.Obtener("ubicacion",Texto(input,"ubicacion",100,true));var m=MaterialUbicacion(e,u);Puesto(e,m);Exigir(B(m,"activo",true),"Material inhabilitado.",409);
+    var u=e.Obtener("ubicacion",Texto(input,"ubicacion",100,true));var m=MaterialUbicacion(e,u);Puesto(e,m);Exigir(B(m,"activo",true),"Material inhabilitado.",409);Exigir(Activa(u),"La ubicación está desactivada.",409);
     Exigir(!e.Todos("atencion").Any(a=>S(a,"fin")==""&&S(a,"ubicacion")==S(u,"id")),"Ya hay una atención abierta para esta ubicación.",409);
     var a=new JsonObject{["id"]=Nuevo(),["material"]=S(m,"id"),["ubicacion"]=S(u,"id"),["puesto"]=S(m,"puesto"),["responsable"]=actor.Name,["usuario"]=actor.Id,["inicio"]=e.Ahora.ToString("O"),["fin"]=null,["turno"]=Turno(e.Ahora)};
     e.Poner("atencion",a);resultado["id"]=S(a,"id");break;

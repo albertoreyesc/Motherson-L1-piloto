@@ -109,6 +109,23 @@ foreach(var minutes in new[]{50,10}){var id=Guid.NewGuid();var fecha=DateTime.Ut
 var cover=J(await api.Estado(a,4));var first=cover.GetProperty("alarmas").EnumerateArray().Single(x=>x.GetProperty("ubicacion").GetString()==u4);var other=cover.GetProperty("alarmas").EnumerateArray().Single(x=>x.GetProperty("ubicacion").GetString()==u42);
 Check(first.GetProperty("resultado").GetProperty("minutos").GetDecimal()==60&&first.GetProperty("resultado").GetProperty("estado").GetString()=="NORMAL","Cobertura API: 60 piezas de saldo y dos consumos de 30 pz en 60 min dan 60 minutos normales");
 Check(other.GetProperty("resultado").GetProperty("causa").GetString()=="SIN_CONSUMO_RECIENTE","Cobertura API no mezcla consumos de otra ubicación del mismo material");
+// Observaciones de Motherson (16/11/2026): desactivar o mover ubicaciones sin borrarlas y crear la nueva revisión de una parte.
+var r43=(await Run(4,"ESTANTERIA",new(){["nombre"]="R43",["nivel"]="A",["estacion"]=s4,["capacidad"]=1})).GetProperty("id").GetString()!;
+await Rechaza(async()=>{await Run(4,"UBICACION_ESTADO",new(){["id"]=u42,["activa"]=false,["motivo"]="Sin destino"});},"Ubicación con saldo exige estantería destino al desactivar");
+await Run(4,"UBICACION_ESTADO",new(){["id"]=u42,["activa"]=false,["motivo"]="Reacomodo",["destino"]=r43});
+var tras=await api.Leer(a,4);var u43=tras.Todos("ubicacion").Single(u=>AdminV2.S(u,"estanteria")==r43);
+Check(!AdminV2.Activa(tras.Obtener("ubicacion",u42))&&AdminV2.N(tras.Obtener("ubicacion",u42),"cantidad")==0&&AdminV2.N(u43,"cantidad")==30&&tras.Todos("ubicacion").Sum(u=>(long)AdminV2.N(u,"cantidad"))==90,"Desactivar traslada el saldo a la estantería destino sin perder piezas");
+await Rechaza(async()=>{await Run(4,"ENTRADA",new(){["ubicacion"]=u42,["cajas"]=1});},"Ubicación desactivada rechaza entradas");
+await Rechaza(async()=>{await Run(4,"ATENCION_INICIAR",new(){["ubicacion"]=u42});},"Ubicación desactivada rechaza atenciones");
+await Rechaza(async()=>{await Run(4,"UBICACION",new(){["material"]=m4,["estanteria"]=r42});},"Alta repetida de una ubicación desactivada pide reactivarla");
+await Rechaza(async()=>{await Run(4,"UBICACION_ESTADO",new(){["id"]=u4,["activa"]=false,["motivo"]="Sin espacio",["destino"]=r43});},"Traslado respeta la capacidad de la estantería destino");
+Check(J(await api.Estado(a,4)).GetProperty("alarmas").EnumerateArray().All(x=>x.GetProperty("ubicacion").GetString()!=u42),"Alarmas solo de ubicaciones activas");
+await Run(4,"UBICACION_ESTADO",new(){["id"]=u42,["activa"]=true,["motivo"]="Regresa a su estantería"});Check(AdminV2.Activa((await api.Leer(a,4)).Obtener("ubicacion",u42)),"Reactivar conserva la misma ubicación y su historial");
+var rev=await Run(4,"MATERIAL_DUPLICAR",new(){["id"]=m4,["numeroParte"]="COBERTURA-LOCAL-B",["revision"]="B",["motivo"]="Nueva revisión",["copiarUbicaciones"]=true,["inhabilitarOrigen"]=true});
+var trasRev=await api.Leer(a,4);var nuevo=trasRev.Obtener("material",rev.GetProperty("id").GetString()!);var nuevoId=AdminV2.S(nuevo,"id");
+Check(AdminV2.S(nuevo,"revision")=="B"&&AdminV2.N(nuevo,"empaque")==30&&AdminV2.N(nuevo,"minimo")==5&&AdminV2.S(nuevo,"puesto")==p4&&AdminV2.S(nuevo,"origen")==m4&&AdminV2.B(nuevo,"activo")&&!AdminV2.B(trasRev.Obtener("material",m4),"activo",true),"Nueva revisión copia los datos, registra el origen e inhabilita el anterior");
+Check(trasRev.Todos("ubicacion").Count(u=>AdminV2.S(u,"material")==nuevoId)==3&&trasRev.Todos("ubicacion").Where(u=>AdminV2.S(u,"material")==nuevoId).All(u=>AdminV2.N(u,"cantidad")==0&&AdminV2.Activa(u)),"Nueva revisión ocupa las mismas estanterías activas con saldo cero");
+await Rechaza(async()=>{await Run(4,"MATERIAL_DUPLICAR",new(){["id"]=m4,["numeroParte"]="COBERTURA-LOCAL-B",["motivo"]="Repetido"});},"Nueva revisión rechaza un número de parte existente");
 var revoked=await db.ExecuteAsync("UPDATE mes.USUARIO_PILOTO SET activo=0 WHERE id_usuario=@id",new{id=p.Id});await Rechaza(async()=>{await api.Leer(p,1);},"Cuenta revocada no lee con sesión anterior");await db.ExecuteAsync("UPDATE mes.USUARIO_PILOTO SET activo=1 WHERE id_usuario=@id",new{id=p.Id});
 Directory.CreateDirectory(root+"/documentacion/evidencia-integracion/administracion-v2");File.WriteAllText(root+"/documentacion/evidencia-integracion/administracion-v2/sql.json",JsonSerializer.Serialize(new{alcance="SQL Server 2022 local aislado; datos controlados, no Azure",checks},new JsonSerializerOptions{WriteIndented=true}));
 Console.WriteLine(checks.Count+" comprobaciones aprobadas.");
