@@ -80,3 +80,58 @@
 .menu-acciones[open]{flex-basis:auto;display:block}
 .table-wrap:has(.menu-acciones[open]){overflow:visible}
 .tabla-materiales td:nth-child(5){min-width:120px}
+/* Selector de línea con el mismo ancho en todas las secciones (antes dependía del largo del título). */
+
+/* ---- Vista de un vistazo para tabletas (24/11/2026) ---- */
+/* Barra superior compacta: título y selector de línea en la misma fila. */
+.admin-v2 header{min-height:0;padding-top:16px;padding-bottom:16px}
+.admin-v2 header>div:first-child{display:flex;flex-wrap:wrap;align-items:center;column-gap:24px;row-gap:6px}
+.admin-v2 header .eyebrow{flex-basis:100%;margin-bottom:0}
+.admin-v2 header h1{margin:0}
+.admin-v2 header .field{flex-direction:row;align-items:center;gap:10px;margin-top:0;width:auto;max-width:100%}
+.admin-v2 header .field select{width:200px;min-height:44px;padding-top:8px;padding-bottom:8px}
+.admin-v2 main{padding-top:16px}
+.admin-v2 .context{margin-bottom:16px}
+.admin-v2 .context>button{margin-top:0}
+.admin-v2 .brand img{max-width:100%;height:auto}
+@media(max-width:1100px){.admin-v2{--sidebar:200px}.admin-v2 aside{padding:24px 12px}.admin-v2 nav{margin-top:20px}}
+/* Captura: ficha + atención a la izquierda, cajas y confirmación a la derecha. */
+.captura-bloques{container-type:inline-size}
+.captura-bloques h2{margin-bottom:12px}
+.captura-barra{align-items:center}
+.admin-v2 .captura-barra>button{margin-top:0}
+.captura-volver{margin-right:auto}
+.captura-detalle{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+@container (min-width:640px){.captura-detalle{grid-template-columns:minmax(0,1.1fr) minmax(260px,1fr);gap:24px}}
+.captura-izq,.captura-der{display:flex;flex-direction:column;gap:12px;min-width:0}
+.captura-detalle .captura-seleccion{margin:0;gap:16px;align-items:center}
+.captura-detalle .captura-seleccion>.captura-foto,.captura-detalle .captura-seleccion>.captura-sin-foto{width:104px;min-width:104px;height:104px}
+.captura-datos h3{margin:0 0 4px;font-size:22px;line-height:1.2;overflow-wrap:anywhere}
+.captura-datos p{margin:0 0 2px}
+.captura-cifras{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0}
+.captura-cifras>div{padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-6);background:var(--surface)}
+.captura-cifras dt{color:var(--muted);font-size:11px;font-weight:700}
+.captura-cifras dd{margin:2px 0 0;font-size:17px;font-weight:700}
+.captura-detalle .captura-atencion{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin:0;padding:12px 14px}
+.captura-atencion>div{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 180px}
+.captura-atencion>div span{color:var(--muted);font-size:13px}
+.captura-detalle .captura-atencion button{flex-shrink:0}
+.captura-der .notice{margin:0}.captura-der .notice p{margin:4px 0 0;font-size:13px}
+.captura-der>button,.captura-der [role=group] button{min-height:52px}
+.captura-der>button{width:100%;justify-content:center}
+.captura-der [role=group] h3{margin:0 0 4px}.captura-der [role=group] p{margin:0 0 8px}
+.captura-der .captura-contador{max-width:none}
+.captura-der .captura-contador button{min-width:56px;margin-top:0}
+.captura-der .check{margin:0}
+@container (max-width:420px){.captura-cifras{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1100px){.admin-v2 header{gap:12px 16px;padding-left:24px;padding-right:24px}.admin-v2 header .eyebrow,.admin-v2 header .user>.pill{display:none}.admin-v2 header .user button{margin-top:0;padding-left:14px;padding-right:14px}.admin-v2 header .user small{display:none}}
+/* Tarjetas de cifras más compactas: misma información, menos alto. */
+.admin-v2 .kpis section{min-height:0;padding:12px 14px}
+.admin-v2 .kpis strong{font-size:24px;line-height:1.2}
+.admin-v2 .kpis small{display:block;margin-bottom:4px}
+.admin-v2 .panel .kpis{grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:8px}
+.admin-v2 .notice>p{margin:4px 0}
+.admin-v2 .notice>p:first-child{margin-top:0}.admin-v2 .notice>p:last-child{margin-bottom:0}
+.admin-v2 .notice>button{margin:8px 0}
+@media(max-width:1100px) and (min-width:761px){.admin-v2 header{flex-wrap:nowrap}.admin-v2 header>div:first-child{flex:1 1 auto;column-gap:16px}.admin-v2 header h1{font-size:22px}}
+.admin-v2 header .user>div{flex-shrink:0;white-space:nowrap}.admin-v2 header .user strong{overflow-wrap:normal}
