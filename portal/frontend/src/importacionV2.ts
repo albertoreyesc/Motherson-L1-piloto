@@ -4,10 +4,10 @@ export const camposV2=['numeroParte','descripcion','variante','revision','modelo
 export type CampoV2=typeof camposV2[number];
 export const titulosV2:Record<CampoV2,string>={numeroParte:'Número de parte',descripcion:'Descripción',variante:'Variante / color',revision:'Revisión',modelo:'Modelo / vehículo',uso:'Uso PFEP',puesto:'Puesto',empaque:'Piezas por caja',minimo:'Mínimo en piezas'};
 const normal=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
-const alias:Record<CampoV2,string[]>={numeroParte:['NUMEROPARTE','NUMERODEPARTE','NPARTE','PARTE','PARTNUMBER','MATERIAL','CODIGO'],descripcion:['DESCRIPCION','DESCRIPTION','DENOMINACION'],variante:['VARIANTE','COLOR','VARIANTECOLOR'],revision:['REVISION','REV'],modelo:['MODELO','VEHICULO','AUTO'],uso:['USO','USOPFEP','UTILIZACION'],puesto:['PUESTO','PUESTOLOGISTICO','SURTIDOR'],empaque:['PIEZASPORCAJA','PZCAJA','CANTIDADXCAJA','CANTIDADPORCAJA','EMPAQUE'],minimo:['MINIMO','MINIMOPZ','MINIMOENPIEZAS','MINIMOPIEZAS']};
+const alias:Record<CampoV2,string[]>={numeroParte:['NUMEROPARTE','NUMERODEPARTE','NPARTE','PARTE','PARTNUMBER','MATERIAL','CODIGO'],descripcion:['DESCRIPCION','DESCRIPTION','DENOMINACION'],variante:['VARIANTE','COLOR','VARIANTECOLOR'],revision:['REVISION','REV'],modelo:['MODELO','VEHICULO','AUTO','MODELOVEHICULO'],uso:['USO','USOPFEP','UTILIZACION'],puesto:['PUESTO','PUESTOLOGISTICO','SURTIDOR'],empaque:['PIEZASPORCAJA','PZCAJA','CANTIDADXCAJA','CANTIDADPORCAJA','EMPAQUE'],minimo:['MINIMO','MINIMOPZ','MINIMOENPIEZAS','MINIMOPIEZAS']};
 export function sugerirColumnas(row:CeldaV2[]){const m:Partial<Record<CampoV2,number>>={};for(const campo of camposV2){const matches=row.map((v,i)=>alias[campo].includes(normal(String(v??'')))?i:-1).filter(i=>i>=0);if(matches.length===1)m[campo]=matches[0]}return m}
 export type FilaV2={fila:number;parte:string;estado:'ALTA'|'CAMBIO'|'SIN_CAMBIOS'|'ERROR';errores:string[];avisos:string[];datos:Record<string,unknown>;cambios:string[]};
-export function planV2(rows:CeldaV2[][],header:number,map:Partial<Record<CampoV2,number>>,materiales:Material[],puestos:Item[]):FilaV2[]{
+export function planV2(rows:CeldaV2[][],header:number,map:Partial<Record<CampoV2,number>>,materiales:Material[],puestos:Item[],crearPuestos=false):FilaV2[]{
  if(map.numeroParte===undefined)throw new Error('Mapea la columna de número de parte.');
  const indices=Object.values(map);if(new Set(indices).size!==indices.length)throw new Error('Una columna no puede representar dos campos.');
  const out:FilaV2[]=[];const seen=new Map<string,FilaV2>();
@@ -28,12 +28,19 @@ export function planV2(rows:CeldaV2[][],header:number,map:Partial<Record<CampoV2
    }
    if(campo==='empaque'||campo==='minimo'){const n=typeof raw==='number'?raw:Number(value);if(!Number.isInteger(n)||n<(campo==='empaque'?1:0)||n>(campo==='empaque'?1000000:100000000)){f.errores.push(titulosV2[campo]+': entero fuera de rango (columna '+(col+1)+').');continue}value=n;}
    else if(String(value).length>(campo==='descripcion'?250:80))f.errores.push(titulosV2[campo]+': texto demasiado largo (columna '+(col+1)+').');
-   if(campo==='puesto'){const candidates=puestos.filter(p=>p.id===value||p.nombre===value);if(candidates.length!==1){f.errores.push('Puesto no encontrado o ambiguo: '+value+'. Créalo o selecciona su código.');continue}value=candidates[0].id;}
+   if(campo==='puesto'){
+    const porId=puestos.find(p=>p.id===value);const candidates=porId?[porId]:puestos.filter(p=>p.nombre===value);
+    if(candidates.length>1){f.errores.push('Puesto ambiguo: '+value+'. Selecciona su identificador exacto.');continue}
+    if(!candidates.length){
+     if(!crearPuestos){f.errores.push('El puesto '+value+' no existe en esta línea. Activa Crear puestos faltantes o créalo en Configurar línea.');continue}
+     f.datos.puestoNuevo=value;f.cambios.push('Crear puesto en esta línea: '+value);continue;
+    }value=candidates[0].id;
+   }
    f.datos[campo]=value;if(!old||old[campo]!==value)f.cambios.push(titulosV2[campo]+': '+(old?String(old[campo]):'nuevo')+' → '+String(value));
    if(['variante','revision','modelo','uso'].includes(campo)&&value!==''&&!materiales.some(m=>m[campo]===value))f.avisos.push('Nuevo valor de '+titulosV2[campo]+': '+value);
   }
   if(!old&&!f.datos.empaque)f.errores.push('Material nuevo: indica las piezas por caja.');
-  if(!old&&!f.datos.puesto)f.errores.push('Material nuevo: indica un puesto existente.');
+  if(!old&&!f.datos.puesto&&!f.datos.puestoNuevo)f.errores.push('Material nuevo: indica el puesto en la columna Puesto.');
   if(old&&!f.cambios.length)f.estado='SIN_CAMBIOS';
   const duplicate=seen.get(parte);if(duplicate){duplicate.errores.push('Código repetido en fila '+f.fila);duplicate.estado='ERROR';f.errores.push('Código repetido en fila '+duplicate.fila);}else seen.set(parte,f);
   if(f.errores.length)f.estado='ERROR';out.push(f);
