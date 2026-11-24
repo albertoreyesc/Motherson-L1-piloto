@@ -222,3 +222,75 @@
 .tabla-ubicaciones td:nth-child(4){width:1%}
 .acciones-ubicacion .estado-pill{min-width:96px}
 .admin-v2 .acciones-ubicacion>button{min-width:176px}
+
+/* ===== Jerarquía visual con un solo color de marca (24/11/2026) =====
+   Rojo solo para: acción principal, sección activa y alertas.
+   Lo demás se distingue con relieve, bordes, iconos y peso tipográfico. */
+.admin-v2{--sombra-1:0 1px 2px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.08);--sombra-2:0 2px 6px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);--tinta:#1f1f1f;--borde-fuerte:#bdbdbd}
+/* Botones secundarios: blancos, con relieve suave; al pasar se elevan. */
+.admin-v2 button.secondary{border-color:#cfcfcf;background:#fff;color:var(--tinta);box-shadow:var(--sombra-1);transition:box-shadow .15s,border-color .15s,background-color .15s}
+.admin-v2 button.secondary:hover:not(:disabled){border-color:#9a9a9a;background:#fff;box-shadow:var(--sombra-2)}
+.admin-v2 button.secondary:active:not(:disabled){box-shadow:none;background:var(--surface)}
+.admin-v2 button.secondary:disabled{box-shadow:none}
+/* Menú lateral: iconos; activa con barra roja fina, el resto neutro. */
+.admin-v2 nav button{display:flex;align-items:center;gap:12px;position:relative;min-height:46px;color:#4a4a4a}
+.admin-v2 nav button svg{flex-shrink:0;color:#7a7a7a}
+.admin-v2 nav button:hover{background:#f1f1f1;color:var(--black)}
+.admin-v2 nav button:hover svg{color:var(--black)}
+.admin-v2 nav button.active{background:var(--redSoft);color:var(--brand-red)}
+.admin-v2 nav button.active svg{color:var(--brand-red)}
+.admin-v2 nav button.active::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:var(--brand-red)}
+/* Selector de línea: se nota que se puede cambiar, sin usar rojo. */
+.admin-v2 header .selector-linea>span{display:inline-flex;align-items:center;gap:6px;color:#4a4a4a;white-space:nowrap}
+.admin-v2 header .selector-linea select{border:1.5px solid var(--borde-fuerte);background-color:#fff;font-weight:700;color:var(--tinta);box-shadow:var(--sombra-1);cursor:pointer}
+.admin-v2 header .selector-linea select:hover:not(:disabled){border-color:#8a8a8a}
+/* Cerrar sesión: discreto (no es acción principal). */
+.admin-v2 header .boton-salir{gap:8px;border-color:transparent;background:transparent;box-shadow:none;color:#4a4a4a}
+.admin-v2 header .boton-salir:hover:not(:disabled){border-color:#cfcfcf;background:#fff;color:var(--black);box-shadow:var(--sombra-1)}
+/* Actualizar datos: neutro con relieve (antes rojo). */
+.admin-v2 .boton-actualizar{border-color:#cfcfcf;color:var(--tinta)}
+.admin-v2 .boton-actualizar svg{color:#5a5a5a}
+.admin-v2 .boton-actualizar:hover:not(:disabled){background:#fff}
+/* Entrada | Salida: la activa se "levanta" (blanca, relieve, línea roja inferior). */
+.segmentado{background:#ececec;border-color:#e0e0e0}
+.admin-v2 .segmento{gap:8px;color:#5a5a5a;font-weight:700}
+.admin-v2 .segmento:hover:not(.activo):not(:disabled){background:#e2e2e2;color:var(--black)}
+.admin-v2 .segmento.activo{position:relative;background:#fff;color:var(--black);box-shadow:var(--sombra-2)}
+.admin-v2 .segmento.activo::after{content:"";position:absolute;left:18px;right:18px;bottom:5px;height:3px;border-radius:3px;background:var(--brand-red)}
+.admin-v2 .segmento.activo svg{color:var(--brand-red)}
+/* Desplegables: neutros. */
+.admin-v2 details:not(.menu-acciones)>summary{box-shadow:var(--sombra-1)}
+.admin-v2 details:not(.menu-acciones)>summary::before{border-color:#4a4a4a}
+.admin-v2 details:not(.menu-acciones)>summary::after{background:#efefef;color:var(--tinta)}
+.admin-v2 details:not(.menu-acciones)>summary:hover{border-color:#9a9a9a;background:#fff;box-shadow:var(--sombra-2)}
+.admin-v2 td details:not(.menu-acciones)>summary{box-shadow:none;color:var(--tinta);text-decoration:underline;text-underline-offset:3px}
+.admin-v2 td details:not(.menu-acciones)>summary:hover{background:#f1f1f1;box-shadow:none}
+/* Enlaces de acción (fotos): oscuros y subrayados. */
+.admin-v2 .enlace{color:var(--tinta)}.admin-v2 .enlace:hover{color:var(--black)}
+.admin-v2 .menu-acciones>summary{box-shadow:var(--sombra-1)}
+.admin-v2 .zona-archivo strong{color:var(--tinta)}
+.admin-v2 .zona-archivo:hover,.admin-v2 .zona-archivo:focus-within{border-color:#8a8a8a;background:#fafafa}
+.admin-v2 .mini-foto:hover{border-color:#8a8a8a}
+@media(max-width:1100px){.admin-v2 header .selector-linea>span{font-size:0;gap:0}}
+/* Tarjetas de captura: jerarquía clara y estado al pie. */
+.captura-grid{gap:16px}
+.admin-v2 .captura-tarjeta{gap:0;padding:0;overflow:hidden;border:1px solid #d6d6d6;border-radius:12px;background:#fff;box-shadow:var(--sombra-1);font-weight:400;transition:box-shadow .15s,border-color .15s,transform .15s}
+.admin-v2 .captura-tarjeta:hover:not(:disabled){border-color:#9a9a9a;background:#fff;box-shadow:var(--sombra-2);transform:translateY(-1px)}
+.admin-v2 .captura-tarjeta:active:not(:disabled){transform:none;box-shadow:var(--sombra-1)}
+.tarjeta-foto{position:relative;padding:12px 12px 0}
+.captura-tarjeta .captura-foto,.captura-tarjeta .captura-sin-foto{height:110px}
+.captura-sin-foto{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#f4f4f4;color:#a3a3a3;font-size:12px}
+.tarjeta-atencion{position:absolute;left:20px;top:20px;padding:4px 10px;border-radius:999px;background:var(--greenSoft);color:var(--greenInk);font-size:12px;font-weight:700;box-shadow:var(--sombra-1)}
+.tarjeta-cuerpo{display:flex;flex-direction:column;gap:2px;padding:12px 16px 0}
+.tarjeta-parte{font-size:19px;line-height:1.25;color:var(--black);overflow-wrap:anywhere}
+.tarjeta-desc{color:#4a4a4a;font-size:14px}
+.tarjeta-ubic{display:inline-flex;align-items:center;gap:5px;margin-top:2px;color:var(--muted);font-size:13px}
+.tarjeta-cifras{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 16px;padding:10px 0 0;border-top:1px solid #ececec}
+.tarjeta-cifras dt{color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.tarjeta-cifras dd{margin:2px 0 0;font-size:17px;font-weight:700;color:var(--black)}
+.tarjeta-cifras small{color:var(--muted);font-size:12px}
+.tarjeta-pie{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:auto;padding:12px 16px;border-top:1px solid #ececec;background:#fafafa;font-size:14px;font-weight:700;color:var(--tinta)}
+.tarjeta-pie.aviso,.tarjeta-pie.bloqueado{justify-content:flex-start;color:#6b5600;background:var(--yellowSoft)}
+.tarjeta-pie.bloqueado{color:#555;background:#efefef}
+.captura-tarjeta.no-disponible .tarjeta-foto,.captura-tarjeta.no-disponible .tarjeta-cuerpo,.captura-tarjeta.no-disponible .tarjeta-cifras{opacity:.62}
+.captura-tarjeta .captura-foto{display:block;width:100%}
