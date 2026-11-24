@@ -1,7 +1,7 @@
 export type Item={id:string;nombre:string};
-export type Material={id:string;numeroParte:string;descripcion:string;variante:string;revision:string;modelo:string;uso:string;puesto:string;empaque:number;minimo:number;activo:boolean};
+export type Material={id:string;numeroParte:string;descripcion:string;variante:string;revision:string;modelo:string;uso:string;puesto:string;empaque:number;minimo:number;activo:boolean;origen?:string};
 export type Rack=Item&{estacion:string;nivel:string;capacidad:number};
-export type Ubicacion={id:string;material:string;estanteria:string;cantidad:number;libres:number;apertura:string};
+export type Ubicacion={id:string;material:string;estanteria:string;cantidad:number;libres:number;apertura:string;activa?:boolean;desactivada?:string;motivoDesactivacion?:string};
 export type Atencion={id:string;material:string;ubicacion:string;puesto:string;responsable:string;usuario:number;inicio:string;fin:string|null;turno:number};
 export type Alarma={ubicacion:string;material:string;resultado:{estado:string;causa:string;minutos:number|null;observaciones:number;tasaPiezasHora:number|null;piezasAplicadas:number;ultimoConsumo:string|null};referencia:{corte:string;intervalos:{inicio:string;fin:string}[];minutosLaborables:number;fuente:string|null;simulado:boolean;ultimoMinutoLaborable:string|null}};
 export type EstadoAdmin={linea:number;version:number;corte:string;apertura:string|null;rol:string;puesto:string|null;materiales:Material[];puestos:Item[];estaciones:Item[];estanterias:Rack[];ubicaciones:Ubicacion[];atenciones:Atencion[];calendario:Record<string,unknown>|null;alarmas:Alarma[];imagenes:Record<string,number>;totalPiezas:number;simulado:boolean};

@@ -47,6 +47,29 @@ Un material inactivo no admite entradas ordinarias ni nuevas asignaciones o aten
 
 **Eliminar** solo funciona para un registro sin ubicaciones, imágenes ni atenciones asociadas. Si tiene uso o dependencias, el servidor lo rechaza: utiliza inhabilitación. El icono para quitar una fotografía solo afecta la fotografía, no al material.
 
+## Nueva revisión de una parte
+
+Cuando una parte cambia de revisión (por ejemplo, `EK4747-410` pasa a `EK4747-411`), en **Materiales y catálogos** pulsa **Nueva revisión (duplicar)** en el material actual. Observación de Motherson, 16/11/2026.
+
+1. El formulario copia descripción, variante, revisión, modelo, uso, puesto, piezas por caja y mínimo. Cambia solo lo distinto; se sugiere la siguiente revisión (A→B, 3→4). El número de parte nuevo no puede existir en la línea.
+2. **Asignar a las mismas estanterías** crea ubicaciones del material nuevo en las estanterías activas del anterior, con saldo cero. Las existencias se registran con entradas.
+3. **Inhabilitar el anterior** impide entradas y atenciones nuevas del material original. Su remanente sigue visible para retirarlo con una salida autorizada.
+4. Indica el motivo y revisa la lista de cambios antes de confirmar. El material nuevo muestra "Revisión de …" y conserva la referencia al original (`origen`). El historial del original no cambia.
+
+**Renombrar** sigue disponible para corregir un número de parte capturado mal: conserva el mismo material. **Nueva revisión** crea otro material y deja el anterior con su historial.
+
+## Desactivar, reactivar o mover ubicaciones
+
+En **Estaciones y ubicaciones**, el panel **Administrar ubicaciones** (solo administración) lista las ubicaciones activas, desactivadas o todas. Las ubicaciones no se borran. Observación de Motherson, 16/11/2026.
+
+- **Nueva ubicación**: asigna un material activo a una estantería; empieza en cero. Si esa asignación existe desactivada, se pide reactivarla en lugar de crear otra.
+- **Desactivar o mover**: requiere motivo y que no haya una atención abierta en la ubicación.
+  - Sin saldo, puede desactivarse sin destino.
+  - Con saldo, elige la **estantería destino**: las piezas se trasladan a la ubicación del mismo material en esa estantería (se crea o se reactiva) y la anterior queda en cero. El traslado no cuenta como salida ni como consumo; el servidor valida la capacidad del destino (una caja abierta ocupa una caja completa).
+- **Reactivar**: vuelve a operar la misma ubicación con su historial. El material debe estar activo.
+
+Una ubicación desactivada no admite entradas ni atenciones, no aparece en Entradas y salidas ni en Inventario y no genera alarmas. Sigue contando para el historial, KPIs y Power BI con saldo cero. El historial registra las operaciones `UBICACION_ESTADO` y `MATERIAL_DUPLICAR` con su comprobante.
+
 ## Entradas, salidas y atenciones
 
 Entradas y salidas vuelve a utilizar bloques de material. Busca por número de parte, descripción o ubicación y filtra por estación. Cada bloque muestra foto disponible, saldo, cajas equivalentes y espacio libre. Una caja equivalente puede ser fraccionaria; la captura continúa en cajas enteras.
