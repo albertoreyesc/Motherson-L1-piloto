@@ -112,4 +112,3 @@ Esto se llama modelo mixto. Es más rápido y más barato que poner todo en Dire
 - Velocidad: en DirectQuery cada clic consulta Azure. Por eso solo las existencias y las atenciones recientes se consultan directo.
 - Fórmulas en dos lugares: con este cambio, las columnas de los pasos 6 y 7 se calculan en las vistas y ya no en el modelo. Si cambian una regla (por ejemplo el 20 % de advertencia), cámbienla en la vista.
 - Reglas de convivencia con el portal: lo que se agregue en la base (vistas, índices) se avisa antes a Equipo 1, y las existencias se siguen cambiando solo desde el portal.
-
