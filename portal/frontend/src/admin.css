@@ -95,36 +95,55 @@
 .admin-v2 .context>button{margin-top:0}
 .admin-v2 .brand img{max-width:100%;height:auto}
 @media(max-width:1100px){.admin-v2{--sidebar:200px}.admin-v2 aside{padding:24px 12px}.admin-v2 nav{margin-top:20px}}
-/* Captura: ficha + atención a la izquierda, cajas y confirmación a la derecha. */
+/* Captura por pasos: material arriba; 1 Atención, 2 Cajas, 3 Revisar y confirmar. */
 .captura-bloques{container-type:inline-size}
-.captura-bloques h2{margin-bottom:12px}
-.captura-barra{align-items:center}
-.admin-v2 .captura-barra>button{margin-top:0}
-.captura-volver{margin-right:auto}
-.captura-detalle{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
-@container (min-width:640px){.captura-detalle{grid-template-columns:minmax(0,1.1fr) minmax(260px,1fr);gap:24px}}
-.captura-izq,.captura-der{display:flex;flex-direction:column;gap:12px;min-width:0}
-.captura-detalle .captura-seleccion{margin:0;gap:16px;align-items:center}
-.captura-detalle .captura-seleccion>.captura-foto,.captura-detalle .captura-seleccion>.captura-sin-foto{width:104px;min-width:104px;height:104px}
-.captura-datos h3{margin:0 0 4px;font-size:22px;line-height:1.2;overflow-wrap:anywhere}
-.captura-datos p{margin:0 0 2px}
-.captura-cifras{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0}
-.captura-cifras>div{padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-6);background:var(--surface)}
-.captura-cifras dt{color:var(--muted);font-size:11px;font-weight:700}
-.captura-cifras dd{margin:2px 0 0;font-size:17px;font-weight:700}
-.captura-detalle .captura-atencion{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin:0;padding:12px 14px}
-.captura-atencion>div{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 180px}
-.captura-atencion>div span{color:var(--muted);font-size:13px}
-.captura-detalle .captura-atencion button{flex-shrink:0}
-.captura-der .notice{margin:0}.captura-der .notice p{margin:4px 0 0;font-size:13px}
-.captura-der>button,.captura-der [role=group] button{min-height:52px}
-.captura-der>button{width:100%;justify-content:center}
-.captura-der [role=group] h3{margin:0 0 4px}.captura-der [role=group] p{margin:0 0 8px}
-.captura-der .captura-contador{max-width:none}
-.captura-der .captura-contador button{min-width:56px;margin-top:0}
-.captura-der .check{margin:0}
-@container (max-width:420px){.captura-cifras{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:1100px){.admin-v2 header{gap:12px 16px;padding-left:24px;padding-right:24px}.admin-v2 header .eyebrow,.admin-v2 header .user>.pill{display:none}.admin-v2 header .user button{margin-top:0;padding-left:14px;padding-right:14px}.admin-v2 header .user small{display:none}}
+.captura-encabezado{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px}
+.captura-encabezado h2{margin:0}
+.segmentado{display:inline-flex;padding:4px;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+.admin-v2 .segmento{min-width:128px;min-height:48px;margin:0;justify-content:center;border:0;border-radius:7px;background:transparent;color:var(--muted);font-size:15px}
+.admin-v2 .segmento:hover{background:#ececec;color:var(--black)}
+.admin-v2 .segmento.activo{background:var(--brand-red);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.captura-detalle{display:flex;flex-direction:column;gap:20px}
+.captura-material{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;padding:16px 20px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.captura-material>.captura-foto,.captura-material>.captura-sin-foto{width:96px;min-width:96px;height:96px;border-radius:10px}
+.captura-datos{flex:1 1 220px;min-width:0}
+.captura-etiqueta{display:block;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+.captura-datos h3{margin:2px 0 4px;font-size:24px;line-height:1.2;overflow-wrap:anywhere}
+.captura-datos p{margin:0}
+.captura-cifras{display:flex;margin:0}
+.captura-cifras>div{padding:0 20px;border-left:1px solid var(--border)}
+.captura-cifras dt{color:var(--muted);font-size:12px;font-weight:700;white-space:nowrap}
+.captura-cifras dd{margin:2px 0 0;font-size:22px;font-weight:700;white-space:nowrap}
+.captura-cifras small{color:var(--muted);font-size:12px}
+.admin-v2 .captura-volver{margin:0 0 0 auto;min-height:48px}
+.captura-pasos{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@container (min-width:700px){.captura-pasos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.paso{display:flex;flex-direction:column;gap:10px;min-width:0;padding:18px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.paso h4{display:flex;align-items:center;gap:10px;margin:0 0 2px;font-size:16px}
+.paso h4 label{color:var(--black);font-size:16px;font-weight:700}
+.paso-num{display:inline-grid;place-items:center;flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--black);color:#fff;font-size:14px;font-weight:700}
+.paso .help{margin:0}
+.paso-estado{margin:0;font-size:18px;font-weight:700;color:var(--muted)}
+.paso-estado.en-curso{color:var(--greenInk)}
+.paso-estado.en-curso::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;border-radius:50%;background:#2e8b57;vertical-align:1px}
+.admin-v2 .paso-accion{width:100%;min-height:52px;margin-top:auto;justify-content:center}
+.admin-v2 .paso .captura-contador{display:grid;grid-template-columns:56px minmax(0,1fr) 56px;gap:8px;max-width:none}
+.admin-v2 .paso .captura-contador button{min-width:0;min-height:56px;margin:0;justify-content:center;font-size:22px}
+.admin-v2 .paso .captura-contador input{min-height:56px;font-size:24px;font-weight:700}
+.paso .check{margin:0}
+.paso-final{border-color:#c9c9c9;background:var(--surface)}
+.paso-final.confirmando{border-color:var(--brand-red);background:var(--redSoft)}
+.saldo-previsto small{display:block;color:var(--muted);font-size:12px;font-weight:700}
+.saldo-previsto strong{display:block;font-size:26px;line-height:1.25}
+.saldo-previsto strong span{font-size:16px;color:var(--muted)}
+.paso-error{margin:0;padding:10px 12px;border-left:4px solid var(--brand-red);background:#fff;color:#9b171c;font-size:14px}
+.paso-confirmar{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.paso-confirmar p{margin:0;font-weight:700}
+.admin-v2 .paso-confirmar button{width:100%;min-height:52px;margin:0;justify-content:center}
+@container (max-width:699px){.captura-cifras>div:first-child{border-left:0;padding-left:0}.captura-encabezado h2{flex-basis:100%}.admin-v2 .captura-volver{margin-left:0}}
+@container (min-width:440px) and (max-width:699px){.captura-pasos{grid-template-columns:repeat(2,minmax(0,1fr))}.captura-pasos>.paso:first-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:16px;row-gap:4px}.captura-pasos>.paso:first-child>h4{grid-column:1/-1}.captura-pasos>.paso:first-child>.paso-accion{grid-column:2;grid-row:2/span 2;width:auto;margin:0;padding-left:24px;padding-right:24px}}
+.captura-material{padding:14px 18px}.captura-material>.captura-foto,.captura-material>.captura-sin-foto{width:84px;min-width:84px;height:84px}.paso{padding:16px}
+@media(max-width:1366px){.admin-v2 header{gap:12px 16px;padding-left:24px;padding-right:24px}.admin-v2 header .eyebrow,.admin-v2 header .user>.pill{display:none}.admin-v2 header .user button{margin-top:0;padding-left:14px;padding-right:14px}.admin-v2 header .user small{display:none}}
 /* Tarjetas de cifras más compactas: misma información, menos alto. */
 .admin-v2 .kpis section{min-height:0;padding:12px 14px}
 .admin-v2 .kpis strong{font-size:24px;line-height:1.2}
@@ -134,4 +153,8 @@
 .admin-v2 .notice>p:first-child{margin-top:0}.admin-v2 .notice>p:last-child{margin-bottom:0}
 .admin-v2 .notice>button{margin:8px 0}
 @media(max-width:1100px) and (min-width:761px){.admin-v2 header{flex-wrap:nowrap}.admin-v2 header>div:first-child{flex:1 1 auto;column-gap:16px}.admin-v2 header h1{font-size:22px}}
+@media(max-width:1366px) and (min-width:1101px){.admin-v2 header{flex-wrap:nowrap}.admin-v2 header>div:first-child{flex:1 1 auto}}
 .admin-v2 header .user>div{flex-shrink:0;white-space:nowrap}.admin-v2 header .user strong{overflow-wrap:normal}
+.captura-datos{flex:1 1 160px}.captura-cifras{flex-shrink:0}.captura-cifras>div{padding:0 18px}
+
+.captura-contador input[type=number]{-moz-appearance:textfield;appearance:textfield;text-align:center}.captura-contador input[type=number]::-webkit-inner-spin-button,.captura-contador input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
