@@ -31,3 +31,21 @@ describe('Captura por bloques: saldo y capacidad',()=>{
  it('material inhabilitado permite retiro y rechaza entrada',()=>{expect(preverMovimiento({...material,activo:false},u,'ENTRADA',1).error).toContain('inhabilitado');expect(preverMovimiento({...material,activo:false},u,'SALIDA',1)).toEqual({piezas:10,saldo:5})});
  it.each([0,-1,1.5,NaN,Infinity,1000001])('rechaza cantidad inválida %s',c=>expect(preverMovimiento(material,u,'ENTRADA',c).error).toBeTruthy());
 });
+
+import {planDesactivar,siguienteRevision,revisarDuplicado,ubicacionActiva} from './ubicacionesV2';
+describe('Ubicaciones: desactivar y mover (observación Motherson)',()=>{
+ const base=()=>({materiales:[material,{...material,id:'m2',numeroParte:'000999',activo:false}],estanterias:[{id:'r1',nombre:'A',estacion:'s1',nivel:'1',capacidad:5},{id:'r2',nombre:'B',estacion:'s1',nivel:'2',capacidad:2}],atenciones:[] as never[],
+  ubicaciones:[{id:'u1',material:'m1',estanteria:'r1',cantidad:15,libres:3,apertura:''},{id:'u2',material:'m1',estanteria:'r2',cantidad:0,libres:2,apertura:'',activa:false},{id:'u3',material:'m2',estanteria:'r1',cantidad:0,libres:3,apertura:''}]});
+ it('ubicaciones sin el campo se consideran activas',()=>{expect(ubicacionActiva({})).toBe(true);expect(ubicacionActiva({activa:false})).toBe(false)});
+ it('con saldo exige destino',()=>expect(planDesactivar(base(),'u1','').error).toContain('estantería destino'));
+ it('sin saldo se puede desactivar sin destino',()=>expect(planDesactivar(base(),'u3','')).toEqual({piezas:0,cajas:0,destino:'NINGUNO'}));
+ it('reactiva la asignación previa en el destino y respeta capacidad',()=>{expect(planDesactivar(base(),'u1','r2')).toEqual({piezas:15,cajas:2,destino:'REACTIVAR'});const e=base();e.estanterias[1].capacidad=1;expect(planDesactivar(e,'u1','r2').error).toContain('espacio')});
+ it('no permite el mismo destino ni desactivar con atención abierta',()=>{expect(planDesactivar(base(),'u1','r1').error).toContain('distinta');const e={...base(),atenciones:[{id:'a1',material:'m1',ubicacion:'u1',puesto:'p1',responsable:'x',usuario:1,inicio:'',fin:null,turno:1}]};expect(planDesactivar(e,'u1','r2').error).toContain('atención abierta')});
+ it('material inhabilitado no crea ubicación nueva',()=>{const e=base();e.ubicaciones[2].cantidad=3;expect(planDesactivar(e,'u3','r2').error).toContain('inhabilitado')});
+ it('entrada bloqueada en ubicación desactivada',()=>expect(preverMovimiento(material,{id:'u2',material:'m1',estanteria:'r2',cantidad:0,libres:2,apertura:'',activa:false},'ENTRADA',1).error).toContain('desactivada'));
+});
+describe('Nueva revisión de una parte (duplicar)',()=>{
+ it('sugiere la siguiente revisión',()=>{expect(siguienteRevision('B')).toBe('C');expect(siguienteRevision('AZ')).toBe('BA');expect(siguienteRevision('Z')).toBe('AA');expect(siguienteRevision('REV09')).toBe('REV10');expect(siguienteRevision('')).toBe('');expect(siguienteRevision('b-x')).toBe('')});
+ it('exige número de parte distinto y lista solo los cambios',()=>{const d={numeroParte:'000123-CE',descripcion:'Viejo',variante:'A',revision:'',modelo:'',uso:'COMPARTIDO',empaque:10,minimo:5};expect(revisarDuplicado(material,d,[material]).errores.join()).toContain('ya existe');const r=revisarDuplicado(material,{...d,numeroParte:'000123-CF',revision:'B',empaque:12},[material]);expect(r.errores).toEqual([]);expect(r.cambios.map(c=>c.campo)).toEqual(['numeroParte','revision','empaque'])});
+ it('valida empaque y mínimo',()=>expect(revisarDuplicado(material,{numeroParte:'N',descripcion:'',variante:'',revision:'',modelo:'',uso:'',empaque:0,minimo:-1},[material]).errores.length).toBe(2));
+});
