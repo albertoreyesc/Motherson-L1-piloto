@@ -6,6 +6,8 @@ Ampliación de administración de cuatro líneas, 22/11/2026: [manual](documenta
 
 Captura por bloques, período disponible de Hoja 2, calendario de referencia y fuentes Power BI: [cierre de mejoras](documentacion/administracion-v2/CIERRE_CAPTURA_Y_COBERTURA_2026-11-22.md). El modelo Power BI candidato permanece pendiente de validar su conexión y actualización en el servicio.
 
+Entrega a Motherson: [arquitectura y herramientas](documentacion/ARQUITECTURA_Y_HERRAMIENTAS.md) y [guía para correr el sistema de forma local](documentacion/GUIA_INSTALACION_LOCAL.md).
+
 Para ubicar el código, preparar el entorno y colaborar mediante ramas, consulta **[CONTRIBUTING.md](CONTRIBUTING.md)**. El repositorio del piloto es privado; cada compañero requiere acceso con su propia cuenta GitHub.
 
 La configuración de Render está en `despliegue/render/`; las migraciones nuevas están en `portal/db/administracion/`. No ejecutar inicializadores históricos para actualizar una base con movimientos existentes.
