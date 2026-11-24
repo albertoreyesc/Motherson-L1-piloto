@@ -193,3 +193,32 @@
 .estado-pill.kpi-advertencia{background:var(--yellowSoft);color:var(--yellowInk)}
 .estado-pill.kpi-normal{background:var(--greenSoft);color:var(--greenInk)}
 .foto-grande img{width:min(560px,85vw);height:auto;max-height:65vh;object-fit:contain}
+/* Desplegables con aspecto de botón: se nota que se pueden abrir. */
+.admin-v2 details.panel{padding:0;border:0;background:transparent}
+.admin-v2 details:not(.menu-acciones)>summary{list-style:none;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;column-gap:14px;min-height:56px;padding:12px 18px;border:1px solid var(--border);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .15s,background-color .15s}
+.admin-v2 details:not(.menu-acciones)>summary::-webkit-details-marker{display:none}
+.admin-v2 details:not(.menu-acciones)>summary::before{content:"";grid-row:1/span 2;width:9px;height:9px;margin:0 4px;border-right:2.5px solid var(--brand-red);border-bottom:2.5px solid var(--brand-red);transform:rotate(-45deg);transition:transform .15s}
+.admin-v2 details[open]:not(.menu-acciones)>summary::before{transform:rotate(45deg)}
+.admin-v2 details:not(.menu-acciones)>summary::after{content:"Ver";grid-column:3;grid-row:1/span 2;padding:6px 12px;border-radius:999px;background:var(--redSoft);color:var(--brand-red);font-size:13px;font-weight:700}
+.admin-v2 details[open]:not(.menu-acciones)>summary::after{content:"Ocultar"}
+.admin-v2 details:not(.menu-acciones)>summary:hover{border-color:var(--brand-red);background:#fffafa}
+.admin-v2 details[open]:not(.menu-acciones)>summary{margin-bottom:12px;border-color:#bdbdbd}
+.resumen-titulo{grid-column:2;font-size:15px;font-weight:700;color:var(--black)}
+.resumen-ayuda{grid-column:2;margin-top:2px;color:var(--muted);font-size:13px;font-weight:400}
+/* En celdas de tabla: versión ligera tipo enlace. */
+.admin-v2 td details:not(.menu-acciones)>summary{display:inline-flex;min-height:40px;padding:6px 10px 6px 4px;border-color:transparent;background:transparent;color:var(--brand-red);font-size:13px;font-weight:700}
+.admin-v2 td details:not(.menu-acciones)>summary::after{content:none}
+.admin-v2 td details:not(.menu-acciones)>summary::before{margin-right:6px}
+.admin-v2 td details:not(.menu-acciones)>summary:hover{background:var(--redSoft)}
+/* Actualizar datos: acción visible. */
+.admin-v2 .boton-actualizar{gap:8px;border-color:var(--brand-red);color:var(--brand-red)}
+.admin-v2 .boton-actualizar:hover{background:var(--redSoft)}
+.admin-v2 .boton-actualizar:disabled{border-color:var(--border);color:var(--muted)}
+/* Ubicaciones: estado y acción en columnas parejas (no se desfasan entre filas). */
+.acciones-material.acciones-ubicacion{justify-content:flex-start;flex-wrap:nowrap}
+.acciones-ubicacion .estado-pill{min-width:104px;text-align:center}
+.admin-v2 .acciones-ubicacion>button{min-width:190px;justify-content:center}
+.tabla-ubicaciones td:nth-child(3),.tabla-ubicaciones td:nth-child(3) small{white-space:nowrap}
+.tabla-ubicaciones td:nth-child(4){width:1%}
+.acciones-ubicacion .estado-pill{min-width:96px}
+.admin-v2 .acciones-ubicacion>button{min-width:176px}
