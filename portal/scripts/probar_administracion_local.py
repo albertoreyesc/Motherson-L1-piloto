@@ -2,7 +2,7 @@
 No conecta a Azure. No borra ni reabre bases existentes. Secretos solo en .local.
 Uso: python3 portal/scripts/probar_administracion_local.py [--servir]
 """
-import json, os, secrets, subprocess, sys, uuid
+import json, os, secrets, shutil, subprocess, sys, uuid
 from pathlib import Path
 root = Path(__file__).resolve().parents[2]
 private = root / 'portal/.local/v2'
@@ -28,8 +28,12 @@ for filename, value in [('config.json',json.dumps(settings)),('user.password',pa
     dest=private/filename
     dest.write_text(value)
     dest.chmod(0o600)
+# Runtime aislado del proyecto si existe (Mac/Linux); si no, el dotnet instalado en el sistema (Windows).
 runtime = root/'portal/.local/dotnet/dotnet'
-assert runtime.is_file(), 'Se requiere el runtime local .NET 10; ver documentación del proyecto'
+if not runtime.is_file():
+    instalado = shutil.which('dotnet')
+    assert instalado, 'Se requiere .NET 10 (SDK); instálalo o deja el runtime en portal/.local/dotnet/dotnet'
+    runtime = Path(instalado)
 subprocess.run(['dotnet','build',str(root/'portal/pruebas-administracion')],check=True)
 env=os.environ.copy()
 env.update(MES_V2_ADMIN_SQL=connection('sa',sa),MES_V2_APP_SQL=connection('portal_app',app),MES_V2_PASSWORD=password)

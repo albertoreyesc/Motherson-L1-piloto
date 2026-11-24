@@ -33,36 +33,29 @@ La compilación corre las pruebas del frontend, las pruebas de Azure y publica e
 
 ## 3. Escenario A · Prueba en una computadora (datos de prueba)
 
-El equipo ya tiene un procedimiento que crea una base **nueva y aislada** con datos controlados, corre las pruebas de integración y levanta el portal en `http://127.0.0.1:5099`. Está escrito para Mac o Linux; en Windows conviene usar WSL2 (Ubuntu).
+El equipo ya tiene un procedimiento que crea una base **nueva y aislada** con datos controlados, corre las pruebas de integración y levanta el portal en `http://127.0.0.1:5099`. Funciona en Windows (PowerShell), Mac y Linux. Requiere Docker Desktop, .NET SDK 10 y Python 3.11+.
 
-1. **SQL Server local en Docker**, accesible solo desde la propia computadora:
+1. **SQL Server local en Docker**, accesible solo desde la propia computadora (en PowerShell, una sola línea):
 
-   ```sh
-   docker run -d --name motherson-admin-v2-local -p 127.0.0.1:1439:1433 \
-     -e ACCEPT_EULA=Y -e MSSQL_PID=Developer -e 'MSSQL_SA_PASSWORD=<contraseña-fuerte>' \
-     mcr.microsoft.com/mssql/server:2022-latest
+   ```powershell
+   docker run -d --name motherson-admin-v2-local -p 127.0.0.1:1439:1433 -e ACCEPT_EULA=Y -e MSSQL_PID=Developer -e "MSSQL_SA_PASSWORD=<contraseña-fuerte>" mcr.microsoft.com/mssql/server:2022-latest
    ```
 
-   Habilitar usuarios contenidos, como en Azure SQL:
+   Espera unos 30 segundos y habilita usuarios contenidos, como en Azure SQL:
 
-   ```sh
-   docker exec -it motherson-admin-v2-local /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -C \
-     -Q "EXEC sp_configure 'contained database authentication',1; RECONFIGURE;"
+   ```powershell
+   docker exec motherson-admin-v2-local /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "<contraseña-fuerte>" -C -Q "EXEC sp_configure 'contained database authentication',1; RECONFIGURE;"
    ```
 
-2. **Runtime .NET en la ruta que espera el script** (`portal/.local/dotnet/dotnet`, carpeta excluida de Git):
+2. **.NET:** el script usa `portal/.local/dotnet/dotnet` si existe (Mac/Linux del equipo) o, si no, el `dotnet` instalado en el sistema.
 
-   ```sh
-   mkdir -p portal/.local/dotnet && ln -s "$(command -v dotnet)" portal/.local/dotnet/dotnet
+3. **Pruebas y servidor local**, desde la raíz del repositorio:
+
+   ```powershell
+   python portal/scripts/probar_administracion_local.py --servir
    ```
 
-3. **Pruebas y servidor local:**
-
-   ```sh
-   python3 portal/scripts/probar_administracion_local.py --servir
-   ```
-
-   El script crea una base `MES_Integracion_Pruebas_<aleatorio>`, ejecuta las comprobaciones de `portal/pruebas-administracion` y, si pasan, abre el portal en `http://127.0.0.1:5099` con perfil Development.
+   El script crea una base `MES_Integracion_Pruebas_<aleatorio>`, ejecuta las comprobaciones de `portal/pruebas-administracion` y, si pasan, abre el portal en `http://127.0.0.1:5099` con perfil Development. Cada ejecución crea una base nueva; no borra las anteriores.
 
 4. **Entrar:** `persona0` es administrador, `persona1` operador y `persona79` lector. La contraseña temporal queda en `portal/.local/v2/user.password`.
 
