@@ -304,3 +304,6 @@
 .admin-v2 .form-grid select.filtrando{border-color:var(--tinta);font-weight:700;background-color:#f7f7f7}
 .admin-v2 input:not([type=checkbox]):not([type=file]){border:1.5px solid #cfcfcf;border-radius:8px}
 .admin-v2 input:not([type=checkbox]):not([type=file]):hover:not(:disabled){border-color:#8a8a8a}
+/* Barra superior de alto fijo: el título se recorta con "…" antes de partir la fila (el botón Cerrar sesión no se mueve). */
+@media(max-width:1366px) and (min-width:761px){.admin-v2 header>div:first-child{flex-wrap:nowrap;min-width:0}.admin-v2 header h1{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.admin-v2 header .selector-linea{flex-shrink:0}}
+@media(max-width:1000px) and (min-width:761px){.admin-v2 header h1{font-size:20px}.admin-v2 header .selector-linea select{width:160px}}
