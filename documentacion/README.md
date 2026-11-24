@@ -7,6 +7,11 @@ Para la ampliación de cuatro líneas del 22/11/2026 consulta:
 - [Actualización y recuperación](administracion-v2/ACTUALIZACION_Y_RECUPERACION.md).
 - [Mapa del repositorio y colaboración](../CONTRIBUTING.md).
 
+Entrega a Motherson (24/11/2026):
+
+- [Arquitectura y herramientas](ARQUITECTURA_Y_HERRAMIENTAS.md).
+- [Guía para correr el sistema de forma local](GUIA_INSTALACION_LOCAL.md).
+
 ## Antecedentes
 
 Las guías siguientes conservan su contexto histórico y no deben usarse como instrucciones de reinstalación del piloto publicado.
