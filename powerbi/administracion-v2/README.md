@@ -1,8 +1,8 @@
 # Modelo publicado para las operaciones v2
 
-Preparado desde la definición **real del modelo publicado**, recuperada por Fabric el 22/11/2026, no desde un PBIX supuesto. Conserva las 8 tablas, 8 relaciones y 110 medidas existentes. No se cambió el diseño de las tres páginas del informe.
+Preparado desde la definición **real del modelo publicado**, recuperada por Fabric el 22/11/2026, no desde un PBIX supuesto. Conserva las 8 tablas, 8 relaciones y 110 medidas existentes. El 24/11/2026 se incorporaron los nuevos diseños de las tres páginas del equipo 2; véase [integración vigente](../../documentacion/INTEGRACION_EQUIPO2_2026-11-24.md).
 
-Estado: **publicado, actualizado y conciliado**. El informe Motherson conserva su identificador y sus tres diseños; ahora utiliza el modelo `Motherson piloto v2` y exclusivamente las vistas de la base piloto. Último refresco comprobado: 22/11/2026 21:05:49 Ciudad de México (23/11/2026 03:05:49 UTC). Datos conciliados con DAX: 10,464 piezas, 58,422 atenciones y 9,254 completados del 03/02/2026 al 31/03/2026.
+Estado: **publicado, actualizado y conciliado**. El informe Motherson conserva su identificador y sus tres diseños; ahora utiliza el modelo `Motherson piloto v2` y exclusivamente las vistas de la base piloto. Último refresco comprobado: 24/11/2026 17:43:09 Ciudad de México (23:43:09 UTC). Datos conciliados con DAX: 11,465 piezas, 58,426 atenciones y 9,254 completados del 03/02/2026 al 31/03/2026.
 
 Actualización programada verificada por API: lunes a viernes, 06:00, 15:00 y 23:30, zona `Central Standard Time (Mexico)`. La cuenta propietaria es Power BI Motherson. El lector SQL dedicado solo dispone de SELECT en las ocho vistas BI; su secreto permanece fuera del repositorio. Los permisos de lectura existentes de Administración de planta se conservan.
 
@@ -23,9 +23,9 @@ Actualización programada verificada por API: lunes a viernes, 06:00, 15:00 y 23
 - Modelo anterior conservado para recuperación: `22d01542-205e-48da-a3a3-2d5988621954`. El respaldo de su definición y vínculo anterior se guarda en la carpeta privada de operación. Para recuperar, volver a vincular el mismo informe a ese modelo; ello vuelve a mostrar la fuente anterior, no operaciones v2.
 - Se desplegó primero el modelo separado, se configuraron credenciales, se completó un refresco real y se conciliaron los totales antes de vincular el informe mediante Rebind. El último ajuste de medidas también tuvo refresco terminado y conciliación.
 - La fecha de actualización procede de la captura del modelo en Ciudad de México, no del último registro histórico. El diagnóstico distingue mínimos de cobertura temporal.
-- Las líneas 2–4 siguen vacías; no se generaron operaciones de demostración en el piloto. El modelo incluye claves por línea y no fusiona materiales que compartan número de parte.
+- El catálogo de las cuatro líneas se consulta desde la misma fuente; no se generaron operaciones de demostración en el piloto. El modelo incluye claves por línea y no fusiona materiales que compartan número de parte.
 - La cobertura temporal del informe permanece sin estimación: el cálculo válido por ubicación, calendario y consumos se consulta en Inventario del portal. Incorporar ese cálculo al modelo BI sigue pendiente; no usar frecuencia de atenciones como consumo.
-- Conexión SQL cifrada. Reglas de Power BI limitadas a las direcciones observadas `158.23.200.149` (validación) y `158.23.200.135` (refresco). No se habilitó acceso global a servicios Azure. Si Microsoft cambia su dirección de salida, revisar el error concreto y la configuración de red antes de ampliar acceso.
+- Conexión SQL cifrada. Se aplicaron los siete prefijos IPv4 oficiales de PowerBI.MexicoCentral (Service Tags 20261123) después de un cambio de salida que produjo SQL 40615. Revisar rangos semanalmente; no se habilitó acceso global a servicios Azure.
 - Se mantuvieron las licencias existentes; no se contrató capacidad. La cuenta propietaria muestra una prueba vigente. La continuidad del acceso depende de las licencias/permisos correspondientes.
 
 Prueba de estructura: `dotnet build portal/pruebas-powerbi` y ejecutar su binario con `powerbi/administracion-v2/definition` como argumento. Las vistas se prueban en SQL local junto con `portal/pruebas-administracion`.

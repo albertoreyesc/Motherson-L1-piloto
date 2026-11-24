@@ -90,14 +90,17 @@ table MATERIAL
 		summarizeBy: sum
 
 	column Estado =
+			VAR _sitios = COUNTROWS ( FILTER ( UBICACION, UBICACION[clave_material] = MATERIAL[clave_material] ) )
 			VAR _e = MATERIAL[Existencia (pzas)]
 			VAR _m = MATERIAL[minimo]
 			RETURN
 				IF (
+					_sitios = 0, "Sin ubicación",
+				IF (
 					_m <= 0,
 					BLANK (),
 					SWITCH ( TRUE (), _e = 0, "Agotado", _e <= _m, "Crítico", _e <= _m * 1.2, "Advertencia", "Normal" )
-				)
+				))
 		dataType: string
 		lineageTag: 957881ed-d7b7-4a87-9018-f177d5139d15
 		summarizeBy: none
@@ -116,3 +119,32 @@ table MATERIAL
 		isHidden
 		summarizeBy: none
 		sourceColumn: clave_material
+
+	column modelo
+		dataType: string
+		sourceColumn: modelo
+		summarizeBy: none
+
+	column revision
+		dataType: string
+		sourceColumn: revision
+		summarizeBy: none
+
+	column variante
+		dataType: string
+		sourceColumn: variante
+		summarizeBy: none
+
+	column activo
+		dataType: boolean
+		sourceColumn: activo
+		summarizeBy: none
+
+	column id_linea
+		dataType: int64
+		sourceColumn: id_linea
+		summarizeBy: none
+
+	column 'Modelo Vehiculo' = IF ( ISBLANK ( MATERIAL[modelo] ) || MATERIAL[modelo] = "", "Sin modelo documentado", MATERIAL[modelo] )
+		dataType: string
+		summarizeBy: none

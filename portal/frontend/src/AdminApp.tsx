@@ -1,3 +1,4 @@
+import {DashboardActual} from './DashboardActual';
 import {FechaHora,ahoraCdmx,abrirSelector} from './fechaHora';
 import {MoreHorizontal,RefreshCw,LayoutDashboard,Package,Warehouse,ClipboardList,ArrowLeftRight,History,ChartColumn,ChartPie,Settings2,LogOut,Factory} from 'lucide-react';
 import {MiniFoto} from './fotoMaterial';
@@ -45,7 +46,7 @@ export function AdminApp({user,onLogout}:{user:User;onLogout:()=>Promise<void>})
  {page===4&&<CapturaBloques e={e} user={user} run={run} dirty={setDirty} bloqueado={busy||!!pendiente}/>}
  {page===5&&<HistorialAdmin linea={linea}/>}
  {page===6&&<AdminKpis e={e}/>}
- {page===7&&<><p className="notice">El informe incorpora el histórico y las nuevas atenciones del piloto. Se actualiza de lunes a viernes a las 06:00, 15:00 y 23:30 (Ciudad de México). Los movimientos aparecen después de actualizar el modelo. La cobertura temporal por ubicación se consulta en Inventario; este informe muestra Sin estimación.</p><DashboardEquipo2 estadoPath={'/v2/lineas/'+linea+'/dashboard'} tokenPath={'/v2/lineas/'+linea+'/dashboard-token'}/></>}
+ {page===7&&<><DashboardActual key={linea} linea={linea}/><p className="notice">El informe incorpora el histórico y las nuevas atenciones del piloto. Se actualiza de lunes a viernes a las 06:00, 15:00 y 23:30 (Ciudad de México). El modelo usa la misma fuente Azure que el portal; Power BI muestra los cambios después de su actualización, no en tiempo real. La cobertura temporal por ubicación se consulta en Inventario; este informe muestra Sin estimación.</p><DashboardEquipo2 estadoPath={'/v2/lineas/'+linea+'/dashboard'} tokenPath={'/v2/lineas/'+linea+'/dashboard-token'}/></>}
  {page===8&&admin&&<AdminConfigurar e={e} run={run} dirty={setDirty}/>}
  </div>}<footer>Motherson · Línea {linea} · inventario y actividad con trazabilidad</footer></main></div><DialogoHost/></div>;
 }

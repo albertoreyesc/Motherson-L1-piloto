@@ -9,6 +9,8 @@ Para la ampliación de cuatro líneas del 22/11/2026 consulta:
 
 Entrega a Motherson (24/11/2026):
 
+- [Integración vigente del equipo 2: tres hojas y catálogo compartido](INTEGRACION_EQUIPO2_2026-11-24.md).
+
 - [Arquitectura y herramientas](ARQUITECTURA_Y_HERRAMIENTAS.md).
 - [Guía para correr el sistema de forma local](GUIA_INSTALACION_LOCAL.md).
 

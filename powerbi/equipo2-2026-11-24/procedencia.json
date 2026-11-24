@@ -1,0 +1,14 @@
+{
+  "fecha": "2026-11-24",
+  "origen": "Entrega del equipo 2 (archivos locales proporcionados por el usuario)",
+  "pbixSHA256": "56c6e7f13b04b809ab4646429c541d5e88b10d4abeecaad82e76fdbf59c0d1f2",
+  "paginas": [
+    "Crítico por Surtir",
+    "Desempeño semanal",
+    "Diagnóstico"
+  ],
+  "referenciasVerificadas": 141,
+  "tablas": 8,
+  "relaciones": 8,
+  "medidas": 110
+}

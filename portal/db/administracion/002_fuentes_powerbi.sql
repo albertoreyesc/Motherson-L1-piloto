@@ -24,7 +24,8 @@ SELECT CONCAT(m.linea,':',m.id) COLLATE Latin1_General_100_BIN2 clave_material,J
  CASE WHEN COALESCE(JSON_VALUE(m.datos,'$.variante'),'')<>'' THEN CONCAT('variante:',JSON_VALUE(m.datos,'$.variante')) WHEN old.id_color IS NOT NULL THEN CONCAT('legado:',old.id_color) END COLLATE Latin1_General_100_BIN2 id_color,
  JSON_VALUE(m.datos,'$.descripcion') descripcion,JSON_VALUE(m.datos,'$.uso') uso,TRY_CONVERT(int,JSON_VALUE(m.datos,'$.empaque')) cantidad_por_caja,
  (SELECT COALESCE(SUM(CONVERT(bigint,JSON_VALUE(u.datos,'$.cantidad'))),0) FROM mes2.ENTIDAD u WHERE u.tipo='ubicacion' AND u.linea=m.linea AND JSON_VALUE(u.datos,'$.material') COLLATE Latin1_General_100_BIN2=m.id) stock,
- TRY_CONVERT(int,JSON_VALUE(m.datos,'$.minimo')) minimo
+ TRY_CONVERT(int,JSON_VALUE(m.datos,'$.minimo')) minimo,
+ m.linea id_linea,JSON_VALUE(m.datos,'$.modelo') modelo,JSON_VALUE(m.datos,'$.revision') revision,JSON_VALUE(m.datos,'$.variante') variante,CONVERT(bit,CASE WHEN JSON_VALUE(m.datos,'$.activo')='false' THEN 0 ELSE 1 END) activo
 FROM mes2.ENTIDAD m LEFT JOIN dbo.MATERIAL old ON m.linea=1 AND JSON_VALUE(m.datos,'$.numeroParteLegado') COLLATE Latin1_General_100_BIN2=old.numero_parte COLLATE Latin1_General_100_BIN2 WHERE m.tipo='material';
 GO
 CREATE OR ALTER VIEW mes2.bi_UBICACION AS
