@@ -16,7 +16,7 @@ table UBICACION
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 9d57c36e-e070-4934-b158-a1f95d1eeffe
 
-	measure 'Minimo Piezas' = SUM ( UBICACION[Minimo (pzas)] )
+	measure 'Minimo Piezas' = SUMX ( VALUES ( UBICACION[clave_material] ), LOOKUPVALUE ( MATERIAL[minimo], MATERIAL[clave_material], UBICACION[clave_material] ) )
 		formatString: #,0
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: b1149e82-4f22-42c5-badb-224031c4715e
@@ -31,7 +31,7 @@ table UBICACION
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 95f6b9d7-4a06-4227-9164-a9edbeb0e886
 
-	measure 'Materiales Monitoreados' = COUNTROWS ( UBICACION ) + 0
+	measure 'Materiales Monitoreados' = COUNTROWS ( VALUES ( UBICACION[clave_material] ) ) + 0
 		formatString: #,0
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: a16c8810-bfbd-4e0e-b8ec-c3a5adcb4f8d
@@ -80,15 +80,15 @@ table UBICACION
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 0c5791d4-0a1b-4680-a66c-a3327559bf87
 
-	measure 'Materiales Nivel Critico' = COUNTROWS ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Nivel] IN { "Crítico", "Agotado" } ) ) + 0
+	measure 'Materiales Nivel Critico' = COUNTROWS ( FILTER ( VALUES ( UBICACION[clave_material] ), [Nivel] IN { "Crítico", "Agotado" } ) ) + 0
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 5e6848f4-ae31-4475-aef7-f0a06afad9c3
 
-	measure 'Materiales Nivel Bajo' = COUNTROWS ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Nivel] = "Advertencia" ) ) + 0
+	measure 'Materiales Nivel Bajo' = COUNTROWS ( FILTER ( VALUES ( UBICACION[clave_material] ), [Nivel] = "Advertencia" ) ) + 0
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: e14adba3-e700-4a90-9ef4-445331a166ad
 
-	measure 'Materiales Nivel Normal' = COUNTROWS ( FILTER ( VALUES ( UBICACION[id_ubicacion] ), [Nivel] = "Normal" ) ) + 0
+	measure 'Materiales Nivel Normal' = COUNTROWS ( FILTER ( VALUES ( UBICACION[clave_material] ), [Nivel] = "Normal" ) ) + 0
 		displayFolder: Hoja 1 · Material restante
 		lineageTag: 9a89d64a-fecf-4321-b234-146a127ae658
 

@@ -18,7 +18,7 @@ No se ejecutaron los scripts iniciales de creación, borrado o carga de CSV de l
 
 ## Correcciones al informe recibido
 
-Se conservaron los diseños y 110 medidas con las correcciones anteriores de cobertura. El selector Modelo ahora usa el modelo del vehículo, separado de Uso PFEP. Se quitaron filtros de fecha colocados por error en dos selectores de número de parte. El selector de período de Diagnóstico ya no fija febrero-marzo de demostración y usa un grupo independiente. La página inicial es Crítico por Surtir. Se verificaron 141 referencias de campos/medidas.
+Se conservaron los diseños y 110 medidas con las correcciones anteriores de cobertura. El selector Modelo ahora usa el modelo del vehículo, separado de Uso PFEP. Se quitaron filtros de fecha colocados por error en dos selectores de número de parte. El selector de período de Diagnóstico ya no fija febrero-marzo de demostración y usa un grupo independiente. La página inicial es Crítico por Surtir. Se verificaron 141 referencias de campos/medidas. Los contadores de materiales y sus mínimos se agrupan por clave de material; tener dos ubicaciones ya no duplica el material ni su mínimo.
 
 El PBIX y el TMDL originales se conservan como referencia en `powerbi/equipo2-2026-11-24/`; **no deben publicarse encima del piloto** porque todavía contienen la conexión/modelo de origen. La carpeta `report/` es el diseño adaptado publicado; `powerbi/administracion-v2/definition/` es el modelo activo. Los README originales se incluyen como antecedentes, no como instrucciones para reinstalar el piloto.
 
