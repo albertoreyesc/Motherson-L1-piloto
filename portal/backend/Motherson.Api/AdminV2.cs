@@ -152,8 +152,17 @@ public sealed partial class AdminV2(Store store)
  }
  static void Importar(V2Estado e,JsonObject input,JsonObject resultado)
  {
-  Admin(e);var filas=input["filas"] as JsonArray??throw new RuleException("Faltan filas.",400);Exigir(filas.Count is >0 and <=500,"El lote debe contener entre 1 y 500 filas.");var vistos=new HashSet<string>(StringComparer.Ordinal);int altas=0,cambios=0;
-  int fila=0;foreach(var node in filas){fila++;try{var f=node as JsonObject??throw new RuleException("Fila inválida.",400);var numero=Texto(f,"numeroParte",80,true);Exigir(!numero.StartsWith("[FORMULA",StringComparison.Ordinal),"No se aceptan fórmulas como número de parte.");Exigir(vistos.Add(numero),"Número de parte repetido en el lote: "+numero);
+  Admin(e);var filas=input["filas"] as JsonArray??throw new RuleException("Faltan filas.",400);Exigir(filas.Count is >0 and <=500,"El lote debe contener entre 1 y 500 filas.");var vistos=new HashSet<string>(StringComparer.Ordinal);int altas=0,cambios=0,puestosNuevos=0;
+  int fila=0;foreach(var node in filas){fila++;try{var f=Copia(node as JsonObject??throw new RuleException("Fila inválida.",400));var numero=Texto(f,"numeroParte",80,true);Exigir(!numero.StartsWith("[FORMULA",StringComparison.Ordinal),"No se aceptan fórmulas como número de parte.");Exigir(vistos.Add(numero),"Número de parte repetido en el lote: "+numero);
+   if(f.ContainsKey("puestoNuevo")){
+    Exigir(!f.ContainsKey("puesto"),"Indica puesto o puestoNuevo, no ambos.");var nombre=Texto(f,"puestoNuevo",80,true);
+    Exigir(nombre!="[BORRAR]"&&!nombre.StartsWith("[FORMULA",StringComparison.Ordinal),"Puesto nuevo inválido; usa un nombre de texto.");
+    var encontrados=e.Todos("puesto").Where(p=>S(p,"nombre")==nombre).ToArray();Exigir(encontrados.Length<=1,"Puesto ambiguo: "+nombre+". Usa el identificador exacto.");
+    JsonObject puesto;if(encontrados.Length==1)puesto=encontrados[0];else{
+     Exigir(B(input,"permitirPuestosNuevos"),"Autoriza crear el puesto faltante en esta línea: "+nombre);
+     puesto=new(){["id"]=Nuevo(),["nombre"]=nombre};e.Poner("puesto",puesto);puestosNuevos++;
+    }f["puesto"]=S(puesto,"id");f.Remove("puestoNuevo");
+   }
    var id=Texto(f,"id",100);var m=id.Length>0?e.Obtener("material",id):e.Todos("material").SingleOrDefault(x=>S(x,"numeroParte")==numero);
    if(m is null){Exigir(B(input,"permitirAltas"),"Material nuevo requiere autorizar altas: "+numero);Exigir(!e.Todos("material").Any(x=>NormalCodigo(S(x,"numeroParte"))==NormalCodigo(numero))||B(input,"autorizarNomenclaturas"),"Código parecido a otro material: revisa y autoriza el código distinto.");Exigir(f["empaque"] is not null,"Material nuevo: indica piezas por caja; no se supone un empaque.");m=new(){["id"]=Nuevo(),["numeroParte"]=numero,["activo"]=true,["empaque"]=1,["minimo"]=0,["descripcion"]="",["variante"]="",["uso"]="",["revision"]="",["modelo"]=""};altas++;}
    else{Exigir(S(m,"numeroParte")==numero,"Renombra mediante la acción explícita; no por importación.",409);cambios++;}
@@ -164,7 +173,7 @@ public sealed partial class AdminV2(Store store)
    }
    foreach(var campo in new[]{"empaque","minimo"})if(f.ContainsKey(campo)&&f[campo] is not null)m[campo]=Entero(f,campo,campo=="empaque"?1:0,campo=="empaque"?1000000:100000000);
    e.Obtener("puesto",S(m,"puesto"));e.Poner("material",m);
-  }catch(RuleException ex){throw new RuleException("Hoja "+S(input,"hoja","seleccionada")+", fila "+(node is JsonObject f?N(f,"fila",fila):fila)+": "+ex.Message,ex.Status);}}resultado["altas"]=altas;resultado["actualizados"]=cambios;resultado["filas"]=filas.DeepClone();
+  }catch(RuleException ex){throw new RuleException("Hoja "+S(input,"hoja","seleccionada")+", fila "+(node is JsonObject f?N(f,"fila",fila):fila)+": "+ex.Message,ex.Status);}}resultado["puestosCreados"]=puestosNuevos;resultado["altas"]=altas;resultado["actualizados"]=cambios;resultado["filas"]=filas.DeepClone();
  }
  static string NormalCodigo(string s)=>new(s.Normalize(NormalizationForm.FormD).ToUpperInvariant().Where(char.IsLetterOrDigit).ToArray());
  internal static void ValidarIntegridad(V2Estado e)

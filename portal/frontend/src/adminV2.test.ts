@@ -49,3 +49,14 @@ describe('Nueva revisión de una parte (duplicar)',()=>{
  it('exige número de parte distinto y lista solo los cambios',()=>{const d={numeroParte:'000123-CE',descripcion:'Viejo',variante:'A',revision:'',modelo:'',uso:'COMPARTIDO',empaque:10,minimo:5};expect(revisarDuplicado(material,d,[material]).errores.join()).toContain('ya existe');const r=revisarDuplicado(material,{...d,numeroParte:'000123-CF',revision:'B',empaque:12},[material]);expect(r.errores).toEqual([]);expect(r.cambios.map(c=>c.campo)).toEqual(['numeroParte','revision','empaque'])});
  it('valida empaque y mínimo',()=>expect(revisarDuplicado(material,{numeroParte:'N',descripcion:'',variante:'',revision:'',modelo:'',uso:'',empaque:0,minimo:-1},[material]).errores.length).toBe(2));
 });
+
+describe('Importar catálogo antes de preparar almacenamiento',()=>{
+ const rows=[['Número de parte','Puesto','Piezas por caja','Modelo / vehículo'],['L2-0001','L2-P01',24,'Plataforma A'],['L2-0002','L2-P01',30,'Plataforma A']];
+ it('reconoce todos los encabezados de la plantilla, incluido Modelo / vehículo',()=>expect(sugerirColumnas(rows[0])).toEqual({numeroParte:0,puesto:1,empaque:2,modelo:3}));
+ it('explica la autorización que falta para un puesto inexistente',()=>expect(planV2(rows,0,sugerirColumnas(rows[0]),[],[]).every(f=>f.estado==='ERROR'&&f.errores.join().includes('Crear puestos faltantes'))).toBe(true));
+ it('prepara altas distintas por un dígito con el puesto nuevo explícito',()=>{const fs=planV2(rows,0,sugerirColumnas(rows[0]),[],[],true);expect(fs.map(f=>f.estado)).toEqual(['ALTA','ALTA']);expect(fs.map(f=>f.parte)).toEqual(['L2-0001','L2-0002']);expect(fs[0].datos).toMatchObject({puestoNuevo:'L2-P01',empaque:24,modelo:'Plataforma A'});expect(fs[0].datos).not.toHaveProperty('puesto')});
+ it('reutiliza un puesto existente por nombre',()=>expect(planV2(rows,0,sugerirColumnas(rows[0]),[],[{id:'p2',nombre:'L2-P01'}],true)[0].datos).toMatchObject({puesto:'p2'}));
+ it('un identificador exacto tiene prioridad sobre un nombre coincidente',()=>{const f=planV2([['Parte','Puesto','Empaque'],['ABC','p2',10]],0,{numeroParte:0,puesto:1,empaque:2},[],[{id:'p2',nombre:'L2-P01'},{id:'p3',nombre:'p2'}],true)[0];expect(f.estado).toBe('ALTA');expect(f.datos.puesto).toBe('p2')});
+ it('no crea puestos a partir de nombres ambiguos',()=>expect(planV2(rows,0,sugerirColumnas(rows[0]),[],[{id:'p2',nombre:'L2-P01'},{id:'p3',nombre:'L2-P01'}],true)[0].estado).toBe('ERROR'));
+ it('sigue rechazando filas sin puesto, empaque o con partes duplicadas',()=>{expect(planV2([['Parte'],['ABC']],0,{numeroParte:0},[],[],true)[0].estado).toBe('ERROR');expect(planV2([...rows,rows[1]],0,sugerirColumnas(rows[0]),[],[],true).filter(f=>f.estado==='ERROR')).toHaveLength(2)});
+});
