@@ -1,0 +1,2 @@
+# Los CSV simulados se validan por SHA-256 byte a byte: no convertir saltos de línea en Windows.
+datos/simulados/datos/*.csv -text
