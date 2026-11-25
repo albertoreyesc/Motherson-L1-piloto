@@ -13,7 +13,7 @@ public record SalidaInput(int Ubicacion,int Piezas,int Version);
 public record Cuenta(int Id,string Name,string? DisplayName,string Perfil,string TipoCuenta,int? PuestoId){
  [System.Text.Json.Serialization.JsonIgnore] public string? SelloAcceso{get;init;}
  public bool Piloto{get;init;}
- public string[] Permissions=>TipoCuenta switch{"ADMIN_PUESTOS"=>["view","historico","administrar_accesos","entry","exit","imagenes","ajustar_catalogo"],"PUESTO"=>["view","atencion","entry"],_=>Perfil switch{"ADMINISTRADOR"=>["view","entry","exit","catalog"],"MOVIMIENTOS"=>["view","entry"],"ENTRADAS"=>["view","entry"],_=>["view"]}};public bool Simulado=>true;}
+ public string[] Permissions=>TipoCuenta switch{"ADMIN_PUESTOS"=>["view","historico","administrar_accesos","entry","exit","imagenes","ajustar_catalogo"],"PUESTO"=>["view","atencion","entry"],"LECTOR_PILOTO"=>["view","historico"],_=>Perfil switch{"ADMINISTRADOR"=>["view","entry","exit","catalog"],"MOVIMIENTOS"=>["view","entry"],"ENTRADAS"=>["view","entry"],_=>["view"]}};public bool Simulado=>true;}
 public sealed partial class Store(IConfiguration configuration){
  public const string Inventario="""
  SELECT v.id_ubicacion,v.numero_parte,v.descripcion,v.uso,v.id_puesto,v.puesto,v.cantidad_por_caja,v.minimo,v.cantidad,v.version_concurrencia,v.id_estanteria,v.estanteria,v.nivel,v.cajas_estanteria,v.id_estacion,v.estacion,v.stock_total_material,v.es_simulado,CASE WHEN o.pendientes>0 OR v.cajas_estanteria IS NULL THEN NULL WHEN v.cajas_estanteria-o.ocupacion<0 THEN 0 ELSE v.cajas_estanteria-o.ocupacion END cajas_disponibles
