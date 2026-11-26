@@ -51,3 +51,18 @@ export function revisarDuplicado(origen:Material,d:Duplicado,materiales:Material
  const cambios=camposDuplicado.filter(c=>String(d[c]).trim()!==String(origen[c]??'').trim()).map(c=>({campo:c,antes:String(origen[c]??''),despues:String(d[c]).trim()}));
  return {errores,cambios};
 }
+
+/** Cajas ocupadas en una estantería: cada ubicación ocupa ceil(saldo/empaque) cajas, igual que el servidor. */
+export function cajasOcupadasV2(e:Pick<EstadoAdmin,'ubicaciones'|'materiales'>,estanteria:string){
+ return e.ubicaciones.filter(u=>u.estanteria===estanteria).reduce((n,u)=>{const m=e.materiales.find(x=>x.id===u.material);return n+(m?Math.ceil(u.cantidad/m.empaque):0)},0);
+}
+
+/** Límites del + / − de capacidad: nunca menos que lo ocupado ni menos de 1; máximo el del servidor. */
+export function limitesCapacidadV2(e:Pick<EstadoAdmin,'ubicaciones'|'materiales'>,estanteria:string){
+ return {minimo:Math.max(1,cajasOcupadasV2(e,estanteria)),maximo:1000000};
+}
+
+/** Materiales distintos que comparten la estantería (para avisar que la capacidad es común). */
+export function materialesEnEstanteria(e:Pick<EstadoAdmin,'ubicaciones'>,estanteria:string){
+ return new Set(e.ubicaciones.filter(u=>u.estanteria===estanteria&&ubicacionActiva(u)).map(u=>u.material)).size;
+}
