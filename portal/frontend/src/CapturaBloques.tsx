@@ -9,6 +9,7 @@ import {useEffect,useRef,useState} from 'react';
 import {date,nd,type User} from './api';
 import type {EstadoAdmin,Ubicacion,Material,Atencion} from './adminTypes';
 import {preverMovimiento} from './movimientoV2';
+import {estaActivo} from './ubicacionesV2';
 type Props={e:EstadoAdmin;user:User;run:(t:string,b:Record<string,unknown>)=>Promise<unknown>;dirty:(v:boolean)=>void;bloqueado:boolean;notificar:(titulo:string,detalle?:string)=>void};
 type Disponibilidad={clase:'listo'|'aviso'|'bloqueado';texto:string};
 
@@ -70,7 +71,7 @@ export function CapturaBloques({e,user,run,dirty,bloqueado,notificar}:Props){
  {!selected||!mat?<>
   {mias.length>0&&<div className="atenciones-abiertas" role="region" aria-label="Tus atenciones abiertas"><p><Timer size={18} aria-hidden="true"/><strong>{mias.length===1?'Tienes 1 atención abierta':'Tienes '+mias.length+' atenciones abiertas'}</strong> · siguen contando tiempo hasta que las finalices.</p><ul>{mias.map(a=>{const min=minutosDesde(a.inicio,ahora);return <li key={a.id} className={min>=30?'larga':''}><span><strong className="parte">{parteDe(a)}</strong> · {lugarDe(a)} · desde hace {min} min</span><button className="secondary small" disabled={locked} onClick={()=>void finalizar(a)}>Finalizar</button></li>})}</ul></div>}
   <p className="help">Toca el material. Inicia la atención al comenzar a surtir; al registrar la {tipo==='ENTRADA'?'entrada':'salida'} se finaliza sola.{tiposPermitidos.length===1&&tipo==='ENTRADA'?' Las salidas las registra Administración.':''}</p>
-  <div className="form-grid"><label className="field">Buscar material o ubicación<input value={buscar} onChange={ev=>setBuscar(ev.target.value)} placeholder="Número de parte, descripción o estantería"/></label><label className="field">Estación<select className={estacion?'filtrando':undefined} value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Todas</option>{e.estaciones.map(s=><option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label></div>
+  <div className="form-grid"><label className="field">Buscar material o ubicación<input value={buscar} onChange={ev=>setBuscar(ev.target.value)} placeholder="Número de parte, descripción o estantería"/></label><label className="field">Estación<select className={estacion?'filtrando':undefined} value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Todas</option>{e.estaciones.filter(estaActivo).map(s=><option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label></div>
   <label className="check"><input type="checkbox" checked={soloDisponibles} onChange={ev=>setSoloDisponibles(ev.target.checked)}/>Solo con {tipo==='ENTRADA'?'espacio disponible':'existencias'}</label>
   <p className="help">{disponibles.length} ubicaciones · {abiertas.length} atenciones en curso</p>
   <div className="captura-grid">{disponibles.map(u=>{const m=e.materiales.find(m=>m.id===u.material)!;const at=abiertas.find(a=>a.ubicacion===u.id);const estado=disponibilidad(tipo,m,u);const listo=estado.clase==='listo';const cajasSaldo=Math.ceil(u.cantidad/m.empaque);

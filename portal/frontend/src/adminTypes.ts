@@ -1,4 +1,5 @@
-export type Item={id:string;nombre:string};
+/** Puestos, estaciones y estanterías: no se borran, se desactivan (sin el campo se consideran activos). */
+export type Item={id:string;nombre:string;activo?:boolean;desactivado?:string;motivoDesactivacion?:string};
 export type Material={id:string;numeroParte:string;descripcion:string;variante:string;revision:string;modelo:string;uso:string;puesto:string;empaque:number;minimo:number;activo:boolean;origen?:string};
 export type Rack=Item&{estacion:string;nivel:string;capacidad:number};
 export type Ubicacion={id:string;material:string;estanteria:string;cantidad:number;libres:number;apertura:string;activa?:boolean;desactivada?:string;motivoDesactivacion?:string};

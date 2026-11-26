@@ -2,6 +2,31 @@ import type {EstadoAdmin,Material,Ubicacion} from './adminTypes';
 
 /** Las ubicaciones anteriores a esta versión no traen el campo: se consideran activas. */
 export const ubicacionActiva=(u:Pick<Ubicacion,'activa'>)=>u.activa!==false;
+/** Puestos, estaciones y estanterías anteriores a esta versión no traen el campo: se consideran activos. */
+export const estaActivo=(x:{activo?:boolean}|undefined)=>!!x&&x.activo!==false;
+
+type Estructura=Pick<EstadoAdmin,'puestos'|'estaciones'|'estanterias'|'materiales'|'ubicaciones'|'atenciones'>;
+/**
+ * ¿Se puede desactivar este puesto, estación o estantería? Replica las reglas del servidor (PUESTO_ESTADO,
+ * ESTACION_ESTADO, ESTANTERIA_ESTADO) para explicar antes de enviar. Devuelve '' si se puede. Las cuentas de
+ * usuario ligadas a un puesto solo las revisa el servidor.
+ */
+export function motivoNoDesactivar(e:Estructura,tipo:'PUESTO'|'ESTACION'|'ESTANTERIA',id:string):string{
+ if(tipo==='PUESTO'){
+  const n=e.materiales.filter(m=>m.puesto===id&&m.activo).length;
+  if(n)return 'Tiene '+n+(n===1?' material activo. Inhabilítalo':' materiales activos. Inhabilítalos')+' en Materiales y catálogos antes de desactivar el puesto.';
+  if(e.atenciones.some(a=>a.puesto===id&&!a.fin))return 'Tiene una atención abierta. Finalízala antes de desactivar el puesto.';
+  return '';
+ }
+ if(tipo==='ESTACION'){
+  const n=e.estanterias.filter(r=>r.estacion===id&&estaActivo(r)).length;
+  return n?'Tiene '+n+(n===1?' estantería activa. Desactívala':' estanterías activas. Desactívalas')+' primero en la pestaña Estanterías.':'';
+ }
+ const us=e.ubicaciones.filter(u=>u.estanteria===id);const piezas=us.reduce((n,u)=>n+u.cantidad,0);
+ if(piezas)return 'Tiene '+piezas+' piezas. Muévelas en Estaciones y ubicaciones o retíralas con una salida antes de desactivarla.';
+ if(e.atenciones.some(a=>!a.fin&&us.some(u=>u.id===a.ubicacion)))return 'Hay una atención abierta en esta estantería. Finalízala antes de desactivarla.';
+ return '';
+}
 
 export type PlanDesactivar={error:string}|{error?:undefined;piezas:number;cajas:number;destino:'NINGUNO'|'NUEVA'|'EXISTENTE'|'REACTIVAR'};
 
@@ -17,6 +42,7 @@ export function planDesactivar(e:Pick<EstadoAdmin,'ubicaciones'|'materiales'|'es
  if(!destino)return u.cantidad>0?{error:'La ubicación tiene '+u.cantidad+' piezas: elige la estantería destino para trasladarlas o retíralas antes con una salida.'}:{piezas:0,cajas:0,destino:'NINGUNO'};
  if(destino===u.estanteria)return {error:'La estantería destino debe ser distinta de la actual.'};
  const rack=e.estanterias.find(r=>r.id===destino);if(!rack)return {error:'Estantería destino no encontrada.'};
+ if(!estaActivo(rack))return {error:'La estantería destino está desactivada.'};
  const existente=e.ubicaciones.find(x=>x.material===m.id&&x.estanteria===destino);
  if(!existente&&!m.activo)return {error:'El material está inhabilitado: no se crean ubicaciones nuevas; retira su remanente con una salida.'};
  // Ocupación en cajas como el servidor: cada ubicación ocupa ceil(saldo/empaque) cajas.
