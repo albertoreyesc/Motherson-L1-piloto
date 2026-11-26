@@ -1,6 +1,6 @@
 # Manual de usuario — Smart Material Replenishment (Motherson)
 
-Versión del 26/11/2026 (rama `trabajo/modificaciones-v3`). Para instalar o actualizar el sistema, consulta el [Manual de instalación](MANUAL_DE_INSTALACION.md).
+Versión v3 del 26/11/2026, integrada mediante el PR #2 (base `8c25f64`). Para instalar o actualizar el sistema, consulta el [Manual de instalación](MANUAL_DE_INSTALACION.md).
 
 El portal registra las **entradas y salidas de material** en las estanterías de cada línea, mide cuánto tarda cada surtido (**atenciones**) y avisa cuando una ubicación se está quedando sin material (**semáforo de cobertura**). Todo queda en un historial con su comprobante.
 

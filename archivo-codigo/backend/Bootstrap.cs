@@ -1,9 +1,0 @@
-using Dapper;
-using Microsoft.Data.SqlClient;
-using Microsoft.AspNetCore.Identity;
-namespace Motherson;
-public static class Bootstrap {
- public static string Root(){var d=new DirectoryInfo(AppContext.BaseDirectory);while(d is not null){if(Directory.Exists(Path.Combine(d.FullName,"db")))return d.FullName;d=d.Parent;}throw new InvalidOperationException("No se encontró db/");}
- public static async Task Migrate(Store store){await using var c=await store.Open();if(await c.QuerySingleAsync<int>("SELECT MAX(Version) FROM SchemaVersion")!=21)throw new InvalidOperationException("Restaure el respaldo normalizado o ejecute la migración aislada 20 a 21. No se crea el esquema retirado.");Console.WriteLine("Esquema 21 verificado; sin seed ni reconstrucción del legado.");}
- public static async Task Admin(Store store,IConfiguration config){await Migrate(store);string name=config["BootstrapUser"]??"admin.local",password=config["BootstrapPassword"]??throw new InvalidOperationException("Defina una contraseña privada de inicialización");ProfileRules.Password(password);await using var c=await store.Open();int? id=await c.QuerySingleOrDefaultAsync<int?>("SELECT Id FROM Usuarios WHERE Nombre=@name",new{name});if(id is null)throw new InvalidOperationException("La cuenta inicial debe existir en el respaldo; no se inventan nuevas identidades");if(await c.QuerySingleAsync<int>("SELECT COUNT(*) FROM UsuarioRol ur JOIN Roles r ON r.Id=ur.RolId WHERE ur.UsuarioId=@id AND r.Codigo='administrador'",new{id})!=1)throw new InvalidOperationException("Cuenta inicial sin perfil administrador");await c.ExecuteAsync("UPDATE seguridad.USUARIO SET hash_contrasena=@hash,esta_activo=1,version_autorizacion=version_autorizacion+1 WHERE id_usuario=@id",new{id,hash=new PasswordHasher<string>().HashPassword(name,password)});}
-}

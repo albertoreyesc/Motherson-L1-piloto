@@ -12,4 +12,13 @@
 **/*.pem
 **/*.key
 **/secretFiles
-archivo-codigo
+
+# Fuera del contexto de compilación: antecedentes, BI y evidencia
+documentacion
+powerbi
+portal/evidencias
+portal/frontend/test-results
+portal/frontend/playwright-report
+**/*.tsbuildinfo
+# Se vuelve a generar en la etapa frontend
+portal/backend/Motherson.Api/wwwroot
