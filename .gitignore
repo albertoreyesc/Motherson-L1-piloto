@@ -6,7 +6,6 @@ __pycache__/
 *.pyc
 .vs/
 .env
-/Motherson-L1-5089-Antigravity/
 
 .env.*
 !.env.example
@@ -17,3 +16,19 @@ __pycache__/
 portal/db/azure/privado/
 
 .DS_Store
+
+# Salidas regenerables del frontend
+/portal/backend/Motherson.Api/wwwroot/
+/portal/frontend/dist/
+/portal/frontend/test-results/
+/portal/frontend/playwright-report/
+/portal/frontend/blob-report/
+
+# Secretos, respaldos locales y carpetas de herramientas
+*.pfx
+*.p12
+*.pem
+*.key
+*.bak
+.pytest_cache/
+.coverage
