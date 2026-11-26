@@ -87,11 +87,11 @@ export function CapturaBloques({e,user,run,dirty,bloqueado,notificar}:Props){
 </section>
   <section className={'paso paso-final'+(confirmar?' confirmando':'')} aria-labelledby="paso-3"><h4 id="paso-3"><span className="paso-num">3</span>{confirmar?'Confirmar':'Revisar'}</h4>
    {preview?.error?<p role="alert" className="paso-error">{preview.error}</p>:preview&&<div className="saldo-previsto"><small>Saldo después de la {tipo==='ENTRADA'?'entrada':'salida'}</small><strong>{nd(selected.cantidad)} → {nd(preview.saldo)} <span>pz</span></strong></div>}
-   {(tipo==='SALIDA'||atAbierta&&(e.rol==='ADMIN'||propia(atAbierta)))&&<details className="simple opciones-registro"><summary><SlidersHorizontal size={15} aria-hidden="true"/>{resumenOpciones}</summary>
+   {(tipo==='SALIDA'||atAbierta&&(e.rol==='ADMIN'||propia(atAbierta)))?<details className="simple opciones-registro"><summary><SlidersHorizontal size={15} aria-hidden="true"/>{resumenOpciones}</summary>
     <p className="help">Normalmente no se cambia. Úsalo solo en casos especiales.</p>
     {tipo==='SALIDA'&&<label className="check"><input type="checkbox" checked={consumo} disabled={locked||confirmar} onChange={ev=>{setConsumo(ev.target.checked);dirty(true)}}/>Es consumo de producción<small className="block">Desmárcalo solo si es devolución, ajuste o retiro de remanente: no cuenta para la alarma.</small></label>}
     {atAbierta&&(e.rol==='ADMIN'||propia(atAbierta))&&<label className="check"><input type="checkbox" checked={finalizarAl} disabled={locked} onChange={ev=>setFinalizarAl(ev.target.checked)}/>Finalizar la atención al registrar<small className="block">Desmárcalo solo si vas a registrar otro movimiento dentro de la misma atención.</small></label>}
-   </details>}
+   </details>:<div className="opciones-hueco" aria-hidden="true"/>}
    {confirmar?<div role="group" aria-label="Confirmación del movimiento" className="paso-confirmar"><p>¿{tipo==='ENTRADA'?'Ingresar':'Retirar'} {nd(preview?.piezas)} piezas?</p><button disabled={locked||!allowed||!!preview?.error} onClick={()=>void registrar()}>{locked?'Registrando…':'Confirmar '+(tipo==='ENTRADA'?'entrada':'salida')}</button><button className="secondary" disabled={locked} onClick={()=>setConfirmar(false)}>Corregir cantidad</button></div>:<button className="paso-accion" disabled={locked||!allowed||!preview||!!preview.error} onClick={()=>{setConfirmar(true);dirty(true)}}>Revisar {tipo==='ENTRADA'?'entrada':'salida'}</button>}</section>
  </div>
 </div>}
