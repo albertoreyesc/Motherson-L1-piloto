@@ -467,3 +467,7 @@
 .grupo-estacion{margin-top:14px}.grupo-estacion h4{margin:0 0 6px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.admin-v2 .puesto-tarjeta.llena small{color:#8a5a00;font-weight:700}
 @media(max-width:900px){.config-dos-columnas{grid-template-columns:1fr}.config-panel-form{position:static}}
 .admin-v2 .config-panel-form .config-formulario{margin:0;padding:0;border:0;background:transparent;box-shadow:none}
+/* Aviso de vigencia del horario */
+.aviso-horario{display:flex;align-items:center;gap:14px;margin:0 0 16px;padding:14px 18px;border:1px solid;border-left-width:6px;border-radius:10px}.aviso-horario>div{flex:1;min-width:0}.aviso-horario strong{display:block}.aviso-horario span{display:block;font-size:14px}.admin-v2 .aviso-horario button{margin:0;flex-shrink:0}
+.aviso-horario.amarillo{border-color:#e0b100;background:#fffaeb;color:#5c4400}.aviso-horario.rojo{border-color:#c62828;background:#fff4f4;color:#7d1414}
+@media(max-width:760px){.aviso-horario{flex-wrap:wrap}}
