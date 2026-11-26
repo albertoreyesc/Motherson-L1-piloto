@@ -119,7 +119,9 @@ public sealed partial class AdminV2(Store store)
     var piezas=entrada?checked((long)cajas*empaque):Math.Min((long)cajas*empaque,saldo);var nuevo=saldo+(entrada?piezas:-piezas);Exigir(piezas>0&&nuevo>=0&&nuevo<=int.MaxValue,"Cantidad fuera de rango.");
     u["cantidad"]=(int)nuevo;var rack=e.Obtener("estanteria",S(u,"estanteria"));Exigir(Ocupacion(e,S(rack,"id"))<=N(rack,"capacidad"),"La estantería no tiene espacio.",409);
     resultado["ubicacion"]=S(u,"id");resultado["material"]=S(m,"id");resultado["numeroParte"]=S(m,"numeroParte");resultado["piezas"]=(int)piezas;resultado["saldoAnterior"]=saldo;resultado["saldoPosterior"]=(int)nuevo;resultado["consumo"]=B(input,"consumo");
-    var atencion=Texto(input,"atencion",100);if(atencion.Length>0){var a=e.Obtener("atencion",atencion);Exigir(S(a,"ubicacion")==S(u,"id")&&S(a,"fin")==""&&(e.Rol=="ADMIN"||N(a,"usuario")==actor.Id),"La atención debe estar abierta en esta ubicación y pertenecer a tu cuenta.",409);resultado["atencion"]=atencion;}
+    var atencion=Texto(input,"atencion",100);if(atencion.Length>0){var a=e.Obtener("atencion",atencion);Exigir(S(a,"ubicacion")==S(u,"id")&&S(a,"fin")==""&&(e.Rol=="ADMIN"||N(a,"usuario")==actor.Id),"La atención debe estar abierta en esta ubicación y pertenecer a tu cuenta.",409);resultado["atencion"]=atencion;
+     // Cierra la atención en la misma operación (evita atenciones olvidadas que siguen contando tiempo).
+     if(B(input,"finalizarAtencion")){Exigir(e.Ahora>=DateTime.Parse(S(a,"inicio"),null,DateTimeStyles.RoundtripKind),"Fecha inconsistente.");a["fin"]=e.Ahora.ToString("O");resultado["atencionFinalizada"]=true;}}
 
     break;
    }
