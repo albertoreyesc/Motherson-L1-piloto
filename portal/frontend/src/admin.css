@@ -519,3 +519,5 @@
 .admin-v2 input[type=date]::-webkit-calendar-picker-indicator:hover,.admin-v2 input[type=time]::-webkit-calendar-picker-indicator:hover,.admin-v2 input[type=datetime-local]::-webkit-calendar-picker-indicator:hover{background-color:#cfe3f7}
 .campo-icono>svg{color:#185fa5}
 .ubicacion-espacio .capacidad-resumen{white-space:normal;line-height:1.35;min-width:0;flex:1}
+/* Atajo a Configurar línea → Estanterías desde "Asignar a estantería" */
+.admin-v2 .atajo-estanterias{display:inline-flex;align-items:center;gap:6px;width:auto;min-height:36px;margin:0;padding:4px 2px;border:0;background:transparent;box-shadow:none;color:#185fa5;font-size:13px;font-weight:700;text-align:left}.admin-v2 .atajo-estanterias:hover{background:transparent;text-decoration:underline}.admin-v2 .atajo-estanterias.destacado{padding:8px 12px;border:1px solid #185fa5;border-radius:8px;background:#e6f1fb}.admin-v2 .atajo-estanterias.destacado:hover{background:#cfe3f7;text-decoration:none}
