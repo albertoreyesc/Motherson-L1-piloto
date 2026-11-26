@@ -421,3 +421,7 @@
 .admin-v2 .puesto-tarjeta svg{color:#5a5a5a}.admin-v2 .puesto-tarjeta strong{font-size:15px;overflow-wrap:anywhere}.admin-v2 .puesto-tarjeta small{color:var(--muted);font-size:12px}
 .admin-v2 .puesto-tarjeta:hover{border-color:#9a9a9a;background:#fff}.admin-v2 .puesto-tarjeta.nuevo{border-style:dashed}
 .admin-v2 .puesto-tarjeta.elegido{border-color:var(--brand-red);background:var(--redSoft);box-shadow:0 0 0 1px var(--brand-red)}.admin-v2 .puesto-tarjeta.elegido svg{color:var(--brand-red)}
+/* Usuarios */
+.roles-opciones{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.admin-v2 .roles-opciones .config-opcion{min-height:110px}
+.usuario-lineas{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:8px}.usuario-linea{padding:6px 12px 10px;border:1px solid var(--border);border-radius:10px;background:#fff}.usuario-linea.marcada{border-color:var(--brand-red);background:var(--redSoft)}.usuario-linea .check{margin:6px 0}.usuario-linea .field{margin:0}
+.usuario-form h3{margin:20px 0 8px}.usuario-falta{color:#735500}

@@ -76,5 +76,11 @@ describe('histórico de KPIs en Excel',()=>{
 });
 import {rolPortal,SECCIONES_POR_ROL} from './AdminApp';
 describe('secciones por rol',()=>{
- it('cada rol ve solo lo suyo',()=>{expect(rolPortal(['view','historico','administrar_accesos','entry','exit','imagenes','ajustar_catalogo'])).toBe('ADMIN');expect(rolPortal(['view','atencion','entry'])).toBe('PUESTO');expect(rolPortal(['view','historico'])).toBe('LECTOR');expect(SECCIONES_POR_ROL.ADMIN).toHaveLength(9);expect(SECCIONES_POR_ROL.PUESTO).toEqual([4,3]);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(1);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(8);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(4)});
+ it('cada rol ve solo lo suyo',()=>{expect(rolPortal(['view','historico','administrar_accesos','entry','exit','imagenes','ajustar_catalogo'])).toBe('ADMIN');expect(rolPortal(['view','atencion','entry'])).toBe('PUESTO');expect(rolPortal(['view','historico'])).toBe('LECTOR');expect(SECCIONES_POR_ROL.ADMIN).toHaveLength(10);expect(SECCIONES_POR_ROL.PUESTO).not.toContain(9);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(9);expect(SECCIONES_POR_ROL.PUESTO).toEqual([4,3]);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(1);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(8);expect(SECCIONES_POR_ROL.LECTOR).not.toContain(4)});
+});
+import {validarUsuario} from './AdminUsuarios';
+describe('formulario de usuarios',()=>{
+ const base={usuario:'juan.perez',nombre:'Juan',rol:'PUESTO' as const,password:'contrasena-segura',confirmar:'contrasena-segura',accesos:{1:'p1'} as Record<number,string|null>};
+ it('acepta un usuario completo y exige puesto por línea para PUESTO',()=>{expect(validarUsuario(base)).toBe('');expect(validarUsuario({...base,accesos:{1:null}})).toContain('puesto');expect(validarUsuario({...base,rol:'LECTOR',accesos:{1:null}})).toBe('')});
+ it('valida usuario, contraseña y líneas',()=>{expect(validarUsuario({...base,usuario:'juan perez'})).toContain('Usuario');expect(validarUsuario({...base,password:'corta',confirmar:'corta'})).toContain('12');expect(validarUsuario({...base,confirmar:'otra-cosa-distinta'})).toContain('coinciden');expect(validarUsuario({...base,accesos:{}})).toContain('línea');expect(validarUsuario({...base,id:5,usuario:'x',password:'',confirmar:''})).toBe('')});
 });
