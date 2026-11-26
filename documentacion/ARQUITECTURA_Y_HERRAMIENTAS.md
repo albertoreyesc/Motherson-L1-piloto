@@ -1,6 +1,6 @@
 # Arquitectura y herramientas · Smart Material Replenishment (Motherson L1)
 
-Documento de entrega para Motherson y el equipo de TI. Describe la versión vigente del piloto (administración v2 de cuatro líneas, 24/11/2026): sus componentes, cómo se comunican, qué herramientas usa y dónde vive cada dato. La instalación en infraestructura propia está en [GUIA_INSTALACION_LOCAL.md](GUIA_INSTALACION_LOCAL.md).
+Documento de entrega para Motherson y el equipo de TI. Describe la versión vigente del piloto (administración v2 de cuatro líneas, 24/11/2026): sus componentes, cómo se comunican, qué herramientas usa y dónde vive cada dato. La instalación en infraestructura propia está en [MANUAL_DE_INSTALACION.md](MANUAL_DE_INSTALACION.md).
 
 ## 1. Vista general
 
