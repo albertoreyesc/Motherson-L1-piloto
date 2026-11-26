@@ -40,6 +40,7 @@ Estado al 26/11/2026, rama `trabajo/modificaciones-v3`. Este documento resume qu
 - Power BI: cambiar el origen del informe a su SQL Server (on-premises data gateway si es interno).
 - **Respaldos** completos y de log de SQL Server según su política, y del certificado de protección de claves.
 - Monitoreo básico: disponibilidad del portal (`/health/live`) y espacio de la base.
+- **Quitar la marca "datos simulados" al pasar a datos reales.** No toca la base ni el código: en `portal/backend/Motherson.Api/appsettings.json` cambiar `"DatosSimulados": true` a `false` (o definir la variable de entorno `DatosSimulados=false`) y reiniciar el portal. Con eso desaparecen la etiqueta amarilla "SIMULADO", el aviso del inicio de sesión y la marca de la API, y el pie del menú dice "Datos de planta". El aviso de *horario de prueba* es independiente: se quita desmarcando esa casilla en *Configurar línea → Horario de trabajo*.
 
 ## 5. Cómo verificar
 

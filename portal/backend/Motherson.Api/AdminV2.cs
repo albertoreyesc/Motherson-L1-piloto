@@ -57,7 +57,7 @@ public sealed partial class AdminV2(Store store)
   return new{linea,version=e.Version,corte=corte??e.Ahora,apertura=e.Apertura,rol=e.Rol,puesto=e.Puesto,materiales=ms,ubicaciones=us,
    puestos=e.Todos("puesto").Where(p=>e.Puesto is null||S(p,"id")==e.Puesto),estaciones=e.Todos("estacion"),estanterias=e.Todos("estanteria"),
    imagenes=images,atenciones=e.Todos("atencion").Where(a=>S(a,"fin")==""&&(e.Puesto is null||S(a,"puesto")==e.Puesto)),calendario=e.Todos("calendario").SingleOrDefault(),alarmas=alarms,
-   totalPiezas=us.Sum(u=>(long)N(u,"cantidad")),simulado=true};
+   totalPiezas=us.Sum(u=>(long)N(u,"cantidad")),simulado=Entorno.DatosSimulados};
  }
  async Task<object[]> Alarmas(Cuenta actor,V2Estado e,DateTime corte,JsonObject[] ubicaciones)
  {
