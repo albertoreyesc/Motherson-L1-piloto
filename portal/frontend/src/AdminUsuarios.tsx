@@ -3,11 +3,12 @@
 import {useEffect,useState} from 'react';
 import {Plus,ShieldCheck,UserRound,Eye,EyeOff} from 'lucide-react';
 import {api} from './api';
+import {confirmar} from './dialogo';
 
 export type RolUsuario='ADMIN'|'PUESTO'|'LECTOR';
 export type AccesoUsuario={linea:number;puesto:string|null};
 export type UsuarioPortal={id:number;usuario:string;nombre:string;rol:RolUsuario;activo:boolean;propio:boolean;accesos:AccesoUsuario[]};
-export type LineaUsuarios={id:number;nombre:string;puestos:{id:string;nombre:string}[]};
+export type LineaUsuarios={id:number;nombre:string;puestos:{id:string;nombre:string;activo?:boolean}[]};
 type Datos={usuarios:UsuarioPortal[];lineas:LineaUsuarios[]};
 type Form={id?:number;usuario:string;nombre:string;rol:RolUsuario;activo:boolean;password:string;confirmar:string;accesos:Record<number,string|null>};
 
@@ -48,6 +49,15 @@ export function AdminUsuarios({dirty}:{dirty:(v:boolean)=>void}){
    setAviso(form.id?'Cambios guardados para '+form.usuario+'. Si cambiaste rol, contraseña o estado, su sesión abierta se cierra y debe volver a entrar.':'Usuario '+form.usuario.trim()+' creado. Ya puede iniciar sesión con su contraseña.');
    setForm(null);dirty(false);await cargar();
   }catch(ex){setError((ex as Error).message)}finally{setBusy(false)}}
+ /** Botón directo en la lista: desactiva o reactiva sin abrir el formulario. La cuenta no se borra; su historial se conserva. */
+ async function cambiarEstado(u:UsuarioPortal){
+  const activar=!u.activo;
+  if(!await confirmar({titulo:(activar?'Reactivar ':'Desactivar ')+u.usuario,mensaje:activar?'Podrá volver a iniciar sesión con su misma contraseña, rol y líneas.':'Ya no podrá iniciar sesión y su sesión abierta se cierra. No se borra: su historial se conserva y se puede reactivar.',aceptar:activar?'Reactivar':'Desactivar'}))return;
+  setBusy(true);setError('');setAviso('');
+  try{
+   await api('/v2/usuarios',{id:u.id,nombre:u.nombre,rol:u.rol,activo:activar,accesos:u.accesos.map(a=>({linea:a.linea,puesto:u.rol==='PUESTO'?a.puesto??'':''}))});
+   setAviso((activar?'Cuenta reactivada: ':'Cuenta desactivada: ')+u.usuario+'.');await cargar();
+  }catch(ex){setError((ex as Error).message)}finally{setBusy(false)}}
  if(!datos)return <section className="panel"><h2>Usuarios</h2>{error?<p className="error" role="alert">{error}</p>:<p>Consultando usuarios…</p>}</section>;
  const lista=datos.usuarios.filter(u=>(verInactivos||u.activo)&&(u.usuario+' '+u.nombre).toLocaleLowerCase('es').includes(buscar.trim().toLocaleLowerCase('es')));
  const problema=form?validarUsuario(form):'';
@@ -65,7 +75,7 @@ export function AdminUsuarios({dirty}:{dirty:(v:boolean)=>void}){
   <h3>Líneas a las que entra</h3>
   <div className="usuario-lineas">{datos.lineas.map(l=>{const marcada=l.id in form.accesos;return <div key={l.id} className={'usuario-linea'+(marcada?' marcada':'')}>
    <label className="check"><input type="checkbox" checked={marcada} disabled={busy} onChange={ev=>{const a={...form.accesos};if(ev.target.checked)a[l.id]=null;else delete a[l.id];cambiar({accesos:a})}}/>{l.nombre}</label>
-   {marcada&&form.rol==='PUESTO'&&<label className="field">Puesto en {l.nombre}<select value={form.accesos[l.id]??''} disabled={busy} onChange={ev=>cambiar({accesos:{...form.accesos,[l.id]:ev.target.value||null}})}><option value="">Selecciona el puesto</option>{l.puestos.map(p=><option key={p.id} value={p.id}>{p.nombre}</option>)}</select>{l.puestos.length===0&&<small className="block">Esta línea no tiene puestos; créalos en Configurar línea.</small>}</label>}
+   {marcada&&form.rol==='PUESTO'&&<label className="field">Puesto en {l.nombre}<select value={form.accesos[l.id]??''} disabled={busy} onChange={ev=>cambiar({accesos:{...form.accesos,[l.id]:ev.target.value||null}})}><option value="">Selecciona el puesto</option>{l.puestos.filter(p=>p.activo!==false||p.id===form.accesos[l.id]).map(p=><option key={p.id} value={p.id}>{p.nombre}{p.activo===false?' (desactivado: elige otro)':''}</option>)}</select>{l.puestos.every(p=>p.activo===false)&&<small className="block">Esta línea no tiene puestos activos; créalos o reactívalos en Configurar línea.</small>}</label>}
   </div>})}</div>
   <h3>{form.id?'Cambiar contraseña (opcional)':'Contraseña inicial'}</h3>
   <div className="form-grid">
@@ -87,7 +97,7 @@ export function AdminUsuarios({dirty}:{dirty:(v:boolean)=>void}){
    <td>{ROLES.find(r=>r.id===u.rol)?.titulo??u.rol}</td>
    <td>{u.accesos.length?u.accesos.map(a=><span className="block" key={a.linea}>{datos.lineas.find(l=>l.id===a.linea)?.nombre??'Línea '+a.linea}{a.puesto&&' · '+nombrePuesto(a.linea,a.puesto)}</span>):<span className="estado-pill inactivo">Sin líneas: no puede entrar</span>}</td>
    <td><span className={'estado-pill '+(u.activo?'activo':'inactivo')}>{u.activo?'Activa':'Desactivada'}</span></td>
-   <td><button className="secondary small" onClick={()=>editar(u)}>Editar</button></td>
+   <td><div className="usuario-acciones"><button className="secondary small" disabled={busy} onClick={()=>editar(u)}>Editar</button>{!u.propio&&<button className="secondary small" disabled={busy} onClick={()=>void cambiarEstado(u)}>{u.activo?'Desactivar':'Reactivar'}</button>}</div></td>
   </tr>)}</tbody></table></div>{lista.length===0&&<p className="empty">No hay usuarios con ese filtro.</p>}
  </section>}
  </>;

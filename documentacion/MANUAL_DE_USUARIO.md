@@ -167,6 +167,13 @@ En **Configurar línea**, elige la pestaña **Puestos**, **Estaciones** o **Esta
 
 Cambiar el nombre de un puesto conserva sus materiales, atenciones e historial.
 
+**Desactivar o reactivar.** Puestos, estaciones y estanterías no se borran, porque el historial, los KPIs y el informe de Power BI dependen de ellos. Al tocar una tarjeta, el formulario muestra el botón **Desactivar puesto**, **Desactivar estación** o **Desactivar estantería**; pide un **motivo**, que queda en el historial.
+- **Puesto:** no debe tener materiales activos, atenciones abiertas ni cuentas activas que entren con él (cámbialas de puesto o desactívalas en **Usuarios**). Un puesto desactivado ya no se puede elegir para materiales ni cuentas.
+- **Estación:** no debe tener estanterías activas. Ya no admite estanterías nuevas.
+- **Estantería:** no debe tener piezas ni atenciones abiertas. Deja de aparecer en Entradas y salidas y al asignar materiales; sus asignaciones vacías se desactivan con ella y regresan al reactivarla.
+
+Si algo impide desactivar, debajo del botón se explica qué falta. Lo desactivado se oculta; marca **Mostrar desactivados** para verlo y pulsa **Reactivar** cuando vuelva a usarse.
+
 ### 6.2 Importar materiales desde Excel
 1. En **Materiales y catálogos** pulsa **Importar Excel**.
 2. **Descargar plantilla**, llénala y súbela con **Seleccionar archivo Excel o CSV** (máximo 10 MB y 2,000 filas).
@@ -241,7 +248,7 @@ No se puede desactivar una ubicación con una atención abierta. Las ubicaciones
 5. **Contraseña inicial** (mínimo 12 caracteres) y repítela.
 6. **Crear usuario.**
 
-Para cambiar algo, pulsa **Editar**. Desmarcar **Cuenta activa** impide que la persona entre, pero conserva su historial. Cambiar el tipo, la contraseña o el estado cierra la sesión de esa cuenta. Siempre debe quedar al menos una cuenta de Administración activa.
+Para cambiar algo, pulsa **Editar**. Para quitar el acceso, pulsa **Desactivar** en la fila de la cuenta (o desmarca **Cuenta activa** al editarla): la persona ya no puede entrar, pero su historial se conserva y la cuenta se puede **Reactivar**. Las cuentas no se borran. Cambiar el tipo, la contraseña o el estado cierra la sesión de esa cuenta. Siempre debe quedar al menos una cuenta de Administración activa.
 
 ## 8. Semáforo de cobertura
 

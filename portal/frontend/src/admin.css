@@ -522,3 +522,9 @@
 /* Atajo a Configurar línea → Estanterías desde "Asignar a estantería" */
 .admin-v2 .atajo-estanterias{display:inline-flex;align-items:center;gap:6px;width:auto;min-height:36px;margin:0;padding:4px 2px;border:0;background:transparent;box-shadow:none;color:#185fa5;font-size:13px;font-weight:700;text-align:left}.admin-v2 .atajo-estanterias:hover{background:transparent;text-decoration:underline}.admin-v2 .atajo-estanterias.destacado{padding:8px 12px;border:1px solid #185fa5;border-radius:8px;background:#e6f1fb}.admin-v2 .atajo-estanterias.destacado:hover{background:#cfe3f7;text-decoration:none}
 .nota-asignar{margin:8px 0 14px;color:var(--muted);font-size:14px}.admin-v2 .enlace-azul{display:inline;width:auto;min-height:0;margin:0;padding:0;border:0;background:transparent;box-shadow:none;color:#185fa5;font-size:14px;font-weight:700;text-decoration:underline;cursor:pointer}.admin-v2 .enlace-azul:hover{background:transparent;color:#0c447c}
+/* Desactivar / reactivar puestos, estaciones y estanterías (no se borran: conservan historial y KPIs) */
+.admin-v2 fieldset.config-campos{border:0;border-radius:0;margin:0;padding:0}
+.admin-v2 .puesto-tarjeta.inactiva{border-style:dashed;background:#f4f4f4;box-shadow:none}.admin-v2 .puesto-tarjeta.inactiva strong{color:var(--muted)}.admin-v2 .puesto-tarjeta.inactiva .estado-pill{margin-top:4px}
+.admin-v2 .puesto-tarjeta.inactiva.elegido{background:#ececec;border-color:#8a8a8a;box-shadow:0 0 0 1px #8a8a8a}.admin-v2 .puesto-tarjeta.inactiva.elegido svg{color:#5a5a5a}
+.config-estado{margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}.config-estado small{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.35}
+.usuario-acciones{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.usuario-acciones button{margin:0}

@@ -8,13 +8,14 @@ type Ctx=Pick<EstadoAdmin,'materiales'|'ubicaciones'|'estanterias'|'estaciones'|
 const OPERACIONES:Record<string,string>={ENTRADA:'Entrada',SALIDA:'Salida',ATENCION_INICIAR:'Inicio de atención',ATENCION_FINALIZAR:'Fin de atención',
  MATERIAL_ESTADO:'Estado de material',MATERIAL_RENOMBRAR:'Cambio de número de parte',MATERIAL_ELIMINAR:'Material eliminado',MATERIAL_DUPLICAR:'Nueva revisión de material',
  PUESTO:'Puesto logístico',ESTACION:'Estación',ESTANTERIA:'Estantería',UBICACION:'Material asignado a estantería',UBICACION_ESTADO:'Estado de ubicación',
+ PUESTO_ESTADO:'Estado de puesto',ESTACION_ESTADO:'Estado de estación',ESTANTERIA_ESTADO:'Estado de estantería',
  IMPORTAR:'Importación de catálogo',CALENDARIO:'Horario de trabajo',IMAGEN:'Foto de material',USUARIO_CREAR:'Alta de usuario',USUARIO_ACTUALIZAR:'Cambio de usuario',APERTURA:'Apertura del sistema'};
 const ETIQUETAS:Record<string,string>={numeroParte:'Número de parte',numero_parte:'Número de parte',piezas:'Piezas',cajas:'Cajas',saldoAnterior:'Saldo anterior',saldo_anterior:'Saldo anterior',
  saldoPosterior:'Saldo después',saldo_posterior:'Saldo después',consumo:'Consumo de producción',motivo:'Motivo',nombre:'Nombre',nivel:'Nivel',capacidad:'Espacios (cajas)',
  material:'Material',ubicacion:'Ubicación',estanteria:'Estantería',estacion:'Estación',puesto:'Puesto',activo:'Activo',activa:'Activa',altas:'Materiales nuevos',
  actualizados:'Materiales actualizados',puestosCreados:'Puestos creados',desde:'Desde',hasta:'Hasta',fuente:'Autorizado por',usuario:'Usuario',rol:'Rol',
  tipo_movimiento:'Movimiento',cantidad_movimiento:'Cantidad',usuario_captura:'Capturó',responsable:'Responsable',piezasTrasladadas:'Piezas trasladadas',
- atencionFinalizada:'Atención finalizada',origen:'Origen',eliminada:'Foto quitada',cambioContrasena:'Cambió contraseña',revision:'Revisión',descripcion:'Descripción'};
+ atencionFinalizada:'Atención finalizada',ubicacionesDesactivadas:'Ubicaciones desactivadas con la estantería',ubicacionesReactivadas:'Ubicaciones reactivadas',origen:'Origen',eliminada:'Foto quitada',cambioContrasena:'Cambió contraseña',revision:'Revisión',descripcion:'Descripción'};
 const OMITIR=new Set(['id','version','operacion','tipo','fecha','linea','huella','filas','dias','turnos','excepciones','atencion','resultado','solicitud','cambios','secuencia','accesos','password','comprobante','normal','advertencia','critico','simulado','confirmar','fila','destino','estanteriaDestino','ubicaciones','origenInhabilitado','numeroParteOrigen','espacio_identificadores','huella_peticion','id_operacion']);
 
 const obj=(v:unknown):Record<string,unknown>=>{if(v&&typeof v==='object')return v as Record<string,unknown>;if(typeof v==='string'){try{const o=JSON.parse(v);return o&&typeof o==='object'?o:{}}catch{return {}}}return {}};
@@ -56,6 +57,11 @@ export function describirEvento(f:FilaHistorial,ctx:Ctx):EventoLegible{
   case 'ESTANTERIA':detalle=(s.id?'Cambio de ':'Alta de ')+[nombrar(ctx,'estacion',s.estacion),s.nombre,s.nivel].filter(Boolean).join(' / ')+' · '+num(s.capacidad)+' espacios';break;
   case 'UBICACION':detalle=nombrar(ctx,'material',s.material)+' en '+nombrar(ctx,'estanteria',s.estanteria);break;
   case 'UBICACION_ESTADO':operacion=s.activa===false?'Ubicación desactivada':'Ubicación reactivada';detalle=(parte?parte+' · ':'')+lugar+(r.piezasTrasladadas?' · '+num(r.piezasTrasladadas)+' pz trasladadas':'')+(s.motivo?' · motivo: '+s.motivo:'');break;
+  case 'PUESTO_ESTADO':case 'ESTACION_ESTADO':case 'ESTANTERIA_ESTADO':{
+   const fem=tipo!=='PUESTO_ESTADO';const cosa=tipo==='PUESTO_ESTADO'?'Puesto':tipo==='ESTACION_ESTADO'?'Estación':'Estantería';
+   operacion=cosa+(s.activo===false?(fem?' desactivada':' desactivado'):(fem?' reactivada':' reactivado'));
+   detalle=String(r.nombre??nombrar(ctx,tipo==='PUESTO_ESTADO'?'puesto':tipo==='ESTACION_ESTADO'?'estacion':'estanteria',s.id))+(s.motivo?' · motivo: '+s.motivo:'');break;
+  }
   case 'IMPORTAR':detalle=num(r.altas??0)+' nuevos · '+num(r.actualizados??0)+' actualizados'+(r.puestosCreados?' · '+num(r.puestosCreados)+' puestos creados':'');break;
   case 'CALENDARIO':detalle='Del '+String(s.desde??'')+' al '+String(s.hasta??'')+(s.fuente?' · '+s.fuente:'')+(s.simulado?' · de prueba':'');break;
   case 'IMAGEN':operacion=r.eliminada?'Foto quitada':'Foto de material';detalle=nombrar(ctx,'material',d.material);break;

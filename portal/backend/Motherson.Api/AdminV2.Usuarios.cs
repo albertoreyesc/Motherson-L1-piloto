@@ -17,7 +17,7 @@ public sealed partial class AdminV2
  sealed record UsuarioFila(int Id,string Usuario,string Nombre,string Rol,bool Activo);
  sealed record AccesoFila(int Usuario,int Linea,string? Puesto);
  sealed record LineaFila(int Id,string Nombre);
- sealed record PuestoFila(int Linea,string Id,string? Nombre);
+ sealed record PuestoFila(int Linea,string Id,string? Nombre,string? Activo);
 
  async Task AdminGlobal(Cuenta actor)
  {
@@ -33,12 +33,12 @@ public sealed partial class AdminV2
   var usuarios=(await sql.QueryAsync<UsuarioFila>("SELECT id_usuario Id,usuario Usuario,nombre Nombre,rol Rol,activo Activo FROM mes.USUARIO_PILOTO ORDER BY activo DESC,usuario")).ToArray();
   var accesos=(await sql.QueryAsync<AccesoFila>("SELECT usuario Usuario,linea Linea,puesto Puesto FROM mes2.ACCESO")).ToArray();
   var lineas=(await sql.QueryAsync<LineaFila>("SELECT id Id,nombre Nombre FROM mes2.LINEA ORDER BY id")).ToArray();
-  var puestos=(await sql.QueryAsync<PuestoFila>("SELECT linea Linea,id Id,JSON_VALUE(datos,'$.nombre') Nombre FROM mes2.ENTIDAD WHERE tipo='puesto'")).ToArray();
+  var puestos=(await sql.QueryAsync<PuestoFila>("SELECT linea Linea,id Id,JSON_VALUE(datos,'$.nombre') Nombre,JSON_VALUE(datos,'$.activo') Activo FROM mes2.ENTIDAD WHERE tipo='puesto'")).ToArray();
   return new{
    usuarios=usuarios.Select(u=>new{id=u.Id,usuario=u.Usuario,nombre=u.Nombre,rol=u.Rol,activo=u.Activo,propio=u.Id==actor.Id,
     accesos=accesos.Where(a=>a.Usuario==u.Id).OrderBy(a=>a.Linea).Select(a=>new{linea=a.Linea,puesto=a.Puesto}).ToArray()}).ToArray(),
    lineas=lineas.Select(l=>new{id=l.Id,nombre=l.Nombre,
-    puestos=puestos.Where(p=>p.Linea==l.Id).Select(p=>new{id=p.Id,nombre=p.Nombre??p.Id}).OrderBy(p=>p.nombre,StringComparer.CurrentCulture).ToArray()}).ToArray()
+    puestos=puestos.Where(p=>p.Linea==l.Id).Select(p=>new{id=p.Id,nombre=p.Nombre??p.Id,activo=p.Activo!="false"}).OrderBy(p=>p.nombre,StringComparer.CurrentCulture).ToArray()}).ToArray()
   };
  }
 
@@ -68,6 +68,13 @@ public sealed partial class AdminV2
   var json=JsonSerializer.Serialize(lista.Select(x=>new{linea=x.Linea,puesto=x.Puesto}));
   var hash=password.Length>0?HasherUsuarios.HashPassword("",password):null;
   await using var sql=await store.Open();
+  // Una cuenta activa de puesto logístico no puede quedar ligada a un puesto desactivado (Configurar línea).
+  if(activo&&rol=="PUESTO")
+   foreach(var (linea,puesto) in lista)
+   {
+    var estado=await sql.QuerySingleOrDefaultAsync<string?>("SELECT COALESCE(JSON_VALUE(datos,'$.activo'),'true') FROM mes2.ENTIDAD WHERE linea=@linea AND tipo='puesto' AND id=@puesto",new{linea,puesto});
+    Exigir(estado!="false","El puesto elegido en la Línea "+linea+" está desactivado. Elige otro o reactívalo en Configurar línea.",409);
+   }
   if(id==0)
   {
    var usuario=Texto(input,"usuario",80,true);

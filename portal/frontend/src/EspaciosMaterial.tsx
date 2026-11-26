@@ -4,7 +4,7 @@ import {useEffect,useState} from 'react';
 import {Minus,Plus,MapPin,Warehouse,ChevronRight} from 'lucide-react';
 import {nd} from './api';
 import type {EstadoAdmin,Material,Rack} from './adminTypes';
-import {cajasOcupadasV2,limitesCapacidadV2,materialesEnEstanteria,ubicacionActiva} from './ubicacionesV2';
+import {cajasOcupadasV2,estaActivo,limitesCapacidadV2,materialesEnEstanteria,ubicacionActiva} from './ubicacionesV2';
 type Run=(tipo:string,body:Record<string,unknown>)=>Promise<unknown>;
 
 export const nombreEstanteria=(e:EstadoAdmin,r:Rack)=>[e.estaciones.find(s=>s.id===r.estacion)?.nombre,r.nombre,r.nivel].filter(Boolean).join(' / ');
@@ -43,7 +43,7 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado,irAEstanterias}:{e:
  const [abierto,setAbierto]=useState(false),[rack,setRack]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const propias=e.ubicaciones.filter(u=>u.material===m.id&&ubicacionActiva(u));
  const ocupadas=new Set(e.ubicaciones.filter(u=>u.material===m.id).map(u=>u.estanteria));
- const libres=e.estanterias.filter(r=>!ocupadas.has(r.id));
+ const libres=e.estanterias.filter(r=>estaActivo(r)&&!ocupadas.has(r.id));
  async function asignar(){setBusy(true);setError('');try{await run('UBICACION',{material:m.id,estanteria:rack});setRack('');setAbierto(false)}catch(ex){setError((ex as Error).message)}finally{setBusy(false)}}
  return <div className={'ubicaciones-material'+(propias.length?'':' vacia')}>
   {propias.length===0&&<p className="sin-ubicacion">Sin ubicación asignada</p>}
