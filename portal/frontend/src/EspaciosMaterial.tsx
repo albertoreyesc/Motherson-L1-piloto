@@ -61,32 +61,3 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado,irAEstanterias}:{e:
   {error&&<p className="error" role="alert">{error}</p>}
  </div>;
 }
-
-/** Alta rápida de estaciones y estanterías sin salir del catálogo. */
-export function AltaEstructura({e,run,bloqueado,incrustado=false}:{e:EstadoAdmin;run:Run;bloqueado:boolean;incrustado?:boolean}){
- const [estacion,setEstacion]=useState(''),[rack,setRack]=useState({nombre:'',estacion:'',nivel:'',capacidad:1}),[busy,setBusy]=useState(false),[error,setError]=useState(''),[ok,setOk]=useState('');
- async function ejecutar(tipo:string,body:Record<string,unknown>,listo:string){setBusy(true);setError('');setOk('');try{await run(tipo,body);setOk(listo);return true}catch(ex){setError((ex as Error).message);return false}finally{setBusy(false)}}
- const locked=busy||bloqueado;
- const Caja=incrustado?'div':'details';
- return <Caja className={incrustado?'alta-estructura':'panel alta-estructura'}>{!incrustado&&<summary><span className="resumen-titulo">+ Agregar estación o estantería</span><small className="resumen-ayuda">Para asignar materiales a un lugar nuevo sin salir del catálogo.</small></summary>}
-  {error&&<p className="error" role="alert">{error}</p>}{ok&&<p className="notice" role="status">{ok}</p>}
-  <div className="alta-estructura-grid">
-   <form onSubmit={ev=>{ev.preventDefault();const n=estacion.trim();void ejecutar('ESTACION',{nombre:n},'Estación '+n+' creada.').then(b=>{if(b)setEstacion('')})}}>
-    <h3>Nueva estación</h3>
-    <label className="field">Nombre de la estación<input required maxLength={80} value={estacion} placeholder="Ej. AL09" onChange={ev=>setEstacion(ev.target.value)}/></label>
-    <button className="small" disabled={locked||!estacion.trim()}>Crear estación</button>
-   </form>
-   <form onSubmit={ev=>{ev.preventDefault();void ejecutar('ESTANTERIA',{id:'',nombre:rack.nombre.trim(),estacion:rack.estacion,nivel:rack.nivel.trim(),capacidad:rack.capacidad},'Estantería '+rack.nombre.trim()+' creada.').then(b=>{if(b)setRack({nombre:'',estacion:rack.estacion,nivel:'',capacidad:1})})}}>
-    <h3>Nueva estantería</h3>
-    <div className="form-grid">
-     <label className="field">¿En qué estación está?<select required value={rack.estacion} onChange={ev=>setRack({...rack,estacion:ev.target.value})}><option value="">Selecciona la estación</option>{e.estaciones.map(s=><option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label>
-     <label className="field">Nombre<input required maxLength={80} value={rack.nombre} placeholder="Ej. SIM-DES-70" onChange={ev=>setRack({...rack,nombre:ev.target.value})}/></label>
-     <label className="field">Nivel o repisa<input required maxLength={40} value={rack.nivel} placeholder="Ej. A, B, 1" onChange={ev=>setRack({...rack,nivel:ev.target.value})}/></label>
-     <div className="field"><span>Espacios (cajas)</span><div className="capacidad-control"><button type="button" className="secondary" aria-label="Quitar un espacio" disabled={locked||rack.capacidad<=1} onClick={()=>setRack({...rack,capacidad:Math.max(1,rack.capacidad-1)})}><Minus size={16} aria-hidden="true"/></button><input type="number" inputMode="numeric" min="1" max="1000000" required value={rack.capacidad} aria-label="Espacios en cajas" onChange={ev=>setRack({...rack,capacidad:Math.max(1,Math.min(1000000,Math.trunc(Number(ev.target.value))||1))})}/><button type="button" className="secondary" aria-label="Agregar un espacio" disabled={locked} onClick={()=>setRack({...rack,capacidad:Math.min(1000000,rack.capacidad+1)})}><Plus size={16} aria-hidden="true"/></button></div></div>
-    </div>
-    {e.estaciones.length===0&&<p className="help">Primero crea una estación.</p>}
-    <button className="small" disabled={locked||!rack.estacion||!rack.nombre.trim()||!rack.nivel.trim()}>Crear estantería</button>
-   </form>
-  </div>
- </Caja>;
-}

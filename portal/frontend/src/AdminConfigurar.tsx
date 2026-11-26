@@ -49,7 +49,7 @@ export function AdminConfigurar({e,run,dirty,seccionInicial,alAbrir}:Props){
   {ok&&<p className="notice" role="status">{ok}</p>}
  </form>;
  return <>
- <section className="panel config-estructura"><h2>Configurar la Línea {e.linea}</h2>
+ <section className="panel config-estructura"><h2>Estructura de la línea</h2>
   <p className="help">La línea se arma así: <strong>puesto</strong> → <strong>estación</strong> → <strong>estantería</strong>. Los materiales se asignan a una estantería en <em>Materiales y catálogos</em> o en <em>Estaciones y ubicaciones</em>.</p>
   <div className="pestanas" role="tablist" aria-label="Qué configurar">{tabs.map(([id,n,Icono,total])=><button key={id} type="button" role="tab" aria-selected={seccion===id} className={'pestana con-icono'+(seccion===id?' activa':'')} onClick={()=>cambiarSeccion(id)}><Icono size={17} aria-hidden="true"/>{n}{total!==null&&<small>{total}</small>}</button>)}</div>
   {seccion!=='HORARIO'&&<div className="config-dos-columnas"><div>
@@ -59,7 +59,7 @@ export function AdminConfigurar({e,run,dirty,seccionInicial,alAbrir}:Props){
    {seccion==='ESTANTERIA'&&<><div className="puestos-grid" role="listbox" aria-label="Nueva estantería">{tarjetaNueva('Nueva estantería')}</div>{[...e.estaciones].sort(porNombre).map(s=>{const racks=e.estanterias.filter(r=>r.estacion===s.id&&filtro(s.nombre+' '+r.nombre+' '+r.nivel)).sort((a,b)=>porNombre(a,b)||a.nivel.localeCompare(b.nivel,'es'));if(!racks.length)return null;return <div key={s.id} className="grupo-estacion"><h4>{s.nombre}</h4><div className="puestos-grid" role="listbox" aria-label={'Estanterías de '+s.nombre}>{racks.map(r=>{const o=ocupadas(r);return <button type="button" role="option" aria-selected={sel===r.id} key={r.id} className={'puesto-tarjeta'+(sel===r.id?' elegido':'')+(o>=r.capacidad?' llena':'')} onClick={()=>elegir(r.id)}><Warehouse size={20} aria-hidden="true"/><strong>{r.nombre} · {r.nivel}</strong><small>{o} de {r.capacidad} cajas ocupadas</small></button>})}</div></div>})}</>}
   </div><div className="config-panel-form">{formulario}</div></div>}
  </section>
- {seccion==='HORARIO'&&<section className="panel config-horario"><h2>Horario de trabajo de la Línea {e.linea}</h2>
+ {seccion==='HORARIO'&&<section className="panel config-horario"><h2>Horario de trabajo</h2>
   <p className="help">Indica qué días y en qué horario se trabaja. Con esto el sistema calcula cuántos minutos de material quedan en cada ubicación.</p>
   <form onChange={()=>dirty(true)} onSubmit={ev=>{ev.preventDefault();if(semaforoValido)void execute('CALENDARIO',{desde,hasta,fuente,dias,turnos,excepciones,normal,advertencia,critico,simulado})}}>
    <section className="paso-config"><h3><span className="paso-num">1</span>¿Cuándo aplica este horario?</h3>

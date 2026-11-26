@@ -16,7 +16,7 @@ export function AdminUbicaciones({e,run,dirty,bloqueado,irAMateriales}:Props){
  async function abrir(u:Ubicacion){if(editando&&editando!==u.id&&(destino||motivo)&&!await confirmar({titulo:'¿Descartar la desactivación que estabas preparando?',aceptar:'Descartar',cancelar:'Seguir con ella'}))return;setEditando(u.id);setDestino('');setMotivo('');setError('')}
  const lista=e.ubicaciones.filter(u=>(!estacion||e.estanterias.find(r=>r.id===u.estanteria)?.estacion===estacion)&&(filtro==='todas'||ubicacionActiva(u)===(filtro==='activas'))&&[parte(u)?.numeroParte,parte(u)?.descripcion,rackNombre(u.estanteria)].join(' ').toLocaleLowerCase('es').includes(buscar.trim().toLocaleLowerCase('es')));
  const activas=e.ubicaciones.filter(ubicacionActiva).length;
- return <section className="panel" aria-busy={locked}><h2>Administrar ubicaciones · Línea {e.linea}</h2>
+ return <section className="panel" aria-busy={locked}><h2>Administrar ubicaciones</h2>
  <p>Las ubicaciones no se borran: se desactivan y conservan su historial. Si la ubicación tiene piezas, se mueven a la estantería que elijas antes de desactivarla (no cuenta como salida ni consumo). La estantería sigue activa para los demás materiales.</p>
  {error&&<p className="error" role="alert">{error}</p>}
  <p className="nota-asignar">Para asignar un material a una estantería usa “Asignar a estantería” en su fila de <button type="button" className="enlace-azul" onClick={irAMateriales}>Materiales y catálogos ›</button></p>
