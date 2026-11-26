@@ -1,6 +1,6 @@
 import {DashboardActual} from './DashboardActual';
 import {FechaHora,ahoraCdmx,abrirSelector} from './fechaHora';
-import {MoreHorizontal,RefreshCw,LayoutDashboard,Package,Warehouse,ClipboardList,ArrowLeftRight,History,ChartColumn,ChartPie,Settings2,LogOut,Factory} from 'lucide-react';
+import {MoreHorizontal,RefreshCw,LayoutDashboard,Package,Warehouse,ClipboardList,ArrowLeftRight,History,ChartColumn,ChartPie,Settings2,LogOut,Factory,Users} from 'lucide-react';
 import {MiniFoto} from './fotoMaterial';
 import {DialogoHost,pedirTexto,confirmar,avisar} from './dialogo';
 import {CapturaBloques} from './CapturaBloques';
@@ -14,11 +14,12 @@ import {DashboardEquipo2} from './DashboardEquipo2';
 import {AdminUbicaciones} from './AdminUbicaciones';
 import {AdminRevision} from './AdminRevision';
 import {UbicacionesMaterial,AltaEstructura} from './EspaciosMaterial';
+import {AdminUsuarios} from './AdminUsuarios';
 import {ubicacionActiva} from './ubicacionesV2';
 import type {EstadoAdmin,Material} from './adminTypes';
 import './admin.css';
-const iconos=[LayoutDashboard,Package,Warehouse,ClipboardList,ArrowLeftRight,History,ChartColumn,ChartPie,Settings2];
-const nombres=['Resumen','Materiales y catálogos','Estaciones y ubicaciones','Inventario','Entradas y salidas','Historial','KPIs','Dashboard','Configurar línea'];
+const iconos=[LayoutDashboard,Package,Warehouse,ClipboardList,ArrowLeftRight,History,ChartColumn,ChartPie,Settings2,Users];
+const nombres=['Resumen','Materiales y catálogos','Estaciones y ubicaciones','Inventario','Entradas y salidas','Historial','KPIs','Dashboard','Configurar línea','Usuarios'];
 const estados:Record<string,string>={AGOTADO:'Agotado',RIESGO_PARO:'Riesgo estimado de paro',CRITICO:'Crítico',ADVERTENCIA:'Advertencia',NORMAL:'Normal',SIN_DATOS:'Sin estimación'};
 const motivos:Record<string,string>={CALENDARIO_NO_DISPONIBLE:'Falta configurar el calendario de esta línea.',FUERA_CALENDARIO_DOCUMENTADO:'El corte queda fuera del periodo del calendario.',VENTANA_INCOMPLETA:'No se reúnen 60 minutos laborables documentados.',OBSERVACION_INCOMPLETA_DESDE_APERTURA:'Todavía no se han observado 60 minutos laborables desde la apertura de esta ubicación.',SIN_CONSUMO_RECIENTE:'No hay consumo positivo registrado en la ventana.',MUESTRA_INSUFICIENTE:'Se requieren al menos dos consumos positivos.',SALDO_CERO:'La ubicación tiene saldo cero.',RITMO_DE_REFERENCIA_SIN_REPOSICIONES:'Estimación con el consumo de referencia, sin reposiciones.'};
 type Pendiente={linea:number;tipo:string;body:Record<string,unknown>;key:string};
@@ -29,7 +30,7 @@ export function rolPortal(permisos:string[]):RolPortal{return permisos.includes(
  * Secciones que ve cada rol (índices de `nombres`). ADMIN: todo. PUESTO: Inventario y Entradas y salidas
  * (el servidor ya filtra sus materiales). LECTOR: consulta sin edición. La primera es la de inicio.
  */
-export const SECCIONES_POR_ROL:Record<RolPortal,number[]>={ADMIN:[0,1,2,3,4,5,6,7,8],PUESTO:[4,3],LECTOR:[0,3,5,6,7]};
+export const SECCIONES_POR_ROL:Record<RolPortal,number[]>={ADMIN:[0,1,2,3,4,5,6,7,8,9],PUESTO:[4,3],LECTOR:[0,3,5,6,7]};
 function AlarmasActuales({e}:{e:EstadoAdmin}){const counts=Object.keys(estados).map(k=>({k,n:e.alarmas.filter(a=>a.resultado.estado===k).length}));return <section className="panel"><h2>Alarmas y cobertura temporal</h2><p>Línea {e.linea} · corte {date(e.corte)} · {e.ubicaciones.filter(ubicacionActiva).length} ubicaciones activas. Cobertura en minutos; no confirma un paro de planta.</p>{e.calendario?.simulado===true&&<p className="notice">Calendario de referencia simulado. Los turnos y descansos reales deben validarse con planta.</p>}{!e.calendario&&<p className="notice">Falta el calendario de esta línea. El saldo cero se reconoce como agotado; las demás ubicaciones quedan Sin estimación.</p>}<div className="kpis">{counts.map(c=><section key={c.k}><small className={'estado '+c.k.toLowerCase()}>{estados[c.k]}</small><strong>{c.n}</strong></section>)}</div><details><summary><span className="resumen-titulo">¿Por qué aparece cada estado?</span><small className="resumen-ayuda">Reglas del semáforo y causas de “Sin estimación”.</small></summary><p>Se requieren 60 minutos laborables completos, saldo conocido y dos consumos positivos de esta ubicación. Solo cuentan salidas marcadas como consumo.</p><p>Umbrales en minutos: Normal ≥ {String(e.calendario?.normal??60)}; Advertencia ≥ {String(e.calendario?.advertencia??30)}; Crítico ≥ {String(e.calendario?.critico??15)}; por debajo: riesgo estimado de paro.</p><ul>{[...new Set(e.alarmas.map(a=>a.resultado.causa))].map(c=><li key={c}>{motivos[c]??c}</li>)}</ul><p>El mínimo compara el total del material con piezas mínimas. En KPIs, Advertencia por existencias significa mínimo &lt; saldo ≤ 1.2 × mínimo. No equivale al semáforo temporal por ubicación.</p></details></section>}
 export function AdminApp({user,onLogout}:{user:User;onLogout:()=>Promise<void>}){
  const [lineas,setLineas]=useState<{id:number;nombre:string}[]>([]),[linea,setLinea]=useState(1),[page,setPage]=useState(()=>SECCIONES_POR_ROL[rolPortal(user.permissions)][0]),[e,setE]=useState<EstadoAdmin|null>(null),[busy,setBusy]=useState(false),[error,setError]=useState(''),[aviso,setAviso]=useState(''),[dirty,setDirty]=useState(false),[pendiente,setPendiente]=useState<Pendiente|null>(()=>{try{return JSON.parse(localStorage.getItem('mes2-pendiente-'+user.id)??'null')}catch{return null}});const generation=useRef(0),activeLine=useRef(linea),writeLock=useRef(false);activeLine.current=linea;
@@ -52,12 +53,13 @@ export function AdminApp({user,onLogout}:{user:User;onLogout:()=>Promise<void>})
  {page===0&&<><div className="kpis"><section><small>Existencias actuales conocidas</small><strong>{nd(e.totalPiezas)} pz</strong></section><section><small>Materiales / activos</small><strong>{e.materiales.length} / {e.materiales.filter(m=>m.activo).length}</strong></section><section><small>Ubicaciones activas</small><strong>{e.ubicaciones.filter(ubicacionActiva).length}</strong></section></div><AlarmasActuales e={e}/><details className="panel"><summary><span className="resumen-titulo">Consultar cobertura histórica</span><small className="resumen-ayuda">Ver cómo estaban las alarmas en una fecha y hora anteriores. Solo lectura.</small></summary><HistoricoAdmin linea={linea}/>{linea===1&&<details><summary><span className="resumen-titulo">Cortes anteriores a la ampliación</span><small className="resumen-ayuda">Fechas previas al 22/11/2026, con el cálculo del sistema anterior.</small></summary><p>Se utiliza la apertura y las reglas del sistema anterior, conservado en lectura. No muestra saldos posteriores a la ampliación.</p><CoberturaHistorica sql path="/v2/lineas/1/cobertura-legado" automatico={false}/></details>}</details></>}
  {page===1&&<>{admin&&<AdminImportar key={linea} estado={e} run={run} onDirty={setDirty}/>}{admin&&<AltaEstructura key={'alta-'+linea} e={e} run={run} bloqueado={busy||!!pendiente}/>}<MaterialesAdmin e={e} admin={admin} run={run} refresh={()=>refresh()} dirty={setDirty} bloqueado={busy||!!pendiente}/></>}
  {page===2&&admin&&<AdminUbicaciones key={linea} e={e} run={run} dirty={setDirty} bloqueado={busy||!!pendiente}/>}
- {(page===2||page===3)&&<InventarioAdmin e={e} inventario={page===3}/ >}
+ {(page===3||page===2&&!admin)&&<InventarioAdmin e={e} inventario={page===3}/ >}
  {page===4&&<CapturaBloques e={e} user={user} run={run} dirty={setDirty} bloqueado={busy||!!pendiente}/>}
  {page===5&&<HistorialAdmin linea={linea}/>}
  {page===6&&<AdminKpis e={e}/>}
  {page===7&&<><DashboardActual key={linea} linea={linea}/><p className="notice">El informe incorpora el histórico y las nuevas atenciones del piloto. Se actualiza de lunes a viernes a las 06:00, 15:00 y 23:30 (Ciudad de México). El modelo usa la misma fuente Azure que el portal; Power BI muestra los cambios después de su actualización, no en tiempo real. La cobertura temporal por ubicación se consulta en Inventario; este informe muestra Sin estimación.</p><DashboardEquipo2 estadoPath={'/v2/lineas/'+linea+'/dashboard'} tokenPath={'/v2/lineas/'+linea+'/dashboard-token'}/></>}
  {page===8&&admin&&<AdminConfigurar e={e} run={run} dirty={setDirty}/>}
+ {page===9&&admin&&<AdminUsuarios dirty={setDirty}/>}
  </div>}<footer>Motherson · Línea {linea} · inventario y actividad con trazabilidad</footer></main></div><DialogoHost/></div>;
 }
 function HistoricoAdmin({linea}:{linea:number}){const [corte,setCorte]=useState(''),[e,setE]=useState<EstadoAdmin|null>(null),[error,setError]=useState('');return <><div className="fecha-consulta"><FechaHora valor={corte} max={ahoraCdmx()} etiqueta="¿De qué fecha y hora quieres ver las alarmas?" cambiar={v=>{setCorte(v);setE(null)}}/><button disabled={!corte||corte.length<16} onClick={()=>{setError('');api<EstadoAdmin>('/v2/lineas/'+linea+'/estado?corte='+encodeURIComponent(corte+'-06:00')).then(setE).catch(ex=>{setError(ex.message);setE(null)})}}>Consultar corte histórico</button></div>{error&&<p role="alert">{error}</p>}{e&&<><p>Histórico · {date(e.corte)} · existencias: {nd(e.totalPiezas)} pz. No modifica el saldo actual.</p><AlarmasActuales e={e}/></>}</>}

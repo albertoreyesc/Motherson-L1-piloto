@@ -95,6 +95,9 @@ api.MapGet("/administracion",()=>Results.Ok(new{habilitada=v2}));
 if(v2){
  var admin=app.Services.GetRequiredService<AdminV2>();var scoped=api.MapGroup("/v2/lineas/{linea:int}");
  Gate(api.MapGet("/v2/lineas",async Task<IResult>(HttpContext c)=>Results.Ok(await admin.Lineas(Who(c)))),"view");
+ // Usuarios del piloto: solo ADMIN (además se valida en SQL). Ver portal/db/administracion/003_usuarios.sql.
+ Gate(api.MapGet("/v2/usuarios",async Task<IResult>(HttpContext c)=>Results.Ok(await admin.Usuarios(Who(c)))),"administrar_accesos");
+ Gate(api.MapPost("/v2/usuarios",async Task<IResult>(JsonObject input,HttpContext c)=>Results.Ok(await admin.UsuarioGuardar(Who(c),input))),"administrar_accesos");
  Gate(scoped.MapGet("/estado",async(int linea,DateTimeOffset? corte,HttpContext c)=>Results.Ok(await admin.Estado(Who(c),linea,corte?.UtcDateTime))),"view");
  Gate(scoped.MapPost("/importacion/vista-previa",async(int linea,JsonObject input,HttpContext c)=>Results.Ok(await admin.VistaPrevia(Who(c),linea,input))),"ajustar_catalogo");
  Gate(scoped.MapPost("/operaciones/{tipo}",async(int linea,string tipo,JsonObject input,HttpContext c)=>Results.Ok(await admin.Ejecutar(Who(c),linea,tipo,input,Key(c)))),"view");
