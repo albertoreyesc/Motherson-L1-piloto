@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {UserRound,MapPinned,Warehouse,CalendarClock,Plus,Minus,X} from 'lucide-react';
 import type {EstadoAdmin,Rack} from './adminTypes';
 import {cajasOcupadasV2} from './ubicacionesV2';
+import {vigenciaHorario} from './AvisoHorario';
 type Props={e:EstadoAdmin;run:(tipo:string,body:Record<string,unknown>)=>Promise<unknown>;dirty:(v:boolean)=>void};
 type Turno={inicio:string;fin:string;descansos?:{inicio:string;fin:string}[]};
 type Seccion='PUESTO'|'ESTACION'|'ESTANTERIA'|'HORARIO';
@@ -16,7 +17,7 @@ const porNombre=<T extends {nombre:string}>(a:T,b:T)=>a.nombre.localeCompare(b.n
  * (PUESTO, ESTACION, ESTANTERIA, CALENDARIO). Asignar materiales a estanterías se hace en Materiales o en Estaciones y ubicaciones.
  */
 export function AdminConfigurar({e,run,dirty}:Props){
- const [seccion,setSeccion]=useState<Seccion>('PUESTO'),[sel,setSel]=useState(''),[nombre,setNombre]=useState(''),[estacion,setEstacion]=useState(''),[nivel,setNivel]=useState(''),[capacidad,setCapacidad]=useState(1),[buscar,setBuscar]=useState(''),[ok,setOk]=useState('');
+ const [seccion,setSeccion]=useState<Seccion>(()=>vigenciaHorario(e.calendario).nivel==='ok'?'PUESTO':'HORARIO'),[sel,setSel]=useState(''),[nombre,setNombre]=useState(''),[estacion,setEstacion]=useState(''),[nivel,setNivel]=useState(''),[capacidad,setCapacidad]=useState(1),[buscar,setBuscar]=useState(''),[ok,setOk]=useState('');
  const cal=e.calendario;const [desde,setDesde]=useState(String(cal?.desde??'')),[hasta,setHasta]=useState(String(cal?.hasta??'')),[fuente,setFuente]=useState(String(cal?.fuente??'')),[dias,setDias]=useState<number[]>((cal?.dias as number[])??[]),[turnos,setTurnos]=useState<Turno[]>((cal?.turnos as Turno[])??[{inicio:'',fin:''}]),[excepciones,setExcepciones]=useState<Record<string,boolean>>((cal?.excepciones as Record<string,boolean>)??{}),[exDia,setExDia]=useState(''),[normal,setNormal]=useState(Number(cal?.normal??60)),[advertencia,setAdvertencia]=useState(Number(cal?.advertencia??30)),[critico,setCritico]=useState(Number(cal?.critico??15)),[busy,setBusy]=useState(false),[simulado,setSimulado]=useState(cal?.simulado===true);
  const execute=async(t:string,b:Record<string,unknown>)=>{setBusy(true);try{await run(t,b);dirty(false);return true}catch{/* error mostrado por el contenedor */return false}finally{setBusy(false)}};
 
