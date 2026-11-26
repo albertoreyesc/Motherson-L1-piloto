@@ -8,7 +8,7 @@ Portal para consultar inventario por ubicación, registrar entradas y atenciones
 
 El repositorio es privado. La base de esta organización es la versión v3, commit `8c25f64`, integrada y verificada como **Live en Render el 26/11/2026**. La rama predeterminada y conectada a Render es `piloto/preparacion-gratuita-2026-11-19`. Integrar cambios en esa rama puede publicar automáticamente.
 
-El piloto utiliza datos de demostración; no acredita existencias reales de planta. La configuración `Pilot:DatosSimulados` controla la marca visual y no convierte datos de prueba en datos reales. La puesta en operación requiere validación de TI y logística.
+El piloto utiliza datos de demostración; no acredita existencias reales de planta. La configuración `DatosSimulados` controla la marca visual y no convierte datos de prueba en datos reales. La puesta en operación requiere validación de TI y logística.
 
 ## Por dónde empezar
 

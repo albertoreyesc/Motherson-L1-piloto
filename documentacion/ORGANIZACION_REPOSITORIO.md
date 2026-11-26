@@ -4,7 +4,7 @@ Base revisada: **v3, commit `8c25f64`**. GitHub identifica `piloto/preparacion-g
 
 ## Inventario y criterio
 
-El [inventario CSV](inventario-repositorio.csv) clasifica los **729 archivos de la base** individualmente con ruta, función, evidencia, decisión y destino. La clasificación agrupa la evidencia cuando varios archivos comparten compilación, consumidor o finalidad. No atribuye uso operativo actual a una evidencia fechada ni a una herramienta histórica.
+El [inventario CSV](inventario-repositorio.csv) clasifica los **729 archivos de la base** individualmente con ruta, función, evidencia, decisión y destino. La clasificación agrupa la evidencia cuando varios archivos comparten compilación, consumidor o finalidad. «Conservar» significa mantener ruta y función; los índices y guías pueden actualizarse. No atribuye uso operativo actual a una evidencia fechada ni a una herramienta histórica.
 
 | Ruta original | Función | Evidencia | Decisión / destino |
 | --- | --- | --- | --- |
@@ -77,7 +77,8 @@ Los 50 módulos sustituidos y los archivos generados anteriores están disponibl
 - Integración SQL: no ejecutada; no se cambiaron reglas, procedimientos, migraciones ni rutas de datos.
 - **202 enlaces locales y 12 rutas requeridas comprobadas**, sin destinos inexistentes; huella del PBIX original conservada.
 - Conservación byte a byte: 34 archivos fuente/proyecto de API, 43 fuentes frontend, 30 SQL, ocho CSV, 13 archivos del modelo BI y 139 del diseño PBIR. Dockerfile, arranque, render.yaml y workflow no cambian.
-- Docker ARM64 local: la descarga de índices de Ubuntu falló con `Hash Sum mismatch`, ajeno a las rutas del proyecto. Se inició una comprobación Linux/AMD64, arquitectura de Render; resultado pendiente al abrir el PR.
+- Docker completo ARM64 y AMD64: ambos intentos locales se detuvieron en `apt-get update` por `Hash Sum mismatch` de los índices Ubuntu, antes de instalar nginx. No se alteró Dockerfile ni se deshabilitaron verificaciones de integridad. La etapa de compilación AMD64 (`--target build`) terminó correctamente con sus pruebas y publicación. Se verificaron dentro del contenedor el ensamblado, HTML, logo, licencia de fuentes y catálogo de configuración. El ensamblado de la imagen final sigue limitado por esa descarga externa.
+- GitHub Actions: [validación Windows del PR](https://github.com/albertoreyesc/Motherson-L1-piloto/actions/runs/45863974428) aprobada; trabajo de despliegue omitido en el evento pull_request.
 - No se ejecutaron migraciones, scripts de carga ni pruebas que modifiquen SQL.
 
 ## Configuración privada y revisión de archivos sensibles
