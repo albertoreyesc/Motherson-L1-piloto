@@ -50,7 +50,7 @@ cd portal/frontend; npm test
 python portal/scripts/probar_administracion_local.py --servir
 
 # Prueba de carga: 5 materialistas a la vez durante 15 minutos (usar una línea o base de pruebas)
-python portal/scripts/simular_operacion.py --url http://127.0.0.1:5099 --usuario persona0 --linea 1 --sesiones 5 --ubicaciones 20 --intervalo 20 --minutos 15 --crear-horario-prueba --si
+python portal/scripts/simular_operacion.py --url http://127.0.0.1:5099 --usuario persona0 --linea 1 --sesiones 5 --ubicaciones 20 --intervalo 20 --minutos 15 --crear-horario-prueba --si --password-archivo portal/.local/v2/user.password
 ```
 
 El simulador imprime al final cuántas operaciones se registraron, cuántas tuvieron choque y se resolvieron con reintento, los fallos y el tiempo de respuesta (mediana y p95).

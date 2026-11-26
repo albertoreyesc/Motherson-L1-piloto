@@ -18,7 +18,8 @@ Opciones útiles: --intervalo 240 (segundos entre rondas), --crear-horario-prueb
 
 Prueba de carga (varios materialistas a la vez sobre la misma línea, con reintento ante choques como el portal):
   python portal/scripts/simular_operacion.py --url http://127.0.0.1:5099 --usuario persona0 --linea 1 \
-      --sesiones 5 --ubicaciones 20 --intervalo 20 --minutos 15 --crear-horario-prueba --si
+      --sesiones 5 --ubicaciones 20 --intervalo 20 --minutos 15 --crear-horario-prueba --si \
+      --password-archivo portal/.local/v2/user.password
 Al final imprime operaciones, choques resueltos con reintento, fallos y tiempos de respuesta (mediana y p95).
 """
 import argparse, getpass, http.cookiejar, json, random, statistics, sys, threading, time, uuid
@@ -189,11 +190,15 @@ def main():
     ap.add_argument('--semilla', type=int, default=7, help='Para repetir la misma selección de ubicaciones')
     ap.add_argument('--crear-horario-prueba', action='store_true', help='Si la línea no tiene horario, crea uno de prueba 24/7')
     ap.add_argument('--sesiones', type=int, default=1, help='Sesiones en paralelo (materialistas a la vez) para prueba de carga')
+    ap.add_argument('--password-archivo', help='Lee la contraseña de un archivo (por ejemplo portal/.local/v2/user.password)')
     ap.add_argument('--si', action='store_true', help='No pedir confirmación')
     a = ap.parse_args()
 
     p = Portal(a.url)
-    a._password = getpass.getpass(f'Contraseña de {a.usuario}: ')
+    if a.password_archivo:
+        with open(a.password_archivo, encoding='utf-8') as f: a._password = f.read().strip()
+    else:
+        a._password = getpass.getpass(f'Contraseña de {a.usuario} (no se muestra al escribir): ')
     a.sesiones = max(1, min(a.sesiones, 20))
     yo = p.login(a.usuario, a._password)
     e = p.estado(a.linea)

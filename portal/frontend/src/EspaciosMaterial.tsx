@@ -45,11 +45,10 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado}:{e:EstadoAdmin;m:M
  const ocupadas=new Set(e.ubicaciones.filter(u=>u.material===m.id).map(u=>u.estanteria));
  const libres=e.estanterias.filter(r=>!ocupadas.has(r.id));
  async function asignar(){setBusy(true);setError('');try{await run('UBICACION',{material:m.id,estanteria:rack});setRack('');setAbierto(false)}catch(ex){setError((ex as Error).message)}finally{setBusy(false)}}
- return <div className="ubicaciones-material">
-  {propias.length===0&&<small className="block">Sin ubicación asignada</small>}
+ return <div className={'ubicaciones-material'+(propias.length?'':' vacia')}>
+  {propias.length===0&&<p className="sin-ubicacion">Sin ubicación asignada</p>}
   {propias.map(u=>{const r=e.estanterias.find(x=>x.id===u.estanteria);if(!r)return null;return <div className="ubicacion-espacio" key={u.id}>
-   <span className="ubicacion-nombre"><MapPin size={14} aria-hidden="true"/>{nombreEstanteria(e,r)}</span>
-   <small className="block">Saldo {nd(u.cantidad)} pz · {nd(Math.ceil(u.cantidad/m.empaque))} {Math.ceil(u.cantidad/m.empaque)===1?'caja':'cajas'}</small>
+   <div className="ubicacion-cabecera"><span className="ubicacion-nombre"><MapPin size={14} aria-hidden="true"/>{nombreEstanteria(e,r)}</span><small>Saldo {nd(u.cantidad)} pz · {nd(Math.ceil(u.cantidad/m.empaque))} {Math.ceil(u.cantidad/m.empaque)===1?'caja':'cajas'}</small></div>
    <CapacidadV2 e={e} rack={r} run={run} editable={admin} bloqueado={bloqueado}/>
   </div>})}
   {admin&&m.activo&&(abierto?<div className="asignar-ubicacion">
@@ -57,7 +56,7 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado}:{e:EstadoAdmin;m:M
    {libres.length===0&&<p className="help">No hay estanterías disponibles. Créala con el botón “Estación o estantería” de arriba.</p>}
    <div className="button-row"><button type="button" className="small" disabled={busy||bloqueado||!rack} onClick={()=>void asignar()}>{busy?'Asignando…':'Asignar'}</button><button type="button" className="secondary small" disabled={busy} onClick={()=>{setAbierto(false);setRack('');setError('')}}>Cancelar</button></div>
    <p className="help">Empieza con 0 piezas; las existencias se registran con una entrada.</p>
-  </div>:<button type="button" className="enlace" disabled={bloqueado} onClick={()=>setAbierto(true)}>+ Asignar a estantería</button>)}
+  </div>:<button type="button" className={'boton-asignar'+(propias.length?'':' principal')} disabled={bloqueado} onClick={()=>setAbierto(true)}><Plus size={15} aria-hidden="true"/>{propias.length?'Asignar a otra estantería':'Asignar a estantería'}</button>)}
   {error&&<p className="error" role="alert">{error}</p>}
  </div>;
 }
