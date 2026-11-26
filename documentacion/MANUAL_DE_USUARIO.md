@@ -73,7 +73,7 @@ Un puesto logístico ve **una tarjeta por cada ubicación** de sus materiales. S
 Sección **Entradas y salidas**.
 
 ### 4.1 Encontrar el material
-- Arriba eliges **Entrada** o **Salida**.
+- Una cuenta de puesto logístico trabaja siempre en **Entrada**. Las cuentas de Administración ven además los botones **Entrada** y **Salida** para cambiar de movimiento.
 - **Buscar material o ubicación:** número de parte, descripción o estantería.
 - **Estación:** filtra por estación.
 - **Solo con espacio disponible:** oculta las ubicaciones llenas.
@@ -95,7 +95,7 @@ Cada tarjeta muestra la foto, el número de parte, el **saldo** y el **espacio l
 Al registrar, la atención **se finaliza sola**. Si vas a hacer otro movimiento dentro de la misma atención, abre **Opciones** antes de confirmar y desmarca **Finalizar la atención al registrar**.
 
 ### 4.3 Salidas
-Las salidas (consumo de producción, devoluciones o retiro de remanente) las registra **Administración**. En una cuenta de puesto logístico la pestaña **Salida** se ve, pero no permite registrar.
+Las salidas (consumo de producción, devoluciones o retiro de remanente) las registra **Administración**, por eso una cuenta de puesto logístico no tiene el botón **Salida**.
 
 ### 4.4 Atenciones abiertas
 - En la parte de arriba se listan tus atenciones abiertas con los minutos que llevan. Cada una tiene un botón **Finalizar**.
@@ -271,7 +271,7 @@ El semáforo es una **estimación**: no confirma un paro real. Además es distin
 | --- | --- |
 | Un puesto no ve un material | El material debe ser de ese puesto **y** tener una estantería asignada ([6.3](#63-asignar-materiales-a-estanterías)). Después pulsa **Actualizar datos** |
 | La tarjeta está en gris | Lee el motivo en la tarjeta: sin espacio, sin existencias, material inhabilitado o ubicación desactivada |
-| No me deja registrar una salida | Las salidas solo las registra Administración |
+| No aparece el botón **Salida** | Las salidas solo las registra Administración |
 | Aparece **Operación pendiente de comprobar** | Se perdió la conexión al enviar. Pulsa **Comprobar operación pendiente**; **no** la vuelvas a capturar, para evitar duplicados |
 | "Los datos cambiaron" | Otra persona registró algo al mismo tiempo. El portal reintenta solo; si persiste, pulsa **Actualizar datos** y repite |
 | Todo dice **Sin estimación** | Revisa que el horario esté vigente y que haya salidas marcadas como consumo ([8](#8-semáforo-de-cobertura)) |
