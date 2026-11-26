@@ -1,7 +1,7 @@
 // Pantalla "Usuarios" (solo ADMIN): crear cuentas, asignar rol, líneas y puesto, cambiar contraseña y desactivar.
 // El servidor y SQL vuelven a validar todo (mes2.UsuarioCrear / mes2.UsuarioActualizar).
 import {useEffect,useState} from 'react';
-import {Plus,ShieldCheck,UserRound,Eye} from 'lucide-react';
+import {Plus,ShieldCheck,UserRound,Eye,EyeOff} from 'lucide-react';
 import {api} from './api';
 
 export type RolUsuario='ADMIN'|'PUESTO'|'LECTOR';
@@ -32,7 +32,7 @@ export function validarUsuario(f:Pick<Form,'id'|'usuario'|'nombre'|'rol'|'passwo
 const vacio=():Form=>({usuario:'',nombre:'',rol:'PUESTO',activo:true,password:'',confirmar:'',accesos:{}});
 
 export function AdminUsuarios({dirty}:{dirty:(v:boolean)=>void}){
- const [datos,setDatos]=useState<Datos|null>(null),[error,setError]=useState(''),[aviso,setAviso]=useState(''),[form,setForm]=useState<Form|null>(null),[busy,setBusy]=useState(false),[buscar,setBuscar]=useState(''),[verInactivos,setVerInactivos]=useState(false);
+ const [datos,setDatos]=useState<Datos|null>(null),[error,setError]=useState(''),[aviso,setAviso]=useState(''),[form,setForm]=useState<Form|null>(null),[busy,setBusy]=useState(false),[buscar,setBuscar]=useState(''),[verInactivos,setVerInactivos]=useState(false),[verPass,setVerPass]=useState(false);
  async function cargar(){try{setDatos(await api<Datos>('/v2/usuarios'))}catch(ex){setError((ex as Error).message)}}
  useEffect(()=>{void cargar()},[]);
  const cambiar=(p:Partial<Form>)=>{setForm(f=>f&&{...f,...p});dirty(true)};
@@ -69,8 +69,8 @@ export function AdminUsuarios({dirty}:{dirty:(v:boolean)=>void}){
   </div>})}</div>
   <h3>{form.id?'Cambiar contraseña (opcional)':'Contraseña inicial'}</h3>
   <div className="form-grid">
-   <label className="field">Contraseña<input type="password" autoComplete="new-password" value={form.password} maxLength={512} placeholder="Mínimo 12 caracteres" onChange={ev=>cambiar({password:ev.target.value})}/></label>
-   <label className="field">Repite la contraseña<input type="password" autoComplete="new-password" value={form.confirmar} maxLength={512} onChange={ev=>cambiar({confirmar:ev.target.value})}/></label>
+   <label className="field">Contraseña<span className="campo-pass"><input type={verPass?'text':'password'} autoComplete="new-password" value={form.password} maxLength={512} placeholder="Mínimo 12 caracteres" onChange={ev=>cambiar({password:ev.target.value})}/><button type="button" className="ver-pass" aria-label={verPass?'Ocultar contraseña':'Mostrar contraseña'} aria-pressed={verPass} onClick={()=>setVerPass(!verPass)}>{verPass?<EyeOff size={18} aria-hidden="true"/>:<Eye size={18} aria-hidden="true"/>}</button></span>{form.password&&<small className={'block '+(form.password.length>=12?'coincide':'no-coincide')}>{form.password.length>=12?'✓ '+form.password.length+' caracteres':form.password.length+' caracteres · faltan '+(12-form.password.length)+' (mínimo 12)'}</small>}</label>
+   <label className="field">Repite la contraseña<span className="campo-pass"><input type={verPass?'text':'password'} autoComplete="new-password" value={form.confirmar} maxLength={512} onChange={ev=>cambiar({confirmar:ev.target.value})}/><button type="button" className="ver-pass" aria-label={verPass?'Ocultar contraseña':'Mostrar contraseña'} aria-pressed={verPass} onClick={()=>setVerPass(!verPass)}>{verPass?<EyeOff size={18} aria-hidden="true"/>:<Eye size={18} aria-hidden="true"/>}</button></span>{form.confirmar&&<small className={'block '+(form.confirmar===form.password?'coincide':'no-coincide')}>{form.confirmar===form.password?'✓ Coinciden':'Todavía no coinciden'}</small>}</label>
   </div>
   <p className="help">Entrégale la contraseña a la persona en privado. El sistema la guarda cifrada y nadie puede volver a verla; si la olvida, aquí se le asigna una nueva.</p>
   {form.id&&!datos.usuarios.find(u=>u.id===form.id)?.propio&&<label className="check"><input type="checkbox" checked={form.activo} disabled={busy} onChange={ev=>cambiar({activo:ev.target.checked})}/>Cuenta activa (si la desactivas ya no podrá entrar; su historial se conserva)</label>}
