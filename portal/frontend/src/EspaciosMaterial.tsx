@@ -1,7 +1,7 @@
 // Espacios en estanterías desde "Materiales y catálogos" (recupera el + / − del sistema anterior, 17/11/2026).
 // Todo se guarda con las mismas operaciones de administración v2: ESTANTERIA, ESTACION y UBICACION.
 import {useEffect,useState} from 'react';
-import {Minus,Plus,MapPin} from 'lucide-react';
+import {Minus,Plus,MapPin,Warehouse,ChevronRight} from 'lucide-react';
 import {nd} from './api';
 import type {EstadoAdmin,Material,Rack} from './adminTypes';
 import {cajasOcupadasV2,limitesCapacidadV2,materialesEnEstanteria,ubicacionActiva} from './ubicacionesV2';
@@ -39,7 +39,7 @@ export function CapacidadV2({e,rack,run,editable,bloqueado}:{e:EstadoAdmin;rack:
 }
 
 /** Ubicaciones de un material con su espacio, y alta de una ubicación nueva en otra estantería. */
-export function UbicacionesMaterial({e,m,run,admin,bloqueado}:{e:EstadoAdmin;m:Material;run:Run;admin:boolean;bloqueado:boolean}){
+export function UbicacionesMaterial({e,m,run,admin,bloqueado,irAEstanterias}:{e:EstadoAdmin;m:Material;run:Run;admin:boolean;bloqueado:boolean;irAEstanterias?:()=>void}){
  const [abierto,setAbierto]=useState(false),[rack,setRack]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const propias=e.ubicaciones.filter(u=>u.material===m.id&&ubicacionActiva(u));
  const ocupadas=new Set(e.ubicaciones.filter(u=>u.material===m.id).map(u=>u.estanteria));
@@ -53,7 +53,8 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado}:{e:EstadoAdmin;m:M
   </div>})}
   {admin&&m.activo&&(abierto?<div className="asignar-ubicacion">
    <label className="field">¿En qué estantería se guarda?<select value={rack} disabled={busy||bloqueado} onChange={ev=>setRack(ev.target.value)}><option value="">Selecciona la estantería</option>{libres.map(r=><option key={r.id} value={r.id}>{nombreEstanteria(e,r)} · {nd(Math.max(0,r.capacidad-cajasOcupadasV2(e,r.id)))} libres</option>)}</select></label>
-   {libres.length===0&&<p className="help">No hay estanterías disponibles. Créala con el botón “Estación o estantería” de arriba.</p>}
+   {libres.length===0?<p className="help">No hay estanterías libres para este material.</p>:null}
+   {irAEstanterias&&<button type="button" className={'atajo-estanterias'+(libres.length===0?' destacado':'')} onClick={irAEstanterias}><Warehouse size={15} aria-hidden="true"/>{libres.length===0?'Crear estantería en Configurar línea':'¿No está la estantería? Créala en Configurar línea'}<ChevronRight size={15} aria-hidden="true"/></button>}
    <div className="button-row"><button type="button" className="small" disabled={busy||bloqueado||!rack} onClick={()=>void asignar()}>{busy?'Asignando…':'Asignar'}</button><button type="button" className="secondary small" disabled={busy} onClick={()=>{setAbierto(false);setRack('');setError('')}}>Cancelar</button></div>
    <p className="help">Empieza con 0 piezas; las existencias se registran con una entrada.</p>
   </div>:<button type="button" className={'boton-asignar'+(propias.length?'':' principal')} disabled={bloqueado} onClick={()=>setAbierto(true)}><Plus size={15} aria-hidden="true"/>{propias.length?'Asignar a otra estantería':'Asignar a estantería'}</button>)}
