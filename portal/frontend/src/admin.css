@@ -405,3 +405,19 @@
 
 /* Menú "⋯": flotante con posición fija (la tabla no cambia de ancho ni de márgenes al abrirlo). */
 .admin-v2 .menu-acciones>div{position:fixed;top:var(--menu-top,auto);right:var(--menu-right,auto);z-index:40}
+/* Espacios en estanterías desde Materiales (+ / −) */
+.ubicaciones-material{display:flex;flex-direction:column;gap:10px;min-width:210px}
+.ubicacion-espacio{display:flex;flex-direction:column;gap:4px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:#fafafa}
+.ubicacion-nombre{display:flex;align-items:center;gap:4px;font-weight:700;font-size:13px}
+.admin-v2 .capacidad-control{margin:0}.admin-v2 .capacidad-control button{min-height:36px;width:36px;min-width:36px;margin:0;padding:0;justify-content:center}
+.admin-v2 .capacidad-control input{width:72px;min-height:36px;padding:4px 6px;text-align:center;font-weight:700}
+.admin-v2 .capacidad-acciones{flex-wrap:wrap}.admin-v2 .capacidad-acciones button{margin-top:0}
+.asignar-ubicacion{display:flex;flex-direction:column;gap:6px;padding:8px 10px;border:1px dashed #bdbdbd;border-radius:8px}.asignar-ubicacion .button-row{margin:0}.asignar-ubicacion .help{margin:0;font-size:12px}
+.alta-estructura-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;margin-top:12px}.alta-estructura-grid form{display:flex;flex-direction:column;gap:10px;padding:16px;border:1px solid var(--border);border-radius:10px;background:#fff}.alta-estructura-grid h3{margin:0}.alta-estructura-grid button.small{align-self:flex-start}
+/* Configurar línea: bloque de puestos */
+.puestos-bloque{grid-column:1/-1;display:flex;flex-direction:column;gap:6px;margin-bottom:8px}.puestos-cabecera{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}.puestos-cabecera h3{margin:0}.puestos-cabecera h3 small{color:var(--muted);font-weight:400}.puestos-cabecera .field{max-width:260px;margin:0}
+.puestos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;max-height:360px;overflow-y:auto;padding:2px}
+.admin-v2 .puesto-tarjeta{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:88px;margin:0;padding:12px;border:1.5px solid #d6d6d6;border-radius:10px;background:#fff;color:var(--tinta);text-align:left;font-weight:400;white-space:normal;box-shadow:var(--sombra-1)}
+.admin-v2 .puesto-tarjeta svg{color:#5a5a5a}.admin-v2 .puesto-tarjeta strong{font-size:15px;overflow-wrap:anywhere}.admin-v2 .puesto-tarjeta small{color:var(--muted);font-size:12px}
+.admin-v2 .puesto-tarjeta:hover{border-color:#9a9a9a;background:#fff}.admin-v2 .puesto-tarjeta.nuevo{border-style:dashed}
+.admin-v2 .puesto-tarjeta.elegido{border-color:var(--brand-red);background:var(--redSoft);box-shadow:0 0 0 1px var(--brand-red)}.admin-v2 .puesto-tarjeta.elegido svg{color:var(--brand-red)}
