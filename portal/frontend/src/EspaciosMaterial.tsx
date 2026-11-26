@@ -33,7 +33,7 @@ export function CapacidadV2({e,rack,run,editable,bloqueado}:{e:EstadoAdmin;rack:
    <input type="number" inputMode="numeric" min={minimo} max={maximo} value={valor} disabled={locked} aria-label="Espacios en cajas" onChange={ev=>{const n=Math.trunc(Number(ev.target.value));if(Number.isFinite(n))setValor(Math.min(maximo,Math.max(0,n)))}} onBlur={()=>setValor(v=>Math.min(maximo,Math.max(minimo,v)))}/>
    <button type="button" className="secondary" aria-label="Agregar un espacio" disabled={locked||valor>=maximo} onClick={()=>setValor(v=>Math.min(maximo,v+1))}><Plus size={16} aria-hidden="true"/></button>
   </div>
-  {cambiado?<div className="capacidad-acciones"><button type="button" className="small" disabled={locked||valor<minimo} onClick={()=>void guardar()}>{busy?'Guardando…':'Guardar '+nd(valor)+' cajas'}</button><button type="button" className="secondary small" disabled={locked} onClick={()=>{setValor(actual);setError('')}}>Cancelar</button></div>:resumen}
+  {cambiado?<div className="capacidad-acciones"><button type="button" className="small" aria-label={'Guardar '+nd(valor)+' cajas'} disabled={locked||valor<minimo} onClick={()=>void guardar()}>{busy?'…':'Guardar'}</button><button type="button" className="secondary small" aria-label="Cancelar el cambio" disabled={locked} onClick={()=>{setValor(actual);setError('')}}>Cancelar</button></div>:resumen}
   {error&&<p className="error" role="alert">{error}</p>}
  </div>;
 }
