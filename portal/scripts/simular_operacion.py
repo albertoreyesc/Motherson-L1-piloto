@@ -15,8 +15,13 @@ Uso:
   python portal/scripts/simular_operacion.py --url http://127.0.0.1:5087 --usuario admin.local --linea 2 --minutos 30 --ubicaciones 8
 Opciones útiles: --intervalo 240 (segundos entre rondas), --crear-horario-prueba (si la línea no tiene horario),
 --si (no pedir confirmación). La contraseña se pide en la terminal y no se guarda.
+
+Prueba de carga (varios materialistas a la vez sobre la misma línea, con reintento ante choques como el portal):
+  python portal/scripts/simular_operacion.py --url http://127.0.0.1:5099 --usuario persona0 --linea 1 \
+      --sesiones 5 --ubicaciones 20 --intervalo 20 --minutos 15 --crear-horario-prueba --si
+Al final imprime operaciones, choques resueltos con reintento, fallos y tiempos de respuesta (mediana y p95).
 """
-import argparse, getpass, http.cookiejar, json, random, sys, time, uuid
+import argparse, getpass, http.cookiejar, json, random, statistics, sys, threading, time, uuid
 import urllib.error, urllib.request
 from datetime import datetime, timedelta, timezone
 
@@ -66,6 +71,43 @@ class Portal:
     def operar(self, linea, tipo, body, version):
         return self._req(f'/v2/lineas/{linea}/operaciones/{tipo}', {**body, 'version': version})
 
+    def operar_con_reintento(self, linea, tipo, body, stats=None, intentos=4):
+        """Igual que el portal: si otra sesión registró en la línea al mismo tiempo (choque de versión), relee y reintenta."""
+        for i in range(intentos):
+            version = self.estado(linea)['version']
+            inicio = time.perf_counter()
+            try:
+                r = self.operar(linea, tipo, body, version)
+                if stats: stats.registrar(time.perf_counter() - inicio, i)
+                return r
+            except RuntimeError as ex:
+                choque = str(ex).startswith('409: Los datos cambiaron') or str(ex).startswith('409: Línea ocupada')
+                if not choque or i == intentos - 1:
+                    if stats: stats.fallo(str(ex))
+                    raise
+                time.sleep(0.15 + random.random() * 0.35)
+
+
+class Estadisticas:
+    """Tiempos de respuesta, choques resueltos con reintento y fallos, compartidos entre sesiones."""
+    def __init__(self):
+        self.lock = threading.Lock(); self.tiempos = []; self.reintentos = 0; self.ops_con_choque = 0; self.fallos = []
+
+    def registrar(self, segundos, reintentos):
+        with self.lock:
+            self.tiempos.append(segundos); self.reintentos += reintentos; self.ops_con_choque += 1 if reintentos else 0
+
+    def fallo(self, motivo):
+        with self.lock: self.fallos.append(motivo)
+
+    def resumen(self):
+        t = sorted(self.tiempos)
+        if not t: return 'Sin operaciones registradas.'
+        p95 = t[min(len(t) - 1, int(len(t) * 0.95))]
+        return (f'{len(t)} operaciones registradas · {self.ops_con_choque} tuvieron choque y se resolvieron con reintento '
+                f'({self.reintentos} reintentos) · {len(self.fallos)} fallos\n'
+                f'Tiempo de respuesta: mediana {statistics.median(t)*1000:.0f} ms · p95 {p95*1000:.0f} ms · máximo {t[-1]*1000:.0f} ms')
+
 
 def horario_prueba():
     hoy = datetime.now(timezone(timedelta(hours=-6))).date()
@@ -94,20 +136,46 @@ def nombre(e, uid):
     return f"{m['numeroParte']} @ {s}/{r['nombre']}/{r['nivel']}"
 
 
-def reponer(p, linea, e, u, m):
+def reponer(p, linea, e, u, m, stats=None):
     """Atención completa: iniciar -> entrada hasta llenar el espacio libre (máximo 6 cajas) -> finalizar."""
     cajas = max(0, min(6, u['libres']))
     if cajas == 0:
         return 'sin espacio libre para reponer'
     abierta = next((a for a in e['atenciones'] if a['ubicacion'] == u['id'] and not a['fin']), None)
     if not abierta:
-        r = p.operar(linea, 'ATENCION_INICIAR', {'ubicacion': u['id']}, e['version'])
-        e = p.estado(linea)
+        r = p.operar_con_reintento(linea, 'ATENCION_INICIAR', {'ubicacion': u['id']}, stats)
         abierta = {'id': r.get('id')}
-    p.operar(linea, 'ENTRADA', {'ubicacion': u['id'], 'cajas': cajas, 'consumo': False, 'atencion': abierta['id']}, e['version'])
-    e = p.estado(linea)
-    p.operar(linea, 'ATENCION_FINALIZAR', {'id': abierta['id']}, e['version'])
+    # Entrada que cierra la atención en la misma operación, como el portal.
+    p.operar_con_reintento(linea, 'ENTRADA', {'ubicacion': u['id'], 'cajas': cajas, 'consumo': False, 'atencion': abierta['id'], 'finalizarAtencion': True}, stats)
     return f'reposición de {cajas} cajas ({cajas * m["empaque"]} pz) con atención'
+
+
+def trabajar(p, linea, elegidas, rondas, intervalo, stats, etiqueta, detalle):
+    """Una sesión: en cada ronda consume o repone sus ubicaciones. Con varias sesiones arranca con un desfase aleatorio."""
+    if etiqueta: time.sleep(random.random() * min(intervalo, 10))
+    for ronda in range(1, rondas + 1):
+        if detalle: print(f"\n[{datetime.now().strftime('%H:%M:%S')}] Ronda {ronda}/{rondas}")
+        for uid, (perfil, cada, cajas) in elegidas:
+            e = None
+            try:
+                e = p.estado(linea)
+                u = next(x for x in e['ubicaciones'] if x['id'] == uid)
+                m = next(x for x in e['materiales'] if x['id'] == u['material'])
+                cajas_con_saldo = -(-u['cantidad'] // m['empaque'])
+                if cajas_con_saldo <= cajas:
+                    accion = reponer(p, linea, e, u, m, stats)
+                elif ronda % cada == 0:
+                    p.operar_con_reintento(linea, 'SALIDA', {'ubicacion': uid, 'cajas': cajas, 'consumo': True, 'atencion': ''}, stats)
+                    accion = f'consumo de {cajas} {"caja" if cajas == 1 else "cajas"}'
+                else:
+                    accion = 'sin movimiento'
+            except RuntimeError as ex:
+                accion = f'no se registró ({ex})'
+            if detalle or accion.startswith('no se'):
+                print(f"  {etiqueta+' ' if etiqueta else ''}{nombre(e, uid) if e else uid:<45} {accion}")
+        if not detalle: print(f"[{datetime.now().strftime('%H:%M:%S')}] {etiqueta} ronda {ronda}/{rondas} lista")
+        if ronda < rondas:
+            time.sleep(intervalo * (0.8 + random.random() * 0.4) if etiqueta else intervalo)
 
 
 def main():
@@ -120,18 +188,21 @@ def main():
     ap.add_argument('--ubicaciones', type=int, default=6, help='Cuántas ubicaciones simular (por defecto 6)')
     ap.add_argument('--semilla', type=int, default=7, help='Para repetir la misma selección de ubicaciones')
     ap.add_argument('--crear-horario-prueba', action='store_true', help='Si la línea no tiene horario, crea uno de prueba 24/7')
+    ap.add_argument('--sesiones', type=int, default=1, help='Sesiones en paralelo (materialistas a la vez) para prueba de carga')
     ap.add_argument('--si', action='store_true', help='No pedir confirmación')
     a = ap.parse_args()
 
     p = Portal(a.url)
-    yo = p.login(a.usuario, getpass.getpass(f'Contraseña de {a.usuario}: '))
+    a._password = getpass.getpass(f'Contraseña de {a.usuario}: ')
+    a.sesiones = max(1, min(a.sesiones, 20))
+    yo = p.login(a.usuario, a._password)
     e = p.estado(a.linea)
     print(f"Sesión: {yo.get('displayName') or yo.get('name')} · Línea {a.linea} · {len(e['ubicaciones'])} ubicaciones")
 
     if not e.get('calendario'):
         if not a.crear_horario_prueba:
             sys.exit('La línea no tiene horario: configúralo en "Configurar línea" o usa --crear-horario-prueba.')
-        p.operar(a.linea, 'CALENDARIO', horario_prueba(), e['version'])
+        p.operar_con_reintento(a.linea, 'CALENDARIO', horario_prueba())
         e = p.estado(a.linea)
         print('Horario de prueba creado (todos los días 00:00-23:59, marcado como simulado).')
 
@@ -142,39 +213,33 @@ def main():
     for uid, (perfil, cada, cajas) in elegidas:
         print(f'  - {nombre(e, uid)} · ritmo {perfil}')
     rondas = max(1, a.minutos * 60 // a.intervalo)
-    print(f'\n{rondas} rondas cada {a.intervalo // 60} min {a.intervalo % 60} s. Los movimientos quedan en el historial de la Línea {a.linea}.')
+    print(f'\n{rondas} rondas cada {a.intervalo // 60} min {a.intervalo % 60} s con {a.sesiones} sesión(es) en paralelo. Los movimientos quedan en el historial de la Línea {a.linea}.')
     if not a.si and input('¿Continuar? (s/n): ').strip().lower() not in ('s', 'si', 'sí'):
         sys.exit('Cancelado.')
 
-    for ronda in range(1, rondas + 1):
-        hora = datetime.now().strftime('%H:%M:%S')
-        print(f'\n[{hora}] Ronda {ronda}/{rondas}')
-        for uid, (perfil, cada, cajas) in elegidas:
-            try:
-                e = p.estado(a.linea)
-                u = next(x for x in e['ubicaciones'] if x['id'] == uid)
-                m = next(x for x in e['materiales'] if x['id'] == u['material'])
-                cajas_con_saldo = -(-u['cantidad'] // m['empaque'])
-                if cajas_con_saldo <= cajas:
-                    accion = reponer(p, a.linea, e, u, m)
-                elif ronda % cada == 0:
-                    p.operar(a.linea, 'SALIDA', {'ubicacion': uid, 'cajas': cajas, 'consumo': True, 'atencion': ''}, e['version'])
-                    accion = f'consumo de {cajas} {"caja" if cajas == 1 else "cajas"}'
-                else:
-                    accion = 'sin movimiento'
-            except RuntimeError as ex:
-                accion = f'no se registró ({ex})'
-            print(f'  {nombre(e, uid):<45} {accion}')
-        e = p.estado(a.linea)
-        print('  Alarmas:')
-        for uid, _ in elegidas:
-            al = next((x for x in e['alarmas'] if x['ubicacion'] == uid), None)
-            if al:
-                r = al['resultado']
-                minutos = '' if r['minutos'] is None else f" · {float(r['minutos']):.0f} min"
-                print(f"    {nombre(e, uid):<45} {ESTADOS.get(r['estado'], r['estado'])}{minutos} ({r['causa']})")
-        if ronda < rondas:
-            time.sleep(a.intervalo)
+    stats = Estadisticas()
+    password = a._password
+    # Cada sesión es un materialista distinto trabajando en paralelo sobre su parte de las ubicaciones.
+    grupos = [elegidas[n::a.sesiones] for n in range(a.sesiones)]
+    hilos = []
+    for n, grupo in enumerate(grupos):
+        if not grupo: continue
+        sesion = p if n == 0 else Portal(a.url)
+        if n > 0: sesion.login(a.usuario, password)
+        h = threading.Thread(target=trabajar, args=(sesion, a.linea, grupo, rondas, a.intervalo, stats, f'S{n+1}' if a.sesiones > 1 else '', a.sesiones == 1), daemon=True)
+        hilos.append(h); h.start()
+    for h in hilos: h.join()
+    e = p.estado(a.linea)
+    print('\nAlarmas al terminar:')
+    for uid, _ in elegidas:
+        al = next((x for x in e['alarmas'] if x['ubicacion'] == uid), None)
+        if al:
+            r = al['resultado']
+            minutos = '' if r['minutos'] is None else f" · {float(r['minutos']):.0f} min"
+            print(f"  {nombre(e, uid):<45} {ESTADOS.get(r['estado'], r['estado'])}{minutos} ({r['causa']})")
+    print('\n' + stats.resumen())
+    if stats.fallos:
+        print('Fallos (primeros 5): ' + ' | '.join(stats.fallos[:5]))
     print('\nListo. Revisa Resumen e Inventario (alarmas) y KPIs (actividad y diagnóstico) en el portal.')
 
 

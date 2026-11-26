@@ -91,6 +91,8 @@ public sealed partial class AdminV2(Store store)
     if(tipo=="MATERIAL_ELIMINAR"){
      Exigir(B(input,"confirmar"),"Confirma la eliminación.");Exigir(!e.Todos("ubicacion").Any(u=>S(u,"material")==S(m,"id"))&&!e.Todos("atencion").Any(a=>S(a,"material")==S(m,"id")),"El material tiene ubicaciones o atenciones. Inhabilítalo.",409);
      var refs=await sql.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes2.IMAGEN WHERE linea=@linea AND material=@material",new{linea,material=S(m,"id")});Exigir(refs==0,"El material tiene una imagen asociada. Inhabilítalo.",409);
+     // Las atenciones terminadas ya no vienen en el estado: se revisan en SQL para no dejar historial huérfano.
+     var atencionesCerradas=await sql.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM mes2.ENTIDAD WHERE linea=@linea AND tipo='atencion' AND JSON_VALUE(datos,'$.material')=@material",new{linea,material=S(m,"id")});Exigir(atencionesCerradas==0,"El material tiene atenciones registradas. Inhabilítalo.",409);
      e.Datos.Remove("material:"+S(m,"id"));
     }break;
    }
