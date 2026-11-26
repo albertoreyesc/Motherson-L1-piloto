@@ -1,37 +1,15 @@
-# Estado vigente · 22/11/2026
+# Power BI · fuentes vigentes
 
-El informe original está publicado y conserva sus diseños. La publicación y conciliación de las operaciones v2 están en [administracion-v2/README.md](administracion-v2/README.md). Las notas siguientes corresponden a la preparación histórica; no describen el estado actual de publicación.
+El portal registra los datos en SQL; Power BI consulta las vistas `mes2.bi_*` con un lector independiente. El informe utiliza Import, no escritura desde Power Apps ni sincronización instantánea. El acceso Microsoft y las licencias son independientes de la cuenta del portal.
 
----
+| Ruta | Uso |
+| --- | --- |
+| [administracion-v2/](administracion-v2/README.md) | Modelo TMDL activo: ocho tablas, ocho relaciones y 110 medidas |
+| [equipo2-2026-11-24/report/](equipo2-2026-11-24/report/) | Diseño PBIR adaptado al modelo activo, tres páginas |
+| [equipo2-2026-11-24/](equipo2-2026-11-24/README.md) | PBIX, TMDL y README originales del equipo 2; referencia, no publicar encima del piloto |
+| [archivo/](archivo/README.md) | TMDL previo, fuera de la publicación vigente |
+| `configuracion-privada.ejemplo.json` | Ejemplo con marcadores; valores reales solo fuera de Git |
 
-# Dashboard para el entorno propio
+Se retiró el PBIX duplicado de esta carpeta raíz: era idéntico byte por byte al original conservado en `equipo2-2026-11-24/Motherson.pbix`.
 
-- `Motherson.pbix`: copia original de Entrega.zip. No publicado ni reconfigurado internamente.
-- `modelo_completo.tmdl`: copia textual adaptada a los parámetros ServidorSQL =
-  motherson-l1-equipo.database.windows.net y BaseSQL = Motherson_L1.
-
-El modelo usa Import y lee dbo.vw_registro_bi como REGISTRO; las demás tablas se leen
-del esquema dbo. Usa powerbi_lector. No debe recibir la cuenta del portal ni su contraseña.
-
-El usuario confirmó que aún no dispone de un espacio propio de Power BI. Antes de publicar:
-definir el espacio y la cuenta, revisar licencia/capacidad vigente, configurar los parámetros
-del PBIX en Power BI Desktop o el servicio, credenciales y actualización. Editar el TMDL
-no cambia los parámetros del PBIX ni un modelo ya publicado.
-
-No se habilitó DirectQuery ni se incrustó un informe en el portal. Primero validar totales
-y atenciones en Import; después definir actualización y, si se requiere, incrustación.
-
-## Actualización y conciliación pendiente
-
-En Desktop, ajustar ServidorSQL y BaseSQL, borrar permisos de fuentes anteriores
-y autenticarse exclusivamente como powerbi_lector contra la base indicada.
-Actualizar y comparar inventario por ubicación, stock agregado y atenciones con
-SQL; repetir después de una captura de demostración. Registrar hora de corte y
-resultado. En el servicio, configurar las credenciales de la fuente y la frecuencia
-de actualización después de elegir cuenta/espacio. No copiar credenciales al PBIX
-ni al TMDL; definir la red permitida según el despliegue, sin abrir firewall aquí.
-
-Referencias oficiales: [usuarios contenidos Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql),
-[actualización programada Power BI](https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh).
-
-El flujo privado de Dashboard y sus requisitos están documentados en [publicación propia](../documentacion/POWERBI_PUBLICACION_PROPIA.md). La carga histórica ya está archivada y conciliada en Azure; el estado vigente de publicación se documenta en administracion-v2/README.md.
+[Integración, actualización, límites y recuperación](../documentacion/INTEGRACION_EQUIPO2_2026-11-24.md). La cobertura temporal sigue sin estimación en Power BI; el cálculo por ubicación se consulta en Inventario del portal. Ningún archivo de esta carpeta se publica automáticamente por mover documentación o abrir un PR.
