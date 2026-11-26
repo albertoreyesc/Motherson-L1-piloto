@@ -96,3 +96,6 @@ describe('historial legible y captura',()=>{
 });
 import {vigenciaHorario} from './AvisoHorario';
 describe('vigencia del horario',()=>{it('avisa antes de vencer, al vencer y sin horario',()=>{const c={desde:'2026-11-01',hasta:'2026-12-10'};expect(vigenciaHorario(c,'2026-11-20').nivel).toBe('ok');expect(vigenciaHorario(c,'2026-11-26')).toMatchObject({nivel:'pronto',dias:14});expect(vigenciaHorario(c,'2026-12-10')).toMatchObject({nivel:'pronto',dias:0});expect(vigenciaHorario(c,'2026-12-11').nivel).toBe('vencido');expect(vigenciaHorario(null,'2026-11-26').nivel).toBe('sin');expect(vigenciaHorario(c,'2026-10-20').nivel).toBe('futuro')})});
+import {esChoqueDeVersion} from './AdminApp';
+import {ApiError} from './api';
+describe('reintento ante choque de versión',()=>{it('solo reintenta cuando la línea cambió, no por falta de cajas',()=>{expect(esChoqueDeVersion(new ApiError('Los datos cambiaron. Actualiza y revisa la operación.',409))).toBe(true);expect(esChoqueDeVersion(new ApiError('Línea ocupada. Actualiza y vuelve a intentar.',409))).toBe(true);expect(esChoqueDeVersion(new ApiError('No hay suficientes cajas.',409))).toBe(false);expect(esChoqueDeVersion(new ApiError('Identificador utilizado con otra solicitud.',409))).toBe(false);expect(esChoqueDeVersion(new ApiError('Los datos cambiaron.',400))).toBe(false)})});

@@ -13,6 +13,7 @@ Entrega a Motherson (24/11/2026):
 
 - [Arquitectura y herramientas](ARQUITECTURA_Y_HERRAMIENTAS.md).
 - [Guía para correr el sistema de forma local](GUIA_INSTALACION_LOCAL.md).
+- [Límites conocidos y pendientes para TI de Motherson](LIMITES_Y_PENDIENTES.md).
 
 ## Antecedentes
 

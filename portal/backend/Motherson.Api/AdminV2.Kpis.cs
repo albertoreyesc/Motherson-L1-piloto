@@ -8,12 +8,23 @@ public sealed partial class AdminV2
  {
   var e=await Leer(actor,linea);var ms=e.Todos("material").Where(m=>e.Puesto is null||S(m,"puesto")==e.Puesto).ToArray();var ids=ms.Select(m=>S(m,"id")).ToHashSet();var us=e.Todos("ubicacion").Where(u=>ids.Contains(S(u,"material"))).Select(u=>int.TryParse(S(u,"id"),out var id)?id:-1).Where(id=>id>=0).ToArray();
   var fechas=new List<DateTime>();var atenciones=e.Todos("atencion").Where(a=>ids.Contains(S(a,"material"))).ToArray();
+  // Las atenciones terminadas ya no vienen en Leer: se resumen en SQL sin cargarlas.
+  long cerradas;await using(var agg=await store.Open()){var r=await agg.QuerySingleAsync("SELECT COUNT_BIG(*) n,MIN(JSON_VALUE(datos,'$.inicio')) i,MAX(JSON_VALUE(datos,'$.fin')) f FROM mes2.ENTIDAD WHERE linea=@linea AND tipo='atencion' AND JSON_VALUE(datos,'$.fin') IS NOT NULL"+(e.Puesto is null?"":" AND JSON_VALUE(datos,'$.puesto')=@puesto"),new{linea,puesto=e.Puesto});cerradas=(long)r.n;if(r.i is string ini)fechas.Add(ParseDate(ini));if(r.f is string fin)fechas.Add(ParseDate(fin));}
   foreach(var a in atenciones){fechas.Add(ParseDate(S(a,"inicio")));if(S(a,"fin")!="")fechas.Add(ParseDate(S(a,"fin")));}
   long legado=0;var partes=ms.Select(m=>S(m,"numeroParteLegado")).Where(p=>p!="").ToArray();
   if(linea==1&&partes.Length>0&&us.Length>0){await using var sql=await store.Open();var r=await sql.QuerySingleAsync("SELECT COUNT_BIG(*) cantidad,MIN(fecha_hora_inicio) inicio,MAX(fecha_hora_fin) fin FROM dbo.vw_kpi_atenciones WHERE fecha_hora_fin IS NOT NULL AND numero_parte IN @partes AND id_ubicacion IN @us",new{partes,us});legado=(long)r.cantidad;if(r.inicio is DateTime start)fechas.Add(DateTime.SpecifyKind(start,DateTimeKind.Utc));if(r.fin is DateTime end)fechas.Add(DateTime.SpecifyKind(end,DateTimeKind.Utc));}
-  return new{linea,total=legado+atenciones.Length,legado,nuevas=atenciones.Length,desde=fechas.Count>0?KpisMotor.Dia(fechas.Min()):null,hasta=fechas.Count>0?KpisMotor.Dia(fechas.Max()):null,zona="America/Mexico_City"};
+  return new{linea,total=legado+atenciones.Length+cerradas,legado,nuevas=atenciones.Length+cerradas,desde=fechas.Count>0?KpisMotor.Dia(fechas.Min()):null,hasta=fechas.Count>0?KpisMotor.Dia(fechas.Max()):null,zona="America/Mexico_City"};
  }
  static DateTime ParseDate(string text)=>DateTime.Parse(text,null,DateTimeStyles.RoundtripKind);
+ static string Iso(DateTime d)=>DateTime.SpecifyKind(d,DateTimeKind.Utc).ToString("O");
+ /// <summary>Atenciones terminadas hasta el corte que tocan el periodo. Ya no vienen en Leer (ver 004_rendimiento.sql).
+ /// Las fechas se guardan con ToString("O") en UTC, así que el texto ordena igual que la fecha.</summary>
+ async Task<JsonObject[]> AtencionesCerradas(int linea,DateTime corte,DateTime desde,DateTime hasta)
+ {
+  await using var sql=await store.Open();
+  var filas=await sql.QueryAsync<string>("SELECT datos FROM mes2.ENTIDAD WHERE linea=@linea AND tipo='atencion' AND JSON_VALUE(datos,'$.fin') IS NOT NULL AND JSON_VALUE(datos,'$.fin')<=@corte AND JSON_VALUE(datos,'$.fin')>=@desde AND JSON_VALUE(datos,'$.inicio')<@hasta",new{linea,corte=Iso(corte),desde=Iso(desde),hasta=Iso(hasta)});
+  return filas.Select(x=>JsonNode.Parse(x)!.AsObject()).ToArray();
+ }
  public async Task<object> Kpis(Cuenta actor,int linea,IQueryCollection q)
  {
   DateTime corte,desde,hasta;try{
@@ -26,7 +37,7 @@ public sealed partial class AdminV2
   var ms=e.Todos("material").Where(m=>(e.Puesto is null||S(m,"puesto")==e.Puesto)&&(parte==""||S(m,"id")==parte)).ToArray();var ids=ms.Select(m=>S(m,"id")).ToHashSet();
   var us=e.Todos("ubicacion").Where(u=>ids.Contains(S(u,"material"))&&(estacion==""||S(e.Obtener("estanteria",S(u,"estanteria")),"estacion")==estacion)).ToArray();var uids=us.Select(u=>S(u,"id")).ToHashSet();
   var materiales=ms.Select(m=>{var sitios=us.Where(u=>S(u,"material")==S(m,"id")).ToArray();var saldo=sitios.Sum(u=>(long)N(u,"cantidad"));var minimo=N(m,"minimo");var estado=sitios.Length==0?"SIN_DATOS":saldo==0?"AGOTADO":saldo<=minimo?"CRITICO":saldo<=1.2m*minimo?"ADVERTENCIA":"NORMAL";return new{id=S(m,"id"),numeroParte=S(m,"numeroParte"),activo=B(m,"activo",true),saldo=sitios.Length==0?(long?)null:saldo,minimo,estado,ubicaciones=sitios.Length};}).ToArray();
-  var todas=e.Todos("atencion").Where(a=>uids.Contains(S(a,"ubicacion"))&&(turno==""||N(a,"turno").ToString()==turno)).ToList();
+  var todas=e.Todos("atencion").Concat(await AtencionesCerradas(linea,corte,desde,hasta)).Where(a=>uids.Contains(S(a,"ubicacion"))&&(turno==""||N(a,"turno").ToString()==turno)).ToList();
   // El legado cerrado permanece en sus tablas y se consulta por periodo, no en cada apertura del portal.
   if(linea==1){
    var porLegado=ms.Where(m=>S(m,"numeroParteLegado")!="").ToDictionary(m=>S(m,"numeroParteLegado"),m=>S(m,"id"),StringComparer.Ordinal);
