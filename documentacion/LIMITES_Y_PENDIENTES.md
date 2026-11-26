@@ -32,6 +32,7 @@ Estado al 26/11/2026, rama `trabajo/modificaciones-v3`. Este documento resume qu
 5. **Sesión por inactividad.** El tiempo se ajusta en `Program.cs` (`ExpireTimeSpan`, 30 min, renovación deslizante) y en `portal/frontend/src/main.tsx` (`INACTIVIDAD_MS`, 20 min). Las tabletas compartidas no deben quedar con la sesión de otra persona.
 6. **Fotos en la base.** Las fotos de materiales se guardan en SQL (hasta 5 MB cada una). Considerarlo en el tamaño de la base y de los respaldos.
 7. **Usuarios.** Se crean en la sección *Usuarios* (solo ADMIN). Contraseña mínima de 12 caracteres; siempre queda al menos una cuenta ADMIN activa. Cambiar rol, contraseña o estado cierra la sesión de esa cuenta.
+8. **Número de líneas fijo (4).** Agregar líneas no se hace desde el portal. El límite está en tres lugares: la regla `CHECK(id BETWEEN 1 AND 4)` de `mes2.LINEA` (`001_administracion.sql`, que también inserta las 4 líneas), la validación `linea is >=1 and <=4` en `AdminV2.Leer` (`AdminV2.cs`) y `Entero(a,"linea",1,4)` en `AdminV2.Usuarios.cs`. Si la planta necesita más líneas, TI puede ampliar esa regla, insertar la línea en `mes2.LINEA` con un nombre y dar acceso en `mes2.ACCESO` (las cuentas se asignan después en *Usuarios*). Una línea nueva empieza vacía y sin horario. El selector de líneas del portal ya se llena desde la base, así que no requiere cambios en pantalla.
 
 ## 4. Le corresponde a TI de Motherson
 
