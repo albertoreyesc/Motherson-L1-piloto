@@ -54,7 +54,7 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado}:{e:EstadoAdmin;m:M
   </div>})}
   {admin&&m.activo&&(abierto?<div className="asignar-ubicacion">
    <label className="field">¿En qué estantería se guarda?<select value={rack} disabled={busy||bloqueado} onChange={ev=>setRack(ev.target.value)}><option value="">Selecciona la estantería</option>{libres.map(r=><option key={r.id} value={r.id}>{nombreEstanteria(e,r)} · {nd(Math.max(0,r.capacidad-cajasOcupadasV2(e,r.id)))} libres</option>)}</select></label>
-   {libres.length===0&&<p className="help">No hay estanterías disponibles. Crea una con “Agregar estación o estantería”.</p>}
+   {libres.length===0&&<p className="help">No hay estanterías disponibles. Créala con el botón “Estación o estantería” de arriba.</p>}
    <div className="button-row"><button type="button" className="small" disabled={busy||bloqueado||!rack} onClick={()=>void asignar()}>{busy?'Asignando…':'Asignar'}</button><button type="button" className="secondary small" disabled={busy} onClick={()=>{setAbierto(false);setRack('');setError('')}}>Cancelar</button></div>
    <p className="help">Empieza con 0 piezas; las existencias se registran con una entrada.</p>
   </div>:<button type="button" className="enlace" disabled={bloqueado} onClick={()=>setAbierto(true)}>+ Asignar a estantería</button>)}
@@ -63,11 +63,12 @@ export function UbicacionesMaterial({e,m,run,admin,bloqueado}:{e:EstadoAdmin;m:M
 }
 
 /** Alta rápida de estaciones y estanterías sin salir del catálogo. */
-export function AltaEstructura({e,run,bloqueado}:{e:EstadoAdmin;run:Run;bloqueado:boolean}){
+export function AltaEstructura({e,run,bloqueado,incrustado=false}:{e:EstadoAdmin;run:Run;bloqueado:boolean;incrustado?:boolean}){
  const [estacion,setEstacion]=useState(''),[rack,setRack]=useState({nombre:'',estacion:'',nivel:'',capacidad:1}),[busy,setBusy]=useState(false),[error,setError]=useState(''),[ok,setOk]=useState('');
  async function ejecutar(tipo:string,body:Record<string,unknown>,listo:string){setBusy(true);setError('');setOk('');try{await run(tipo,body);setOk(listo);return true}catch(ex){setError((ex as Error).message);return false}finally{setBusy(false)}}
  const locked=busy||bloqueado;
- return <details className="panel alta-estructura"><summary><span className="resumen-titulo">+ Agregar estación o estantería</span><small className="resumen-ayuda">Para asignar materiales a un lugar nuevo sin salir del catálogo.</small></summary>
+ const Caja=incrustado?'div':'details';
+ return <Caja className={incrustado?'alta-estructura':'panel alta-estructura'}>{!incrustado&&<summary><span className="resumen-titulo">+ Agregar estación o estantería</span><small className="resumen-ayuda">Para asignar materiales a un lugar nuevo sin salir del catálogo.</small></summary>}
   {error&&<p className="error" role="alert">{error}</p>}{ok&&<p className="notice" role="status">{ok}</p>}
   <div className="alta-estructura-grid">
    <form onSubmit={ev=>{ev.preventDefault();const n=estacion.trim();void ejecutar('ESTACION',{nombre:n},'Estación '+n+' creada.').then(b=>{if(b)setEstacion('')})}}>
@@ -87,5 +88,5 @@ export function AltaEstructura({e,run,bloqueado}:{e:EstadoAdmin;run:Run;bloquead
     <button className="small" disabled={locked||!rack.estacion||!rack.nombre.trim()||!rack.nivel.trim()}>Crear estantería</button>
    </form>
   </div>
- </details>;
+ </Caja>;
 }
