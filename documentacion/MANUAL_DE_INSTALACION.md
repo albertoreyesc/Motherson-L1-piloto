@@ -1,10 +1,14 @@
-# Guía para correr el sistema de forma local
+# Manual de instalación — Smart Material Replenishment (Motherson)
 
-Observación de la reunión con Motherson (16/11/2026): *"ellos deberán modificar para que corra local"*. Esta guía explica qué se necesita para correr el portal fuera del piloto en Render, qué funciona tal como está y qué partes del código tiene que adaptar TI de Motherson para usar sus propios servidores.
+Versión del 26/11/2026 (rama `trabajo/modificaciones-v3`). Este manual explica cómo instalar el portal, cómo actualizar una instalación existente, cómo dejarlo listo para usarse y cómo pasar de datos de prueba a datos reales. Para el uso diario del portal, consulta el [Manual de usuario](MANUAL_DE_USUARIO.md).
 
-Arquitectura y herramientas: [ARQUITECTURA_Y_HERRAMIENTAS.md](ARQUITECTURA_Y_HERRAMIENTAS.md).
+Observación de la reunión con Motherson (16/11/2026): *"ellos deberán modificar para que corra local"*. Por eso se indica qué funciona tal como está y qué partes del código tiene que adaptar TI de Motherson para usar sus propios servidores.
 
-> **Estado de esta guía (24/11/2026):** la compilación con Docker (paso 2) se verificó en Windows. Los demás pasos se documentaron a partir de los scripts y del código del repositorio. Ningún paso se ha ejecutado todavía en la infraestructura de Motherson; TI debe validarlos en un ambiente de pruebas antes de usarlos con datos reales.
+Documentos relacionados: [Arquitectura y herramientas](ARQUITECTURA_Y_HERRAMIENTAS.md) · [Límites y pendientes para TI](LIMITES_Y_PENDIENTES.md) · [Actualización y recuperación](administracion-v2/ACTUALIZACION_Y_RECUPERACION.md).
+
+**Contenido:** 1. Elige el escenario · 2. Requisitos · 3. Escenario A (una computadora) · 4. Escenario B (servidor de Motherson + Azure) · 5. Escenario C (todo en Motherson) · 6. Actualizar una instalación existente · 7. Primera puesta en marcha · 8. Pasar a datos reales · 9. Respaldo y operación · 10. Contacto
+
+> **Estado de este manual (26/11/2026):** la compilación con Docker (paso 2) se verificó en Windows. Los demás pasos se documentaron a partir de los scripts y del código del repositorio. Ningún paso se ha ejecutado todavía en la infraestructura de Motherson; TI debe validarlos en un ambiente de pruebas antes de usarlos con datos reales.
 
 ## 1. Elige el escenario
 
@@ -108,17 +112,60 @@ Después de esos cambios, la instalación sería:
    ```
 
    Después, `--piloto-permisos /repo` (recibe las contraseñas de `portal_app` y del lector por la entrada estándar; ver `despliegue/piloto/inicializar.py`) y `--administracion-instalar /repo` seguido de `--administracion-activar /repo`. `--piloto-inicializar` carga los **datos simulados** de `datos/simulados`. Para operar con datos reales, cargar el catálogo de planta con la importación de Excel del portal y registrar existencias con entradas; no editar tablas a mano.
-3. **Cuentas personales:** `python despliegue/piloto/crear-usuario.py` (ADMIN, PUESTO o LECTOR) con la conexión administrativa temporal. Al terminar, retirar esa cuenta.
+3. **Primera cuenta de administración:** `python despliegue/piloto/crear-usuario.py` (tipo ADMIN) con la conexión administrativa temporal. Al terminar, retirar esa conexión. Las demás cuentas (ADMIN, PUESTO o LECTOR) se crean después desde el portal, en la sección **Usuarios**.
 4. **Portal:** igual que en el escenario B, puntos 3 a 5, con la cadena de conexión de `portal_app` hacia el SQL propio.
 5. **Power BI:** cambiar el origen del informe al SQL propio. Para que Power BI Service llegue a un SQL interno hace falta un **on-premises data gateway**. Cada visitante sigue necesitando licencia.
 
-## 6. Respaldo y operación
+## 6. Actualizar una instalación existente
+
+Aplica cuando el portal ya está funcionando (por ejemplo, el piloto en Azure) y se publica una versión nueva, como la v3 de esta rama.
+
+1. **Respaldo:** comprobar que la base tenga un punto de restauración o respaldo reciente.
+2. **Bajar y compilar** la versión nueva:
+
+   ```powershell
+   git fetch
+   git switch trabajo/modificaciones-v3
+   git pull
+   dotnet build portal\backend\Motherson.Api
+   ```
+
+3. **Actualizar el esquema SQL**, con la conexión administrativa:
+
+   ```powershell
+   dotnet run --project portal\backend\Motherson.Api -- --administracion-instalar .
+   ```
+
+   Ejecuta `001_administracion.sql`, `003_usuarios.sql` y `004_rendimiento.sql`, en ese orden. Se puede repetir y no borra datos. **No** volver a ejecutar `--administracion-activar`: la activación se hace una sola vez, en la primera instalación.
+4. **Publicar** el portal como siempre, con `MVP_ADMIN_V2=true`.
+5. **Verificar:** entrar con una cuenta de cada tipo (Administración, Puesto logístico y Consulta) y revisar que cada una vea solo sus secciones; crear un usuario de prueba en **Usuarios**; registrar una entrada; descargar los Excel de KPIs e Historial.
+6. **Si algo falla**, no regresar a la versión anterior: frenar capturas con `UPDATE mes2.CONFIG SET solo_lectura=1 WHERE id=1` y revisar con el equipo. Detalle en [Actualización y recuperación](administracion-v2/ACTUALIZACION_Y_RECUPERACION.md).
+
+## 7. Primera puesta en marcha
+
+Una vez instalado, el portal no tiene catálogo ni horario en las líneas nuevas. Con una cuenta de Administración, sigue el orden de la sección 6 del [Manual de usuario](MANUAL_DE_USUARIO.md#6-administración-poner-en-marcha-una-línea):
+
+1. Configurar línea: puestos, estaciones y estanterías.
+2. Configurar línea: horario de trabajo vigente (sin él, el semáforo de cobertura muestra "Sin estimación").
+3. Materiales y catálogos: importar el Excel de materiales y asignar cada material a su estantería.
+4. Usuarios: crear las cuentas de cada persona, con sus líneas y su puesto.
+5. Entradas y salidas: registrar las existencias iniciales con entradas. No se editan tablas a mano.
+
+Las 4 líneas del sistema son fijas. Si la planta necesita más, ver el punto 8 de [Límites y pendientes](LIMITES_Y_PENDIENTES.md).
+
+## 8. Pasar de datos de prueba a datos reales
+
+- **Marca de datos simulados:** en `portal/backend/Motherson.Api/appsettings.json` cambiar `"DatosSimulados": true` a `false` (o definir la variable de entorno `DatosSimulados=false`) y reiniciar el portal. Desaparecen la etiqueta amarilla "SIMULADO", el aviso del inicio de sesión y la marca de la API, y el pie del menú dice "Datos de planta". No toca la base ni el código.
+- **Horario de prueba:** en *Configurar línea → Horario de trabajo*, capturar el horario aprobado por planta y desmarcar **Es un horario de prueba**.
+- **Datos de prueba:** una instalación hecha con `--piloto-inicializar` trae datos simulados. Para operar con datos reales conviene una base nueva, cargando el catálogo con la importación de Excel y las existencias con entradas.
+
+## 9. Respaldo y operación
 
 - Respaldar la base con el mecanismo estándar de SQL Server (completo diario y de logs, según la política de TI). Toda la información vive en SQL.
 - Guardar el certificado PFX y su contraseña fuera del servidor. Si se pierden, se invalidan las sesiones y claves anteriores.
 - Para detener capturas sin apagar el portal: `UPDATE mes2.CONFIG SET solo_lectura=1 WHERE id=1`.
 - Procedimiento de actualización y recuperación: `documentacion/administracion-v2/ACTUALIZACION_Y_RECUPERACION.md`.
 
-## 7. Contacto del proyecto
+## 10. Contacto del proyecto
 
 Equipo del portal (UPAEP). Dudas sobre el portal: Alejandro Lita y Alberto Reyes. Dudas sobre el informe Power BI: Equipo 2.

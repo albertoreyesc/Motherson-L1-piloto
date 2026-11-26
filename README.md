@@ -2,11 +2,11 @@
 
 Portal del piloto: **https://motherson-l1-piloto.onrender.com/**.
 
-Ampliación de administración de cuatro líneas, 22/11/2026: [manual](documentacion/administracion-v2/MANUAL.md), [pruebas](documentacion/administracion-v2/PRUEBAS.md) y [migración y recuperación](documentacion/administracion-v2/ACTUALIZACION_Y_RECUPERACION.md). [Estado de publicación y activación](documentacion/administracion-v2/PUBLICACION_2026-11-22.md): migraciones SQL aplicadas y administración de cuatro líneas activa en Render.
+Ampliación de administración de cuatro líneas, 22/11/2026: [manual de usuario](documentacion/MANUAL_DE_USUARIO.md), [pruebas](documentacion/administracion-v2/PRUEBAS.md) y [migración y recuperación](documentacion/administracion-v2/ACTUALIZACION_Y_RECUPERACION.md). [Estado de publicación y activación](documentacion/administracion-v2/PUBLICACION_2026-11-22.md): migraciones SQL aplicadas y administración de cuatro líneas activa en Render.
 
 Captura por bloques, período disponible de Hoja 2, calendario de referencia y fuentes Power BI: [cierre de mejoras](documentacion/administracion-v2/CIERRE_CAPTURA_Y_COBERTURA_2026-11-22.md). El modelo Power BI está actualizado y conciliado con las operaciones del portal.
 
-Entrega a Motherson: [arquitectura y herramientas](documentacion/ARQUITECTURA_Y_HERRAMIENTAS.md) y [guía para correr el sistema de forma local](documentacion/GUIA_INSTALACION_LOCAL.md).
+Entrega a Motherson: [arquitectura y herramientas](documentacion/ARQUITECTURA_Y_HERRAMIENTAS.md) y [manual de instalación](documentacion/MANUAL_DE_INSTALACION.md).
 
 Para ubicar el código, preparar el entorno y colaborar mediante ramas, consulta **[CONTRIBUTING.md](CONTRIBUTING.md)**. El repositorio del piloto es privado; cada compañero requiere acceso con su propia cuenta GitHub.
 

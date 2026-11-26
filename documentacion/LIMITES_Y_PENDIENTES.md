@@ -1,6 +1,6 @@
 # Límites conocidos y pendientes (para TI de Motherson)
 
-Estado al 26/11/2026, rama `trabajo/modificaciones-v3`. Este documento resume qué se corrigió en la última revisión, qué límites conoce el equipo del portal y qué le toca a TI al migrar el sistema a su infraestructura. Complementa [GUIA_INSTALACION_LOCAL.md](GUIA_INSTALACION_LOCAL.md) y [ARQUITECTURA_Y_HERRAMIENTAS.md](ARQUITECTURA_Y_HERRAMIENTAS.md).
+Estado al 26/11/2026, rama `trabajo/modificaciones-v3`. Este documento resume qué se corrigió en la última revisión, qué límites conoce el equipo del portal y qué le toca a TI al migrar el sistema a su infraestructura. Complementa [MANUAL_DE_INSTALACION.md](MANUAL_DE_INSTALACION.md) y [ARQUITECTURA_Y_HERRAMIENTAS.md](ARQUITECTURA_Y_HERRAMIENTAS.md).
 
 ## 1. Scripts SQL de administración (en este orden)
 
