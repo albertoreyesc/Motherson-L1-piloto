@@ -72,10 +72,10 @@ export function AdminKpis({e}:{e:EstadoAdmin}){
   <section className="kpi-tarjeta"><small>Tiempo promedio</small><strong>{d?.promedioMinutos==null?'N/D':nd(d.promedioMinutos)+' min'}</strong><span className={d?.promedioMinutos!=null&&d.promedioMinutos>d.objetivoMinutos?'fuera':''}>objetivo {d?nd(d.objetivoMinutos):'N/D'} min</span></section>
   <section className="kpi-tarjeta"><small>Fuera de objetivo</small><strong>{d?.porcentajeFueraObjetivo==null?'N/D':nd(d.porcentajeFueraObjetivo)+' %'}</strong><span>de las atenciones</span></section>
  </div>
- <p className="help kpis-contexto">Línea {String(datos.contexto.linea)} · {String(datos.contexto.desde)} al {String(datos.contexto.hasta)} · inventario al {date(datos.contexto.corte)}{cargando?' · actualizando…':''}</p>
+ <p className="help kpis-contexto">Del {String(datos.contexto.desde)} al {String(datos.contexto.hasta)} · inventario al {date(datos.contexto.corte)}{cargando?' · actualizando…':''}</p>
 
  <section className="panel">
-  <div className="pestanas" role="tablist" aria-label="Detalle de indicadores">{([['inventario','Inventario'],['actividad','Actividad'],['tiempos','Tiempos']] as const).map(([id,n])=><button key={id} role="tab" type="button" aria-selected={pestana===id} className={'pestana'+(pestana===id?' activa':'')} onClick={()=>setPestana(id)}>{n}</button>)}</div>
+  <div className="pestanas" role="tablist" aria-label="Detalle de indicadores">{([['inventario','Existencias'],['actividad','Actividad'],['tiempos','Tiempos']] as const).map(([id,n])=><button key={id} role="tab" type="button" aria-selected={pestana===id} className={'pestana'+(pestana===id?' activa':'')} onClick={()=>setPestana(id)}>{n}</button>)}</div>
 
   {pestana==='inventario'&&<div role="tabpanel">
    <h3>Materiales a atender primero</h3>
