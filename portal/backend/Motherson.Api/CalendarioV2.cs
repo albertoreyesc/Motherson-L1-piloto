@@ -45,8 +45,10 @@ public static class CalendarioV2
    var laborable=ex?[d.ToString("yyyy-MM-dd")] is JsonValue v?v.GetValue<bool>():dias.Contains((int)d.DayOfWeek);if(!laborable)continue;
    foreach(var t in turnos){var start=TimeZoneInfo.ConvertTimeToUtc(d.ToDateTime(TimeOnly.MinValue).AddMinutes(t.Inicio),tz);var end=TimeZoneInfo.ConvertTimeToUtc(d.ToDateTime(TimeOnly.MinValue).AddMinutes(t.Fin),tz);if(end>corte)end=corte;if(end>start)tramos.Add(new(start,end));}
   }
-  var escogidos=new List<IntervaloLaborable>();decimal faltan=60;
-  foreach(var t in tramos.OrderByDescending(t=>t.Fin)){var take=Math.Min(faltan,(decimal)(t.Fin-t.Inicio).TotalMinutes);escogidos.Add(new(t.Fin.AddMinutes(-(double)take),t.Fin));faltan-=take;if(faltan==0)return new(escogidos.OrderBy(t=>t.Inicio).ToArray(),null);}
+  // Se cuenta en ticks enteros: con minutos decimales y AddMinutes(double) la suma podía quedar a 1 tick de 60 al cruzar
+  // un descanso, un cambio de turno o la medianoche, y la ventana completa se tomaba como incompleta ("Sin estimación").
+  var escogidos=new List<IntervaloLaborable>();long faltan=TimeSpan.TicksPerHour;
+  foreach(var t in tramos.OrderByDescending(t=>t.Fin)){var take=Math.Min(faltan,(t.Fin-t.Inicio).Ticks);escogidos.Add(new(t.Fin.AddTicks(-take),t.Fin));faltan-=take;if(faltan==0)return new(escogidos.OrderBy(t=>t.Inicio).ToArray(),null);}
   return new([],"VENTANA_INCOMPLETA");
  }
 }

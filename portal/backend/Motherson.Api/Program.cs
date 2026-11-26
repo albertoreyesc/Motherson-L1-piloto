@@ -19,6 +19,7 @@ if(args.Contains("--sembrar-pruebas")){await Migration.SeedTests();return;}
 if(args.Contains("--probar-permisos")){await Migration.TestPermissions();return;}
 if(args.Contains("--preparar-accesos-locales")){var i=Array.IndexOf(args,"--preparar-accesos-locales");if(i+1>=args.Length)throw new ArgumentException("Indica la carpeta del portal.");Environment.ExitCode=AzureLocalSetup.Run(args[i+1]);return;}
 var builder=WebApplication.CreateBuilder(args);
+Entorno.DatosSimulados=builder.Configuration.GetValue("DatosSimulados",true);
 if(args.Contains("--piloto-inicializar")||args.Contains("--piloto-usuario")||args.Contains("--piloto-permisos")||args.Contains("--piloto-almacenamiento")||args.Contains("--piloto-revocar"))
 {
     try{if(args.Contains("--piloto-inicializar"))await PilotSetup.Initialize(args,builder.Configuration);else if(args.Contains("--piloto-permisos"))await PilotSetup.Permissions(args,builder.Configuration);else if(args.Contains("--piloto-almacenamiento"))await PilotSetup.Storage(args,builder.Configuration);else if(args.Contains("--piloto-revocar"))await PilotSetup.Revoke(builder.Configuration);else await PilotSetup.User(builder.Configuration);}
@@ -58,7 +59,7 @@ builder.Services.AddSingleton<Store>();
 builder.Services.AddSingleton<AdminV2>();
 builder.Services.AddHttpClient<PowerBiEmbed>();
 builder.Services.ConfigureHttpJsonOptions(o=>o.SerializerOptions.Converters.Add(new UtcConverter()));
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.Name=cookiePrefix+".Session";o.Cookie.HttpOnly=true;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.ExpireTimeSpan=TimeSpan.FromMinutes(30);o.SlidingExpiration=false;o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.Name=cookiePrefix+".Session";o.Cookie.HttpOnly=true;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.ExpireTimeSpan=TimeSpan.FromMinutes(30);/* Expira por inactividad: cada petición renueva la sesión; el portal solo la mantiene viva si hubo toques recientes. */o.SlidingExpiration=true;o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
 builder.Services.AddAuthorization();builder.Services.AddAntiforgery(o=>{o.HeaderName="X-XSRF-TOKEN";o.Cookie.Name=cookiePrefix+".Xsrf";o.Cookie.SecurePolicy=builder.Environment.IsDevelopment()?CookieSecurePolicy.SameAsRequest:CookieSecurePolicy.Always;o.Cookie.SameSite=SameSiteMode.Strict;o.Cookie.HttpOnly=true;});
 builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.AddPolicy("login",c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"local",_=>new FixedWindowRateLimiterOptions{PermitLimit=builder.Configuration.GetValue<bool>("Pilot:Enabled")?100:10,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));});
 var app=builder.Build();
@@ -73,7 +74,7 @@ await using(var check=await store.Open()){
  if((active==1)!=v2)throw new InvalidOperationException("La activación SQL y MVP_ADMIN_V2 deben coincidir. No se permite escribir en un perfil anterior.");
 }
 app.Use(async(ctx,next)=>{
- if(v2&&ctx.Request.Path.StartsWithSegments("/api")&&!ctx.Request.Path.StartsWithSegments("/api/auth")&&!ctx.Request.Path.StartsWithSegments("/api/v2")&&ctx.Request.Path!="/api/administracion"&&ctx.Request.Path!="/api/health"){
+ if(v2&&ctx.Request.Path.StartsWithSegments("/api")&&!ctx.Request.Path.StartsWithSegments("/api/auth")&&!ctx.Request.Path.StartsWithSegments("/api/v2")&&ctx.Request.Path!="/api/administracion"&&ctx.Request.Path!="/api/health"&&ctx.Request.Path!="/api/entorno"){
   ctx.Response.StatusCode=409;await ctx.Response.WriteAsJsonAsync(new{error="Este piloto usa administración por línea. Recarga el portal actualizado."});return;
  }await next();
 });
@@ -82,7 +83,8 @@ app.Use(async(ctx,next)=>{ctx.Response.Headers["X-Content-Type-Options"]="nosnif
 app.UseAuthentication();app.UseAuthorization();app.UseRateLimiter();
 app.Use(async(ctx,next)=>{if(ctx.Request.Path.StartsWithSegments("/api")&&HttpMethods.IsPost(ctx.Request.Method))await ctx.RequestServices.GetRequiredService<IAntiforgery>().ValidateRequestAsync(ctx);await next();});
 app.MapGet("/health/live",()=>Results.Ok(new{status="ok"}));
-app.MapGet("/api/health",async()=>{await using var c=await store.Open();return Results.Ok(new{api="ok",sql="ok",baseDatos=c.Database,simulado=true});}).RequireAuthorization();
+app.MapGet("/api/health",async()=>{await using var c=await store.Open();return Results.Ok(new{api="ok",sql="ok",baseDatos=c.Database,simulado=Entorno.DatosSimulados});}).RequireAuthorization();
+app.MapGet("/api/entorno",()=>Results.Ok(new{datosSimulados=Entorno.DatosSimulados}));
 app.MapGet("/api/auth/csrf",(HttpContext c,IAntiforgery af)=>Results.Ok(new{token=af.GetAndStoreTokens(c).RequestToken}));
 app.MapPost("/api/auth/login",async(LoginInput input,HttpContext ctx)=>{var actor=await store.Login(input);if(actor is null)return Results.Json(new{error="Credenciales inválidas."},statusCode:401);await ctx.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity([new Claim(ClaimTypes.NameIdentifier,actor.Id.ToString()),new Claim("tipo_cuenta",actor.TipoCuenta),new Claim("sello_acceso",actor.SelloAcceso??"")],CookieAuthenticationDefaults.AuthenticationScheme)));return Results.Ok(new{authenticated=true});}).RequireRateLimiting("login");
 app.MapPost("/api/auth/logout",async Task<IResult>(HttpContext c)=>{await c.SignOutAsync();return Results.Ok();}).RequireAuthorization();
@@ -95,6 +97,9 @@ api.MapGet("/administracion",()=>Results.Ok(new{habilitada=v2}));
 if(v2){
  var admin=app.Services.GetRequiredService<AdminV2>();var scoped=api.MapGroup("/v2/lineas/{linea:int}");
  Gate(api.MapGet("/v2/lineas",async Task<IResult>(HttpContext c)=>Results.Ok(await admin.Lineas(Who(c)))),"view");
+ // Usuarios del piloto: solo ADMIN (además se valida en SQL). Ver portal/db/administracion/003_usuarios.sql.
+ Gate(api.MapGet("/v2/usuarios",async Task<IResult>(HttpContext c)=>Results.Ok(await admin.Usuarios(Who(c)))),"administrar_accesos");
+ Gate(api.MapPost("/v2/usuarios",async Task<IResult>(JsonObject input,HttpContext c)=>Results.Ok(await admin.UsuarioGuardar(Who(c),input))),"administrar_accesos");
  Gate(scoped.MapGet("/estado",async(int linea,DateTimeOffset? corte,HttpContext c)=>Results.Ok(await admin.Estado(Who(c),linea,corte?.UtcDateTime))),"view");
  Gate(scoped.MapPost("/importacion/vista-previa",async(int linea,JsonObject input,HttpContext c)=>Results.Ok(await admin.VistaPrevia(Who(c),linea,input))),"ajustar_catalogo");
  Gate(scoped.MapPost("/operaciones/{tipo}",async(int linea,string tipo,JsonObject input,HttpContext c)=>Results.Ok(await admin.Ejecutar(Who(c),linea,tipo,input,Key(c)))),"view");

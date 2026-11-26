@@ -9,8 +9,14 @@ export function ahoraCdmx(desplazamientoMin=0){
 }
 const diaCdmx=(dias:number)=>ahoraCdmx(dias*1440).slice(0,10);
 
-/** Abre el calendario o el reloj del navegador al tocar cualquier parte del campo. */
-export function abrirSelector(ev:{currentTarget:HTMLInputElement}){try{ev.currentTarget.showPicker?.()}catch{/* algunos navegadores no lo permiten; el campo sigue editable */}}
+/** Último tipo de puntero usado (mouse, dedo o lápiz). */
+let ultimoPuntero='mouse';
+if(typeof document!=='undefined')document.addEventListener('pointerdown',ev=>{ultimoPuntero=ev.pointerType||'mouse'},{capture:true,passive:true});
+/**
+ * Con el dedo (tableta) abre el calendario o el reloj al tocar el campo. Con mouse y teclado no lo abre: así se puede
+ * escribir la fecha directamente; el calendario sigue disponible con el ícono del propio campo.
+ */
+export function abrirSelector(ev:{currentTarget:HTMLInputElement}){if(ultimoPuntero!=='touch'&&ultimoPuntero!=='pen')return;try{ev.currentTarget.showPicker?.()}catch{/* algunos navegadores no lo permiten; el campo sigue editable */}}
 
 /**
  * Selector de fecha y hora pensado para tableta: fecha y hora en campos separados (sin segundos),

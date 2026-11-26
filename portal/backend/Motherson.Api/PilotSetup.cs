@@ -87,6 +87,9 @@ public static class PilotSetup
         var hash=new PasswordHasher<string>().HashPassword("",password);
         await using var sql=Connection(c);await Open(sql);
         await sql.ExecuteAsync("INSERT mes.USUARIO_PILOTO(usuario,nombre,rol,id_puesto,password_hash) VALUES(@usuario,@nombre,@rol,@puesto,@hash)",new{usuario,nombre,rol,puesto,hash});
+        // Con administración v2 instalada, la cuenta también recibe acceso: ADMIN a todas las líneas; PUESTO y LECTOR a Línea 1.
+        // Para otras líneas o puestos usa la pantalla "Usuarios" del portal.
+        await sql.ExecuteAsync("IF OBJECT_ID('mes2.ACCESO') IS NOT NULL INSERT mes2.ACCESO(usuario,linea,puesto) SELECT u.id_usuario,l.id,CASE WHEN u.rol='PUESTO' THEN CONVERT(nvarchar(100),u.id_puesto) END FROM mes.USUARIO_PILOTO u CROSS JOIN mes2.LINEA l WHERE u.usuario=@usuario AND (u.rol='ADMIN' OR l.id=1) AND NOT EXISTS(SELECT 1 FROM mes2.ACCESO a WHERE a.usuario=u.id_usuario AND a.linea=l.id)",new{usuario});
         Console.WriteLine("Cuenta individual creada; no se muestran credenciales.");
     }
 }

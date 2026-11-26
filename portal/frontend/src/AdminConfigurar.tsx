@@ -1,47 +1,65 @@
-import {useState} from 'react';
-import {UserRound,MapPinned,Warehouse,PackagePlus,Plus,X} from 'lucide-react';
-import type {EstadoAdmin} from './adminTypes';
-type Props={e:EstadoAdmin;run:(tipo:string,body:Record<string,unknown>)=>Promise<unknown>;dirty:(v:boolean)=>void};
+import {useEffect,useState} from 'react';
+import {UserRound,MapPinned,Warehouse,CalendarClock,Plus,Minus,X} from 'lucide-react';
+import type {EstadoAdmin,Rack} from './adminTypes';
+import {cajasOcupadasV2} from './ubicacionesV2';
+import {vigenciaHorario} from './AvisoHorario';
+type Props={e:EstadoAdmin;run:(tipo:string,body:Record<string,unknown>)=>Promise<unknown>;dirty:(v:boolean)=>void;seccionInicial?:'ESTANTERIA';alAbrir?:()=>void};
 type Turno={inicio:string;fin:string;descansos?:{inicio:string;fin:string}[]};
+type Seccion='PUESTO'|'ESTACION'|'ESTANTERIA'|'HORARIO';
 const DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
 const ORDEN_DIAS=[1,2,3,4,5,6,0];
 const fechaLegible=(d:string)=>new Date(d+'T12:00:00').toLocaleDateString('es-MX',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+const porNombre=<T extends {nombre:string}>(a:T,b:T)=>a.nombre.localeCompare(b.nombre,'es',{numeric:true});
 
 /**
- * Configuración de la línea en lenguaje de planta. Envía exactamente las mismas operaciones que la versión
- * anterior (PUESTO, ESTACION, ESTANTERIA, UBICACION, CALENDARIO), solo cambia cómo se capturan.
+ * Configuración de la línea en pestañas: Puestos, Estaciones, Estanterías y Horario. Cada pestaña muestra lo que ya existe
+ * en tarjetas (tocar una para editarla) y una tarjeta "Nuevo". Envía las mismas operaciones de siempre
+ * (PUESTO, ESTACION, ESTANTERIA, CALENDARIO). Asignar materiales a estanterías se hace en Materiales o en Estaciones y ubicaciones.
  */
-export function AdminConfigurar({e,run,dirty}:Props){
- const [tipo,setTipo]=useState('PUESTO'),[nombre,setNombre]=useState(''),[estacion,setEstacion]=useState(''),[nivel,setNivel]=useState(''),[capacidad,setCapacidad]=useState(1),[material,setMaterial]=useState(''),[rack,setRack]=useState(''),[editRack,setEditRack]=useState('');
+export function AdminConfigurar({e,run,dirty,seccionInicial,alAbrir}:Props){
+ const [seccion,setSeccion]=useState<Seccion>(()=>seccionInicial??(vigenciaHorario(e.calendario).nivel==='ok'?'PUESTO':'HORARIO')),[sel,setSel]=useState(''),[nombre,setNombre]=useState(''),[estacion,setEstacion]=useState(''),[nivel,setNivel]=useState(''),[capacidad,setCapacidad]=useState(1),[buscar,setBuscar]=useState(''),[ok,setOk]=useState('');
  const cal=e.calendario;const [desde,setDesde]=useState(String(cal?.desde??'')),[hasta,setHasta]=useState(String(cal?.hasta??'')),[fuente,setFuente]=useState(String(cal?.fuente??'')),[dias,setDias]=useState<number[]>((cal?.dias as number[])??[]),[turnos,setTurnos]=useState<Turno[]>((cal?.turnos as Turno[])??[{inicio:'',fin:''}]),[excepciones,setExcepciones]=useState<Record<string,boolean>>((cal?.excepciones as Record<string,boolean>)??{}),[exDia,setExDia]=useState(''),[normal,setNormal]=useState(Number(cal?.normal??60)),[advertencia,setAdvertencia]=useState(Number(cal?.advertencia??30)),[critico,setCritico]=useState(Number(cal?.critico??15)),[busy,setBusy]=useState(false),[simulado,setSimulado]=useState(cal?.simulado===true);
- const execute=async(t:string,b:Record<string,unknown>)=>{setBusy(true);try{await run(t,b);dirty(false)}catch{/* error mostrado por el contenedor */}finally{setBusy(false)}};
- const opciones=[
-  {id:'PUESTO',icono:UserRound,titulo:'Puesto logístico',texto:'Quién surte: el puesto del materialista.',total:e.puestos.length,boton:'Crear puesto'},
-  {id:'ESTACION',icono:MapPinned,titulo:'Estación',texto:'Zona de la línea donde están las estanterías.',total:e.estaciones.length,boton:'Crear estación'},
-  {id:'ESTANTERIA',icono:Warehouse,titulo:'Estantería',texto:'Rack dentro de una estación, con su capacidad en cajas.',total:e.estanterias.length,boton:editRack?'Guardar cambios':'Crear estantería'},
-  {id:'UBICACION',icono:PackagePlus,titulo:'Asignar material',texto:'Indica en qué estantería se guarda un material.',total:e.ubicaciones.filter(u=>u.activa!==false).length,boton:'Asignar material'},
- ] as const;
- const actual=opciones.find(o=>o.id===tipo)!;
+ const execute=async(t:string,b:Record<string,unknown>)=>{setBusy(true);try{await run(t,b);dirty(false);return true}catch{/* error mostrado por el contenedor */return false}finally{setBusy(false)}};
+
+ useEffect(()=>{if(seccionInicial)alAbrir?.()},[]);
  const setTurno=(i:number,t:Partial<Turno>)=>setTurnos(turnos.map((x,j)=>j===i?{...x,...t}:x));
  const semaforoValido=critico>0&&critico<advertencia&&advertencia<normal;
  const cambiarDias=(d:number[])=>{setDias(d);dirty(true)};
+ const rackDe=(id:string)=>e.estanterias.find(r=>r.id===id);
+ function limpiar(){setSel('');setNombre('');setNivel('');setEstacion('');setCapacidad(1);setOk('');dirty(false)}
+ function cambiarSeccion(s:Seccion){setSeccion(s);setBuscar('');limpiar()}
+ function elegir(id:string){setOk('');dirty(false);setSel(id);if(seccion==='PUESTO')setNombre(e.puestos.find(p=>p.id===id)?.nombre??'');if(seccion==='ESTACION')setNombre(e.estaciones.find(s=>s.id===id)?.nombre??'');if(seccion==='ESTANTERIA'){const r=rackDe(id);if(r){setNombre(r.nombre);setNivel(r.nivel);setEstacion(r.estacion);setCapacidad(r.capacidad)}}}
+ async function guardar(){const editando=!!sel;const body=seccion==='ESTANTERIA'?{id:sel,nombre:nombre.trim(),estacion,nivel:nivel.trim(),capacidad}:{id:sel,nombre:nombre.trim()};
+  if(await execute(seccion,body)){setOk((editando?'Cambios guardados: ':'Creado: ')+nombre.trim());if(!editando){setNombre('');setNivel('');setCapacidad(1)}}}
+ const filtro=(t:string)=>t.toLocaleLowerCase('es').includes(buscar.trim().toLocaleLowerCase('es'));
+ const tabs:[Seccion,string,typeof UserRound,number|null][]=[['PUESTO','Puestos',UserRound,e.puestos.length],['ESTACION','Estaciones',MapPinned,e.estaciones.length],['ESTANTERIA','Estanterías',Warehouse,e.estanterias.length],['HORARIO','Horario de trabajo',CalendarClock,null]];
+ const ocupadas=(r:Rack)=>cajasOcupadasV2(e,r.id);
+ const minimoCap=sel?Math.max(1,ocupadas(rackDe(sel)??{id:''} as Rack)):1;
+ const tarjetaNueva=(texto:string)=><button type="button" role="option" aria-selected={!sel} className={'puesto-tarjeta nuevo'+(!sel?' elegido':'')} onClick={limpiar}><Plus size={20} aria-hidden="true"/><strong>{texto}</strong><small>Capturar manualmente</small></button>;
+ const formulario=seccion!=='HORARIO'&&<form className="config-formulario" onChange={()=>dirty(true)} onSubmit={ev=>{ev.preventDefault();void guardar()}}>
+  <h3>{sel?'Editar '+(seccion==='PUESTO'?'puesto':seccion==='ESTACION'?'estación':'estantería'):seccion==='PUESTO'?'Nuevo puesto':seccion==='ESTACION'?'Nueva estación':'Nueva estantería'}</h3>
+  <div className="form-grid">
+   {seccion==='ESTANTERIA'&&<label className="field">¿En qué estación está?<select required value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Selecciona la estación</option>{[...e.estaciones].sort(porNombre).map(s=><option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label>}
+   <label className="field">{seccion==='PUESTO'?'Nombre del puesto':seccion==='ESTACION'?'Nombre de la estación':'Nombre de la estantería'}<input value={nombre} required maxLength={80} placeholder={seccion==='PUESTO'?'Ej. SZ01':seccion==='ESTACION'?'Ej. AL09':'Ej. SIM-DES-70'} onChange={ev=>setNombre(ev.target.value)}/></label>
+   {seccion==='ESTANTERIA'&&<><label className="field">Nivel o repisa<input required maxLength={40} value={nivel} placeholder="Ej. A, B, 1" onChange={ev=>setNivel(ev.target.value)}/></label>
+    <div className="field"><span>Espacios (cajas)</span><div className="capacidad-control"><button type="button" className="secondary" aria-label="Quitar un espacio" disabled={busy||capacidad<=minimoCap} onClick={()=>{setCapacidad(Math.max(minimoCap,capacidad-1));dirty(true)}}><Minus size={16} aria-hidden="true"/></button><input type="number" inputMode="numeric" min={minimoCap} max="1000000" required value={capacidad} aria-label="Espacios en cajas" onChange={ev=>setCapacidad(Math.max(1,Math.min(1000000,Math.trunc(Number(ev.target.value))||1)))}/><button type="button" className="secondary" aria-label="Agregar un espacio" disabled={busy} onClick={()=>{setCapacidad(Math.min(1000000,capacidad+1));dirty(true)}}><Plus size={16} aria-hidden="true"/></button></div>{sel&&<small>{minimoCap} ocupadas: no puede ser menor.</small>}</div></>}
+  </div>
+  {sel&&seccion==='PUESTO'&&<p className="help">El cambio de nombre conserva los materiales, las atenciones y el historial del puesto.</p>}
+  <div className="button-row"><button disabled={busy||!nombre.trim()||seccion==='ESTANTERIA'&&(!estacion||!nivel.trim()||capacidad<minimoCap)}>{busy?'Guardando…':sel?'Guardar cambios':seccion==='PUESTO'?'Crear puesto':seccion==='ESTACION'?'Crear estación':'Crear estantería'}</button>{sel&&<button type="button" className="secondary" disabled={busy} onClick={limpiar}>Cancelar</button>}</div>
+  {ok&&<p className="notice" role="status">{ok}</p>}
+ </form>;
  return <>
- <section className="panel config-estructura"><h2>Estructura de la Línea {e.linea}</h2>
-  <p className="help">La línea se arma así: <strong>puesto</strong> → <strong>estación</strong> → <strong>estantería</strong> → <strong>material asignado</strong>. Elige qué quieres agregar.</p>
-  <div className="config-opciones" role="radiogroup" aria-label="¿Qué quieres agregar?">{opciones.map(o=>{const Icono=o.icono;return <button type="button" role="radio" aria-checked={tipo===o.id} key={o.id} className={'config-opcion'+(tipo===o.id?' elegida':'')} onClick={()=>{setTipo(o.id);setEditRack('');setNombre('');setNivel('');setEstacion('');setCapacidad(1)}}><Icono size={22} aria-hidden="true"/><strong>{o.titulo}</strong><span>{o.texto}</span><small>{o.total} registrados</small></button>})}</div>
-  <form className="config-formulario" onChange={()=>dirty(true)} onSubmit={ev=>{ev.preventDefault();void execute(tipo,tipo==='UBICACION'?{material,estanteria:rack}:tipo==='ESTANTERIA'?{id:editRack,nombre,estacion,nivel,capacidad}:{nombre})}}>
-   <div className="form-grid">
-   {tipo==='ESTANTERIA'&&<label className="field">¿Nueva o una que ya existe?<select value={editRack} onChange={ev=>{setEditRack(ev.target.value);const r=e.estanterias.find(r=>r.id===ev.target.value);if(r){setNombre(r.nombre);setNivel(r.nivel);setEstacion(r.estacion);setCapacidad(r.capacidad)}else{setNombre('');setNivel('');setEstacion('');setCapacidad(1)}}}><option value="">Crear una estantería nueva</option>{e.estanterias.map(r=><option value={r.id} key={r.id}>Modificar {r.nombre} / {r.nivel}</option>)}</select></label>}
-   {tipo!=='UBICACION'&&<label className="field">{tipo==='PUESTO'?'Nombre del puesto':tipo==='ESTACION'?'Nombre de la estación':'Nombre de la estantería'}<input value={nombre} required maxLength={80} placeholder={tipo==='PUESTO'?'Ej. SZ01':tipo==='ESTACION'?'Ej. AL09':'Ej. SIM-DES-70'} onChange={ev=>setNombre(ev.target.value)}/></label>}
-   {tipo==='ESTANTERIA'&&<><label className="field">¿En qué estación está?<select required value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Selecciona la estación</option>{e.estaciones.map(s=><option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label><label className="field">Nivel o repisa<input required value={nivel} placeholder="Ej. A, B, 1, 2" onChange={ev=>setNivel(ev.target.value)}/></label><label className="field">¿Cuántas cajas caben?<input type="number" inputMode="numeric" min="1" max="1000000" required value={capacidad} onChange={ev=>setCapacidad(Number(ev.target.value))}/></label></>}
-   {tipo==='UBICACION'&&<><label className="field">Material<select required value={material} onChange={ev=>setMaterial(ev.target.value)}><option value="">Selecciona el material</option>{e.materiales.filter(m=>m.activo).map(m=><option key={m.id} value={m.id}>{m.numeroParte}{m.descripcion?' · '+m.descripcion:''}</option>)}</select></label><label className="field">¿En qué estantería se guarda?<select required value={rack} onChange={ev=>setRack(ev.target.value)}><option value="">Selecciona la estantería</option>{e.estanterias.map(r=><option key={r.id} value={r.id}>{e.estaciones.find(s=>s.id===r.estacion)?.nombre} / {r.nombre} / {r.nivel}</option>)}</select></label></>}
-   </div>
-   {tipo==='UBICACION'&&<p className="help">La asignación empieza con 0 piezas; las existencias se registran con una entrada.</p>}
-   {tipo==='ESTANTERIA'&&editRack&&<p className="help">No se puede reducir la capacidad por debajo de las cajas que ya tiene.</p>}
-   <button disabled={busy}>{actual.boton}</button>
-  </form>
+ <section className="panel config-estructura"><h2>Estructura de la línea</h2>
+  <p className="help">La línea se arma así: <strong>puesto</strong> → <strong>estación</strong> → <strong>estantería</strong>. Los materiales se asignan a una estantería en <em>Materiales y catálogos</em> o en <em>Estaciones y ubicaciones</em>.</p>
+  <div className="pestanas" role="tablist" aria-label="Qué configurar">{tabs.map(([id,n,Icono,total])=><button key={id} type="button" role="tab" aria-selected={seccion===id} className={'pestana con-icono'+(seccion===id?' activa':'')} onClick={()=>cambiarSeccion(id)}><Icono size={17} aria-hidden="true"/>{n}{total!==null&&<small>{total}</small>}</button>)}</div>
+  {seccion!=='HORARIO'&&<div className="config-dos-columnas"><div>
+   {(seccion==='PUESTO'?e.puestos.length:seccion==='ESTACION'?e.estaciones.length:e.estanterias.length)>8&&<label className="field">Buscar<input value={buscar} onChange={ev=>setBuscar(ev.target.value)} placeholder="Nombre"/></label>}
+   {seccion==='PUESTO'&&<div className="puestos-grid" role="listbox" aria-label="Puestos">{tarjetaNueva('Nuevo puesto')}{[...e.puestos].sort(porNombre).filter(p=>filtro(p.nombre)).map(p=>{const n=e.materiales.filter(m=>m.puesto===p.id).length;return <button type="button" role="option" aria-selected={sel===p.id} key={p.id} className={'puesto-tarjeta'+(sel===p.id?' elegido':'')} onClick={()=>elegir(p.id)}><UserRound size={20} aria-hidden="true"/><strong>{p.nombre}</strong><small>{n} {n===1?'material':'materiales'}</small></button>})}</div>}
+   {seccion==='ESTACION'&&<div className="puestos-grid" role="listbox" aria-label="Estaciones">{tarjetaNueva('Nueva estación')}{[...e.estaciones].sort(porNombre).filter(s=>filtro(s.nombre)).map(s=>{const n=e.estanterias.filter(r=>r.estacion===s.id).length;return <button type="button" role="option" aria-selected={sel===s.id} key={s.id} className={'puesto-tarjeta'+(sel===s.id?' elegido':'')} onClick={()=>elegir(s.id)}><MapPinned size={20} aria-hidden="true"/><strong>{s.nombre}</strong><small>{n} {n===1?'estantería':'estanterías'}</small></button>})}</div>}
+   {seccion==='ESTANTERIA'&&<><div className="puestos-grid" role="listbox" aria-label="Nueva estantería">{tarjetaNueva('Nueva estantería')}</div>{[...e.estaciones].sort(porNombre).map(s=>{const racks=e.estanterias.filter(r=>r.estacion===s.id&&filtro(s.nombre+' '+r.nombre+' '+r.nivel)).sort((a,b)=>porNombre(a,b)||a.nivel.localeCompare(b.nivel,'es'));if(!racks.length)return null;return <div key={s.id} className="grupo-estacion"><h4>{s.nombre}</h4><div className="puestos-grid" role="listbox" aria-label={'Estanterías de '+s.nombre}>{racks.map(r=>{const o=ocupadas(r);return <button type="button" role="option" aria-selected={sel===r.id} key={r.id} className={'puesto-tarjeta'+(sel===r.id?' elegido':'')+(o>=r.capacidad?' llena':'')} onClick={()=>elegir(r.id)}><Warehouse size={20} aria-hidden="true"/><strong>{r.nombre} · {r.nivel}</strong><small>{o} de {r.capacidad} cajas ocupadas</small></button>})}</div></div>})}</>}
+  </div><div className="config-panel-form">{formulario}</div></div>}
  </section>
- <section className="panel config-horario"><h2>Horario de trabajo de la Línea {e.linea}</h2>
+ {seccion==='HORARIO'&&<section className="panel config-horario"><h2>Horario de trabajo</h2>
   <p className="help">Indica qué días y en qué horario se trabaja. Con esto el sistema calcula cuántos minutos de material quedan en cada ubicación.</p>
   <form onChange={()=>dirty(true)} onSubmit={ev=>{ev.preventDefault();if(semaforoValido)void execute('CALENDARIO',{desde,hasta,fuente,dias,turnos,excepciones,normal,advertencia,critico,simulado})}}>
    <section className="paso-config"><h3><span className="paso-num">1</span>¿Cuándo aplica este horario?</h3>
@@ -85,5 +103,5 @@ export function AdminConfigurar({e,run,dirty}:Props){
    </section>
    <button disabled={busy||!semaforoValido}>Guardar horario</button>
   </form>
- </section></>;
+ </section>}</>;
 }
