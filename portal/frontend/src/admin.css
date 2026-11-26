@@ -473,7 +473,6 @@
 @media(max-width:760px){.aviso-horario{flex-wrap:wrap}}
 /* ===== Ajustes de interfaz 26/11: rojo de marca (#da2128) para lo principal ===== */
 .admin-v2 main{max-width:1760px}
-.admin-v2 .boton-actualizar,.admin-v2 .boton-actualizar:hover:not(:disabled){display:inline-flex;align-items:center;gap:8px;border:1px solid var(--brand-red);background:var(--brand-red);color:#fff;box-shadow:var(--sombra-1)}.admin-v2 .boton-actualizar svg{color:#fff}.admin-v2 .boton-actualizar:hover:not(:disabled){background:#b81b21;border-color:#b81b21}.admin-v2 .boton-actualizar:disabled{background:#f1f1f1;border-color:#dcdcdc;color:#8a8a8a}.admin-v2 .boton-actualizar:disabled svg{color:#8a8a8a}
 .admin-v2 details.simple.menu-excel>summary,.admin-v2 details.simple.menu-excel>summary:hover,.admin-v2 details.simple.menu-excel[open]>summary{border:1px solid var(--brand-red);background:var(--brand-red);color:#fff}.admin-v2 details.simple.menu-excel>summary:hover{background:#b81b21;border-color:#b81b21}
 .admin-v2 .catalogo-herramientas .boton-rojo{border:1px solid var(--brand-red);background:var(--brand-red);color:#fff}.admin-v2 .catalogo-herramientas .boton-rojo:hover{background:#b81b21}.admin-v2 .catalogo-herramientas .boton-rojo.elegido{background:#b81b21;border-color:#b81b21}
 /* Pestañas con forma de botón (KPIs y Configurar línea) */
@@ -491,3 +490,16 @@
 /* Ver contraseña (también en el inicio de sesión) */
 .campo-pass{position:relative;display:block}.campo-pass input{width:100%;padding-right:48px}.ver-pass{position:absolute;top:50%;right:6px;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;width:38px;min-width:38px;height:38px;min-height:38px;margin:0;padding:0;border:0;border-radius:8px;background:transparent;color:#5a5a5a;box-shadow:none}.ver-pass:hover{background:#f0f0f0;color:#1f1f1f}
 .coincide{color:#2e7d4f;font-weight:700}.no-coincide{color:#8a5a00}
+/* ===== Ajustes 26/11 (2): Actualizar datos vuelve a blanco; tabla de materiales más legible ===== */
+.admin-v2 .boton-descarga{display:inline-flex;align-items:center;gap:8px;margin:0}
+.tabla-materiales td{font-size:15px}.tabla-materiales td small{font-size:13px}.tabla-materiales .parte{font-size:16px}.tabla-materiales .pieza-datos{flex:1;min-width:0}.tabla-materiales .pieza-datos .block{font-size:15px}.tabla-materiales .pieza-datos small.block{font-size:13px}
+.tabla-materiales .celda-pieza.pieza-catalogo{display:flex;align-items:flex-start;gap:14px}.tabla-materiales .pieza-menu{margin-left:auto;flex-shrink:0;align-self:flex-start}
+.admin-v2 .pieza-menu .menu-acciones>summary{display:inline-flex;align-items:center;gap:4px;min-height:38px;padding:6px 12px;font-size:14px}
+.tabla-materiales .col-pieza{width:37%}.tabla-materiales .col-puesto{width:12%}.tabla-materiales .col-empaque{width:12%}.tabla-materiales .col-ubicacion{width:39%}
+.ubicacion-nombre{font-size:14px}.ubicacion-cabecera small{font-size:13px}.ubicacion-espacio .capacidad{flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:6px}.ubicacion-espacio .capacidad-resumen{font-size:13px}.admin-v2 .ubicacion-espacio .capacidad-control button{width:40px;min-width:40px;min-height:40px}.admin-v2 .ubicacion-espacio .capacidad-control input{min-height:40px;font-size:16px}
+.admin-v2 .boton-asignar{font-size:14px;min-height:44px}
+/* Entradas y salidas: el paso 3 reserva el renglón de opciones para que la pantalla no salte */
+.opciones-hueco{min-height:34px}.admin-v2 details.opciones-registro{min-height:34px;margin:4px 0 10px}
+/* KPIs: separador entre las dos descargas */
+.admin-v2 .menu-excel>div button+button{margin-top:4px;border-top:1px solid var(--border);border-radius:0 0 8px 8px;padding-top:12px}.admin-v2 .menu-excel>div button{border-radius:8px}
+.admin-v2 .pieza-menu .menu-acciones>summary{width:auto;min-width:0;white-space:nowrap;justify-content:center;gap:4px;padding:6px 10px 6px 14px}.admin-v2 .pieza-menu .menu-acciones>summary svg{flex-shrink:0}
