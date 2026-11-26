@@ -26,7 +26,7 @@ La revisión visual del portal publicado confirmó una única sección principal
 
 ## Uso y límites pendientes
 
-Consultar [MANUAL.md](MANUAL.md) para importación flexible, inhabilitación y eliminación controlada, atenciones, calendario, KPIs y selección de líneas. La cobertura temporal requiere calendario autorizado y consumos suficientes; en su ausencia muestra **Sin estimación**. Las nuevas líneas requieren configurar sus propios catálogos y ubicaciones.
+Consultar el [Manual de usuario](../MANUAL_DE_USUARIO.md) para importación flexible, inhabilitación y eliminación controlada, atenciones, calendario, KPIs y selección de líneas. La cobertura temporal requiere calendario autorizado y consumos suficientes; en su ausencia muestra **Sin estimación**. Las nuevas líneas requieren configurar sus propios catálogos y ubicaciones.
 
 El informe Power BI existente de Línea 1 se conserva. La actualización del modelo para utilizar las nuevas fuentes SQL y la licencia/acceso Microsoft de cada participante son trabajos independientes pendientes. Recargar el informe no actualiza por sí solo su modelo desde SQL.
 

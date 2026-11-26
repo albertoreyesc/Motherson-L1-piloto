@@ -2,7 +2,7 @@
 
 Para la ampliación de cuatro líneas del 22/11/2026 consulta:
 
-- [Manual de usuario y administración](administracion-v2/MANUAL.md).
+- [Manual de usuario](MANUAL_DE_USUARIO.md): uso del portal por tipo de cuenta.
 - [Pruebas y alcance de la validación](administracion-v2/PRUEBAS.md).
 - [Actualización y recuperación](administracion-v2/ACTUALIZACION_Y_RECUPERACION.md).
 - [Mapa del repositorio y colaboración](../CONTRIBUTING.md).
@@ -12,7 +12,7 @@ Entrega a Motherson (24/11/2026):
 - [Integración vigente del equipo 2: tres hojas y catálogo compartido](INTEGRACION_EQUIPO2_2026-11-24.md).
 
 - [Arquitectura y herramientas](ARQUITECTURA_Y_HERRAMIENTAS.md).
-- [Guía para correr el sistema de forma local](GUIA_INSTALACION_LOCAL.md).
+- [Manual de instalación](MANUAL_DE_INSTALACION.md): instalar, actualizar, poner en marcha y pasar a datos reales.
 - [Límites conocidos y pendientes para TI de Motherson](LIMITES_Y_PENDIENTES.md).
 
 ## Antecedentes
