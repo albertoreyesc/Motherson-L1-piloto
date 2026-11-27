@@ -1,7 +1,8 @@
 import {useEffect,useState} from 'react';
 import {UserRound,MapPinned,Warehouse,CalendarClock,Plus,Minus,X} from 'lucide-react';
 import type {EstadoAdmin,Rack} from './adminTypes';
-import {cajasOcupadasV2} from './ubicacionesV2';
+import {cajasOcupadasV2,estaActivo,motivoNoDesactivar} from './ubicacionesV2';
+import {pedirTexto} from './dialogo';
 import {vigenciaHorario} from './AvisoHorario';
 type Props={e:EstadoAdmin;run:(tipo:string,body:Record<string,unknown>)=>Promise<unknown>;dirty:(v:boolean)=>void;seccionInicial?:'ESTANTERIA';alAbrir?:()=>void};
 type Turno={inicio:string;fin:string;descansos?:{inicio:string;fin:string}[]};
@@ -15,9 +16,11 @@ const porNombre=<T extends {nombre:string}>(a:T,b:T)=>a.nombre.localeCompare(b.n
  * Configuración de la línea en pestañas: Puestos, Estaciones, Estanterías y Horario. Cada pestaña muestra lo que ya existe
  * en tarjetas (tocar una para editarla) y una tarjeta "Nuevo". Envía las mismas operaciones de siempre
  * (PUESTO, ESTACION, ESTANTERIA, CALENDARIO). Asignar materiales a estanterías se hace en Materiales o en Estaciones y ubicaciones.
+ * Puestos, estaciones y estanterías no se borran (romperían el historial y los KPIs): se desactivan y se pueden reactivar
+ * (PUESTO_ESTADO, ESTACION_ESTADO, ESTANTERIA_ESTADO). Lo desactivado se oculta salvo con "Mostrar desactivados".
  */
 export function AdminConfigurar({e,run,dirty,seccionInicial,alAbrir}:Props){
- const [seccion,setSeccion]=useState<Seccion>(()=>seccionInicial??(vigenciaHorario(e.calendario).nivel==='ok'?'PUESTO':'HORARIO')),[sel,setSel]=useState(''),[nombre,setNombre]=useState(''),[estacion,setEstacion]=useState(''),[nivel,setNivel]=useState(''),[capacidad,setCapacidad]=useState(1),[buscar,setBuscar]=useState(''),[ok,setOk]=useState('');
+ const [seccion,setSeccion]=useState<Seccion>(()=>seccionInicial??(vigenciaHorario(e.calendario).nivel==='ok'?'PUESTO':'HORARIO')),[sel,setSel]=useState(''),[nombre,setNombre]=useState(''),[estacion,setEstacion]=useState(''),[nivel,setNivel]=useState(''),[capacidad,setCapacidad]=useState(1),[buscar,setBuscar]=useState(''),[ok,setOk]=useState(''),[verInactivos,setVerInactivos]=useState(false);
  const cal=e.calendario;const [desde,setDesde]=useState(String(cal?.desde??'')),[hasta,setHasta]=useState(String(cal?.hasta??'')),[fuente,setFuente]=useState(String(cal?.fuente??'')),[dias,setDias]=useState<number[]>((cal?.dias as number[])??[]),[turnos,setTurnos]=useState<Turno[]>((cal?.turnos as Turno[])??[{inicio:'',fin:''}]),[excepciones,setExcepciones]=useState<Record<string,boolean>>((cal?.excepciones as Record<string,boolean>)??{}),[exDia,setExDia]=useState(''),[normal,setNormal]=useState(Number(cal?.normal??60)),[advertencia,setAdvertencia]=useState(Number(cal?.advertencia??30)),[critico,setCritico]=useState(Number(cal?.critico??15)),[busy,setBusy]=useState(false),[simulado,setSimulado]=useState(cal?.simulado===true);
  const execute=async(t:string,b:Record<string,unknown>)=>{setBusy(true);try{await run(t,b);dirty(false);return true}catch{/* error mostrado por el contenedor */return false}finally{setBusy(false)}};
 
@@ -27,25 +30,51 @@ export function AdminConfigurar({e,run,dirty,seccionInicial,alAbrir}:Props){
  const cambiarDias=(d:number[])=>{setDias(d);dirty(true)};
  const rackDe=(id:string)=>e.estanterias.find(r=>r.id===id);
  function limpiar(){setSel('');setNombre('');setNivel('');setEstacion('');setCapacidad(1);setOk('');dirty(false)}
- function cambiarSeccion(s:Seccion){setSeccion(s);setBuscar('');limpiar()}
+ function cambiarSeccion(s:Seccion){setSeccion(s);setBuscar('');setVerInactivos(false);limpiar()}
  function elegir(id:string){setOk('');dirty(false);setSel(id);if(seccion==='PUESTO')setNombre(e.puestos.find(p=>p.id===id)?.nombre??'');if(seccion==='ESTACION')setNombre(e.estaciones.find(s=>s.id===id)?.nombre??'');if(seccion==='ESTANTERIA'){const r=rackDe(id);if(r){setNombre(r.nombre);setNivel(r.nivel);setEstacion(r.estacion);setCapacidad(r.capacidad)}}}
  async function guardar(){const editando=!!sel;const body=seccion==='ESTANTERIA'?{id:sel,nombre:nombre.trim(),estacion,nivel:nivel.trim(),capacidad}:{id:sel,nombre:nombre.trim()};
   if(await execute(seccion,body)){setOk((editando?'Cambios guardados: ':'Creado: ')+nombre.trim());if(!editando){setNombre('');setNivel('');setCapacidad(1)}}}
  const filtro=(t:string)=>t.toLocaleLowerCase('es').includes(buscar.trim().toLocaleLowerCase('es'));
- const tabs:[Seccion,string,typeof UserRound,number|null][]=[['PUESTO','Puestos',UserRound,e.puestos.length],['ESTACION','Estaciones',MapPinned,e.estaciones.length],['ESTANTERIA','Estanterías',Warehouse,e.estanterias.length],['HORARIO','Horario de trabajo',CalendarClock,null]];
+ const visible=(x:{activo?:boolean})=>verInactivos||estaActivo(x);
+ const activos=<T extends {activo?:boolean}>(l:T[])=>l.filter(x=>estaActivo(x)).length;
+ const tabs:[Seccion,string,typeof UserRound,number|null][]=[['PUESTO','Puestos',UserRound,activos(e.puestos)],['ESTACION','Estaciones',MapPinned,activos(e.estaciones)],['ESTANTERIA','Estanterías',Warehouse,activos(e.estanterias)],['HORARIO','Horario de trabajo',CalendarClock,null]];
+ const listaSeccion=seccion==='PUESTO'?e.puestos:seccion==='ESTACION'?e.estaciones:seccion==='ESTANTERIA'?e.estanterias:[];
+ const inactivos=listaSeccion.length-activos(listaSeccion);
+ const elegido=listaSeccion.find(x=>x.id===sel);const elegidoActivo=!elegido||estaActivo(elegido);
+ const genero=seccion==='PUESTO'?'o':'a';const cosa=seccion==='PUESTO'?'puesto':seccion==='ESTACION'?'estación':'estantería';
+ const nombreElegido=!elegido?'':seccion==='ESTANTERIA'?((r?:Rack)=>[e.estaciones.find(s=>s.id===r?.estacion)?.nombre,elegido.nombre,r?.nivel].filter(Boolean).join(' / '))(rackDe(elegido.id)):elegido.nombre;
+ const bloqueo=elegido&&elegidoActivo&&seccion!=='HORARIO'?motivoNoDesactivar(e,seccion,elegido.id):'';
+ const estacionInactiva=seccion==='ESTANTERIA'&&elegido&&!elegidoActivo&&!estaActivo(e.estaciones.find(s=>s.id===rackDe(elegido.id)?.estacion));
+ const avisoEstado=(x:{activo?:boolean})=>estaActivo(x)?null:<span className="estado-pill inactivo">{seccion==='PUESTO'?'Desactivado':'Desactivada'}</span>;
+ /** Desactiva o reactiva sin borrar; el servidor vuelve a validar las reglas (materiales, piezas, cuentas). */
+ async function cambiarEstado(activar:boolean){
+  if(!elegido||seccion==='HORARIO')return;
+  const efecto=activar?{PUESTO:'Vuelve a estar disponible para materiales y cuentas de usuario.',ESTACION:'Vuelve a admitir estanterías nuevas. Sus estanterías desactivadas se reactivan una por una.',ESTANTERIA:'Vuelve a aparecer en Entradas y salidas y al asignar materiales, con sus asignaciones anteriores.'}[seccion]
+   :{PUESTO:'Ya no se podrá elegir para materiales ni cuentas de usuario.',ESTACION:'Ya no se podrán agregar estanterías en ella.',ESTANTERIA:'Deja de aparecer en Entradas y salidas y al asignar materiales.'}[seccion];
+  const motivo=await pedirTexto({titulo:(activar?'Reactivar ':'Desactivar ')+cosa+' '+nombreElegido,mensaje:efecto+' No se borra nada: el historial y los KPIs se conservan.',aceptar:activar?'Reactivar':'Desactivar',
+   campo:{etiqueta:'Motivo',placeholder:'Toca un motivo o escríbelo',sugerencias:activar?['Vuelve a usarse','Desactivación por error']:['Ya no se usa','Reacomodo de la línea','Alta por error']}});
+  if(!motivo)return;
+  const n=nombreElegido;
+  if(await execute(seccion+'_ESTADO',{id:elegido.id,activo:activar,motivo})){limpiar();setOk((activar?'Reactivad':'Desactivad')+genero+': '+n)}
+ }
  const ocupadas=(r:Rack)=>cajasOcupadasV2(e,r.id);
  const minimoCap=sel?Math.max(1,ocupadas(rackDe(sel)??{id:''} as Rack)):1;
  const tarjetaNueva=(texto:string)=><button type="button" role="option" aria-selected={!sel} className={'puesto-tarjeta nuevo'+(!sel?' elegido':'')} onClick={limpiar}><Plus size={20} aria-hidden="true"/><strong>{texto}</strong><small>Capturar manualmente</small></button>;
  const formulario=seccion!=='HORARIO'&&<form className="config-formulario" onChange={()=>dirty(true)} onSubmit={ev=>{ev.preventDefault();void guardar()}}>
-  <h3>{sel?'Editar '+(seccion==='PUESTO'?'puesto':seccion==='ESTACION'?'estación':'estantería'):seccion==='PUESTO'?'Nuevo puesto':seccion==='ESTACION'?'Nueva estación':'Nueva estantería'}</h3>
-  <div className="form-grid">
-   {seccion==='ESTANTERIA'&&<label className="field">¿En qué estación está?<select required value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Selecciona la estación</option>{[...e.estaciones].sort(porNombre).map(s=><option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label>}
+  <h3>{sel?'Editar '+cosa:seccion==='PUESTO'?'Nuevo puesto':seccion==='ESTACION'?'Nueva estación':'Nueva estantería'}</h3>
+  {!elegidoActivo&&<p className="paso-guia">{genero==='o'?'Este':'Esta'} {cosa} está desactivad{genero}{elegido?.motivoDesactivacion?' · motivo: '+elegido.motivoDesactivacion:''}. Reactíval{genero} para volver a usarl{genero} o editarl{genero}.</p>}
+  <fieldset className="config-campos" disabled={!elegidoActivo}><div className="form-grid">
+   {seccion==='ESTANTERIA'&&<label className="field">¿En qué estación está?<select required value={estacion} onChange={ev=>setEstacion(ev.target.value)}><option value="">Selecciona la estación</option>{[...e.estaciones].filter(s=>estaActivo(s)||s.id===estacion).sort(porNombre).map(s=><option key={s.id} value={s.id}>{s.nombre}{estaActivo(s)?'':' (desactivada)'}</option>)}</select></label>}
    <label className="field">{seccion==='PUESTO'?'Nombre del puesto':seccion==='ESTACION'?'Nombre de la estación':'Nombre de la estantería'}<input value={nombre} required maxLength={80} placeholder={seccion==='PUESTO'?'Ej. SZ01':seccion==='ESTACION'?'Ej. AL09':'Ej. SIM-DES-70'} onChange={ev=>setNombre(ev.target.value)}/></label>
    {seccion==='ESTANTERIA'&&<><label className="field">Nivel o repisa<input required maxLength={40} value={nivel} placeholder="Ej. A, B, 1" onChange={ev=>setNivel(ev.target.value)}/></label>
     <div className="field"><span>Espacios (cajas)</span><div className="capacidad-control"><button type="button" className="secondary" aria-label="Quitar un espacio" disabled={busy||capacidad<=minimoCap} onClick={()=>{setCapacidad(Math.max(minimoCap,capacidad-1));dirty(true)}}><Minus size={16} aria-hidden="true"/></button><input type="number" inputMode="numeric" min={minimoCap} max="1000000" required value={capacidad} aria-label="Espacios en cajas" onChange={ev=>setCapacidad(Math.max(1,Math.min(1000000,Math.trunc(Number(ev.target.value))||1)))}/><button type="button" className="secondary" aria-label="Agregar un espacio" disabled={busy} onClick={()=>{setCapacidad(Math.min(1000000,capacidad+1));dirty(true)}}><Plus size={16} aria-hidden="true"/></button></div>{sel&&<small>{minimoCap} ocupadas: no puede ser menor.</small>}</div></>}
-  </div>
-  {sel&&seccion==='PUESTO'&&<p className="help">El cambio de nombre conserva los materiales, las atenciones y el historial del puesto.</p>}
-  <div className="button-row"><button disabled={busy||!nombre.trim()||seccion==='ESTANTERIA'&&(!estacion||!nivel.trim()||capacidad<minimoCap)}>{busy?'Guardando…':sel?'Guardar cambios':seccion==='PUESTO'?'Crear puesto':seccion==='ESTACION'?'Crear estación':'Crear estantería'}</button>{sel&&<button type="button" className="secondary" disabled={busy} onClick={limpiar}>Cancelar</button>}</div>
+  </div></fieldset>
+  {sel&&seccion==='PUESTO'&&elegidoActivo&&<p className="help">El cambio de nombre conserva los materiales, las atenciones y el historial del puesto.</p>}
+  <div className="button-row">{elegidoActivo?<button disabled={busy||!nombre.trim()||seccion==='ESTANTERIA'&&(!estacion||!nivel.trim()||capacidad<minimoCap)}>{busy?'Guardando…':sel?'Guardar cambios':seccion==='PUESTO'?'Crear puesto':seccion==='ESTACION'?'Crear estación':'Crear estantería'}</button>
+   :<button type="button" disabled={busy||!!estacionInactiva} onClick={()=>void cambiarEstado(true)}>Reactivar {cosa}</button>}{sel&&<button type="button" className="secondary" disabled={busy} onClick={limpiar}>Cancelar</button>}</div>
+  {estacionInactiva&&<p className="help">Su estación está desactivada: reactívala primero en la pestaña Estaciones.</p>}
+  {sel&&elegidoActivo&&<div className="config-estado"><button type="button" className="secondary" disabled={busy||!!bloqueo} onClick={()=>void cambiarEstado(false)}>Desactivar {cosa}</button>
+   <small className="block">{bloqueo||'Deja de ofrecerse para operar. No se borra: conserva su historial y se puede reactivar.'}</small></div>}
   {ok&&<p className="notice" role="status">{ok}</p>}
  </form>;
  return <>
@@ -53,10 +82,11 @@ export function AdminConfigurar({e,run,dirty,seccionInicial,alAbrir}:Props){
   <p className="help">La línea se arma así: <strong>puesto</strong> → <strong>estación</strong> → <strong>estantería</strong>. Los materiales se asignan a una estantería en <em>Materiales y catálogos</em> o en <em>Estaciones y ubicaciones</em>.</p>
   <div className="pestanas" role="tablist" aria-label="Qué configurar">{tabs.map(([id,n,Icono,total])=><button key={id} type="button" role="tab" aria-selected={seccion===id} className={'pestana con-icono'+(seccion===id?' activa':'')} onClick={()=>cambiarSeccion(id)}><Icono size={17} aria-hidden="true"/>{n}{total!==null&&<small>{total}</small>}</button>)}</div>
   {seccion!=='HORARIO'&&<div className="config-dos-columnas"><div>
-   {(seccion==='PUESTO'?e.puestos.length:seccion==='ESTACION'?e.estaciones.length:e.estanterias.length)>8&&<label className="field">Buscar<input value={buscar} onChange={ev=>setBuscar(ev.target.value)} placeholder="Nombre"/></label>}
-   {seccion==='PUESTO'&&<div className="puestos-grid" role="listbox" aria-label="Puestos">{tarjetaNueva('Nuevo puesto')}{[...e.puestos].sort(porNombre).filter(p=>filtro(p.nombre)).map(p=>{const n=e.materiales.filter(m=>m.puesto===p.id).length;return <button type="button" role="option" aria-selected={sel===p.id} key={p.id} className={'puesto-tarjeta'+(sel===p.id?' elegido':'')} onClick={()=>elegir(p.id)}><UserRound size={20} aria-hidden="true"/><strong>{p.nombre}</strong><small>{n} {n===1?'material':'materiales'}</small></button>})}</div>}
-   {seccion==='ESTACION'&&<div className="puestos-grid" role="listbox" aria-label="Estaciones">{tarjetaNueva('Nueva estación')}{[...e.estaciones].sort(porNombre).filter(s=>filtro(s.nombre)).map(s=>{const n=e.estanterias.filter(r=>r.estacion===s.id).length;return <button type="button" role="option" aria-selected={sel===s.id} key={s.id} className={'puesto-tarjeta'+(sel===s.id?' elegido':'')} onClick={()=>elegir(s.id)}><MapPinned size={20} aria-hidden="true"/><strong>{s.nombre}</strong><small>{n} {n===1?'estantería':'estanterías'}</small></button>})}</div>}
-   {seccion==='ESTANTERIA'&&<><div className="puestos-grid" role="listbox" aria-label="Nueva estantería">{tarjetaNueva('Nueva estantería')}</div>{[...e.estaciones].sort(porNombre).map(s=>{const racks=e.estanterias.filter(r=>r.estacion===s.id&&filtro(s.nombre+' '+r.nombre+' '+r.nivel)).sort((a,b)=>porNombre(a,b)||a.nivel.localeCompare(b.nivel,'es'));if(!racks.length)return null;return <div key={s.id} className="grupo-estacion"><h4>{s.nombre}</h4><div className="puestos-grid" role="listbox" aria-label={'Estanterías de '+s.nombre}>{racks.map(r=>{const o=ocupadas(r);return <button type="button" role="option" aria-selected={sel===r.id} key={r.id} className={'puesto-tarjeta'+(sel===r.id?' elegido':'')+(o>=r.capacidad?' llena':'')} onClick={()=>elegir(r.id)}><Warehouse size={20} aria-hidden="true"/><strong>{r.nombre} · {r.nivel}</strong><small>{o} de {r.capacidad} cajas ocupadas</small></button>})}</div></div>})}</>}
+   {listaSeccion.length>8&&<label className="field">Buscar<input value={buscar} onChange={ev=>setBuscar(ev.target.value)} placeholder="Nombre"/></label>}
+   {inactivos>0&&<label className="check"><input type="checkbox" checked={verInactivos} onChange={ev=>{setVerInactivos(ev.target.checked);if(!ev.target.checked&&!elegidoActivo)limpiar()}}/>Mostrar desactivad{genero}s ({inactivos})</label>}
+   {seccion==='PUESTO'&&<div className="puestos-grid" role="listbox" aria-label="Puestos">{tarjetaNueva('Nuevo puesto')}{[...e.puestos].sort(porNombre).filter(p=>visible(p)&&filtro(p.nombre)).map(p=>{const n=e.materiales.filter(m=>m.puesto===p.id).length;return <button type="button" role="option" aria-selected={sel===p.id} key={p.id} className={'puesto-tarjeta'+(sel===p.id?' elegido':'')+(estaActivo(p)?'':' inactiva')} onClick={()=>elegir(p.id)}><UserRound size={20} aria-hidden="true"/><strong>{p.nombre}</strong><small>{n} {n===1?'material':'materiales'}</small>{avisoEstado(p)}</button>})}</div>}
+   {seccion==='ESTACION'&&<div className="puestos-grid" role="listbox" aria-label="Estaciones">{tarjetaNueva('Nueva estación')}{[...e.estaciones].sort(porNombre).filter(s=>visible(s)&&filtro(s.nombre)).map(s=>{const n=e.estanterias.filter(r=>r.estacion===s.id&&estaActivo(r)).length;return <button type="button" role="option" aria-selected={sel===s.id} key={s.id} className={'puesto-tarjeta'+(sel===s.id?' elegido':'')+(estaActivo(s)?'':' inactiva')} onClick={()=>elegir(s.id)}><MapPinned size={20} aria-hidden="true"/><strong>{s.nombre}</strong><small>{n} {n===1?'estantería':'estanterías'}</small>{avisoEstado(s)}</button>})}</div>}
+   {seccion==='ESTANTERIA'&&<><div className="puestos-grid" role="listbox" aria-label="Nueva estantería">{tarjetaNueva('Nueva estantería')}</div>{[...e.estaciones].sort(porNombre).map(s=>{const racks=e.estanterias.filter(r=>r.estacion===s.id&&visible(r)&&filtro(s.nombre+' '+r.nombre+' '+r.nivel)).sort((a,b)=>porNombre(a,b)||a.nivel.localeCompare(b.nivel,'es'));if(!racks.length)return null;return <div key={s.id} className="grupo-estacion"><h4>{s.nombre}{estaActivo(s)?'':' · estación desactivada'}</h4><div className="puestos-grid" role="listbox" aria-label={'Estanterías de '+s.nombre}>{racks.map(r=>{const o=ocupadas(r);return <button type="button" role="option" aria-selected={sel===r.id} key={r.id} className={'puesto-tarjeta'+(sel===r.id?' elegido':'')+(o>=r.capacidad?' llena':'')+(estaActivo(r)?'':' inactiva')} onClick={()=>elegir(r.id)}><Warehouse size={20} aria-hidden="true"/><strong>{r.nombre} · {r.nivel}</strong><small>{o} de {r.capacidad} cajas ocupadas</small>{avisoEstado(r)}</button>})}</div></div>})}</>}
   </div><div className="config-panel-form">{formulario}</div></div>}
  </section>
  {seccion==='HORARIO'&&<section className="panel config-horario"><h2>Horario de trabajo</h2>

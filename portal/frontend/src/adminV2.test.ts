@@ -99,3 +99,17 @@ describe('vigencia del horario',()=>{it('avisa antes de vencer, al vencer y sin 
 import {esChoqueDeVersion} from './AdminApp';
 import {ApiError} from './api';
 describe('reintento ante choque de versión',()=>{it('solo reintenta cuando la línea cambió, no por falta de cajas',()=>{expect(esChoqueDeVersion(new ApiError('Los datos cambiaron. Actualiza y revisa la operación.',409))).toBe(true);expect(esChoqueDeVersion(new ApiError('Línea ocupada. Actualiza y vuelve a intentar.',409))).toBe(true);expect(esChoqueDeVersion(new ApiError('No hay suficientes cajas.',409))).toBe(false);expect(esChoqueDeVersion(new ApiError('Identificador utilizado con otra solicitud.',409))).toBe(false);expect(esChoqueDeVersion(new ApiError('Los datos cambiaron.',400))).toBe(false)})});
+
+import {estaActivo,motivoNoDesactivar} from './ubicacionesV2';
+describe('Puestos, estaciones y estanterías: desactivar sin borrar',()=>{
+ const base=()=>({puestos:[{id:'p1',nombre:'SZ01'},{id:'p2',nombre:'SZ02'}],estaciones:[{id:'s1',nombre:'AL09'},{id:'s2',nombre:'AL10'}],
+  estanterias:[{id:'r1',nombre:'A',estacion:'s1',nivel:'1',capacidad:5},{id:'r2',nombre:'B',estacion:'s1',nivel:'2',capacidad:5,activo:false}],
+  materiales:[material,{...material,id:'m2',numeroParte:'000999',puesto:'p2',activo:false}],atenciones:[] as never[],
+  ubicaciones:[{id:'u1',material:'m1',estanteria:'r1',cantidad:0,libres:5,apertura:''}]});
+ it('sin el campo se consideran activos',()=>{expect(estaActivo({})).toBe(true);expect(estaActivo({activo:false})).toBe(false);expect(estaActivo(undefined)).toBe(false)});
+ it('puesto con material activo no se desactiva; con materiales inhabilitados sí',()=>{expect(motivoNoDesactivar(base(),'PUESTO','p1')).toContain('1 material activo');expect(motivoNoDesactivar(base(),'PUESTO','p2')).toBe('')});
+ it('estación con estanterías activas no se desactiva; vacía sí',()=>{expect(motivoNoDesactivar(base(),'ESTACION','s1')).toContain('1 estantería activa');expect(motivoNoDesactivar(base(),'ESTACION','s2')).toBe('')});
+ it('estantería con piezas no se desactiva; vacía sí',()=>{const e=base();expect(motivoNoDesactivar(e,'ESTANTERIA','r1')).toBe('');e.ubicaciones[0].cantidad=12;expect(motivoNoDesactivar(e,'ESTANTERIA','r1')).toContain('12 piezas')});
+ it('estantería con atención abierta no se desactiva',()=>{const e={...base(),atenciones:[{id:'a1',material:'m1',ubicacion:'u1',puesto:'p1',responsable:'x',usuario:1,inicio:'',fin:null,turno:1}]};expect(motivoNoDesactivar(e,'ESTANTERIA','r1')).toContain('atención abierta')});
+ it('no traslada a una estantería desactivada',()=>{const e={...base(),ubicaciones:[{id:'u1',material:'m1',estanteria:'r1',cantidad:10,libres:4,apertura:''}]};expect(planDesactivar(e,'u1','r2').error).toContain('desactivada')});
+});

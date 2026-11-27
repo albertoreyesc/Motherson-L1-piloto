@@ -98,17 +98,21 @@ public sealed partial class AdminV2(Store store)
    }
    case "MATERIAL_DUPLICAR":DuplicarMaterial(e,input,resultado);break;
    case "UBICACION_ESTADO":EstadoUbicacion(e,input,resultado);break;
+   case "PUESTO_ESTADO":case "ESTACION_ESTADO":case "ESTANTERIA_ESTADO":await EstadoEstructura(e,tipo,input,resultado,sql);break;
    case "PUESTO":case "ESTACION":case "ESTANTERIA":case "UBICACION":
    {
     Admin(e);var id=Texto(input,"id",100);var kind=tipo.ToLowerInvariant();JsonObject o=id.Length>0?e.Obtener(kind,id):new(){["id"]=Nuevo()};
-    if(tipo is "PUESTO" or "ESTACION"){o["nombre"]=Texto(input,"nombre",80,true);Exigir(!e.Todos(kind).Any(x=>S(x,"nombre")==S(o,"nombre")&&S(x,"id")!=S(o,"id")),"Nombre ya existente.",409);}
+    if(tipo is "PUESTO" or "ESTACION"){o["nombre"]=Texto(input,"nombre",80,true);var igual=e.Todos(kind).FirstOrDefault(x=>S(x,"nombre")==S(o,"nombre")&&S(x,"id")!=S(o,"id"));Exigir(igual is null,igual is not null&&!Activo(igual)?"Ya existe con ese nombre, pero está desactivado: reactívalo en lugar de crear otro.":"Nombre ya existente.",409);}
     if(tipo=="ESTANTERIA"){
-     e.Obtener("estacion",Texto(input,"estacion",100,true));o["estacion"]=S(input,"estacion");o["nombre"]=Texto(input,"nombre",80,true);o["nivel"]=Texto(input,"nivel",40,true);o["capacidad"]=Entero(input,"capacidad",1,1000000);
+     var estacion=e.Obtener("estacion",Texto(input,"estacion",100,true));
+     Exigir(Activo(estacion)||id.Length>0&&S(o,"estacion")==S(input,"estacion"),"La estación "+S(estacion,"nombre")+" está desactivada: reactívala antes de agregarle estanterías.",409);
+     o["estacion"]=S(input,"estacion");o["nombre"]=Texto(input,"nombre",80,true);o["nivel"]=Texto(input,"nivel",40,true);o["capacidad"]=Entero(input,"capacidad",1,1000000);
      Exigir(N(o,"capacidad")>=Ocupacion(e,S(o,"id")),"La capacidad no puede ser menor que las cajas ocupadas.",409);
-     Exigir(!e.Todos(kind).Any(x=>S(x,"estacion")==S(o,"estacion")&&S(x,"nombre")==S(o,"nombre")&&S(x,"nivel")==S(o,"nivel")&&S(x,"id")!=S(o,"id")),"Estantería y nivel ya existentes.",409);
+     var igual=e.Todos(kind).FirstOrDefault(x=>S(x,"estacion")==S(o,"estacion")&&S(x,"nombre")==S(o,"nombre")&&S(x,"nivel")==S(o,"nivel")&&S(x,"id")!=S(o,"id"));
+     Exigir(igual is null,igual is not null&&!Activo(igual)?"Esa estantería y nivel ya existen, pero están desactivados: reactívala en lugar de crear otra.":"Estantería y nivel ya existentes.",409);
     }
     if(tipo=="UBICACION"){
-     Exigir(id.Length==0,"Una ubicación existente no puede reasignarse; conserva su historial.",409);var m=e.Obtener("material",Texto(input,"material",100,true));Exigir(B(m,"activo",true),"El material está inhabilitado.",409);e.Obtener("estanteria",Texto(input,"estanteria",100,true));
+     Exigir(id.Length==0,"Una ubicación existente no puede reasignarse; conserva su historial.",409);var m=e.Obtener("material",Texto(input,"material",100,true));Exigir(B(m,"activo",true),"El material está inhabilitado.",409);Exigir(Activo(e.Obtener("estanteria",Texto(input,"estanteria",100,true))),"La estantería está desactivada: reactívala en Configurar línea antes de asignarle materiales.",409);
      var previa=e.Todos(kind).FirstOrDefault(x=>S(x,"material")==S(input,"material")&&S(x,"estanteria")==S(input,"estanteria"));
      Exigir(previa is null||Activa(previa),"Esa asignación existe desactivada: reactívala en lugar de crear otra.",409);Exigir(previa is null,"Asignación ya existente.",409);
      o["material"]=S(input,"material");o["estanteria"]=S(input,"estanteria");o["cantidad"]=0;o["apertura"]=e.Ahora.ToString("O");o["activa"]=true;
@@ -162,7 +166,7 @@ public sealed partial class AdminV2(Store store)
     Exigir(!f.ContainsKey("puesto"),"Indica puesto o puestoNuevo, no ambos.");var nombre=Texto(f,"puestoNuevo",80,true);
     Exigir(nombre!="[BORRAR]"&&!nombre.StartsWith("[FORMULA",StringComparison.Ordinal),"Puesto nuevo inválido; usa un nombre de texto.");
     var encontrados=e.Todos("puesto").Where(p=>S(p,"nombre")==nombre).ToArray();Exigir(encontrados.Length<=1,"Puesto ambiguo: "+nombre+". Usa el identificador exacto.");
-    JsonObject puesto;if(encontrados.Length==1)puesto=encontrados[0];else{
+    JsonObject puesto;if(encontrados.Length==1){puesto=encontrados[0];Exigir(Activo(puesto),"El puesto "+nombre+" está desactivado: reactívalo en Configurar línea o elige otro.",409);}else{
      Exigir(B(input,"permitirPuestosNuevos"),"Autoriza crear el puesto faltante en esta línea: "+nombre);
      puesto=new(){["id"]=Nuevo(),["nombre"]=nombre};e.Poner("puesto",puesto);puestosNuevos++;
     }f["puesto"]=S(puesto,"id");f.Remove("puestoNuevo");
@@ -171,7 +175,7 @@ public sealed partial class AdminV2(Store store)
    if(m is null){Exigir(B(input,"permitirAltas"),"Material nuevo requiere autorizar altas: "+numero);Exigir(!e.Todos("material").Any(x=>NormalCodigo(S(x,"numeroParte"))==NormalCodigo(numero))||B(input,"autorizarNomenclaturas"),"Código parecido a otro material: revisa y autoriza el código distinto.");Exigir(f["empaque"] is not null,"Material nuevo: indica piezas por caja; no se supone un empaque.");m=new(){["id"]=Nuevo(),["numeroParte"]=numero,["activo"]=true,["empaque"]=1,["minimo"]=0,["descripcion"]="",["variante"]="",["uso"]="",["revision"]="",["modelo"]=""};altas++;}
    else{Exigir(S(m,"numeroParte")==numero,"Renombra mediante la acción explícita; no por importación.",409);cambios++;}
    foreach(var campo in new[]{"descripcion","variante","uso","revision","modelo","puesto"})if(f.ContainsKey(campo)&&f[campo] is not null){
-    var valor=Texto(f,campo,campo=="descripcion"?250:80);if(campo=="puesto"){e.Obtener("puesto",valor);Exigir(S(m,"puesto")==""||S(m,"puesto")==valor||!e.Todos("ubicacion").Any(u=>S(u,"material")==S(m,"id")),"No se puede reasignar un material con ubicaciones; conserva sus relaciones.",409);}
+    var valor=Texto(f,campo,campo=="descripcion"?250:80);if(campo=="puesto"){Exigir(Activo(e.Obtener("puesto",valor))||S(m,"puesto")==valor,"El puesto está desactivado: reactívalo en Configurar línea o elige otro.",409);Exigir(S(m,"puesto")==""||S(m,"puesto")==valor||!e.Todos("ubicacion").Any(u=>S(u,"material")==S(m,"id")),"No se puede reasignar un material con ubicaciones; conserva sus relaciones.",409);}
     if(campo is "variante" or "uso" or "revision" or "modelo")Exigir(valor.Length==0||e.Todos("material").Any(x=>S(x,campo)==valor)||B(input,"autorizarNomenclaturas"),"Autoriza el nuevo valor de "+campo+": "+valor);
     m[campo]=valor;
    }
